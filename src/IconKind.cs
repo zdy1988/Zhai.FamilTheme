@@ -1,0 +1,65 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ZhaiFamilyContorls
+{
+    public enum IconKind
+    {
+        Open,
+        Pin,
+        Close,
+        MinusScreen,
+        FullScreen,
+        RestoreScreen,
+        Info,
+        Reload,
+        Adjust,
+        ZoomMinus,
+        ZoomPlus,
+        RotateLeft,
+        RotateRight,
+        ArrowRight,
+        ArrowLeft,
+        ChevronRight,
+        ChevronLeft,
+        Delete,
+        Origin,
+        Adapt,
+        Settings,
+        ToggleRight,
+        ToggleLeft,
+        Print,
+        Help,
+        About,
+        Copy,
+        Play,
+        Select,
+
+        Sun,
+        Moon,
+        Dust,
+        Cloudy,
+        Fog,
+        HeavyHaze,
+        HeavyRain,
+        LigjtSnow,
+        Location,
+        Rain,
+        ModerateRain,
+        LigjtHave,
+        ModerateSnow,
+        PartlyCloudyNight,
+        Wind,
+        HeavySnow,
+        ModerateHaze,
+        PartlyCloudyDay,
+        LigjtRain,
+        Sand,
+        StormRain,
+        StormSnow,
+        Snow,
+
+        None,
+    }
+}

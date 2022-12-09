@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="pack://application:,,,/ZhaiFamilyContorls;component/Themes/ZhaiFamilyContorls.Icon.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/ZhaiFamilyContorls;component/Themes/ZhaiFamilyContorls.IconButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/ZhaiFamilyContorls;component/Themes/ZhaiFamilyContorls.IconToggleButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/ZhaiFamilyContorls;component/Themes/ZhaiFamilyContorls.ScrollViewer.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/ZhaiFamilyContorls;component/Themes/ZhaiFamilyContorls.ScrollViewer2.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/ZhaiFamilyContorls;component/Themes/ZhaiFamilyContorls.TransparentWindow.xaml" />
+        
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>
