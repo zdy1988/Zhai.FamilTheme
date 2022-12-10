@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace ZhaiFamilyContorls
+namespace Zhai.FamilyContorls
 {
     public class IconButton : Button
     {

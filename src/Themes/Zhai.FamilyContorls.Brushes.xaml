@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+
+    <SolidColorBrush x:Key="Zhai.FamilyContorls.SelectionHighlightBrush" Color="#eaac22" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilyContorls.SelectionBackgroundColorBrush" Color="#90666666" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilyContorls.SeparatorColorBrush" Color="#90666666" PresentationOptions:Freeze="True"/>
+
+</ResourceDictionary>

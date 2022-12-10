@@ -8,9 +8,9 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using ZhaiFamilyContorls.Common;
+using Zhai.FamilyContorls.Common;
 
-namespace ZhaiFamilyContorls
+namespace Zhai.FamilyContorls
 {
     public class TransparentWindow : Window
     {

@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows;
 
-namespace ZhaiFamilyContorls
+namespace Zhai.FamilyContorls
 {
     public class Icon : Control
     {

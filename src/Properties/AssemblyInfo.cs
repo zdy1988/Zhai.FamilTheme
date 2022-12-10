@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Markup;
 
 [assembly: XmlnsPrefix("http://www.zdyla.com/coding", "ZDY")]
-[assembly: XmlnsDefinition("http://www.zdyla.com/coding", "ZhaiFamilyContorls")]
+[assembly: XmlnsDefinition("http://www.zdyla.com/coding", "Zhai.FamilyContorls")]
 
 [assembly: ComVisible(false)]
 

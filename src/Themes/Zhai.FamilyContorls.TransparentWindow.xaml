@@ -1,30 +1,34 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:ZhaiFamilyContorls"
+                    xmlns:local="clr-namespace:Zhai.FamilyContorls"
                     xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/ZhaiFamilyContorls;component/Themes/ZhaiFamilyContorls.IconButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.IconButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <SolidColorBrush x:Key="ZhaiFamilyContorls.TransparentWindow.DarkTitleBarBackgroundColorBrush" Color="#2f3339" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="ZhaiFamilyContorls.TransparentWindow.DarkBackgroundColorBrush" Color="#1e1e1e" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="ZhaiFamilyContorls.TransparentWindow.LightTitleBarBackgroundColorBrush" Color="#ebeff8" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="ZhaiFamilyContorls.TransparentWindow.LightBackgroundColorBrush" Color="#fafcff" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilyContorls.TransparentWindow.DarkTitleBarBackgroundColorBrush" Color="#2f3339" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilyContorls.TransparentWindow.LightTitleBarBackgroundColorBrush" Color="#ebeff8" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilyContorls.TransparentWindow.DarkTitleBarTransparencyBackgroundColorBrush" Color="#702f3339" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilyContorls.TransparentWindow.LightTitleBarTransparencyBackgroundColorBrush" Color="#70ebeff8" PresentationOptions:Freeze="True"/>
+    
+    <SolidColorBrush x:Key="Zhai.FamilyContorls.TransparentWindow.DarkBackgroundColorBrush" Color="#1e1e1e" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilyContorls.TransparentWindow.LightBackgroundColorBrush" Color="#fafcff" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilyContorls.TransparentWindow.DarkTransparencyBackgroundColorBrush" Color="#701e1e1e" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilyContorls.TransparentWindow.LightTransparencyBackgroundColorBrush" Color="#70fafcff" PresentationOptions:Freeze="True"/>
 
-    <SolidColorBrush x:Key="ZhaiFamilyContorls.TransparentWindow.DarkTitleBarTransparencyBackgroundColorBrush" Color="#702f3339" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="ZhaiFamilyContorls.TransparentWindow.DarkTransparencyBackgroundColorBrush" Color="#701e1e1e" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="ZhaiFamilyContorls.TransparentWindow.LightTitleBarTransparencyBackgroundColorBrush" Color="#70ebeff8" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="ZhaiFamilyContorls.TransparentWindow.LightTransparencyBackgroundColorBrush" Color="#70fafcff" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilyContorls.TransparentWindow.DarkForegroundColorBrush" Color="#000000" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilyContorls.TransparentWindow.LightForegroundColorBrush" Color="#ffffff" PresentationOptions:Freeze="True"/>
 
-    <DropShadowEffect x:Key="ZhaiFamilyContorls.TransparentWindow.DarkShadowEffect" BlurRadius="15" Color="#000000" Direction="90" ShadowDepth="1"/>
-    <DropShadowEffect x:Key="ZhaiFamilyContorls.TransparentWindow.LightShadowEffect" BlurRadius="15" Color="#9d9d9d" Direction="90" ShadowDepth="1"/>
+    <DropShadowEffect x:Key="Zhai.FamilyContorls.TransparentWindow.DarkShadowEffect" BlurRadius="15" Color="#000000" Direction="90" ShadowDepth="1"/>
+    <DropShadowEffect x:Key="Zhai.FamilyContorls.TransparentWindow.LightShadowEffect" BlurRadius="15" Color="#9d9d9d" Direction="90" ShadowDepth="1"/>
 
-    <Style TargetType="{x:Type local:IconButton}" x:Key="ZhaiFamilyContorls.TitleBar.IconButton" BasedOn="{StaticResource ZhaiFamilyContorls.IconButton}">
+    <Style TargetType="{x:Type local:IconButton}" x:Key="Zhai.FamilyContorls.TitleBar.IconButton" BasedOn="{StaticResource Zhai.FamilyContorls.IconButton}">
         <Setter Property="IconSize" Value="12"/>
+        <Setter Property="Margin" Value="3"/>
     </Style>
 
-    <Style TargetType="{x:Type local:IconButton}" x:Key="ZhaiFamilyContorls.TitleBar.IconButton.CloseButton" BasedOn="{StaticResource ZhaiFamilyContorls.TitleBar.IconButton}">
+    <Style TargetType="{x:Type local:IconButton}" x:Key="Zhai.FamilyContorls.TitleBar.IconButton.CloseButton" BasedOn="{StaticResource Zhai.FamilyContorls.TitleBar.IconButton}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="Red"/>
@@ -33,20 +37,20 @@
         </Style.Triggers>
     </Style>
 
-    <ControlTemplate TargetType="{x:Type local:TransparentWindow}" x:Key="ZhaiFamilyContorls.TransparentWindow.Templete">
+    <ControlTemplate TargetType="{x:Type local:TransparentWindow}" x:Key="Zhai.FamilyContorls.TransparentWindow.Templete">
         <Border x:Name="Layout">
             <Grid>
-                <Border x:Name="LayoutShadow" Background="{Binding ElementName=Main, Path=Background}" Margin="12" Effect="{StaticResource ZhaiFamilyContorls.TransparentWindow.DarkShadowEffect}"/>
-                <Grid x:Name="LayoutGrid" Margin="12">
+                <Border x:Name="LayoutShadow" Background="{Binding ElementName=Main, Path=Background}" Margin="12" Effect="{StaticResource Zhai.FamilyContorls.TransparentWindow.DarkShadowEffect}"/>
+                <Grid x:Name="LayoutGrid" Margin="10">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="2"/>
                         <RowDefinition/>
-                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="2"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="2"/>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="2"/>
                     </Grid.ColumnDefinitions>
                     <Grid x:Name="Main" Grid.Row="1" Grid.Column="1" Background="Transparent" >
                         <ContentPresenter x:Name="MainContent" ClipToBounds="True" Margin="0 36 0 0"/>
@@ -66,13 +70,13 @@
                                    TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"/>
                             </StackPanel>
                             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-                                <local:IconButton x:Name="TransparentButton" Style="{StaticResource ZhaiFamilyContorls.TitleBar.IconButton}" ToolTip="启用/禁用透明" Visibility="Collapsed"/>
-                                <local:IconButton x:Name="ThemeButton" Style="{StaticResource ZhaiFamilyContorls.TitleBar.IconButton}" ToolTip="日光/暗夜主题" Visibility="Collapsed"/>
-                                <local:IconButton x:Name="PinButton" Icon="Pin" Style="{StaticResource ZhaiFamilyContorls.TitleBar.IconButton}" ToolTip="置顶" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5"/>
-                                <local:IconButton x:Name="MinimizeButton" Icon="MinusScreen" Style="{StaticResource ZhaiFamilyContorls.TitleBar.IconButton}" ToolTip="最小化" IsTabStop="False"/>
-                                <local:IconButton x:Name="MaximizeButton" Icon="FullScreen" Style="{StaticResource ZhaiFamilyContorls.TitleBar.IconButton}" ToolTip="全屏" IsTabStop="False"/>
-                                <local:IconButton x:Name="RestoreButton" Icon="RestoreScreen" Style="{StaticResource ZhaiFamilyContorls.TitleBar.IconButton}" Visibility="Collapsed" ToolTip="退出全屏" IsTabStop="False"/>
-                                <local:IconButton x:Name="CloseButton" Icon="Close" Style="{StaticResource ZhaiFamilyContorls.TitleBar.IconButton.CloseButton}" ToolTip="关闭" IsTabStop="False"/>
+                                <local:IconButton x:Name="TransparentButton" Style="{StaticResource Zhai.FamilyContorls.TitleBar.IconButton}" ToolTip="启用/禁用透明" Visibility="Collapsed"/>
+                                <local:IconButton x:Name="ThemeButton" Style="{StaticResource Zhai.FamilyContorls.TitleBar.IconButton}" ToolTip="日光/暗夜主题" Visibility="Collapsed"/>
+                                <local:IconButton x:Name="PinButton" Icon="Pin" Style="{StaticResource Zhai.FamilyContorls.TitleBar.IconButton}" ToolTip="置顶" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5"/>
+                                <local:IconButton x:Name="MinimizeButton" Icon="MinusScreen" Style="{StaticResource Zhai.FamilyContorls.TitleBar.IconButton}" ToolTip="最小化" IsTabStop="False"/>
+                                <local:IconButton x:Name="MaximizeButton" Icon="FullScreen" Style="{StaticResource Zhai.FamilyContorls.TitleBar.IconButton}" ToolTip="全屏" IsTabStop="False"/>
+                                <local:IconButton x:Name="RestoreButton" Icon="RestoreScreen" Style="{StaticResource Zhai.FamilyContorls.TitleBar.IconButton}" Visibility="Collapsed" ToolTip="退出全屏" IsTabStop="False"/>
+                                <local:IconButton x:Name="CloseButton" Icon="Close" Style="{StaticResource Zhai.FamilyContorls.TitleBar.IconButton.CloseButton}" ToolTip="关闭" IsTabStop="False"/>
                             </StackPanel>
                             <ContentControl Content="{TemplateBinding TitleBarContent}" Visibility="{TemplateBinding TitleBarVisibility}"/>
                         </DockPanel>
@@ -92,7 +96,7 @@
             <Trigger Property="WindowState" Value="Maximized">
                 <Setter TargetName="MaximizeButton" Property="Visibility" Value="Collapsed" />
                 <Setter TargetName="RestoreButton" Property="Visibility" Value="Visible" />
-                <Setter TargetName="LayoutGrid" Property="Margin" Value="6"/>
+                <Setter TargetName="LayoutGrid" Property="Margin" Value="4"/>
                 <Setter TargetName="LayoutShadow" Property="Visibility" Value="Collapsed"/>
             </Trigger>
             <Trigger Property="ResizeMode" Value="NoResize">
@@ -114,23 +118,23 @@
                         <RotateTransform Angle="45"/>
                     </Setter.Value>
                 </Setter>
-                <Setter TargetName="PinButton" Property="Foreground" Value="{StaticResource ZhaiFamilyContorls.IconButton.HighlightBrush}"/>
+                <Setter TargetName="PinButton" Property="Foreground" Value="{StaticResource Zhai.FamilyContorls.SelectionHighlightBrush}"/>
             </Trigger>
             <Trigger Property="Theme" Value="Light">
-                <Setter TargetName="LayoutShadow" Property="Effect" Value="{StaticResource ZhaiFamilyContorls.TransparentWindow.LightShadowEffect}"/>
-                <Setter TargetName="ThemeButton" Property="Icon" Value="Sun"/>
+                <Setter TargetName="LayoutShadow" Property="Effect" Value="{StaticResource Zhai.FamilyContorls.TransparentWindow.LightShadowEffect}"/>
+                <Setter TargetName="ThemeButton" Property="Icon" Value="ClearDay"/>
             </Trigger>
             <Trigger Property="Theme" Value="Dark">
-                <Setter TargetName="ThemeButton" Property="Icon" Value="Moon"/>
+                <Setter TargetName="ThemeButton" Property="Icon" Value="ClearNight"/>
             </Trigger>
             <Trigger Property="IsThemeButtonEnabled" Value="True">
                 <Setter TargetName="ThemeButton" Property="Visibility" Value="Visible"/>
             </Trigger>
             <Trigger Property="IsTransparency" Value="True">
-                <Setter TargetName="TransparentButton" Property="Icon" Value="Wind"/>
+                <Setter TargetName="TransparentButton" Property="Icon" Value="Fog"/>
             </Trigger>
             <Trigger Property="IsTransparency" Value="False">
-                <Setter TargetName="TransparentButton" Property="Icon" Value="LigjtSnow"/>
+                <Setter TargetName="TransparentButton" Property="Icon" Value="Dust"/>
             </Trigger>
             <Trigger Property="IsTransparencyButtonEnabled" Value="True">
                 <Setter TargetName="TransparentButton" Property="Visibility" Value="Visible"/>
@@ -141,8 +145,8 @@
                     <Condition Property="IsTransparency" Value="True"/>
                 </MultiTrigger.Conditions>
                 <MultiTrigger.Setters>
-                    <Setter TargetName="Main" Property="Background" Value="{StaticResource ZhaiFamilyContorls.TransparentWindow.DarkTransparencyBackgroundColorBrush}"/>
-                    <Setter TargetName="TitleBar" Property="Background" Value="{StaticResource ZhaiFamilyContorls.TransparentWindow.DarkTitleBarTransparencyBackgroundColorBrush}"/>
+                    <Setter TargetName="Main" Property="Background" Value="{StaticResource Zhai.FamilyContorls.TransparentWindow.DarkTransparencyBackgroundColorBrush}"/>
+                    <Setter TargetName="TitleBar" Property="Background" Value="{StaticResource Zhai.FamilyContorls.TransparentWindow.DarkTitleBarTransparencyBackgroundColorBrush}"/>
                 </MultiTrigger.Setters>
             </MultiTrigger>
             <MultiTrigger>
@@ -151,8 +155,8 @@
                     <Condition Property="IsTransparency" Value="True"/>
                 </MultiTrigger.Conditions>
                 <MultiTrigger.Setters>
-                    <Setter TargetName="Main" Property="Background" Value="{StaticResource ZhaiFamilyContorls.TransparentWindow.LightTransparencyBackgroundColorBrush}"/>
-                    <Setter TargetName="TitleBar" Property="Background" Value="{StaticResource ZhaiFamilyContorls.TransparentWindow.LightTitleBarTransparencyBackgroundColorBrush}"/>
+                    <Setter TargetName="Main" Property="Background" Value="{StaticResource Zhai.FamilyContorls.TransparentWindow.LightTransparencyBackgroundColorBrush}"/>
+                    <Setter TargetName="TitleBar" Property="Background" Value="{StaticResource Zhai.FamilyContorls.TransparentWindow.LightTitleBarTransparencyBackgroundColorBrush}"/>
                 </MultiTrigger.Setters>
             </MultiTrigger>
             <MultiTrigger>
@@ -161,8 +165,8 @@
                     <Condition Property="IsTransparency" Value="False"/>
                 </MultiTrigger.Conditions>
                 <MultiTrigger.Setters>
-                    <Setter TargetName="Main" Property="Background" Value="{StaticResource ZhaiFamilyContorls.TransparentWindow.DarkBackgroundColorBrush}"/>
-                    <Setter TargetName="TitleBar" Property="Background" Value="{StaticResource ZhaiFamilyContorls.TransparentWindow.DarkTitleBarBackgroundColorBrush}"/>
+                    <Setter TargetName="Main" Property="Background" Value="{StaticResource Zhai.FamilyContorls.TransparentWindow.DarkBackgroundColorBrush}"/>
+                    <Setter TargetName="TitleBar" Property="Background" Value="{StaticResource Zhai.FamilyContorls.TransparentWindow.DarkTitleBarBackgroundColorBrush}"/>
                 </MultiTrigger.Setters>
             </MultiTrigger>
             <MultiTrigger>
@@ -171,8 +175,8 @@
                     <Condition Property="IsTransparency" Value="False"/>
                 </MultiTrigger.Conditions>
                 <MultiTrigger.Setters>
-                    <Setter TargetName="Main" Property="Background" Value="{StaticResource ZhaiFamilyContorls.TransparentWindow.LightBackgroundColorBrush}"/>
-                    <Setter TargetName="TitleBar" Property="Background" Value="{StaticResource ZhaiFamilyContorls.TransparentWindow.LightTitleBarBackgroundColorBrush}"/>
+                    <Setter TargetName="Main" Property="Background" Value="{StaticResource Zhai.FamilyContorls.TransparentWindow.LightBackgroundColorBrush}"/>
+                    <Setter TargetName="TitleBar" Property="Background" Value="{StaticResource Zhai.FamilyContorls.TransparentWindow.LightTitleBarBackgroundColorBrush}"/>
                 </MultiTrigger.Setters>
             </MultiTrigger>
             <Trigger Property="TitleBarVisibility" Value="Collapsed">
@@ -188,19 +192,19 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <Style TargetType="{x:Type local:TransparentWindow}" x:Key="ZhaiFamilyContorls.TransparentWindow">
+    <Style TargetType="{x:Type local:TransparentWindow}" x:Key="Zhai.FamilyContorls.TransparentWindow">
         <Setter Property="AllowsTransparency" Value="True"/>
         <Setter Property="WindowStyle" Value="None"/>
-        <Setter Property="Foreground" Value="#FFF"/>
+        <Setter Property="Foreground" Value="{StaticResource Zhai.FamilyContorls.TransparentWindow.LightForegroundColorBrush}"/>
         <Setter Property="FontWeight" Value="Thin"/>
-        <Setter Property="Template" Value="{StaticResource ZhaiFamilyContorls.TransparentWindow.Templete}"/>
+        <Setter Property="Template" Value="{StaticResource Zhai.FamilyContorls.TransparentWindow.Templete}"/>
         <Style.Triggers>
             <Trigger Property="Theme" Value="Light">
-                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="Foreground" Value="{StaticResource Zhai.FamilyContorls.TransparentWindow.DarkForegroundColorBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type local:TransparentWindow}" BasedOn="{StaticResource ZhaiFamilyContorls.TransparentWindow}"/>
+    <Style TargetType="{x:Type local:TransparentWindow}" BasedOn="{StaticResource Zhai.FamilyContorls.TransparentWindow}"/>
 
 </ResourceDictionary>

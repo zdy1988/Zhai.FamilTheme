@@ -4,9 +4,10 @@ using System.Text;
 
 namespace Zhai.FamilyContorls
 {
-    public enum WindowTheme
+    public enum RepeaterOrientation
     {
-        Dark,
-        Light
+        Vertical,
+        Horizontal,
+        HorizontalWithWarp
     }
 }

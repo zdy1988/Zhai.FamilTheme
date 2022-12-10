@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 
-namespace ZhaiFamilyContorls
+namespace Zhai.FamilyContorls
 {
     public class ScrollViewer2 : ScrollViewer
     {

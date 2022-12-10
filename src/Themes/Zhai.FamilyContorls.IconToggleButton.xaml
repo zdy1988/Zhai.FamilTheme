@@ -1,18 +1,18 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:ZhaiFamilyContorls"
-                    xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+                    xmlns:local="clr-namespace:Zhai.FamilyContorls">
 
-    <SolidColorBrush x:Key="ZhaiFamilyContorls.IconButton.HighlightBrush" Color="#eaac22" PresentationOptions:Freeze="True"/>
-
-    <Style TargetType="{x:Type local:IconToggleButton}" x:Key="ZhaiFamilyContorls.IconToggleButton">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.Brushes.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.ButtonBase.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="{x:Type local:IconToggleButton}" x:Key="Zhai.FamilyContorls.IconToggleButton" BasedOn="{StaticResource Zhai.FamilyContorls.ButtonBase}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Width" Value="30"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Margin" Value="3"/>
-        <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:IconToggleButton}">
@@ -36,22 +36,12 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value=".6"/>
-            </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{StaticResource ZhaiFamilyContorls.IconButton.HighlightBrush}"/>
-            </Trigger>
-            <Trigger Property="IsPressed" Value="True">
-                <Setter Property="RenderTransform">
-                    <Setter.Value>
-                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.95" ScaleY="0.95" />
-                    </Setter.Value>
-                </Setter>
+                <Setter Property="Foreground" Value="{StaticResource Zhai.FamilyContorls.SelectionHighlightBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type local:IconToggleButton}" BasedOn="{StaticResource ZhaiFamilyContorls.IconToggleButton}"/>
+    <Style TargetType="{x:Type local:IconToggleButton}" BasedOn="{StaticResource Zhai.FamilyContorls.IconToggleButton}"/>
 
 </ResourceDictionary>

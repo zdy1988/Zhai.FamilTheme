@@ -9,47 +9,82 @@
                        IsTopmostButtonEnabled="True"
                        IsThemeButtonEnabled="True"
                        IsTransparencyButtonEnabled="True"
-                       IsTransparency="True"
-                       Theme="Light"
+                       IsTransparency="False"
+                       Theme="Dark"
                        Icon="/favicon.ico"
                        mc:Ignorable="d"
                        Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ZDY:ScrollViewer Visibility="Visible">
-            <StackPanel>
-                <ListBox x:Name="IconList" Background="Transparent" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Foreground}">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Border Width="50" Height="50">
-                                <ZDY:Icon Kind="{Binding }" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </Border>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                    <ListBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel IsItemsHost="True"/>
-                        </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                </ListBox>
+        <ZDY:TabPanel TabStripPlacement="Left">
+            <ZDY:TabItem Header="CheckBox">
+                <StackPanel Margin="20">
+                    <ZDY:CheckBox Margin="5" />
+                    <ZDY:CheckBox Margin="5" Size="32"/>
+                    <ZDY:CheckBox Margin="5" Size="64"/>
+                </StackPanel>
+            </ZDY:TabItem>
+            <ZDY:TabItem Header="ICONS">
+                <ZDY:ScrollViewer>
+                    <ZDY:Repeater x:Name="IconList" Orientation="HorizontalWithWarp" HorizontalAlignment="Center">
+                        <ZDY:Repeater.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Width="50" Margin="5" Background="Transparent" ToolTip="{Binding }">
+                                    <Border x:Name="Border" Width="50" Height="50" BorderThickness="1">
+                                        <ZDY:Icon Kind="{Binding }" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                    </Border>
+                                    <TextBlock Text="{Binding }" TextAlignment="Center" Margin="0 4 0 0" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"/>
+                                </StackPanel>
 
-                <ZDY:IconButton Icon="About" Background="#70000000" HorizontalAlignment="Left"/>
+                                <DataTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="#3003a9f4"/>
+                                        <Setter TargetName="Border" Property="BorderBrush" Value="#4395ff"/>
+                                    </Trigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </ZDY:Repeater.ItemTemplate>
+                    </ZDY:Repeater>
+                </ZDY:ScrollViewer>
+            </ZDY:TabItem>
+            <ZDY:TabItem Header="IconButton">
+                <StackPanel>
+                    <ZDY:IconButton Icon="About" Background="#70000000" HorizontalAlignment="Left"/>
 
-                <ZDY:IconButton Icon="About" Background="#70000000" Width="50" Height="50" IconSize="32" HorizontalAlignment="Left"/>
+                    <ZDY:IconButton Icon="About" Background="#70000000" Width="50" Height="50" IconSize="32" HorizontalAlignment="Left"/>
 
-                <ZDY:IconToggleButton Icon="ArrowLeft" CheckedIcon="ArrowRight" ToolTip="向左" CheckedToolTip="向右" Background="#70000000" HorizontalAlignment="Left"/>
-            </StackPanel>
-        </ZDY:ScrollViewer>
-
-        <ZDY:ScrollViewer HorizontalScrollBarVisibility="Visible" Margin="20" Visibility="Collapsed">
-            <Border Width="1000" Height="1000">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#A770EF"  Offset="0"/>
-                        <GradientStop Color="#CF8BF3"  Offset=".5"/>
-                        <GradientStop Color="#FDB99B"  Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
-        </ZDY:ScrollViewer>
+                    <ZDY:IconToggleButton Icon="ArrowLeft" CheckedIcon="ArrowRight" ToolTip="向左" CheckedToolTip="向右" Background="#70000000" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </ZDY:TabItem>
+            <ZDY:TabItem Header="ScrollViewer">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <ZDY:ScrollViewer Grid.Column="0" HorizontalScrollBarVisibility="Visible" Margin="20">
+                        <Border Width="1000" Height="1000">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#A770EF"  Offset="0"/>
+                                    <GradientStop Color="#CF8BF3"  Offset=".5"/>
+                                    <GradientStop Color="#FDB99B"  Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                    </ZDY:ScrollViewer>
+                    <ZDY:ScrollViewer2 Grid.Column="1" HorizontalScrollBarVisibility="Visible" Margin="20">
+                        <Border Width="1000" Height="1000">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#A770EF"  Offset="0"/>
+                                    <GradientStop Color="#CF8BF3"  Offset=".5"/>
+                                    <GradientStop Color="#FDB99B"  Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                    </ZDY:ScrollViewer2>
+                </Grid>
+            </ZDY:TabItem>
+        </ZDY:TabPanel>
     </Grid>
 </ZDY:TransparentWindow>

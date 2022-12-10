@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\ZhaiFamilyContorls.csproj" />
+    <ProjectReference Include="..\src\Zhai.FamilyContorls.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhai.FamilyContorlsDemo", "Zhai.FamilyContorlsDemo.csproj", "{FA3A838F-652E-47C2-B0E4-11C83F4A7082}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZhaiFamilyContorls", "..\src\ZhaiFamilyContorls.csproj", "{F353FC79-1981-4D69-86EB-671B0DD68A3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zhai.FamilyContorls", "..\src\Zhai.FamilyContorls.csproj", "{F353FC79-1981-4D69-86EB-671B0DD68A3F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

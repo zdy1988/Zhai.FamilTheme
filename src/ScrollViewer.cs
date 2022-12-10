@@ -5,7 +5,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media;
 using System.Windows;
 
-namespace ZhaiFamilyContorls
+namespace Zhai.FamilyContorls
 {
     public class ScrollViewer : System.Windows.Controls.ScrollViewer
     {
