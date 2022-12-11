@@ -14,23 +14,49 @@
                        Icon="/favicon.ico"
                        mc:Ignorable="d"
                        Title="MainWindow" Height="450" Width="800">
+    
+    <ZDY:TransparentWindow.Resources>
+        <ZDY:BoolToInverseVisibilityConverter x:Key="BoolToInverseVisibilityConverter"/>
+        <ZDY:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </ZDY:TransparentWindow.Resources>
+    
     <Grid>
         <ZDY:TabPanel TabStripPlacement="Left">
-            <ZDY:TabItem Header="CheckBox">
+            <ZDY:TabItem Header="Slider">
                 <StackPanel Margin="20">
-                    <ZDY:CheckBox Margin="5" />
-                    <ZDY:CheckBox Margin="5" Size="32"/>
-                    <ZDY:CheckBox Margin="5" Size="64"/>
+                    <Slider x:Name="TransparencySlider" Maximum="1" Minimum="0.1" SmallChange="0.01" Value="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=Transparency}"/>
+                    <TextBlock Text="{Binding ElementName=TransparencySlider, Path=Value, StringFormat=N2}" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </ZDY:TabItem>
+            <ZDY:TabItem Header="CheckBox">
+                <StackPanel Margin="20 0">
+                    <ZDY:CheckBox Margin="0 5"/>
+                    <ZDY:CheckBox Margin="0 5" Size="32"/>
+                    <ZDY:CheckBox Margin="0 5" Size="64"/>
+
+                    <ZDY:SwitchToggleButton Margin="0 5"/>
+                    <ZDY:SwitchToggleButton Margin="0 5" Size="45"/>
+                    <ZDY:SwitchToggleButton Margin="0 5" Size="60"/>
+
+                    <ZDY:SwitchToggleButton Margin="0 5" Size="45">
+                        <ZDY:Icon Kind="ClearDay" Foreground="Red"/>
+                    </ZDY:SwitchToggleButton>
+                    <ZDY:SwitchToggleButton Margin="0 5" Size="45">
+                        <Grid>
+                            <ZDY:Icon x:Name="CheckedIcon" Kind="ClearDay" Foreground="DarkGoldenrod" Visibility="{Binding RelativeSource={RelativeSource AncestorType=ZDY:SwitchToggleButton}, Path=IsChecked, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                            <ZDY:Icon x:Name="UnCheckedIcon" Kind="ClearNight" Foreground="LightBlue" Visibility="{Binding RelativeSource={RelativeSource AncestorType=ZDY:SwitchToggleButton}, Path=IsChecked, Converter={StaticResource BoolToInverseVisibilityConverter}}"/>
+                        </Grid>
+                    </ZDY:SwitchToggleButton>
                 </StackPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="ICONS">
                 <ZDY:ScrollViewer>
-                    <ZDY:Repeater x:Name="IconList" Orientation="HorizontalWithWarp" HorizontalAlignment="Center">
+                    <ZDY:Repeater x:Name="IconList" Orientation="HorizontalWithWarp" HorizontalAlignment="Center" Margin="0 0 0 40">
                         <ZDY:Repeater.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Width="50" Margin="5" Background="Transparent" ToolTip="{Binding }">
                                     <Border x:Name="Border" Width="50" Height="50" BorderThickness="1">
-                                        <ZDY:Icon Kind="{Binding }" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <ZDY:IconButton Icon="{Binding }" VerticalAlignment="Center" HorizontalAlignment="Center" Click="IconButton_Click"/>
                                     </Border>
                                     <TextBlock Text="{Binding }" TextAlignment="Center" Margin="0 4 0 0" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"/>
                                 </StackPanel>
@@ -47,7 +73,7 @@
                 </ZDY:ScrollViewer>
             </ZDY:TabItem>
             <ZDY:TabItem Header="IconButton">
-                <StackPanel>
+                <StackPanel Margin="20 0">
                     <ZDY:IconButton Icon="About" Background="#70000000" HorizontalAlignment="Left"/>
 
                     <ZDY:IconButton Icon="About" Background="#70000000" Width="50" Height="50" IconSize="32" HorizontalAlignment="Left"/>

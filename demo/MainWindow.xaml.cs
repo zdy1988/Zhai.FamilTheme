@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Zhai.FamilyContorls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Zhai.FamilyContorlsDemo
 {
@@ -26,6 +27,14 @@ namespace Zhai.FamilyContorlsDemo
             InitializeComponent();
 
             this.IconList.ItemsSource = Enum.GetValues<IconKind>();
+        }
+
+        private void IconButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is IconButton iconButton)
+            {
+                Clipboard.SetText(iconButton.Icon.ToString());
+            }
         }
     }
 }

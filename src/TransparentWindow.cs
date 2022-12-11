@@ -57,7 +57,7 @@ namespace Zhai.FamilyContorls
             set { SetValue(ThemeProperty, value); }
         }
 
-        public static readonly DependencyProperty IsTransparencyProperty = DependencyProperty.Register(nameof(IsTransparency), typeof(bool), typeof(TransparentWindow), new FrameworkPropertyMetadata(true, FrameworkPropertyMetadataOptions.Inherits));
+        public static readonly DependencyProperty IsTransparencyProperty = DependencyProperty.Register(nameof(IsTransparency), typeof(bool), typeof(TransparentWindow), new FrameworkPropertyMetadata(true, FrameworkPropertyMetadataOptions.Inherits, OnTransparencyChanged));
 
         public bool IsTransparency
         {
@@ -103,6 +103,59 @@ namespace Zhai.FamilyContorls
         {
             get { return (bool)GetValue(IsTransparencyButtonEnabledProperty); }
             set { SetValue(IsTransparencyButtonEnabledProperty, value); }
+        }
+
+        public static readonly DependencyProperty TransparencyProperty = DependencyProperty.Register(nameof(Transparency), typeof(double), typeof(TransparentWindow), new FrameworkPropertyMetadata(0.72, FrameworkPropertyMetadataOptions.Inherits, OnTransparencyChanged));
+
+        public double Transparency
+        {
+            get { return (double)GetValue(TransparencyProperty); }
+            set { SetValue(TransparencyProperty, value); }
+        }
+
+        double MaxTransparency = 1.0;
+        double MinTransparency = 0.1;
+        double DefaultTransparency = 0.72;
+        double TempTransparency = 1.0;
+
+        private static void OnTransparencyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is TransparentWindow window)
+            {
+                if (e.Property.Name.Equals("IsTransparency"))
+                {
+                    if (!window.IsTransparency)
+                    {
+                        window.TempTransparency = window.Transparency;
+                        window.Transparency = window.MaxTransparency;
+                    }
+                    else if (window.IsTransparency && window.TempTransparency == window.MaxTransparency)
+                    {
+                        window.Transparency = window.DefaultTransparency;
+                    }
+                    else
+                    {
+                        window.Transparency = window.TempTransparency;
+                    }
+                }
+                else if (e.Property.Name.Equals("Transparency"))
+                {
+                    if (window.Transparency < window.MinTransparency)
+                    {
+                        window.IsTransparency = true;
+                        window.Transparency = window.MinTransparency;
+                    }
+                    else if (window.Transparency >= window.MaxTransparency)
+                    {
+                        window.IsTransparency = false;
+                        window.Transparency = window.MaxTransparency;
+                    }
+                    else
+                    {
+                        window.IsTransparency = true;
+                    }
+                }
+            }
         }
 
 

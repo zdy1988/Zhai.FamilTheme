@@ -4,12 +4,14 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.ButtonBase.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.Icon.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type local:CheckBox}" x:Key="Zhai.FamilyContorls.CheckBox" BasedOn="{StaticResource Zhai.FamilyContorls.ButtonBase}">
         <Setter Property="SnapsToDevicePixels" Value="true" />
         <Setter Property="Width" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Size}"/>
         <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Size}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Template">
             <Setter.Value>
