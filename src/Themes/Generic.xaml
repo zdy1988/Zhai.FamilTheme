@@ -4,12 +4,15 @@
     <ResourceDictionary.MergedDictionaries>
 
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.CheckBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.CopyButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.Icon.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.IconButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.IconToggleButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.LinkButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.Repeater.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.ScrollViewer.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.ScrollViewer2.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.Slider.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.SwitchToggleButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.TabPanel.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.TransparentWindow.xaml" />
