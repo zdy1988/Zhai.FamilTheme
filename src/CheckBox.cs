@@ -12,7 +12,7 @@ namespace Zhai.FamilyContorls
             DefaultStyleKeyProperty.OverrideMetadata(typeof(CheckBox), new FrameworkPropertyMetadata(typeof(CheckBox)));
         }
 
-        public static readonly DependencyProperty SizeProperty = DependencyProperty.Register(nameof(Size), typeof(double), typeof(CheckBox), new FrameworkPropertyMetadata(16.0));
+        public static readonly DependencyProperty SizeProperty = DependencyProperty.Register(nameof(Size), typeof(double), typeof(CheckBox), new PropertyMetadata(16.0));
 
         public double Size
         {

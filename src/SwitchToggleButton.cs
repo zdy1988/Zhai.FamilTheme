@@ -13,7 +13,7 @@ namespace Zhai.FamilyContorls
             DefaultStyleKeyProperty.OverrideMetadata(typeof(SwitchToggleButton), new FrameworkPropertyMetadata(typeof(SwitchToggleButton)));
         }
 
-        public static readonly DependencyProperty SizeProperty = DependencyProperty.Register(nameof(Size), typeof(double), typeof(SwitchToggleButton), new FrameworkPropertyMetadata(30.0));
+        public static readonly DependencyProperty SizeProperty = DependencyProperty.Register(nameof(Size), typeof(double), typeof(SwitchToggleButton), new PropertyMetadata(30.0));
 
         public double Size
         {

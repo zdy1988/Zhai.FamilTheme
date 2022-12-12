@@ -22,6 +22,62 @@
     
     <Grid>
         <ZDY:TabPanel TabStripPlacement="Left">
+            <ZDY:TabItem Header="Drawer">
+                <ZDY:Drawer IsLeftDrawerOpen="{Binding ElementName=LeftDrawerSwitch, Path=IsChecked}"
+                            IsRightDrawerOpen="{Binding ElementName=RightDrawerSwitch, Path=IsChecked}"
+                            IsTopDrawerOpen="{Binding ElementName=TopDrawerSwitch, Path=IsChecked}"
+                            IsBottomDrawerOpen="{Binding ElementName=BottomDrawerSwitch, Path=IsChecked}"
+                            OverlayBackground="LightBlue">
+                    <ZDY:Drawer.LeftDrawerContent>
+                        <Border Width="100" Background="#70666666">
+                            <ZDY:IconToggleButton IsChecked="{Binding ElementName=LeftDrawerSwitch, Path=IsChecked}" Icon="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ZDY:Drawer.LeftDrawerContent>
+                    <ZDY:Drawer.RightDrawerContent>
+                        <Border Width="100" Background="#70666666">
+                            <ZDY:IconToggleButton IsChecked="{Binding ElementName=RightDrawerSwitch, Path=IsChecked}" Icon="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ZDY:Drawer.RightDrawerContent>
+                    <ZDY:Drawer.TopDrawerContent>
+                        <Border Height="100" Background="#70666666">
+                            <ZDY:IconToggleButton IsChecked="{Binding ElementName=TopDrawerSwitch, Path=IsChecked}" Icon="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ZDY:Drawer.TopDrawerContent>
+                    <ZDY:Drawer.BottomDrawerContent>
+                        <Border Height="100" Background="#70666666">
+                            <ZDY:IconToggleButton IsChecked="{Binding ElementName=BottomDrawerSwitch, Path=IsChecked}" Icon="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ZDY:Drawer.BottomDrawerContent>
+                    <Grid Background="#80ffffff">
+                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Left:"/>
+                                <ZDY:SwitchToggleButton x:Name="LeftDrawerSwitch"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Right:"/>
+                                <ZDY:SwitchToggleButton x:Name="RightDrawerSwitch"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Top:"/>
+                                <ZDY:SwitchToggleButton x:Name="TopDrawerSwitch"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Bottom:"/>
+                                <ZDY:SwitchToggleButton x:Name="BottomDrawerSwitch"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="IsOverlayed:"/>
+                                <ZDY:SwitchToggleButton IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:Drawer}, Path=IsOverlayed}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="IsOverlayBackgroundEnabled:"/>
+                                <ZDY:SwitchToggleButton IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:Drawer}, Path=IsOverlayBackgroundEnabled}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </ZDY:Drawer>
+            </ZDY:TabItem>
             <ZDY:TabItem Header="Slider">
                 <StackPanel Margin="20">
                     <TextBlock Text="Window Transparency"/>

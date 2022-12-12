@@ -14,7 +14,7 @@ namespace Zhai.FamilyContorls
             DefaultStyleKeyProperty.OverrideMetadata(typeof(IconButton), new FrameworkPropertyMetadata(typeof(IconButton)));
         }
 
-        public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(IconKind), typeof(IconButton), new FrameworkPropertyMetadata(IconKind.Info));
+        public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(IconKind), typeof(IconButton), new PropertyMetadata(IconKind.Info));
 
         public IconKind Icon
         {
@@ -22,7 +22,7 @@ namespace Zhai.FamilyContorls
             set => SetValue(IconProperty, value);
         }
 
-        public static readonly DependencyProperty IconSizeProperty = DependencyProperty.Register(nameof(IconSize), typeof(double), typeof(IconButton), new FrameworkPropertyMetadata(16.0));
+        public static readonly DependencyProperty IconSizeProperty = DependencyProperty.Register(nameof(IconSize), typeof(double), typeof(IconButton), new PropertyMetadata(16.0));
 
         public double IconSize
         {

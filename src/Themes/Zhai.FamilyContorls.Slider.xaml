@@ -76,9 +76,9 @@
                             <Trigger.ExitActions>
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetName="PART_SelectionRange" Storyboard.TargetProperty="Height" To="2" Duration="0:0:0.15"/>
-                                        <DoubleAnimation Storyboard.TargetName="PART_SelectionRange2" Storyboard.TargetProperty="Height" To="2" Duration="0:0:0.15"/>
-                                        <DoubleAnimation Storyboard.TargetName="PART_Thumb" Storyboard.TargetProperty="(UIElement.Opacity)" To="0" Duration="0:0:0.15"/>
+                                        <DoubleAnimation Storyboard.TargetName="PART_SelectionRange" Storyboard.TargetProperty="Height" Duration="0:0:0.15"/>
+                                        <DoubleAnimation Storyboard.TargetName="PART_SelectionRange2" Storyboard.TargetProperty="Height" Duration="0:0:0.15"/>
+                                        <DoubleAnimation Storyboard.TargetName="PART_Thumb" Storyboard.TargetProperty="(UIElement.Opacity)" Duration="0:0:0.15"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>

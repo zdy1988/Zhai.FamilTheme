@@ -24,7 +24,10 @@
                                 <local:Icon Kind="{TemplateBinding Icon}" Width="{TemplateBinding IconSize}" Height="{TemplateBinding IconSize}"/>
                             </Border>
                             <Border x:Name="PART_CheckedIcon" ToolTip="{TemplateBinding CheckedToolTip}" Background="Transparent" Visibility="Collapsed">
-                                <local:Icon Kind="{TemplateBinding CheckedIcon}" Width="{TemplateBinding IconSize}" Height="{TemplateBinding IconSize}"/>
+                                <Grid>
+                                    <local:Icon x:Name="PART_CheckedIcon1" Kind="{TemplateBinding Icon}" Width="{TemplateBinding IconSize}" Height="{TemplateBinding IconSize}" Visibility="Collapsed"/>
+                                    <local:Icon x:Name="PART_CheckedIcon2" Kind="{TemplateBinding CheckedIcon}" Width="{TemplateBinding IconSize}" Height="{TemplateBinding IconSize}"/>
+                                </Grid>
                             </Border>
                         </Grid>
                     </Border>
@@ -32,6 +35,11 @@
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="PART_Icon" Property="Visibility" Value="Collapsed"/>
                             <Setter TargetName="PART_CheckedIcon" Property="Visibility" Value="Visible"/>
+                            <Setter Property="Foreground" Value="{StaticResource Zhai.FamilyContorls.SelectionHighlightBrush}"/>
+                        </Trigger>
+                        <Trigger Property="CheckedIcon" Value="None">
+                            <Setter TargetName="PART_CheckedIcon1" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="PART_CheckedIcon2" Property="Visibility" Value="Collapsed"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

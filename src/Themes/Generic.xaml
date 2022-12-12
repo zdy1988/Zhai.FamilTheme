@@ -5,6 +5,7 @@
 
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.CheckBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.CopyButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.Drawer.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.Icon.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.IconButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilyContorls;component/Themes/Zhai.FamilyContorls.IconToggleButton.xaml" />

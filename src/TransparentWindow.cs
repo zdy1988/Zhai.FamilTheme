@@ -41,7 +41,7 @@ namespace Zhai.FamilyContorls
             DefaultStyleKeyProperty.OverrideMetadata(typeof(TransparentWindow), new FrameworkPropertyMetadata(typeof(TransparentWindow)));
         }
 
-        public static readonly DependencyProperty AppNameProperty = DependencyProperty.Register(nameof(AppName), typeof(string), typeof(TransparentWindow), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.Inherits));
+        public static readonly DependencyProperty AppNameProperty = DependencyProperty.Register(nameof(AppName), typeof(string), typeof(TransparentWindow), new PropertyMetadata(null));
 
         public string AppName
         {
@@ -49,7 +49,7 @@ namespace Zhai.FamilyContorls
             set { SetValue(AppNameProperty, value); }
         }
 
-        public static readonly DependencyProperty ThemeProperty = DependencyProperty.Register(nameof(Theme), typeof(WindowTheme), typeof(TransparentWindow), new FrameworkPropertyMetadata(WindowTheme.Dark, FrameworkPropertyMetadataOptions.Inherits));
+        public static readonly DependencyProperty ThemeProperty = DependencyProperty.Register(nameof(Theme), typeof(WindowTheme), typeof(TransparentWindow), new FrameworkPropertyMetadata(WindowTheme.Dark));
 
         public WindowTheme Theme
         {
@@ -57,7 +57,7 @@ namespace Zhai.FamilyContorls
             set { SetValue(ThemeProperty, value); }
         }
 
-        public static readonly DependencyProperty IsTransparencyProperty = DependencyProperty.Register(nameof(IsTransparency), typeof(bool), typeof(TransparentWindow), new FrameworkPropertyMetadata(true, FrameworkPropertyMetadataOptions.Inherits, OnTransparencyChanged));
+        public static readonly DependencyProperty IsTransparencyProperty = DependencyProperty.Register(nameof(IsTransparency), typeof(bool), typeof(TransparentWindow), new FrameworkPropertyMetadata(true, OnTransparencyChanged));
 
         public bool IsTransparency
         {
@@ -65,7 +65,7 @@ namespace Zhai.FamilyContorls
             set { SetValue(IsTransparencyProperty, value); }
         }
 
-        public static readonly DependencyProperty TitleBarContentProperty = DependencyProperty.Register(nameof(TitleBarContent), typeof(FrameworkElement), typeof(TransparentWindow), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.Inherits));
+        public static readonly DependencyProperty TitleBarContentProperty = DependencyProperty.Register(nameof(TitleBarContent), typeof(FrameworkElement), typeof(TransparentWindow), new PropertyMetadata(null));
 
         public FrameworkElement TitleBarContent
         {
@@ -73,7 +73,7 @@ namespace Zhai.FamilyContorls
             set { SetValue(TitleBarContentProperty, value); }
         }
 
-        public static readonly DependencyProperty TitleBarVisibilityProperty = DependencyProperty.Register(nameof(TitleBarVisibility), typeof(Visibility), typeof(TransparentWindow), new FrameworkPropertyMetadata(Visibility.Visible, FrameworkPropertyMetadataOptions.Inherits));
+        public static readonly DependencyProperty TitleBarVisibilityProperty = DependencyProperty.Register(nameof(TitleBarVisibility), typeof(Visibility), typeof(TransparentWindow), new FrameworkPropertyMetadata(Visibility.Visible));
 
         public Visibility TitleBarVisibility
         {
@@ -81,7 +81,7 @@ namespace Zhai.FamilyContorls
             set { SetValue(TitleBarVisibilityProperty, value); }
         }
 
-        public static readonly DependencyProperty IsTopmostButtonEnabledProperty = DependencyProperty.Register(nameof(IsTopmostButtonEnabled), typeof(bool), typeof(TransparentWindow), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
+        public static readonly DependencyProperty IsTopmostButtonEnabledProperty = DependencyProperty.Register(nameof(IsTopmostButtonEnabled), typeof(bool), typeof(TransparentWindow), new FrameworkPropertyMetadata(false));
 
         public bool IsTopmostButtonEnabled
         {
@@ -89,7 +89,7 @@ namespace Zhai.FamilyContorls
             set { SetValue(IsTopmostButtonEnabledProperty, value); }
         }
 
-        public static readonly DependencyProperty IsThemeButtonEnabledProperty = DependencyProperty.Register(nameof(IsThemeButtonEnabled), typeof(bool), typeof(TransparentWindow), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
+        public static readonly DependencyProperty IsThemeButtonEnabledProperty = DependencyProperty.Register(nameof(IsThemeButtonEnabled), typeof(bool), typeof(TransparentWindow), new FrameworkPropertyMetadata(false));
 
         public bool IsThemeButtonEnabled
         {
@@ -97,7 +97,7 @@ namespace Zhai.FamilyContorls
             set { SetValue(IsThemeButtonEnabledProperty, value); }
         }
 
-        public static readonly DependencyProperty IsTransparencyButtonEnabledProperty = DependencyProperty.Register(nameof(IsTransparencyButtonEnabled), typeof(bool), typeof(TransparentWindow), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
+        public static readonly DependencyProperty IsTransparencyButtonEnabledProperty = DependencyProperty.Register(nameof(IsTransparencyButtonEnabled), typeof(bool), typeof(TransparentWindow), new FrameworkPropertyMetadata(false));
 
         public bool IsTransparencyButtonEnabled
         {
@@ -105,7 +105,7 @@ namespace Zhai.FamilyContorls
             set { SetValue(IsTransparencyButtonEnabledProperty, value); }
         }
 
-        public static readonly DependencyProperty TransparencyProperty = DependencyProperty.Register(nameof(Transparency), typeof(double), typeof(TransparentWindow), new FrameworkPropertyMetadata(0.72, FrameworkPropertyMetadataOptions.Inherits, OnTransparencyChanged));
+        public static readonly DependencyProperty TransparencyProperty = DependencyProperty.Register(nameof(Transparency), typeof(double), typeof(TransparentWindow), new FrameworkPropertyMetadata(0.72, OnTransparencyChanged));
 
         public double Transparency
         {
