@@ -10,6 +10,8 @@
 
     <Converters:TransparentWindowTransparencyConverter x:Key="TransparentWindowTransparencyConverter"/>
 
+    <ImageSource x:Key="Zhai.FamilyContorls.TransparentWindow.DefaultIcon">pack://application:,,,/Zhai.FamilyContorls;component/Resources/favicon.ico</ImageSource>
+
     <SolidColorBrush x:Key="Zhai.FamilyContorls.TransparentWindow.DarkTitleBarBackgroundColorBrush" Color="#2f3339" PresentationOptions:Freeze="True"/>
     <SolidColorBrush x:Key="Zhai.FamilyContorls.TransparentWindow.LightTitleBarBackgroundColorBrush" Color="#ebeff8" PresentationOptions:Freeze="True"/>
 
@@ -68,7 +70,7 @@
                                        Width="16" Height="16"
                                        HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
-                                       Source="{Binding Icon, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                       Source="{Binding Icon, RelativeSource={RelativeSource AncestorType=Window}, TargetNullValue={StaticResource Zhai.FamilyContorls.TransparentWindow.DefaultIcon}}"/>
                                     <TextBlock x:Name="CaptionText"
                                        Margin="8,0,0,0"
                                        Text="{TemplateBinding AppName}"

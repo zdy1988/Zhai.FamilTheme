@@ -3,6 +3,49 @@
   <PropertyGroup>
     <TargetFrameworks>netcoreapp3.1;net6.0-windows</TargetFrameworks>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Zhai.FamilyContorls</Title>
+	<Version>1.0.0</Version>
+    <Copyright>MIT</Copyright>
+    <Description>ZHAI 系列软件的控件包！！！</Description>
+    <PackageProjectUrl>https://github.com/zdy1988/Zhai.FamilyContorls</PackageProjectUrl>
+    <PackageIcon>logo.png</PackageIcon>
+    <Authors>zdy1988</Authors>
+	<Tags>WPF ZHAI ZDY</Tags>  
+	<SignAssembly>True</SignAssembly>
+	<AssemblyOriginatorKeyFile>Zhai.FamilyContorls.snk</AssemblyOriginatorKeyFile>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<PackageLicenseFile>LICENSE</PackageLicenseFile>
+	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\favicon.ico" />
+    <None Remove="Resources\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\favicon.ico" />
+    <Resource Include="Resources\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </Resource>
+  </ItemGroup>
 
 </Project>

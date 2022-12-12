@@ -8,15 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="favicon.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\src\Zhai.FamilyContorls.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="favicon.ico" />
   </ItemGroup>
 
 </Project>
