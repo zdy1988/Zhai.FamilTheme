@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Zhai.FamilyContorls
+namespace Zhai.FamilTheme
 {
     public class LinkButton : Button
     {

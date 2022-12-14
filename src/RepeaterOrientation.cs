@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Zhai.FamilyContorls
+namespace Zhai.FamilTheme
 {
     public enum RepeaterOrientation
     {

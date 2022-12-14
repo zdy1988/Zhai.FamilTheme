@@ -1,0 +1,123 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+
+    <sys:Double x:Key="Zhai.FamilTheme.ScrollBar.Width">5</sys:Double>
+    <sys:Double x:Key="Zhai.FamilTheme.ScrollBar.Radius">3</sys:Double>
+
+    <SolidColorBrush x:Key="Zhai.FamilTheme.ScrollBar.RepeatButtonColorBrush" Color="#00000000" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.ScrollBar.ThumbColorBrush" Color="#90666666" PresentationOptions:Freeze="True"/>
+
+    <Style TargetType="{x:Type RepeatButton}" x:Key="Zhai.FamilTheme.ScrollBar.RepeatButton">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Rectangle Fill="{StaticResource Zhai.FamilTheme.ScrollBar.RepeatButtonColorBrush}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Thumb}" x:Key="Zhai.FamilTheme.ScrollBar.VerticalScrollBarThumb">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Rectangle Fill="{StaticResource Zhai.FamilTheme.ScrollBar.ThumbColorBrush}" Width="{StaticResource Zhai.FamilTheme.ScrollBar.Width}" HorizontalAlignment="Center" RadiusX="{StaticResource Zhai.FamilTheme.ScrollBar.Radius}" RadiusY="{StaticResource Zhai.FamilTheme.ScrollBar.Radius}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Thumb}" x:Key="Zhai.FamilTheme.ScrollBar.HorizontalScrollBarThumb">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Grid Background="#00000000">
+                        <Rectangle Fill="{StaticResource Zhai.FamilTheme.ScrollBar.ThumbColorBrush}" Height="{StaticResource Zhai.FamilTheme.ScrollBar.Width}" VerticalAlignment="Center" RadiusX="{StaticResource Zhai.FamilTheme.ScrollBar.Radius}" RadiusY="{StaticResource Zhai.FamilTheme.ScrollBar.Radius}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ScrollBar}" x:Key="Zhai.FamilTheme.ScrollBar.VerticalScrollBar">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="ContextMenu" Value="{x:Null}"/>
+        <Setter Property="Opacity" Value="0.6"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollBar}">
+                    <Grid SnapsToDevicePixels="true">
+                        <Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="1">
+                            <Track.Resources>
+                                <!-- Set the Thumb's minimum height to 50.The Thumb's minimum height is half the value of VerticalScrollBarButtonHeightKey. -->
+                                <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarButtonHeightKey}">
+                                    100
+                                </sys:Double>
+                            </Track.Resources>
+                            <Track.DecreaseRepeatButton>
+                                <RepeatButton Command="{x:Static ScrollBar.PageUpCommand}" Style="{StaticResource Zhai.FamilTheme.ScrollBar.RepeatButton}"/>
+                            </Track.DecreaseRepeatButton>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton Command="{x:Static ScrollBar.PageDownCommand}" Style="{StaticResource Zhai.FamilTheme.ScrollBar.RepeatButton}"/>
+                            </Track.IncreaseRepeatButton>
+                            <Track.Thumb>
+                                <Thumb Style="{StaticResource Zhai.FamilTheme.ScrollBar.VerticalScrollBarThumb}" BorderBrush="{TemplateBinding BorderBrush}"/>
+                            </Track.Thumb>
+                        </Track>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type ScrollBar}" x:Key="Zhai.FamilTheme.ScrollBar.HorizontalScrollBar">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="ContextMenu" Value="{x:Null}"/>
+        <Setter Property="Opacity" Value="0.6"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollBar}">
+                    <Grid SnapsToDevicePixels="true">
+                        <Track x:Name="PART_Track" IsDirectionReversed="False" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="1">
+                            <Track.Resources>
+                                <!-- Set the Thumb's minimum height to 50.The Thumb's minimum height is half the value of HorizontalScrollBarButtonWidthKey. -->
+                                <sys:Double x:Key="{x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}">
+                                    100
+                                </sys:Double>
+                            </Track.Resources>
+                            <Track.DecreaseRepeatButton>
+                                <RepeatButton Command="{x:Static ScrollBar.PageLeftCommand}" Style="{StaticResource Zhai.FamilTheme.ScrollBar.RepeatButton}"/>
+                            </Track.DecreaseRepeatButton>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton Command="{x:Static ScrollBar.PageRightCommand}" Style="{StaticResource Zhai.FamilTheme.ScrollBar.RepeatButton}"/>
+                            </Track.IncreaseRepeatButton>
+                            <Track.Thumb>
+                                <Thumb Style="{StaticResource Zhai.FamilTheme.ScrollBar.HorizontalScrollBarThumb}" BorderBrush="{TemplateBinding BorderBrush}"/>
+                            </Track.Thumb>
+                        </Track>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Rectangle}" x:Key="Zhai.FamilTheme.ScrollBar.Corner">
+        <Setter Property="Fill" Value="{StaticResource Zhai.FamilTheme.ScrollBar.ThumbColorBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Width" Value="{StaticResource Zhai.FamilTheme.ScrollBar.Width}"/>
+        <Setter Property="Height" Value="{StaticResource Zhai.FamilTheme.ScrollBar.Width}"/>
+        <Setter Property="RadiusX" Value="{StaticResource Zhai.FamilTheme.ScrollBar.Radius}"/>
+        <Setter Property="RadiusY" Value="{StaticResource Zhai.FamilTheme.ScrollBar.Radius}"/>
+    </Style>
+
+</ResourceDictionary>

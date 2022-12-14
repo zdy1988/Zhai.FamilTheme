@@ -12,10 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Zhai.FamilyContorls;
-using static System.Net.Mime.MediaTypeNames;
+using Zhai.FamilTheme;
 
-namespace Zhai.FamilyContorlsDemo
+namespace Zhai.FamilThemeDemo
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -26,15 +25,7 @@ namespace Zhai.FamilyContorlsDemo
         {
             InitializeComponent();
 
-            this.IconList.ItemsSource = Enum.GetValues<IconKind>();
-        }
-
-        private void IconButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (sender is IconButton iconButton)
-            {
-                Clipboard.SetText(iconButton.Icon.ToString());
-            }
+            this.DataContext = new MainWindowViewModel();
         }
     }
 }

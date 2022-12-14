@@ -5,7 +5,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media;
 using System.Windows;
 
-namespace Zhai.FamilyContorls
+namespace Zhai.FamilTheme
 {
     public class ScrollViewer : System.Windows.Controls.ScrollViewer
     {
@@ -21,40 +21,100 @@ namespace Zhai.FamilyContorls
         private bool isRunning;
 
         /// <summary>
-        /// 滚动方向
+        /// 是否支持惯性
         /// </summary>
-        public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register("Orientation", typeof(Orientation), typeof(ScrollViewer), new PropertyMetadata(Orientation.Vertical));
+        public static readonly DependencyProperty IsInertiaEnabledProperty = DependencyProperty.Register(nameof(IsInertiaEnabled), typeof(bool), typeof(ScrollViewer), new PropertyMetadata(false));
+
+        public bool IsInertiaEnabled
+        {
+            get => (bool)GetValue(IsInertiaEnabledProperty);
+            set => SetValue(IsInertiaEnabledProperty, value);
+        }
+
+        /// <summary>
+        /// 控件是否可以穿透点击
+        /// </summary>
+        public static readonly DependencyProperty IsPenetratingProperty = DependencyProperty.RegisterAttached(nameof(IsPenetrating), typeof(bool), typeof(ScrollViewer), new PropertyMetadata(false));
+
+        public bool IsPenetrating
+        {
+            get => (bool)GetValue(IsPenetratingProperty);
+            set => SetValue(IsPenetratingProperty, value);
+        }
+
+        protected override HitTestResult HitTestCore(PointHitTestParameters hitTestParameters)
+        {
+            return IsPenetrating ? null : base.HitTestCore(hitTestParameters);
+        }
+
+        /// <summary>
+        /// 当前垂直滚动偏移
+        /// </summary>
+        internal static readonly DependencyProperty CurrentVerticalOffsetProperty = DependencyProperty.Register(nameof(CurrentVerticalOffset), typeof(double), typeof(ScrollViewer), new PropertyMetadata(.0, OnCurrentVerticalOffsetChanged));
+
+        internal double CurrentVerticalOffset
+        {
+            // ReSharper disable once UnusedMember.Local
+            get => (double)GetValue(CurrentVerticalOffsetProperty);
+            set => SetValue(CurrentVerticalOffsetProperty, value);
+        }
+
+        private static void OnCurrentVerticalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is ScrollViewer ctl && e.NewValue is double v)
+            {
+                ctl.ScrollToVerticalOffset(v);
+            }
+        }
+
+        /// <summary>
+        /// 当前水平滚动偏移
+        /// </summary>
+        internal static readonly DependencyProperty CurrentHorizontalOffsetProperty = DependencyProperty.Register(nameof(CurrentHorizontalOffset), typeof(double), typeof(ScrollViewer), new PropertyMetadata(.0, OnCurrentHorizontalOffsetChanged));
+
+        internal double CurrentHorizontalOffset
+        {
+            get => (double)GetValue(CurrentHorizontalOffsetProperty);
+            set => SetValue(CurrentHorizontalOffsetProperty, value);
+        }
+
+        private static void OnCurrentHorizontalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is ScrollViewer ctl && e.NewValue is double v)
+            {
+                ctl.ScrollToHorizontalOffset(v);
+            }
+        }
 
         /// <summary>
         /// 滚动方向
         /// </summary>
-        public Orientation Orientation
+        public static readonly DependencyProperty MouseWheelOrientationProperty = DependencyProperty.Register(nameof(MouseWheelOrientation), typeof(Orientation), typeof(ScrollViewer), new PropertyMetadata(Orientation.Vertical));
+
+        public Orientation MouseWheelOrientation
         {
-            get => (Orientation)GetValue(OrientationProperty);
-            set => SetValue(OrientationProperty, value);
+            get => (Orientation)GetValue(MouseWheelOrientationProperty);
+            set => SetValue(MouseWheelOrientationProperty, value);
         }
 
         /// <summary>
         /// 是否响应鼠标滚轮操作
         /// </summary>
-        public static readonly DependencyProperty CanMouseWheelProperty = DependencyProperty.Register("CanMouseWheel", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(true));
+        public static readonly DependencyProperty IsMouseWheelEnabledProperty = DependencyProperty.Register(nameof(IsMouseWheelEnabled), typeof(bool), typeof(ScrollViewer), new PropertyMetadata(true));
 
-        /// <summary>
-        /// 是否响应鼠标滚轮操作
-        /// </summary>
-        public bool CanMouseWheel
+        public bool IsMouseWheelEnabled
         {
-            get => (bool)GetValue(CanMouseWheelProperty);
-            set => SetValue(CanMouseWheelProperty, value);
+            get => (bool)GetValue(IsMouseWheelEnabledProperty);
+            set => SetValue(IsMouseWheelEnabledProperty, value);
         }
 
         protected override void OnMouseWheel(MouseWheelEventArgs e)
         {
-            if (!CanMouseWheel) return;
+            if (!IsMouseWheelEnabled) return;
 
             if (!IsInertiaEnabled)
             {
-                if (Orientation == Orientation.Vertical)
+                if (MouseWheelOrientation == Orientation.Vertical)
                 {
                     base.OnMouseWheel(e);
                 }
@@ -69,7 +129,7 @@ namespace Zhai.FamilyContorls
             }
             e.Handled = true;
 
-            if (Orientation == Orientation.Vertical)
+            if (MouseWheelOrientation == Orientation.Vertical)
             {
                 if (!isRunning)
                 {
@@ -91,7 +151,7 @@ namespace Zhai.FamilyContorls
             }
         }
 
-        internal void ScrollToTopInternal(double milliseconds = 500)
+        public void ScrollToTopWithAnimation(double milliseconds = 500)
         {
             if (!isRunning)
             {
@@ -135,88 +195,29 @@ namespace Zhai.FamilyContorls
             BeginAnimation(CurrentHorizontalOffsetProperty, animation, HandoffBehavior.Compose);
         }
 
-        protected override HitTestResult HitTestCore(PointHitTestParameters hitTestParameters) =>
-            IsPenetrating ? null : base.HitTestCore(hitTestParameters);
-
         /// <summary>
-        /// 是否支持惯性
+        /// 是否自动隐藏滚动条
         /// </summary>
-        public static readonly DependencyProperty IsInertiaEnabledProperty = DependencyProperty.RegisterAttached("IsInertiaEnabled", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(false));
+        public static readonly DependencyProperty IsAutoHideEnabledProperty = DependencyProperty.Register(nameof(IsAutoHideEnabled), typeof(bool), typeof(ScrollViewer), new PropertyMetadata(true));
 
-        public static void SetIsInertiaEnabled(DependencyObject element, bool value) => element.SetValue(IsInertiaEnabledProperty, value);
-
-        public static bool GetIsInertiaEnabled(DependencyObject element) => (bool)element.GetValue(IsInertiaEnabledProperty);
-
-        /// <summary>
-        /// 是否支持惯性
-        /// </summary>
-        public bool IsInertiaEnabled
+        public bool IsAutoHideEnabled
         {
-            get => (bool)GetValue(IsInertiaEnabledProperty);
-            set => SetValue(IsInertiaEnabledProperty, value);
+            get => (bool)GetValue(IsAutoHideEnabledProperty);
+            set => SetValue(IsAutoHideEnabledProperty, value);
         }
 
         /// <summary>
-        /// 控件是否可以穿透点击
+        /// 是否覆盖在内容之上
         /// </summary>
-        public static readonly DependencyProperty IsPenetratingProperty = DependencyProperty.RegisterAttached("IsPenetrating", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(false));
+        public static readonly DependencyProperty IsOverlayedProperty = DependencyProperty.Register(nameof(IsOverlayed), typeof(bool), typeof(ScrollViewer), new PropertyMetadata(false));
 
         /// <summary>
-        /// 控件是否可以穿透点击
+        /// 是否覆盖在内容之上
         /// </summary>
-        public bool IsPenetrating
+        public bool IsOverlayed
         {
-            get => (bool)GetValue(IsPenetratingProperty);
-            set => SetValue(IsPenetratingProperty, value);
-        }
-
-        public static void SetIsPenetrating(DependencyObject element, bool value) => element.SetValue(IsPenetratingProperty, value);
-
-        public static bool GetIsPenetrating(DependencyObject element) => (bool)element.GetValue(IsPenetratingProperty);
-
-        /// <summary>
-        /// 当前垂直滚动偏移
-        /// </summary>
-        internal static readonly DependencyProperty CurrentVerticalOffsetProperty = DependencyProperty.Register("CurrentVerticalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(.0, OnCurrentVerticalOffsetChanged));
-
-        private static void OnCurrentVerticalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (d is ScrollViewer ctl && e.NewValue is double v)
-            {
-                ctl.ScrollToVerticalOffset(v);
-            }
-        }
-
-        /// <summary>
-        /// 当前垂直滚动偏移
-        /// </summary>
-        internal double CurrentVerticalOffset
-        {
-            // ReSharper disable once UnusedMember.Local
-            get => (double)GetValue(CurrentVerticalOffsetProperty);
-            set => SetValue(CurrentVerticalOffsetProperty, value);
-        }
-
-        /// <summary>
-        /// 当前水平滚动偏移
-        /// </summary>
-        internal static readonly DependencyProperty CurrentHorizontalOffsetProperty = DependencyProperty.Register("CurrentHorizontalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(.0, OnCurrentHorizontalOffsetChanged));
-
-        private static void OnCurrentHorizontalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (d is ScrollViewer ctl && e.NewValue is double v)
-            {
-                ctl.ScrollToHorizontalOffset(v);
-            }
-        }
-
-        /// <summary>
-        /// 当前水平滚动偏移
-        /// </summary>
-        internal double CurrentHorizontalOffset
-        {
-            get => (double)GetValue(CurrentHorizontalOffsetProperty);
-            set => SetValue(CurrentHorizontalOffsetProperty, value);
+            get { return (bool)GetValue(IsOverlayedProperty); }
+            set { SetValue(IsOverlayedProperty, value); }
         }
     }
 }

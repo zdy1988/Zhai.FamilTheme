@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 
-namespace Zhai.FamilyContorls
+namespace Zhai.FamilTheme
 {
     public class SwitchToggleButton : ToggleButton
     {

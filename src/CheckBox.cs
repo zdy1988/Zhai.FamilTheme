@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 
-namespace Zhai.FamilyContorls
+namespace Zhai.FamilTheme
 {
     public class CheckBox : System.Windows.Controls.CheckBox
     {

@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Zhai.FamilyContorls.Converters
+namespace Zhai.FamilTheme.Converters
 {
     public class BoolToInverseVisibilityConverter : IValueConverter
     {

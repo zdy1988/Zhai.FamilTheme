@@ -8,9 +8,9 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using Zhai.FamilyContorls.Common;
+using Zhai.FamilTheme.Common;
 
-namespace Zhai.FamilyContorls
+namespace Zhai.FamilTheme
 {
     public class TransparentWindow : Window
     {
@@ -79,6 +79,14 @@ namespace Zhai.FamilyContorls
         {
             get { return (Visibility)GetValue(TitleBarVisibilityProperty); }
             set { SetValue(TitleBarVisibilityProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsTitleBarBackgroundEnabledProperty = DependencyProperty.Register(nameof(IsTitleBarBackgroundEnabled), typeof(bool), typeof(TransparentWindow), new FrameworkPropertyMetadata(true));
+
+        public bool IsTitleBarBackgroundEnabled
+        {
+            get { return (bool)GetValue(IsTitleBarBackgroundEnabledProperty); }
+            set { SetValue(IsTitleBarBackgroundEnabledProperty, value); }
         }
 
         public static readonly DependencyProperty IsTopmostButtonEnabledProperty = DependencyProperty.Register(nameof(IsTopmostButtonEnabled), typeof(bool), typeof(TransparentWindow), new FrameworkPropertyMetadata(false));

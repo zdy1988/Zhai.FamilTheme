@@ -1,9 +1,9 @@
-﻿<ZDY:TransparentWindow x:Class="Zhai.FamilyContorlsDemo.MainWindow"
+﻿<ZDY:TransparentWindow x:Class="Zhai.FamilThemeDemo.MainWindow"
                        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                       xmlns:local="clr-namespace:Zhai.FamilyContorlsDemo"
+                       xmlns:local="clr-namespace:Zhai.FamilThemeDemo"
                        xmlns:ZDY="http://www.zdyla.com/coding"
                        WindowStartupLocation="CenterScreen"
                        IsTopmostButtonEnabled="True"
@@ -12,15 +12,67 @@
                        IsTransparency="False"
                        Theme="Dark"
                        mc:Ignorable="d"
-                       Title="MainWindow" Height="450" Width="800">
+                       Title="ZDY ' FamilTheme" Height="450" Width="800">
     
     <ZDY:TransparentWindow.Resources>
-        <ZDY:BoolToInverseVisibilityConverter x:Key="BoolToInverseVisibilityConverter"/>
-        <ZDY:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+
+
+        <ResourceDictionary>
+            <ZDY:BoolToInverseVisibilityConverter x:Key="BoolToInverseVisibilityConverter"/>
+            <ZDY:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+            <ZDY:VisibilityToBoolConverter x:Key="VisibilityToBoolConverter"/>
+            <ZDY:BoolToOrientationConverter x:Key="BoolToOrientationConverter"/>
+
+            <!--<ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ListView.xaml" />
+            </ResourceDictionary.MergedDictionaries>-->
+        </ResourceDictionary>
     </ZDY:TransparentWindow.Resources>
     
     <Grid>
         <ZDY:TabPanel TabStripPlacement="Left">
+            <ZDY:TabItem Header="ListView">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <ZDY:CheckBox x:Name="ListView_IsInterlaceRowBackgroundEnabled" Margin="0 0 4 0"/>
+                        <TextBlock Text="显示交错背景" Margin="0 0 10 0"/>
+                    </StackPanel>
+                    <UniformGrid Columns="2">
+                        <ZDY:ListView ItemsSource="{Binding Items3}"
+                                      ZDY:GridViewAssist.IsInterlaceRowBackgroundEnabled="{Binding ElementName=ListView_IsInterlaceRowBackgroundEnabled, Path=IsChecked}">
+                            <ZDY:ListView.View>
+                                <ZDY:GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Index}" Header="Index"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Description" />
+                                </ZDY:GridView>
+                            </ZDY:ListView.View>
+                        </ZDY:ListView>
+                        <ZDY:ListView ItemsSource="{Binding Items}"
+                                      ZDY:GridViewAssist.IsInterlaceRowBackgroundEnabled="{Binding ElementName=ListView_IsInterlaceRowBackgroundEnabled, Path=IsChecked}">
+                            <ZDY:ListView.View>
+                                <ZDY:GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Index}" Header="Index"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Description" />
+                                </ZDY:GridView>
+                            </ZDY:ListView.View>
+                        </ZDY:ListView>
+                    </UniformGrid>
+                </DockPanel>
+            </ZDY:TabItem>
+            <ZDY:TabItem Header="ListBox">
+                <UniformGrid Columns="2" Rows="2">
+                    <ZDY:ListBox>
+                        <ListBoxItem Content="123456789"/>
+                        <ListBoxItem Content="123456789"/>
+                        <ListBoxItem Content="123456789"/>
+                    </ZDY:ListBox>
+                    <ZDY:ListBox ItemsSource="{Binding TextLines3}"/>
+                    <ZDY:ListBox ItemsSource="{Binding TextLines}"/>
+                    <ZDY:ListView ItemsSource="{Binding TextLines}"/>
+                </UniformGrid>
+            </ZDY:TabItem>
             <ZDY:TabItem Header="Drawer">
                 <ZDY:Drawer IsLeftDrawerOpen="{Binding ElementName=LeftDrawerSwitch, Path=IsChecked}"
                             IsRightDrawerOpen="{Binding ElementName=RightDrawerSwitch, Path=IsChecked}"
@@ -79,11 +131,8 @@
             </ZDY:TabItem>
             <ZDY:TabItem Header="Slider">
                 <StackPanel Margin="20">
-                    <TextBlock Text="Window Transparency"/>
-                    <ZDY:Slider x:Name="TransparencySlider" Maximum="1" Minimum="0.1" SmallChange="0.01" Value="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=Transparency}"/>
-                    <TextBlock Text="{Binding ElementName=TransparencySlider, Path=Value, StringFormat=N2}"/>
                     <ZDY:Slider x:Name="Slider1" Value="5"/>
-                    <TextBlock Text="{Binding ElementName=Slider1, Path=Value, StringFormat=Slider:{0}}"/>
+                    <TextBlock Text="{Binding ElementName=Slider1, Path=Value, StringFormat=Slider:{0}}" Margin="0 0 0 10"/>
                     <ZDY:Slider2 x:Name="Slider2" Value="5"/>
                     <TextBlock Text="{Binding ElementName=Slider2, Path=Value, StringFormat=Slider2:{0}}"/>
                 </StackPanel>
@@ -111,12 +160,13 @@
             </ZDY:TabItem>
             <ZDY:TabItem Header="ICONS">
                 <ZDY:ScrollViewer>
-                    <ZDY:Repeater x:Name="IconList" Orientation="HorizontalWithWarp" HorizontalAlignment="Center" Margin="0 0 0 40">
+                    <ZDY:Repeater x:Name="IconList" ItemsSource="{Binding IconKinds}"
+                                  Orientation="HorizontalWithWarp" HorizontalAlignment="Center" Margin="0 0 0 40">
                         <ZDY:Repeater.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Width="50" Margin="5" Background="Transparent" ToolTip="{Binding }">
                                     <Border x:Name="Border" Width="50" Height="50" BorderThickness="1">
-                                        <ZDY:IconButton Icon="{Binding }" VerticalAlignment="Center" HorizontalAlignment="Center" Click="IconButton_Click"/>
+                                        <ZDY:CopyButton Icon="{Binding }" Text="{Binding }" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                     </Border>
                                     <TextBlock Text="{Binding }" TextAlignment="Center" Margin="0 4 0 0" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"/>
                                 </StackPanel>
@@ -151,7 +201,16 @@
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <ZDY:ScrollViewer Grid.Column="0" HorizontalScrollBarVisibility="Visible" Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ZDY:ScrollViewer Grid.Column="0" HorizontalScrollBarVisibility="Visible" Margin="20"
+                                      IsInertiaEnabled="{Binding ElementName=ScrollViewer_IsInertiaEnabled, Path=IsChecked}"
+                                      IsMouseWheelEnabled="{Binding ElementName=ScrollViewer_IsMouseWheelEnabled, Path=IsChecked}"
+                                      MouseWheelOrientation="{Binding ElementName=ScrollViewer_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
+                                      IsAutoHideEnabled="{Binding ElementName=ScrollViewer_IsAutoHideEnabled, Path=IsChecked}"
+                                      IsOverlayed="{Binding ElementName=ScrollViewer_IsOverlayed, Path=IsChecked}">
                         <Border Width="1000" Height="1000">
                             <Border.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -162,7 +221,12 @@
                             </Border.Background>
                         </Border>
                     </ZDY:ScrollViewer>
-                    <ZDY:ScrollViewer2 Grid.Column="1" HorizontalScrollBarVisibility="Visible" Margin="20">
+                    <ZDY:ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Visible" Margin="20"
+                                      IsInertiaEnabled="{Binding ElementName=ScrollViewer_IsInertiaEnabled, Path=IsChecked}"
+                                      IsMouseWheelEnabled="{Binding ElementName=ScrollViewer_IsMouseWheelEnabled, Path=IsChecked}"
+                                      MouseWheelOrientation="{Binding ElementName=ScrollViewer_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
+                                      IsAutoHideEnabled="{Binding ElementName=ScrollViewer_IsAutoHideEnabled, Path=IsChecked}"
+                                      IsOverlayed="True">
                         <Border Width="1000" Height="1000">
                             <Border.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -172,8 +236,45 @@
                                 </LinearGradientBrush>
                             </Border.Background>
                         </Border>
-                    </ZDY:ScrollViewer2>
+                    </ZDY:ScrollViewer>
+                    <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="20" HorizontalAlignment="Center">
+                        <ZDY:CheckBox x:Name="ScrollViewer_IsInertiaEnabled" Margin="0 0 4 0"/>
+                        <TextBlock Text="允许惯性" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="ScrollViewer_IsMouseWheelEnabled" Margin="0 0 4 0" IsChecked="True"/>
+                        <TextBlock Text="允许鼠标滚动" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="ScrollViewer_MouseWheelOrientation" Margin="0 0 4 0" IsChecked="True"/>
+                        <TextBlock Text="鼠标垂直方向" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="ScrollViewer_IsAutoHideEnabled" Margin="0 0 4 0" IsChecked="True"/>
+                        <TextBlock Text="自动隐藏" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="ScrollViewer_IsOverlayed" Margin="0 0 4 0"/>
+                        <TextBlock Text="是否覆盖" Margin="0 0 10 0"/>
+                    </StackPanel>
                 </Grid>
+            </ZDY:TabItem>
+            <ZDY:TabItem Header="Window">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=IsTransparencyButtonEnabled}"/>
+                        <TextBlock Text="启用透明按钮" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=IsTopmostButtonEnabled}"/>
+                        <TextBlock Text="启用置顶按钮" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=IsThemeButtonEnabled}"/>
+                        <TextBlock Text="启用皮肤按钮" Margin="0 0 10 0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=IsTransparency}"/>
+                        <TextBlock Text="是否透明" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=IsTitleBarBackgroundEnabled}"/>
+                        <TextBlock Text="是否显示头部背景" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=TitleBarVisibility, Converter={StaticResource VisibilityToBoolConverter}}"/>
+                        <TextBlock Text="是否启用头部" Margin="0 0 10 0"/>
+                    </StackPanel>
+                    <StackPanel Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <TextBlock Text="窗口透明度设置"/>
+                        <ZDY:Slider x:Name="TransparencySlider" Width="200" Maximum="1" Minimum="0.1" SmallChange="0.01" Value="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=Transparency}"/>
+                        <TextBlock Text="{Binding ElementName=TransparencySlider, Path=Value, StringFormat=N2}"/>
+                    </StackPanel>
+                </StackPanel>
             </ZDY:TabItem>
         </ZDY:TabPanel>
     </Grid>

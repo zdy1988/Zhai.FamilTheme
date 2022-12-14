@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Data;
 
-namespace Zhai.FamilyContorls.Converters
+namespace Zhai.FamilTheme.Converters
 {
     public class BoolToInverseBoolConverter : IValueConverter
     {

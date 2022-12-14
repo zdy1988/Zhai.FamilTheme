@@ -4,9 +4,9 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Zhai.FamilyContorls
+namespace Zhai.FamilTheme
 {
-    public class Repeater : ItemsControl
+    public class Repeater : ListBox
     {
         static Repeater()
         {
