@@ -8,6 +8,9 @@ namespace Zhai.FamilTheme
 {
     public static class GridViewAssist
     {
+        /// <summary>
+        /// 显示交错行
+        /// </summary>
         public static readonly DependencyProperty IsInterlaceRowBackgroundEnabledProperty = DependencyProperty.RegisterAttached("IsInterlaceRowBackgroundEnabled", typeof(bool), typeof(GridViewAssist), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
         public static void SetIsInterlaceRowBackgroundEnabled(DataGrid element, bool value)
         {
@@ -19,11 +22,17 @@ namespace Zhai.FamilTheme
         }
 
 
+        /// <summary>
+        /// 列头PADDING
+        /// </summary>
         public static readonly DependencyProperty ColumnHeaderPaddingProperty = DependencyProperty.RegisterAttached("ColumnHeaderPadding", typeof(Thickness), typeof(GridViewAssist), new FrameworkPropertyMetadata(new Thickness(13, 12, 0, 12), FrameworkPropertyMetadataOptions.Inherits));
         public static Thickness GetColumnHeaderPadding(DataGrid element) => (Thickness)element.GetValue(ColumnHeaderPaddingProperty);
         public static void SetColumnHeaderPadding(DependencyObject element, Thickness value) => element.SetValue(ColumnHeaderPaddingProperty, value);
 
 
+        /// <summary>
+        /// 行PADDING
+        /// </summary>
         public static readonly DependencyProperty ItemPaddingProperty = DependencyProperty.RegisterAttached("ItemPadding", typeof(Thickness), typeof(GridViewAssist), new FrameworkPropertyMetadata(new Thickness(8, 8, 8, 8), FrameworkPropertyMetadataOptions.Inherits));
         public static void SetItemPadding(DependencyObject element, Thickness value)
         {

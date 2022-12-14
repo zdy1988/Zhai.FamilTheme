@@ -37,9 +37,26 @@
                         <ZDY:CheckBox x:Name="ListView_IsInterlaceRowBackgroundEnabled" Margin="0 0 4 0"/>
                         <TextBlock Text="显示交错背景" Margin="0 0 10 0"/>
                     </StackPanel>
+                    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="20 20 20 0" HorizontalAlignment="Center">
+                        <ZDY:CheckBox x:Name="ListView_IsInertiaEnabled" Margin="0 0 4 0"/>
+                        <TextBlock Text="允许惯性" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="ListView_IsMouseWheelEnabled" Margin="0 0 4 0" IsChecked="True"/>
+                        <TextBlock Text="允许鼠标滚动" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="ListView_MouseWheelOrientation" Margin="0 0 4 0" IsChecked="True"/>
+                        <TextBlock Text="鼠标垂直方向" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="ListView_IsAutoHideEnabled" Margin="0 0 4 0" IsChecked="True"/>
+                        <TextBlock Text="自动隐藏" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="ListView_IsOverlayed" Margin="0 0 4 0"/>
+                        <TextBlock Text="是否覆盖" Margin="0 0 10 0"/>
+                    </StackPanel>
                     <UniformGrid Columns="2">
                         <ZDY:ListView ItemsSource="{Binding Items3}"
-                                      ZDY:GridViewAssist.IsInterlaceRowBackgroundEnabled="{Binding ElementName=ListView_IsInterlaceRowBackgroundEnabled, Path=IsChecked}">
+                                      ZDY:GridViewAssist.IsInterlaceRowBackgroundEnabled="{Binding ElementName=ListView_IsInterlaceRowBackgroundEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.IsInertiaEnabled="{Binding ElementName=ListView_IsInertiaEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.IsMouseWheelEnabled="{Binding ElementName=ListView_IsMouseWheelEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.MouseWheelOrientation="{Binding ElementName=ListView_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
+                                      ZDY:ScrollViewerAssist.IsAutoHideEnabled="{Binding ElementName=ListView_IsAutoHideEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.IsOverlayed="{Binding ElementName=ListView_IsOverlayed, Path=IsChecked}">
                             <ZDY:ListView.View>
                                 <ZDY:GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding Index}" Header="Index"/>
@@ -49,7 +66,12 @@
                             </ZDY:ListView.View>
                         </ZDY:ListView>
                         <ZDY:ListView ItemsSource="{Binding Items}"
-                                      ZDY:GridViewAssist.IsInterlaceRowBackgroundEnabled="{Binding ElementName=ListView_IsInterlaceRowBackgroundEnabled, Path=IsChecked}">
+                                      ZDY:GridViewAssist.IsInterlaceRowBackgroundEnabled="{Binding ElementName=ListView_IsInterlaceRowBackgroundEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.IsInertiaEnabled="{Binding ElementName=ListView_IsInertiaEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.IsMouseWheelEnabled="{Binding ElementName=ListView_IsMouseWheelEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.MouseWheelOrientation="{Binding ElementName=ListView_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
+                                      ZDY:ScrollViewerAssist.IsAutoHideEnabled="{Binding ElementName=ListView_IsAutoHideEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.IsOverlayed="{Binding ElementName=ListView_IsOverlayed, Path=IsChecked}">
                             <ZDY:ListView.View>
                                 <ZDY:GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding Index}" Header="Index"/>
@@ -62,16 +84,40 @@
                 </DockPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="ListBox">
-                <UniformGrid Columns="2" Rows="2">
-                    <ZDY:ListBox>
-                        <ListBoxItem Content="123456789"/>
-                        <ListBoxItem Content="123456789"/>
-                        <ListBoxItem Content="123456789"/>
-                    </ZDY:ListBox>
-                    <ZDY:ListBox ItemsSource="{Binding TextLines3}"/>
-                    <ZDY:ListBox ItemsSource="{Binding TextLines}"/>
-                    <ZDY:ListView ItemsSource="{Binding TextLines}"/>
-                </UniformGrid>
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="20" HorizontalAlignment="Center">
+                        <ZDY:CheckBox x:Name="ListBox_IsInertiaEnabled" Margin="0 0 4 0"/>
+                        <TextBlock Text="允许惯性" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="ListBox_IsMouseWheelEnabled" Margin="0 0 4 0" IsChecked="True"/>
+                        <TextBlock Text="允许鼠标滚动" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="ListBox_MouseWheelOrientation" Margin="0 0 4 0" IsChecked="True"/>
+                        <TextBlock Text="鼠标垂直方向" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="ListBox_IsAutoHideEnabled" Margin="0 0 4 0" IsChecked="True"/>
+                        <TextBlock Text="自动隐藏" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="ListBox_IsOverlayed" Margin="0 0 4 0"/>
+                        <TextBlock Text="是否覆盖" Margin="0 0 10 0"/>
+                    </StackPanel>
+                    <UniformGrid Columns="2" Rows="2">
+                        <ZDY:ListBox x:Name="ListBox1">
+                            <ListBoxItem Content="123456789"/>
+                            <ListBoxItem Content="123456789"/>
+                            <ListBoxItem Content="123456789"/>
+                        </ZDY:ListBox>
+                        <ZDY:ListBox x:Name="ListBox2" ItemsSource="{Binding TextLines3}"/>
+                        <ZDY:ListBox x:Name="ListBox3" ItemsSource="{Binding TextLines}"
+                                     ZDY:ScrollViewerAssist.IsInertiaEnabled="{Binding ElementName=ListBox_IsInertiaEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.IsMouseWheelEnabled="{Binding ElementName=ListBox_IsMouseWheelEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.MouseWheelOrientation="{Binding ElementName=ListBox_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
+                                      ZDY:ScrollViewerAssist.IsAutoHideEnabled="{Binding ElementName=ListBox_IsAutoHideEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.IsOverlayed="{Binding ElementName=ListBox_IsOverlayed, Path=IsChecked}"/>
+                        <ZDY:ListView x:Name="ListBox4" ItemsSource="{Binding TextLines}"
+                                      ZDY:ScrollViewerAssist.IsInertiaEnabled="{Binding ElementName=ListBox_IsInertiaEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.IsMouseWheelEnabled="{Binding ElementName=ListBox_IsMouseWheelEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.MouseWheelOrientation="{Binding ElementName=ListBox_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
+                                      ZDY:ScrollViewerAssist.IsAutoHideEnabled="{Binding ElementName=ListBox_IsAutoHideEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.IsOverlayed="{Binding ElementName=ListBox_IsOverlayed, Path=IsChecked}"/>
+                    </UniformGrid>
+                </DockPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="Drawer">
                 <ZDY:Drawer IsLeftDrawerOpen="{Binding ElementName=LeftDrawerSwitch, Path=IsChecked}"
@@ -206,11 +252,11 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <ZDY:ScrollViewer Grid.Column="0" HorizontalScrollBarVisibility="Visible" Margin="20"
-                                      IsInertiaEnabled="{Binding ElementName=ScrollViewer_IsInertiaEnabled, Path=IsChecked}"
-                                      IsMouseWheelEnabled="{Binding ElementName=ScrollViewer_IsMouseWheelEnabled, Path=IsChecked}"
-                                      MouseWheelOrientation="{Binding ElementName=ScrollViewer_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
-                                      IsAutoHideEnabled="{Binding ElementName=ScrollViewer_IsAutoHideEnabled, Path=IsChecked}"
-                                      IsOverlayed="{Binding ElementName=ScrollViewer_IsOverlayed, Path=IsChecked}">
+                                      ZDY:ScrollViewerAssist.IsInertiaEnabled="{Binding ElementName=ScrollViewer_IsInertiaEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.IsMouseWheelEnabled="{Binding ElementName=ScrollViewer_IsMouseWheelEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.MouseWheelOrientation="{Binding ElementName=ScrollViewer_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
+                                      ZDY:ScrollViewerAssist.IsAutoHideEnabled="{Binding ElementName=ScrollViewer_IsAutoHideEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.IsOverlayed="{Binding ElementName=ScrollViewer_IsOverlayed, Path=IsChecked}">
                         <Border Width="1000" Height="1000">
                             <Border.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -222,11 +268,11 @@
                         </Border>
                     </ZDY:ScrollViewer>
                     <ZDY:ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Visible" Margin="20"
-                                      IsInertiaEnabled="{Binding ElementName=ScrollViewer_IsInertiaEnabled, Path=IsChecked}"
-                                      IsMouseWheelEnabled="{Binding ElementName=ScrollViewer_IsMouseWheelEnabled, Path=IsChecked}"
-                                      MouseWheelOrientation="{Binding ElementName=ScrollViewer_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
-                                      IsAutoHideEnabled="{Binding ElementName=ScrollViewer_IsAutoHideEnabled, Path=IsChecked}"
-                                      IsOverlayed="True">
+                                      ZDY:ScrollViewerAssist.IsInertiaEnabled="{Binding ElementName=ScrollViewer_IsInertiaEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.IsMouseWheelEnabled="{Binding ElementName=ScrollViewer_IsMouseWheelEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.MouseWheelOrientation="{Binding ElementName=ScrollViewer_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
+                                      ZDY:ScrollViewerAssist.IsAutoHideEnabled="{Binding ElementName=ScrollViewer_IsAutoHideEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerAssist.IsOverlayed="True">
                         <Border Width="1000" Height="1000">
                             <Border.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">

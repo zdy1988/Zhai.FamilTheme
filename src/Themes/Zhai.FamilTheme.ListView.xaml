@@ -91,7 +91,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type ScrollViewer}" x:Key="Zhai.FamilTheme.GridView.ScrollViewer">
+    <Style TargetType="{x:Type local:ScrollViewer}" x:Key="Zhai.FamilTheme.GridView.ScrollViewer">
         <Setter Property="CanContentScroll" Value="True"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -111,7 +111,7 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
-                        <DockPanel Margin="{TemplateBinding Padding}">
+                        <DockPanel x:Name="PART_ScrollContent" Margin="{TemplateBinding Padding}">
                             <local:ScrollViewer DockPanel.Dock="Top"
                                           Focusable="false"
                                           HorizontalScrollBarVisibility="Hidden"
@@ -159,6 +159,54 @@
                                    Style="{StaticResource Zhai.FamilTheme.ScrollBar.HorizontalScrollBar}"
                                    Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"/>
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="local:ScrollViewerAssist.IsOverlayed" Value="True">
+                            <Setter TargetName="PART_ScrollContent" Property="Grid.RowSpan" Value="2"/>
+                            <Setter TargetName="PART_ScrollContent" Property="Grid.ColumnSpan" Value="2"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ComputedVerticalScrollBarVisibility" Value="Visible" />
+                                <Condition Property="local:ScrollViewerAssist.IsAutoHideEnabled" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="PART_VerticalScrollBar" Storyboard.TargetProperty="(UIElement.Opacity)" From="0.6" To="0.0" Duration="0:0:0.1" BeginTime="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="PART_VerticalScrollBar" Storyboard.TargetProperty="(UIElement.Opacity)" From="0" To="0.6" Duration="0:0:0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ComputedHorizontalScrollBarVisibility" Value="Visible" />
+                                <Condition Property="local:ScrollViewerAssist.IsAutoHideEnabled" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="PART_HorizontalScrollBar" Storyboard.TargetProperty="(UIElement.Opacity)" From="0.6" To="0.0" Duration="0:0:0.1" BeginTime="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="PART_HorizontalScrollBar" Storyboard.TargetProperty="(UIElement.Opacity)" From="0" To="0.6" Duration="0:0:0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -240,9 +288,9 @@
         </Converters:ListViewTemplateConverter.DefaultValue>
         <Converters:ListViewTemplateConverter.ViewValue>
             <ControlTemplate TargetType="{x:Type local:ListView}">
-                <ScrollViewer Style="{StaticResource Zhai.FamilTheme.GridView.ScrollViewer}">
+                <local:ScrollViewer Style="{StaticResource Zhai.FamilTheme.GridView.ScrollViewer}">
                     <ItemsPresenter />
-                </ScrollViewer>
+                </local:ScrollViewer>
                 <ControlTemplate.Triggers>
                     <Trigger Property="IsGrouping" Value="True">
                         <Setter Property="ScrollViewer.CanContentScroll" Value="False" />

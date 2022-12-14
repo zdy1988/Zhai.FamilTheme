@@ -14,39 +14,6 @@ namespace Zhai.FamilTheme
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ScrollViewer), new FrameworkPropertyMetadata(typeof(ScrollViewer)));
         }
 
-        private double totalVerticalOffset;
-
-        private double totalHorizontalOffset;
-
-        private bool isRunning;
-
-        /// <summary>
-        /// 是否支持惯性
-        /// </summary>
-        public static readonly DependencyProperty IsInertiaEnabledProperty = DependencyProperty.Register(nameof(IsInertiaEnabled), typeof(bool), typeof(ScrollViewer), new PropertyMetadata(false));
-
-        public bool IsInertiaEnabled
-        {
-            get => (bool)GetValue(IsInertiaEnabledProperty);
-            set => SetValue(IsInertiaEnabledProperty, value);
-        }
-
-        /// <summary>
-        /// 控件是否可以穿透点击
-        /// </summary>
-        public static readonly DependencyProperty IsPenetratingProperty = DependencyProperty.RegisterAttached(nameof(IsPenetrating), typeof(bool), typeof(ScrollViewer), new PropertyMetadata(false));
-
-        public bool IsPenetrating
-        {
-            get => (bool)GetValue(IsPenetratingProperty);
-            set => SetValue(IsPenetratingProperty, value);
-        }
-
-        protected override HitTestResult HitTestCore(PointHitTestParameters hitTestParameters)
-        {
-            return IsPenetrating ? null : base.HitTestCore(hitTestParameters);
-        }
-
         /// <summary>
         /// 当前垂直滚动偏移
         /// </summary>
@@ -86,35 +53,20 @@ namespace Zhai.FamilTheme
             }
         }
 
-        /// <summary>
-        /// 滚动方向
-        /// </summary>
-        public static readonly DependencyProperty MouseWheelOrientationProperty = DependencyProperty.Register(nameof(MouseWheelOrientation), typeof(Orientation), typeof(ScrollViewer), new PropertyMetadata(Orientation.Vertical));
 
-        public Orientation MouseWheelOrientation
-        {
-            get => (Orientation)GetValue(MouseWheelOrientationProperty);
-            set => SetValue(MouseWheelOrientationProperty, value);
-        }
+        private double totalVerticalOffset;
 
-        /// <summary>
-        /// 是否响应鼠标滚轮操作
-        /// </summary>
-        public static readonly DependencyProperty IsMouseWheelEnabledProperty = DependencyProperty.Register(nameof(IsMouseWheelEnabled), typeof(bool), typeof(ScrollViewer), new PropertyMetadata(true));
+        private double totalHorizontalOffset;
 
-        public bool IsMouseWheelEnabled
-        {
-            get => (bool)GetValue(IsMouseWheelEnabledProperty);
-            set => SetValue(IsMouseWheelEnabledProperty, value);
-        }
+        private bool isRunning;
 
         protected override void OnMouseWheel(MouseWheelEventArgs e)
         {
-            if (!IsMouseWheelEnabled) return;
+            if (!ScrollViewerAssist.GetIsMouseWheelEnabled(this)) return;
 
-            if (!IsInertiaEnabled)
+            if (!ScrollViewerAssist.GetIsInertiaEnabled(this))
             {
-                if (MouseWheelOrientation == Orientation.Vertical)
+                if (ScrollViewerAssist.GetMouseWheelOrientation(this) == Orientation.Vertical)
                 {
                     base.OnMouseWheel(e);
                 }
@@ -129,7 +81,7 @@ namespace Zhai.FamilTheme
             }
             e.Handled = true;
 
-            if (MouseWheelOrientation == Orientation.Vertical)
+            if (ScrollViewerAssist.GetMouseWheelOrientation(this) == Orientation.Vertical)
             {
                 if (!isRunning)
                 {
@@ -195,29 +147,10 @@ namespace Zhai.FamilTheme
             BeginAnimation(CurrentHorizontalOffsetProperty, animation, HandoffBehavior.Compose);
         }
 
-        /// <summary>
-        /// 是否自动隐藏滚动条
-        /// </summary>
-        public static readonly DependencyProperty IsAutoHideEnabledProperty = DependencyProperty.Register(nameof(IsAutoHideEnabled), typeof(bool), typeof(ScrollViewer), new PropertyMetadata(true));
 
-        public bool IsAutoHideEnabled
+        protected override HitTestResult HitTestCore(PointHitTestParameters hitTestParameters)
         {
-            get => (bool)GetValue(IsAutoHideEnabledProperty);
-            set => SetValue(IsAutoHideEnabledProperty, value);
-        }
-
-        /// <summary>
-        /// 是否覆盖在内容之上
-        /// </summary>
-        public static readonly DependencyProperty IsOverlayedProperty = DependencyProperty.Register(nameof(IsOverlayed), typeof(bool), typeof(ScrollViewer), new PropertyMetadata(false));
-
-        /// <summary>
-        /// 是否覆盖在内容之上
-        /// </summary>
-        public bool IsOverlayed
-        {
-            get { return (bool)GetValue(IsOverlayedProperty); }
-            set { SetValue(IsOverlayedProperty, value); }
+            return ScrollViewerAssist.GetIsPenetrating(this) ? null : base.HitTestCore(hitTestParameters);
         }
     }
 }
