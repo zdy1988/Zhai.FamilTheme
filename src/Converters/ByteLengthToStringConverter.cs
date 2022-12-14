@@ -6,62 +6,49 @@ namespace Zhai.FamilTheme.Converters
 {
     public class ByteLengthToStringConverter : IValueConverter
     {
-        /// <summary>
-        /// Converts the specified value.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <param name="targetType">Type of the target.</param>
-        /// <param name="format">The format.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>The converted value</returns>
-        public object Convert(object value, Type targetType, object format, CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            const double minKiloByte = 1024;
-            const double minMegaByte = 1024 * 1024;
-            const double minGigaByte = 1024 * 1024 * 1024;
-
-            var byteCount = System.Convert.ToDouble(value);
-
-            var suffix = "B";
-            var output = 0d;
-
-            if (byteCount >= minKiloByte)
+            if (value is long size)
             {
-                suffix = "KB";
-                output = Math.Round(byteCount / minKiloByte, 2);
+                return ConvertFileSize(size);
             }
-
-            if (byteCount >= minMegaByte)
+            else
             {
-                suffix = "MB";
-                output = Math.Round(byteCount / minMegaByte, 2);
+                return "0B";
             }
-
-            if (byteCount >= minGigaByte)
-            {
-                suffix = "GB";
-                output = Math.Round(byteCount / minGigaByte, 2);
-            }
-
-            if (suffix == "B")
-                return $"{output:0} {suffix}";
-
-            return $"{output:0.00} {suffix}";
         }
 
-        /// <summary>
-        /// Converts the back.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <param name="targetType">Type of the target.</param>
-        /// <param name="parameter">The parameter.</param>
-        /// <param name="culture">The culture.</param>
-        /// <returns>
-        /// A converted value. If the method returns null, the valid null value is used.
-        /// </returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
+        }
+
+        public static string ConvertFileSize(long size)
+        {
+            string outFileSize;
+
+            if (size < 1024L)
+            {
+                outFileSize = String.Format("{0}B", size);
+            }
+            else if (size < 1024L * 1024L)
+            {
+                outFileSize = String.Format("{0}KB", size / 1024L);
+            }
+            else if (size < 1024L * 1024L * 1024L)
+            {
+                outFileSize = String.Format("{0}MB", size / (1024L * 1024L));
+            }
+            else if (size < 1024L * 1024L * 1024L * 1024L)
+            {
+                outFileSize = String.Format("{0}GB", size / (1024L * 1024L * 1024L));
+            }
+            else
+            {
+                outFileSize = String.Format("{0}TB", size / (1024L * 1024L * 1024L * 1024L));
+            }
+
+            return outFileSize;
         }
     }
 }
