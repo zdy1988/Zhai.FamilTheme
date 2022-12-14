@@ -278,6 +278,4 @@
 
     <Style TargetType="{x:Type local:ListView}" BasedOn="{StaticResource Zhai.FamilTheme.ListView}"/>
 
-    <Style x:Key="Zhai.FamilTheme.GridViewStyleKey" TargetType="{x:Type ListView}" BasedOn="{StaticResource Zhai.FamilTheme.ListView}"/>
-
 </ResourceDictionary>
