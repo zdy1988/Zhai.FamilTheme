@@ -34,5 +34,10 @@ namespace Zhai.FamilThemeDemo
         {
             this.ViewModel.HintText = $"time:{DateTime.Now}";
         }
+
+        private void ListBox_DataChange_Click(object sender, RoutedEventArgs e)
+        {
+            this.ViewModel.ListLines = this.ViewModel.ListLines.Count() == 3 ? ViewModel.TextLines : ViewModel.TextLines3;
+        }
     }
 }

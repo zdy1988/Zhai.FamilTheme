@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using Zhai.FamilTheme.Common;
 
 namespace Zhai.FamilTheme
 {
@@ -54,5 +56,40 @@ namespace Zhai.FamilTheme
         public static readonly DependencyProperty IsOverlayedProperty = DependencyProperty.RegisterAttached("IsOverlayed", typeof(bool), typeof(ScrollViewerExtension), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
         public static void SetIsOverlayed(DependencyObject element, bool value) => element.SetValue(IsOverlayedProperty, value);
         public static bool GetIsOverlayed(DependencyObject element) => (bool)element.GetValue(IsOverlayedProperty);
+
+
+        /// <summary>
+        /// 监看垂直滚动条是否显示
+        /// </summary>
+        private static readonly DependencyPropertyKey IsVerticalScrollBarVisibledPropertyKey = DependencyProperty.RegisterAttachedReadOnly("IsVerticalScrollBarVisibled", typeof(bool), typeof(ScrollViewerExtension), new PropertyMetadata(false));
+        public static readonly DependencyProperty IsVerticalScrollBarVisibledProperty = IsVerticalScrollBarVisibledPropertyKey.DependencyProperty;
+        private static void SetIsVerticalScrollBarVisibled(DependencyObject element, bool value) => element.SetValue(IsVerticalScrollBarVisibledPropertyKey, value);
+        public static bool GetIsVerticalScrollBarVisibled(DependencyObject element) => (bool)element.GetValue(IsVerticalScrollBarVisibledProperty);
+
+
+        /// <summary>
+        /// 监看水平滚动条是否显示
+        /// </summary>
+        private static readonly DependencyPropertyKey IsHorizontalScrollBarVisibledPropertyKey = DependencyProperty.RegisterAttachedReadOnly("IsHorizontalScrollBarVisibled", typeof(bool), typeof(ScrollViewerExtension), new PropertyMetadata(false));
+        public static readonly DependencyProperty IsHorizontalScrollBarVisibledProperty = IsHorizontalScrollBarVisibledPropertyKey.DependencyProperty;
+        private static void SetIsHorizontalScrollBarVisibled(DependencyObject element, bool value) => element.SetValue(IsHorizontalScrollBarVisibledPropertyKey, value);
+        public static bool GetIsHorizontalScrollBarVisibled(DependencyObject element) => (bool)element.GetValue(IsHorizontalScrollBarVisibledProperty);
+
+        /// <summary>
+        /// 同步滚动条显示状态
+        /// </summary>
+        internal static void SyncScrollBarVisibled(FrameworkElement element)
+        {
+            var scrollViewer = element.FindChild<ScrollViewer>("PART_ScrollViewer");
+
+            if (scrollViewer != null)
+            {
+                DependencyPropertyDescriptor.FromProperty(ScrollViewer.ComputedVerticalScrollBarVisibilityProperty, typeof(ScrollViewer))
+                    .AddValueChanged(scrollViewer, (o, args) => SetIsVerticalScrollBarVisibled(element, scrollViewer.ComputedVerticalScrollBarVisibility == Visibility.Visible));
+
+                DependencyPropertyDescriptor.FromProperty(ScrollViewer.ComputedHorizontalScrollBarVisibilityProperty, typeof(ScrollViewer))
+                    .AddValueChanged(scrollViewer, (o, args) => SetIsHorizontalScrollBarVisibled(element, scrollViewer.ComputedHorizontalScrollBarVisibility == Visibility.Visible));
+            }
+        }
     }
 }

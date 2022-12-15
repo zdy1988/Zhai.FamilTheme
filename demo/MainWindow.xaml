@@ -185,6 +185,23 @@
                         <TextBlock Text="自动隐藏" Margin="0 0 10 0"/>
                         <ZDY:CheckBox x:Name="ListBox_IsOverlayed" Margin="0 0 4 0"/>
                         <TextBlock Text="是否覆盖" Margin="0 0 10 0"/>
+                        <ZDY:Button Margin="20 -8" x:Name="ListBox_DataChange" Click="ListBox_DataChange_Click">改变数据</ZDY:Button>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="20 20 20 0" HorizontalAlignment="Center">
+                        <TextBlock Text="ListBox3   "/>
+                        <TextBlock Text="垂直滚动条："/>
+                        <TextBlock Text="{Binding ElementName=ListBox3, Path=(ZDY:ScrollViewerExtension.IsVerticalScrollBarVisibled)}"/>
+                        <TextBlock Text="    "/>
+                        <TextBlock Text="水平滚动条："/>
+                        <TextBlock Text="{Binding ElementName=ListBox3, Path=(ZDY:ScrollViewerExtension.IsHorizontalScrollBarVisibled)}"/>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="20 20 20 0" HorizontalAlignment="Center">
+                        <TextBlock Text="ListBox4   "/>
+                        <TextBlock Text="垂直滚动条："/>
+                        <TextBlock Text="{Binding ElementName=ListBox4, Path=(ZDY:ScrollViewerExtension.IsVerticalScrollBarVisibled)}"/>
+                        <TextBlock Text="    "/>
+                        <TextBlock Text="水平滚动条："/>
+                        <TextBlock Text="{Binding ElementName=ListBox4, Path=(ZDY:ScrollViewerExtension.IsHorizontalScrollBarVisibled)}"/>
                     </StackPanel>
                     <UniformGrid Columns="2" Rows="2">
                         <ZDY:ListBox x:Name="ListBox1">
@@ -193,13 +210,13 @@
                             <ListBoxItem Content="123456789"/>
                         </ZDY:ListBox>
                         <ZDY:ListBox x:Name="ListBox2" ItemsSource="{Binding TextLines3}"/>
-                        <ZDY:ListBox x:Name="ListBox3" ItemsSource="{Binding TextLines}"
+                        <ZDY:ListBox x:Name="ListBox3" ItemsSource="{Binding ListLines}"
                                      ZDY:ScrollViewerExtension.IsInertiaEnabled="{Binding ElementName=ListBox_IsInertiaEnabled, Path=IsChecked}"
                                       ZDY:ScrollViewerExtension.IsMouseWheelEnabled="{Binding ElementName=ListBox_IsMouseWheelEnabled, Path=IsChecked}"
                                       ZDY:ScrollViewerExtension.MouseWheelOrientation="{Binding ElementName=ListBox_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
                                       ZDY:ScrollViewerExtension.IsAutoHideEnabled="{Binding ElementName=ListBox_IsAutoHideEnabled, Path=IsChecked}"
                                       ZDY:ScrollViewerExtension.IsOverlayed="{Binding ElementName=ListBox_IsOverlayed, Path=IsChecked}"/>
-                        <ZDY:ListView x:Name="ListBox4" ItemsSource="{Binding TextLines}"
+                        <ZDY:ListView x:Name="ListBox4" ItemsSource="{Binding ListLines}" ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                       ZDY:ScrollViewerExtension.IsInertiaEnabled="{Binding ElementName=ListBox_IsInertiaEnabled, Path=IsChecked}"
                                       ZDY:ScrollViewerExtension.IsMouseWheelEnabled="{Binding ElementName=ListBox_IsMouseWheelEnabled, Path=IsChecked}"
                                       ZDY:ScrollViewerExtension.MouseWheelOrientation="{Binding ElementName=ListBox_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"

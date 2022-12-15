@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -16,11 +17,11 @@ namespace Zhai.FamilThemeDemo
         public IEnumerable<IconKind> IconKinds => Enum.GetValues<IconKind>();
 
         public IEnumerable<String> TextLines => new String[] {
-            "Lorem ipsum dolor sit amet, maecenas imperdiet, nullam lacus.",
             "Egestas adipiscing est.",
             "Nulla wisi varius, tincidunt etiam.",
             "Sociis sit, ut imperdiet.",
             "Cras curabitur vivamus.",
+            "Lorem ipsum dolor sit amet, maecenas imperdiet, nullam lacus.",
             "Pretium wisi wisi, morbi tellus nulla.",
             "Consectetuer quam, at in.",
             "Fringilla vestibulum lacinia, morbi vitae sapien, eget porta.",
@@ -51,6 +52,18 @@ namespace Zhai.FamilThemeDemo
         {
             get => hintText;
             set => SetProperty(ref hintText, value);
+        }
+
+        private IEnumerable<String> listLines;
+        public IEnumerable<String> ListLines
+        {
+            get => listLines;
+            set => SetProperty(ref listLines, value);
+        }
+
+        public MainWindowViewModel()
+        {
+            ListLines = TextLines;
         }
     }
 
