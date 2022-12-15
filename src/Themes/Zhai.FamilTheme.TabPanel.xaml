@@ -64,7 +64,7 @@
                         </Storyboard>
                     </ControlTemplate.Resources>
                     <Grid x:Name="Root">
-                        <Border x:Name="ColorZoneHeader" Padding="{TemplateBinding Padding}"
+                        <Border x:Name="ColorZoneHeader" Padding="{TemplateBinding Padding}" Background="Transparent"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Focusable="False">

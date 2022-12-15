@@ -3,6 +3,7 @@
                     xmlns:local="clr-namespace:Zhai.FamilTheme">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Brushes.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ButtonBase.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
@@ -78,7 +79,7 @@
                                              Fill="{TemplateBinding Foreground}" Stroke="{x:Null}" 
                                              HorizontalAlignment="Center" VerticalAlignment="Center"
                                              Width="21" Height="21"
-                                             Margin="0,0,0,0" Opacity="0.72"
+                                             Margin="0,0,0,0" Opacity="{StaticResource Zhai.FamilTheme.ForegroundOpacity}"
                                              RenderTransformOrigin="0.5,0.5">
                                     </Ellipse>
                                 </AdornerDecorator>

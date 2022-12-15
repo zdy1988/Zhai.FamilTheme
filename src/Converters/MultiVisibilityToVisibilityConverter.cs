@@ -7,7 +7,7 @@ using System.Windows.Markup;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class MultiVisibilityToVisibilityConverter : MarkupExtension, IMultiValueConverter
+    public class MultiVisibilityToVisibilityConverter : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter,
             CultureInfo culture)
@@ -29,17 +29,9 @@ namespace Zhai.FamilTheme.Converters
             return visible ? Visibility.Visible : Visibility.Collapsed;
         }
 
-        public object[] ConvertBack(object value,
-            Type[] targetTypes,
-            object parameter,
-            CultureInfo culture)
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotSupportedException();
         }
-
-        private MultiVisibilityToVisibilityConverter _instance;
-
-        public override object ProvideValue(IServiceProvider serviceProvider)
-            => _instance ?? (_instance = new MultiVisibilityToVisibilityConverter());
     }
 }

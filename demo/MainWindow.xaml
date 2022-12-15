@@ -23,6 +23,53 @@
     
     <Grid>
         <ZDY:TabPanel TabStripPlacement="Left">
+            <ZDY:TabItem Header="ProgressBar">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type ZDY:ProgressBar}">
+                            <Setter Property="Margin" Value="10"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <WrapPanel Orientation="Horizontal">
+                        <ZDY:ProgressBar Width="240" Height="24" Minimum="0" Maximum="100" Value="25" Content="Progress bar with content"/>
+                        <ZDY:ProgressBar Width="240" Height="24" IsIndeterminate="True" Content="Progress bar with content"/>
+                    </WrapPanel>
+                    <WrapPanel Orientation="Horizontal" >
+                        <ZDY:ProgressBar Width="240" Height="16" Minimum="0"  Maximum="100"  Value="50" />
+                        <ZDY:ProgressBar Width="240" Height="16" IsIndeterminate="True"/>
+                    </WrapPanel>
+                    <WrapPanel Orientation="Horizontal">
+                        <ZDY:ProgressBar Width="240" Height="8" Minimum="0" Maximum="100" Value="75" BorderThickness="2" BorderBrush="Red"/>
+                        <ZDY:ProgressBar Width="240" Height="8" IsIndeterminate="True" BorderThickness="2" BorderBrush="Red"/>
+                    </WrapPanel>
+                    <WrapPanel Orientation="Horizontal">
+                        <ZDY:ProgressBar Width="240" Height="4" Minimum="0" Maximum="100" Value="100" BorderThickness="0" CornerRadius="2"/>
+                        <ZDY:ProgressBar Width="240" Height="4" IsIndeterminate="True" BorderThickness="0" CornerRadius="2"/>
+                    </WrapPanel>
+                    <WrapPanel Orientation="Horizontal">
+                        <ZDY:ProgressBar Width="240" Height="24" Minimum="0"  Maximum="100" Value="66" BorderThickness="0"
+                                         Foreground="HotPink" Content="Progress bar with content"
+                                         ContentForeground="MediumVioletRed"
+                                         ProgressAnimationForeground="White"
+                                         IsProgressAnimationEnabled="False">
+                            <ProgressBar.Background>
+                                <SolidColorBrush Color="MediumVioletRed" Opacity="0.3"/>
+                            </ProgressBar.Background>
+                        </ZDY:ProgressBar>
+                        <ZDY:ProgressBar Width="240" Height="24" IsIndeterminate="True" BorderThickness="0"
+                                         Foreground="HotPink"
+                                         Content="Progress bar with content"
+                                         ContentForeground="MediumVioletRed"
+                                         ProgressAnimationForeground="White"
+                                         IsProgressAnimationEnabled="False">
+                            <ProgressBar.Background>
+                                <SolidColorBrush Color="MediumVioletRed" Opacity="0.3"/>
+                            </ProgressBar.Background>
+                        </ZDY:ProgressBar>
+
+                    </WrapPanel>
+                </StackPanel>
+            </ZDY:TabItem>
             <ZDY:TabItem Header="Loading">
                 <StackPanel Margin="20" HorizontalAlignment="Left">
                     <ZDY:Loading/>
@@ -77,13 +124,13 @@
                     <UniformGrid Columns="2">
                         <UniformGrid.Resources>
                             <Style TargetType="{x:Type ZDY:ListView}">
-                                <Setter Property="ZDY:GridViewAssist.IsInterlaceRowBackgroundEnabled" Value="{Binding ElementName=ListView_IsInterlaceRowBackgroundEnabled, Path=IsChecked}"/>
-                                <Setter Property="ZDY:GridViewAssist.IsSortEnabled" Value="{Binding ElementName=ListView_IsSortEnabled, Path=IsChecked}"/>
-                                <Setter Property="ZDY:ScrollViewerAssist.IsInertiaEnabled" Value="{Binding ElementName=ListView_IsInertiaEnabled, Path=IsChecked}"/>
-                                <Setter Property="ZDY:ScrollViewerAssist.IsMouseWheelEnabled" Value="{Binding ElementName=ListView_IsMouseWheelEnabled, Path=IsChecked}"/>
-                                <Setter Property="ZDY:ScrollViewerAssist.MouseWheelOrientation" Value="{Binding ElementName=ListView_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"/>
-                                <Setter Property="ZDY:ScrollViewerAssist.IsAutoHideEnabled" Value="{Binding ElementName=ListView_IsAutoHideEnabled, Path=IsChecked}"/>
-                                <Setter Property="ZDY:ScrollViewerAssist.IsOverlayed" Value="{Binding ElementName=ListView_IsOverlayed, Path=IsChecked}"/>
+                                <Setter Property="ZDY:GridViewExtension.IsInterlaceRowBackgroundEnabled" Value="{Binding ElementName=ListView_IsInterlaceRowBackgroundEnabled, Path=IsChecked}"/>
+                                <Setter Property="ZDY:GridViewExtension.IsSortEnabled" Value="{Binding ElementName=ListView_IsSortEnabled, Path=IsChecked}"/>
+                                <Setter Property="ZDY:ScrollViewerExtension.IsInertiaEnabled" Value="{Binding ElementName=ListView_IsInertiaEnabled, Path=IsChecked}"/>
+                                <Setter Property="ZDY:ScrollViewerExtension.IsMouseWheelEnabled" Value="{Binding ElementName=ListView_IsMouseWheelEnabled, Path=IsChecked}"/>
+                                <Setter Property="ZDY:ScrollViewerExtension.MouseWheelOrientation" Value="{Binding ElementName=ListView_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"/>
+                                <Setter Property="ZDY:ScrollViewerExtension.IsAutoHideEnabled" Value="{Binding ElementName=ListView_IsAutoHideEnabled, Path=IsChecked}"/>
+                                <Setter Property="ZDY:ScrollViewerExtension.IsOverlayed" Value="{Binding ElementName=ListView_IsOverlayed, Path=IsChecked}"/>
                             </Style>
                         </UniformGrid.Resources>
                         <ZDY:ListView ItemsSource="{Binding Items3}">
@@ -104,7 +151,7 @@
                                 </ZDY:GridView>
                             </ZDY:ListView.View>
                         </ZDY:ListView>
-                        <ZDY:ListView ItemsSource="{Binding Items3}" ZDY:GridViewAssist.Theme="Bordered">
+                        <ZDY:ListView ItemsSource="{Binding Items3}" ZDY:GridViewExtension.Theme="Bordered">
                             <ZDY:ListView.View>
                                 <ZDY:GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding Index}" Header="Index"/>
@@ -113,7 +160,7 @@
                                 </ZDY:GridView>
                             </ZDY:ListView.View>
                         </ZDY:ListView>
-                        <ZDY:ListView ItemsSource="{Binding Items}" ZDY:GridViewAssist.Theme="Bordered">
+                        <ZDY:ListView ItemsSource="{Binding Items}" ZDY:GridViewExtension.Theme="Bordered">
                             <ZDY:ListView.View>
                                 <ZDY:GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding Index}" Header="Index"/>
@@ -147,17 +194,17 @@
                         </ZDY:ListBox>
                         <ZDY:ListBox x:Name="ListBox2" ItemsSource="{Binding TextLines3}"/>
                         <ZDY:ListBox x:Name="ListBox3" ItemsSource="{Binding TextLines}"
-                                     ZDY:ScrollViewerAssist.IsInertiaEnabled="{Binding ElementName=ListBox_IsInertiaEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.IsMouseWheelEnabled="{Binding ElementName=ListBox_IsMouseWheelEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.MouseWheelOrientation="{Binding ElementName=ListBox_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
-                                      ZDY:ScrollViewerAssist.IsAutoHideEnabled="{Binding ElementName=ListBox_IsAutoHideEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.IsOverlayed="{Binding ElementName=ListBox_IsOverlayed, Path=IsChecked}"/>
+                                     ZDY:ScrollViewerExtension.IsInertiaEnabled="{Binding ElementName=ListBox_IsInertiaEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerExtension.IsMouseWheelEnabled="{Binding ElementName=ListBox_IsMouseWheelEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerExtension.MouseWheelOrientation="{Binding ElementName=ListBox_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
+                                      ZDY:ScrollViewerExtension.IsAutoHideEnabled="{Binding ElementName=ListBox_IsAutoHideEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerExtension.IsOverlayed="{Binding ElementName=ListBox_IsOverlayed, Path=IsChecked}"/>
                         <ZDY:ListView x:Name="ListBox4" ItemsSource="{Binding TextLines}"
-                                      ZDY:ScrollViewerAssist.IsInertiaEnabled="{Binding ElementName=ListBox_IsInertiaEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.IsMouseWheelEnabled="{Binding ElementName=ListBox_IsMouseWheelEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.MouseWheelOrientation="{Binding ElementName=ListBox_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
-                                      ZDY:ScrollViewerAssist.IsAutoHideEnabled="{Binding ElementName=ListBox_IsAutoHideEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.IsOverlayed="{Binding ElementName=ListBox_IsOverlayed, Path=IsChecked}"/>
+                                      ZDY:ScrollViewerExtension.IsInertiaEnabled="{Binding ElementName=ListBox_IsInertiaEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerExtension.IsMouseWheelEnabled="{Binding ElementName=ListBox_IsMouseWheelEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerExtension.MouseWheelOrientation="{Binding ElementName=ListBox_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
+                                      ZDY:ScrollViewerExtension.IsAutoHideEnabled="{Binding ElementName=ListBox_IsAutoHideEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerExtension.IsOverlayed="{Binding ElementName=ListBox_IsOverlayed, Path=IsChecked}"/>
                     </UniformGrid>
                 </DockPanel>
             </ZDY:TabItem>
@@ -294,11 +341,11 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <ZDY:ScrollViewer Grid.Column="0" HorizontalScrollBarVisibility="Visible" Margin="20"
-                                      ZDY:ScrollViewerAssist.IsInertiaEnabled="{Binding ElementName=ScrollViewer_IsInertiaEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.IsMouseWheelEnabled="{Binding ElementName=ScrollViewer_IsMouseWheelEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.MouseWheelOrientation="{Binding ElementName=ScrollViewer_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
-                                      ZDY:ScrollViewerAssist.IsAutoHideEnabled="{Binding ElementName=ScrollViewer_IsAutoHideEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.IsOverlayed="{Binding ElementName=ScrollViewer_IsOverlayed, Path=IsChecked}">
+                                      ZDY:ScrollViewerExtension.IsInertiaEnabled="{Binding ElementName=ScrollViewer_IsInertiaEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerExtension.IsMouseWheelEnabled="{Binding ElementName=ScrollViewer_IsMouseWheelEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerExtension.MouseWheelOrientation="{Binding ElementName=ScrollViewer_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
+                                      ZDY:ScrollViewerExtension.IsAutoHideEnabled="{Binding ElementName=ScrollViewer_IsAutoHideEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerExtension.IsOverlayed="{Binding ElementName=ScrollViewer_IsOverlayed, Path=IsChecked}">
                         <Border Width="1000" Height="1000">
                             <Border.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -310,11 +357,11 @@
                         </Border>
                     </ZDY:ScrollViewer>
                     <ZDY:ScrollViewer Grid.Column="1" HorizontalScrollBarVisibility="Visible" Margin="20"
-                                      ZDY:ScrollViewerAssist.IsInertiaEnabled="{Binding ElementName=ScrollViewer_IsInertiaEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.IsMouseWheelEnabled="{Binding ElementName=ScrollViewer_IsMouseWheelEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.MouseWheelOrientation="{Binding ElementName=ScrollViewer_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
-                                      ZDY:ScrollViewerAssist.IsAutoHideEnabled="{Binding ElementName=ScrollViewer_IsAutoHideEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.IsOverlayed="True">
+                                      ZDY:ScrollViewerExtension.IsInertiaEnabled="{Binding ElementName=ScrollViewer_IsInertiaEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerExtension.IsMouseWheelEnabled="{Binding ElementName=ScrollViewer_IsMouseWheelEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerExtension.MouseWheelOrientation="{Binding ElementName=ScrollViewer_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
+                                      ZDY:ScrollViewerExtension.IsAutoHideEnabled="{Binding ElementName=ScrollViewer_IsAutoHideEnabled, Path=IsChecked}"
+                                      ZDY:ScrollViewerExtension.IsOverlayed="True">
                         <Border Width="1000" Height="1000">
                             <Border.Background>
                                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">

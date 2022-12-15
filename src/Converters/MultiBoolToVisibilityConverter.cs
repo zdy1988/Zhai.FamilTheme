@@ -7,37 +7,28 @@ using System.Windows.Markup;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class MultiBooleanToBooleanConverter : MarkupExtension, IMultiValueConverter
+    public class MultiBoolToVisibilityConverter : IMultiValueConverter
     {
-        public object Convert(object[] values, Type targetType, object parameter,
-            CultureInfo culture)
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             var param = parameter as string;
 
             if (string.IsNullOrEmpty(param))
                 throw new ArgumentException();
 
-            var boolean = param switch
+            var visible = param switch
             {
                 "OR" => values.OfType<bool>().Aggregate(false, (current, value) => current || value),
                 "AND" => values.OfType<bool>().Aggregate(true, (current, value) => current && value),
                 _ => values.OfType<bool>().Aggregate(true, (current, value) => current && value),
             };
 
-            return boolean;
+            return visible ? Visibility.Visible : Visibility.Collapsed;
         }
 
-        public object[] ConvertBack(object value,
-            Type[] targetTypes,
-            object parameter,
-            CultureInfo culture)
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotSupportedException();
         }
-
-        private MultiBooleanToBooleanConverter _instance;
-
-        public override object ProvideValue(IServiceProvider serviceProvider)
-            => _instance ?? (_instance = new MultiBooleanToBooleanConverter());
     }
 }

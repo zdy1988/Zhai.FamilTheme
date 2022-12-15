@@ -36,7 +36,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="TextBlock.FontWeight" Value="Medium" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Padding" Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:GridViewAssist.ColumnHeaderPadding)}" />
+        <Setter Property="Padding" Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:GridViewExtension.ColumnHeaderPadding)}" />
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Foreground}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Template">
@@ -61,7 +61,7 @@
                         </Border>
                     </DockPanel>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="local:GridViewAssist.IsSortEnabled" Value="True">
+                        <Trigger Property="local:GridViewExtension.IsSortEnabled" Value="True">
                             <Setter TargetName="HeaderSortIcon" Property="Visibility" Value="Visible"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -72,7 +72,7 @@
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Opacity" Value="0.75"/>
             </Trigger>
-            <Trigger Property="local:GridViewAssist.IsSortEnabled" Value="True">
+            <Trigger Property="local:GridViewExtension.IsSortEnabled" Value="True">
                 <Setter Property="Command" Value="{x:Static local:GridView.SortCommand}"/>
             </Trigger>
             <Trigger Property="Role" Value="Floating">
@@ -145,7 +145,7 @@
                                                                 Columns="{Binding Path=TemplatedParent.View.Columns, RelativeSource={RelativeSource TemplatedParent}}"
                                                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                         <!-- NB: Rectangle added to keep the width of the header ScrollViewer the same size as the list items -->
-                                        <Rectangle Margin="{Binding RelativeSource={RelativeSource Self}, Path=(local:GridViewAssist.ItemPadding), Converter={StaticResource HorizontalThicknessConverter}}" />
+                                        <Rectangle Margin="{Binding RelativeSource={RelativeSource Self}, Path=(local:GridViewExtension.ItemPadding), Converter={StaticResource HorizontalThicknessConverter}}" />
                                     </StackPanel>
                                 </Border>
                             </local:ScrollViewer>
@@ -176,14 +176,14 @@
                                    Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="local:ScrollViewerAssist.IsOverlayed" Value="True">
+                        <Trigger Property="local:ScrollViewerExtension.IsOverlayed" Value="True">
                             <Setter TargetName="PART_ScrollContent" Property="Grid.RowSpan" Value="2"/>
                             <Setter TargetName="PART_ScrollContent" Property="Grid.ColumnSpan" Value="2"/>
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="ComputedVerticalScrollBarVisibility" Value="Visible" />
-                                <Condition Property="local:ScrollViewerAssist.IsAutoHideEnabled" Value="True"/>
+                                <Condition Property="local:ScrollViewerExtension.IsAutoHideEnabled" Value="True"/>
                                 <Condition Property="IsMouseOver" Value="False"/>
                             </MultiTrigger.Conditions>
                             <MultiTrigger.EnterActions>
@@ -204,7 +204,7 @@
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="ComputedHorizontalScrollBarVisibility" Value="Visible" />
-                                <Condition Property="local:ScrollViewerAssist.IsAutoHideEnabled" Value="True"/>
+                                <Condition Property="local:ScrollViewerExtension.IsAutoHideEnabled" Value="True"/>
                                 <Condition Property="IsMouseOver" Value="False"/>
                             </MultiTrigger.Conditions>
                             <MultiTrigger.EnterActions>
@@ -222,7 +222,7 @@
                                 </BeginStoryboard>
                             </MultiTrigger.ExitActions>
                         </MultiTrigger>
-                        <Trigger Property="local:GridViewAssist.Theme" Value="Bordered">
+                        <Trigger Property="local:GridViewExtension.Theme" Value="Bordered">
                             <Setter TargetName="PART_ScrollContentPresenter" Property="Margin" Value="0 4 0 0"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -249,7 +249,7 @@
                         <Border x:Name="CurrentBorder" BorderThickness="0 0 0 1" BorderBrush="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}"
                                 Background="{TemplateBinding Background}">
                             <GridViewRowPresenter 
-                                Margin="{Binding RelativeSource={RelativeSource Self}, Path=(local:GridViewAssist.ItemPadding)}"
+                                Margin="{Binding RelativeSource={RelativeSource Self}, Path=(local:GridViewExtension.ItemPadding)}"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                         </Border>
@@ -277,12 +277,12 @@
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="local:GridViewAssist.IsInterlaceRowBackgroundEnabled" Value="True"/>
+                                <Condition Property="local:GridViewExtension.IsInterlaceRowBackgroundEnabled" Value="True"/>
                                 <Condition Property="ItemsControl.AlternationIndex" Value="1"/>
                             </MultiTrigger.Conditions>
                             <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.GridView.InterlaceRowBackground}" />
                         </MultiTrigger>
-                        <Trigger Property="local:GridViewAssist.Theme" Value="Bordered">
+                        <Trigger Property="local:GridViewExtension.Theme" Value="Bordered">
                             <Setter TargetName="MouseOverBorder" Property="BorderThickness" Value="1"/>
                             <Setter TargetName="MouseOverBorder" Property="BorderBrush" Value="DarkGray"/>
                             <Setter TargetName="MouseOverBorder" Property="CornerRadius" Value="3"/>
@@ -347,7 +347,7 @@
             <Trigger Property="View" Value="{x:Null}">
                 <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
             </Trigger>
-            <Trigger Property="local:GridViewAssist.IsInterlaceRowBackgroundEnabled" Value="True">
+            <Trigger Property="local:GridViewExtension.IsInterlaceRowBackgroundEnabled" Value="True">
                 <Setter Property="AlternationCount" Value="2"/>
             </Trigger>
         </Style.Triggers>

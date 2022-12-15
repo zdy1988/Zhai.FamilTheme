@@ -62,11 +62,11 @@ namespace Zhai.FamilTheme
 
         protected override void OnMouseWheel(MouseWheelEventArgs e)
         {
-            if (!ScrollViewerAssist.GetIsMouseWheelEnabled(this)) return;
+            if (!ScrollViewerExtension.GetIsMouseWheelEnabled(this)) return;
 
-            if (!ScrollViewerAssist.GetIsInertiaEnabled(this))
+            if (!ScrollViewerExtension.GetIsInertiaEnabled(this))
             {
-                if (ScrollViewerAssist.GetMouseWheelOrientation(this) == Orientation.Vertical)
+                if (ScrollViewerExtension.GetMouseWheelOrientation(this) == Orientation.Vertical)
                 {
                     base.OnMouseWheel(e);
                 }
@@ -81,7 +81,7 @@ namespace Zhai.FamilTheme
             }
             e.Handled = true;
 
-            if (ScrollViewerAssist.GetMouseWheelOrientation(this) == Orientation.Vertical)
+            if (ScrollViewerExtension.GetMouseWheelOrientation(this) == Orientation.Vertical)
             {
                 if (!isRunning)
                 {
@@ -150,7 +150,7 @@ namespace Zhai.FamilTheme
 
         protected override HitTestResult HitTestCore(PointHitTestParameters hitTestParameters)
         {
-            return ScrollViewerAssist.GetIsPenetrating(this) ? null : base.HitTestCore(hitTestParameters);
+            return ScrollViewerExtension.GetIsPenetrating(this) ? null : base.HitTestCore(hitTestParameters);
         }
     }
 }

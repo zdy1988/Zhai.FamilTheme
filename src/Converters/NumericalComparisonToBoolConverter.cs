@@ -10,7 +10,7 @@ using System.Windows.Markup;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class NumericalComparisonToBoolConverter : MarkupExtension, IMultiValueConverter
+    public class NumericalComparisonToBoolConverter : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
@@ -44,10 +44,5 @@ namespace Zhai.FamilTheme.Converters
         {
             throw new NotImplementedException();
         }
-
-        private NumericalComparisonToBoolConverter _instance;
-
-        public override object ProvideValue(IServiceProvider serviceProvider)
-            => _instance ?? (_instance = new NumericalComparisonToBoolConverter());
     }
 }

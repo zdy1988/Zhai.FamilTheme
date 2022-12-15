@@ -71,14 +71,14 @@
                         </Border>-->
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="local:ScrollViewerAssist.IsOverlayed" Value="True">
+                        <Trigger Property="local:ScrollViewerExtension.IsOverlayed" Value="True">
                             <Setter TargetName="PART_ScrollContent" Property="Grid.RowSpan" Value="2"/>
                             <Setter TargetName="PART_ScrollContent" Property="Grid.ColumnSpan" Value="2"/>
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="ComputedVerticalScrollBarVisibility" Value="Visible" />
-                                <Condition Property="local:ScrollViewerAssist.IsAutoHideEnabled" Value="True"/>
+                                <Condition Property="local:ScrollViewerExtension.IsAutoHideEnabled" Value="True"/>
                                 <Condition Property="IsMouseOver" Value="False"/>
                             </MultiTrigger.Conditions>
                             <MultiTrigger.EnterActions>
@@ -99,7 +99,7 @@
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="ComputedHorizontalScrollBarVisibility" Value="Visible" />
-                                <Condition Property="local:ScrollViewerAssist.IsAutoHideEnabled" Value="True"/>
+                                <Condition Property="local:ScrollViewerExtension.IsAutoHideEnabled" Value="True"/>
                                 <Condition Property="IsMouseOver" Value="False"/>
                             </MultiTrigger.Conditions>
                             <MultiTrigger.EnterActions>

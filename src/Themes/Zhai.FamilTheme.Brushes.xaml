@@ -14,13 +14,23 @@
 
 
     <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionHighlightBrush" Color="#eaac22" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionBackgroundColorBrush" Color="#90666666" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.SeparatorColorBrush" Color="#3d666666" PresentationOptions:Freeze="True"/>
 
+    
+    <Color x:Key="Zhai.FamilTheme.SelectionBackgroundColor">#90666666</Color>
     <sys:Double x:Key="Zhai.FamilTheme.SelectionHoveredOpacity">0.12</sys:Double>
     <sys:Double x:Key="Zhai.FamilTheme.SelectionActivedOpacity">0.24</sys:Double>
     <sys:Double x:Key="Zhai.FamilTheme.SelectionUnActivedOpacity">0.12</sys:Double>
 
+    <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionBackgroundColorBrush" Color="{StaticResource Zhai.FamilTheme.SelectionBackgroundColor}" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionHoveredBackgroundColorBrush" Color="{StaticResource Zhai.FamilTheme.SelectionBackgroundColor}" Opacity="{StaticResource Zhai.FamilTheme.SelectionHoveredOpacity}" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionActivedBackgroundColorBrush" Color="{StaticResource Zhai.FamilTheme.SelectionBackgroundColor}" Opacity="{StaticResource Zhai.FamilTheme.SelectionActivedOpacity}" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionUnActivedBackgroundColorBrush" Color="{StaticResource Zhai.FamilTheme.SelectionBackgroundColor}" Opacity="{StaticResource Zhai.FamilTheme.SelectionUnActivedOpacity}" PresentationOptions:Freeze="True"/>
 
-    <SolidColorBrush x:Key="Zhai.FamilTheme.SeparatorColorBrush" Color="#3d666666" PresentationOptions:Freeze="True"/>
+
+
+    <sys:Double x:Key="Zhai.FamilTheme.ForegroundOpacity">0.72</sys:Double>
+
+
 
 </ResourceDictionary>
