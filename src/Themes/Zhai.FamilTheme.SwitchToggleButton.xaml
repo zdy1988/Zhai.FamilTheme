@@ -66,19 +66,19 @@
                                        HorizontalAlignment="Left" 
                                        Height="29" 
                                        Margin="0" 
-                                       Stroke="{x:Null}" 
+                                       Stroke="{x:Null}"
                                        VerticalAlignment="Top" 
                                        Width="53" 
                                        RadiusY="14.5" 
                                        RadiusX="14.5"/>
-                            <Grid x:Name="ThumbHolder" Margin="2"
+                            <Grid x:Name="ThumbHolder" Margin="4"
                                   HorizontalAlignment="Left" VerticalAlignment="Top">
                                 <AdornerDecorator>
                                     <Ellipse x:Name="Thumb"
                                              Fill="{TemplateBinding Foreground}" Stroke="{x:Null}" 
                                              HorizontalAlignment="Center" VerticalAlignment="Center"
-                                             Width="25" Height="25"
-                                             Margin="0,0,0,0"
+                                             Width="21" Height="21"
+                                             Margin="0,0,0,0" Opacity="0.72"
                                              RenderTransformOrigin="0.5,0.5">
                                     </Ellipse>
                                 </AdornerDecorator>

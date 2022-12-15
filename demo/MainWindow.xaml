@@ -23,6 +23,17 @@
     
     <Grid>
         <ZDY:TabPanel TabStripPlacement="Left">
+            <ZDY:TabItem Header="Loading">
+                <StackPanel Margin="20" HorizontalAlignment="Left">
+                    <ZDY:Loading/>
+                    <ZDY:Loading Theme="Bars"/>
+                    <ZDY:Loading Theme="Dots"/>
+                    <ZDY:Loading Foreground="OrangeRed"/>
+                    <ZDY:Loading Theme="Bars" Foreground="OrangeRed"/>
+                    <ZDY:Loading Theme="Dots" Foreground="OrangeRed"/>
+                    <ZDY:Loading Width="100" Foreground="{x:Static SystemColors.HighlightBrush}"/>
+                </StackPanel>
+            </ZDY:TabItem>
             <ZDY:TabItem Header="Button">
                 <WrapPanel>
                     <ZDY:Button Content="Button" Margin="5"/>
@@ -40,7 +51,6 @@
                             <ZDY:Hint Text="{Binding HintText}" Margin="0 40 0 0"/>
                             <ZDY:Hint Text="{Binding HintText}" Background="Red"/>
                         </UniformGrid>
-                        <ZDY:Hint x:Name="HintTest"/>
                     </Grid>
                 </DockPanel>
             </ZDY:TabItem>

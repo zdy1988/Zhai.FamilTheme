@@ -22,7 +22,7 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
-                                Opacity="0.24">
+                                Opacity="{StaticResource Zhai.FamilTheme.SelectionActivedOpacity}">
                         </Border>
                         <Border Padding="{TemplateBinding Padding}">
                             <ContentPresenter 

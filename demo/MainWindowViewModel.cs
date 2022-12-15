@@ -52,19 +52,6 @@ namespace Zhai.FamilThemeDemo
             get => hintText;
             set => SetProperty(ref hintText, value);
         }
-
-        public MainWindowViewModel()
-        {
-            var timer = new DispatcherTimer
-            {
-                Interval = TimeSpan.FromSeconds(5)
-            };
-            timer.Tick += (sender, e) =>
-            {
-                HintText = DateTime.Now.ToLongTimeString();
-            };
-            timer.Start();
-        }
     }
 
     internal class ItemData

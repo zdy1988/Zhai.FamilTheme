@@ -1,9 +1,26 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys ="clr-namespace:System;assembly=mscorlib"
                     xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+
+    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.DarkTitleBarBackgroundColorBrush" Color="#2f3339" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.LightTitleBarBackgroundColorBrush" Color="#ebeff8" PresentationOptions:Freeze="True"/>
+
+    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.DarkBackgroundColorBrush" Color="#1e1e1e" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.LightBackgroundColorBrush" Color="#fafcff" PresentationOptions:Freeze="True"/>
+
+    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.DarkForegroundColorBrush" Color="#0f0f0f" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.LightForegroundColorBrush" Color="#ffffff" PresentationOptions:Freeze="True"/>
+
 
     <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionHighlightBrush" Color="#eaac22" PresentationOptions:Freeze="True"/>
     <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionBackgroundColorBrush" Color="#90666666" PresentationOptions:Freeze="True"/>
+
+    <sys:Double x:Key="Zhai.FamilTheme.SelectionHoveredOpacity">0.12</sys:Double>
+    <sys:Double x:Key="Zhai.FamilTheme.SelectionActivedOpacity">0.24</sys:Double>
+    <sys:Double x:Key="Zhai.FamilTheme.SelectionUnActivedOpacity">0.12</sys:Double>
+
+
     <SolidColorBrush x:Key="Zhai.FamilTheme.SeparatorColorBrush" Color="#3d666666" PresentationOptions:Freeze="True"/>
 
 </ResourceDictionary>

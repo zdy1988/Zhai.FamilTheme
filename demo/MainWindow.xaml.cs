@@ -21,6 +21,8 @@ namespace Zhai.FamilThemeDemo
     /// </summary>
     public partial class MainWindow : TransparentWindow
     {
+        MainWindowViewModel ViewModel => this.DataContext as MainWindowViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,7 +32,7 @@ namespace Zhai.FamilThemeDemo
 
         private void HintTestButton_Click(object sender, RoutedEventArgs e)
         {
-            this.HintTest.Text = $"time:{DateTime.Now}";
+            this.ViewModel.HintText = $"time:{DateTime.Now}";
         }
     }
 }

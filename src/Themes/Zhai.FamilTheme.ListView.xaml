@@ -259,21 +259,21 @@
                             <Setter Property="Opacity" Value=".56" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="MouseOverBorder" Property="Opacity" Value="0.12" />
+                            <Setter TargetName="MouseOverBorder" Property="Opacity" Value="{StaticResource Zhai.FamilTheme.SelectionHoveredOpacity}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="True" />
                                 <Condition Property="Selector.IsSelectionActive" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="SelectedBorder" Property="Opacity" Value="0.24" />
+                            <Setter TargetName="SelectedBorder" Property="Opacity" Value="{StaticResource Zhai.FamilTheme.SelectionActivedOpacity}" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="True" />
                                 <Condition Property="Selector.IsSelectionActive" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="SelectedBorder" Property="Opacity" Value="0.12" />
+                            <Setter TargetName="SelectedBorder" Property="Opacity" Value="{StaticResource Zhai.FamilTheme.SelectionUnActivedOpacity}" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
