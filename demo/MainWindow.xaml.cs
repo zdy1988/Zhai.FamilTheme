@@ -27,5 +27,10 @@ namespace Zhai.FamilThemeDemo
 
             this.DataContext = new MainWindowViewModel();
         }
+
+        private void HintTestButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.HintTest.Text = $"time:{DateTime.Now}";
+        }
     }
 }

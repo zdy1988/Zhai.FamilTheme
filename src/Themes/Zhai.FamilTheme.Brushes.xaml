@@ -4,6 +4,6 @@
 
     <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionHighlightBrush" Color="#eaac22" PresentationOptions:Freeze="True"/>
     <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionBackgroundColorBrush" Color="#90666666" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="Zhai.FamilTheme.SeparatorColorBrush" Color="#90666666" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.SeparatorColorBrush" Color="#3d666666" PresentationOptions:Freeze="True"/>
 
 </ResourceDictionary>

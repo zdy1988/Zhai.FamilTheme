@@ -15,27 +15,42 @@
                        Title="ZDY ' FamilTheme" Height="450" Width="800">
     
     <ZDY:TransparentWindow.Resources>
-
-
-        <ResourceDictionary>
-            <ZDY:BoolToInverseVisibilityConverter x:Key="BoolToInverseVisibilityConverter"/>
-            <ZDY:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
-            <ZDY:VisibilityToBoolConverter x:Key="VisibilityToBoolConverter"/>
-            <ZDY:BoolToOrientationConverter x:Key="BoolToOrientationConverter"/>
-
-            <!--<ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ListView.xaml" />
-            </ResourceDictionary.MergedDictionaries>-->
-        </ResourceDictionary>
+        <ZDY:BoolToInverseVisibilityConverter x:Key="BoolToInverseVisibilityConverter"/>
+        <ZDY:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <ZDY:VisibilityToBoolConverter x:Key="VisibilityToBoolConverter"/>
+        <ZDY:BoolToOrientationConverter x:Key="BoolToOrientationConverter"/>
     </ZDY:TransparentWindow.Resources>
     
     <Grid>
         <ZDY:TabPanel TabStripPlacement="Left">
+            <ZDY:TabItem Header="Button">
+                <WrapPanel>
+                    <ZDY:Button Content="Button" Margin="5"/>
+                    <ZDY:Button Content="Button" Margin="5"/>
+                    <ZDY:Button Content="Button" Margin="5"/>
+                </WrapPanel>
+            </ZDY:TabItem>
+            <ZDY:TabItem Header="Hint">
+                <DockPanel>
+                    <ZDY:Button x:Name="HintTestButton" Content="click" DockPanel.Dock="Bottom" Click="HintTestButton_Click"/>
+                    <Grid>
+                        <UniformGrid Columns="2" Rows="2">
+                            <ZDY:Hint Text="{Binding HintText}"/>
+                            <ZDY:Hint Text="{Binding HintText}" Padding="10" FontSize="24" CornerRadius="8"/>
+                            <ZDY:Hint Text="{Binding HintText}" Margin="0 40 0 0"/>
+                            <ZDY:Hint Text="{Binding HintText}" Background="Red"/>
+                        </UniformGrid>
+                        <ZDY:Hint x:Name="HintTest"/>
+                    </Grid>
+                </DockPanel>
+            </ZDY:TabItem>
             <ZDY:TabItem Header="ListView">
                 <DockPanel>
                     <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center">
                         <ZDY:CheckBox x:Name="ListView_IsInterlaceRowBackgroundEnabled" Margin="0 0 4 0"/>
                         <TextBlock Text="显示交错背景" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="ListView_IsSortEnabled" Margin="0 0 4 0"/>
+                        <TextBlock Text="启用默认排序" Margin="0 0 10 0"/>
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="20 20 20 0" HorizontalAlignment="Center">
                         <ZDY:CheckBox x:Name="ListView_IsInertiaEnabled" Margin="0 0 4 0"/>
@@ -50,13 +65,27 @@
                         <TextBlock Text="是否覆盖" Margin="0 0 10 0"/>
                     </StackPanel>
                     <UniformGrid Columns="2">
-                        <ZDY:ListView ItemsSource="{Binding Items3}"
-                                      ZDY:GridViewAssist.IsInterlaceRowBackgroundEnabled="{Binding ElementName=ListView_IsInterlaceRowBackgroundEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.IsInertiaEnabled="{Binding ElementName=ListView_IsInertiaEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.IsMouseWheelEnabled="{Binding ElementName=ListView_IsMouseWheelEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.MouseWheelOrientation="{Binding ElementName=ListView_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
-                                      ZDY:ScrollViewerAssist.IsAutoHideEnabled="{Binding ElementName=ListView_IsAutoHideEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.IsOverlayed="{Binding ElementName=ListView_IsOverlayed, Path=IsChecked}">
+                        <UniformGrid.Resources>
+                            <Style TargetType="{x:Type ZDY:ListView}">
+                                <Setter Property="ZDY:GridViewAssist.IsInterlaceRowBackgroundEnabled" Value="{Binding ElementName=ListView_IsInterlaceRowBackgroundEnabled, Path=IsChecked}"/>
+                                <Setter Property="ZDY:GridViewAssist.IsSortEnabled" Value="{Binding ElementName=ListView_IsSortEnabled, Path=IsChecked}"/>
+                                <Setter Property="ZDY:ScrollViewerAssist.IsInertiaEnabled" Value="{Binding ElementName=ListView_IsInertiaEnabled, Path=IsChecked}"/>
+                                <Setter Property="ZDY:ScrollViewerAssist.IsMouseWheelEnabled" Value="{Binding ElementName=ListView_IsMouseWheelEnabled, Path=IsChecked}"/>
+                                <Setter Property="ZDY:ScrollViewerAssist.MouseWheelOrientation" Value="{Binding ElementName=ListView_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"/>
+                                <Setter Property="ZDY:ScrollViewerAssist.IsAutoHideEnabled" Value="{Binding ElementName=ListView_IsAutoHideEnabled, Path=IsChecked}"/>
+                                <Setter Property="ZDY:ScrollViewerAssist.IsOverlayed" Value="{Binding ElementName=ListView_IsOverlayed, Path=IsChecked}"/>
+                            </Style>
+                        </UniformGrid.Resources>
+                        <ZDY:ListView ItemsSource="{Binding Items3}">
+                            <ZDY:ListView.View>
+                                <ZDY:GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Index}" Header="Index"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Description"/>
+                                </ZDY:GridView>
+                            </ZDY:ListView.View>
+                        </ZDY:ListView>
+                        <ZDY:ListView ItemsSource="{Binding Items}">
                             <ZDY:ListView.View>
                                 <ZDY:GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding Index}" Header="Index"/>
@@ -65,13 +94,16 @@
                                 </ZDY:GridView>
                             </ZDY:ListView.View>
                         </ZDY:ListView>
-                        <ZDY:ListView ItemsSource="{Binding Items}"
-                                      ZDY:GridViewAssist.IsInterlaceRowBackgroundEnabled="{Binding ElementName=ListView_IsInterlaceRowBackgroundEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.IsInertiaEnabled="{Binding ElementName=ListView_IsInertiaEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.IsMouseWheelEnabled="{Binding ElementName=ListView_IsMouseWheelEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.MouseWheelOrientation="{Binding ElementName=ListView_MouseWheelOrientation, Path=IsChecked, Converter={StaticResource BoolToOrientationConverter}}"
-                                      ZDY:ScrollViewerAssist.IsAutoHideEnabled="{Binding ElementName=ListView_IsAutoHideEnabled, Path=IsChecked}"
-                                      ZDY:ScrollViewerAssist.IsOverlayed="{Binding ElementName=ListView_IsOverlayed, Path=IsChecked}">
+                        <ZDY:ListView ItemsSource="{Binding Items3}" ZDY:GridViewAssist.Theme="Bordered">
+                            <ZDY:ListView.View>
+                                <ZDY:GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Index}" Header="Index"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Description" />
+                                </ZDY:GridView>
+                            </ZDY:ListView.View>
+                        </ZDY:ListView>
+                        <ZDY:ListView ItemsSource="{Binding Items}" ZDY:GridViewAssist.Theme="Bordered">
                             <ZDY:ListView.View>
                                 <ZDY:GridView>
                                     <GridViewColumn DisplayMemberBinding="{Binding Index}" Header="Index"/>
@@ -204,8 +236,8 @@
                     </ZDY:SwitchToggleButton>
                 </StackPanel>
             </ZDY:TabItem>
-            <ZDY:TabItem Header="ICONS">
-                <ZDY:ScrollViewer>
+            <ZDY:TabItem Header="Icons">
+                <ZDY:ScrollViewer Margin="17 0 0 0">
                     <ZDY:Repeater x:Name="IconList" ItemsSource="{Binding IconKinds}"
                                   Orientation="HorizontalWithWarp" HorizontalAlignment="Center" Margin="0 0 0 40">
                         <ZDY:Repeater.ItemTemplate>

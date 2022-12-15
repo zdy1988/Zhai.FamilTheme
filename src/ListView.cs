@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Input;
 using Zhai.FamilTheme.Common;
 
 namespace Zhai.FamilTheme
@@ -50,12 +54,27 @@ namespace Zhai.FamilTheme
 
         public ListView()
         {
-            this.Loaded += ListView_Loaded;
+            CommandBindings.Add(new CommandBinding(GridView.SortCommand, GridViewSortCommandHandler));
         }
 
-        private void ListView_Loaded(object sender, RoutedEventArgs e)
+        private void GridViewSortCommandHandler(object sender, ExecutedRoutedEventArgs e)
         {
-            var view = this.View;
+            if (this.View is GridView view && view != null 
+                && e.OriginalSource is GridViewColumnHeader header
+                && header.FindChild<Icon>() is Icon directionIcon
+                && header.Column.DisplayMemberBinding is Binding binding)
+            {
+                var direction = directionIcon.Tag == null || (ListSortDirection)directionIcon.Tag == ListSortDirection.Ascending ? ListSortDirection.Descending : ListSortDirection.Ascending;
+                var sortBy = binding.Path.Path;
+
+                ICollectionView dataView = CollectionViewSource.GetDefaultView(this.ItemsSource);
+
+                dataView.SortDescriptions.Clear();
+                dataView.SortDescriptions.Add(new SortDescription(sortBy, direction));
+                dataView.Refresh();
+
+                directionIcon.Tag = direction;
+            }
         }
     }
 }

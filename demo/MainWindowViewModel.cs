@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Media.TextFormatting;
+using System.Windows.Threading;
 using Zhai.FamilTheme;
 
 namespace Zhai.FamilThemeDemo
 {
-    internal class MainWindowViewModel
+    internal class MainWindowViewModel : BaseViewModel
     {
         public IEnumerable<IconKind> IconKinds => Enum.GetValues<IconKind>();
 
@@ -42,6 +45,26 @@ namespace Zhai.FamilThemeDemo
         public IEnumerable<ItemData> Items => TextLines.Select((t, i) => new ItemData { Index = i + 1, Name = t.Split(" ").First(), Description = t });
 
         public IEnumerable<ItemData> Items3 => Items.Take(3);
+
+        private String hintText;
+        public String HintText
+        {
+            get => hintText;
+            set => SetProperty(ref hintText, value);
+        }
+
+        public MainWindowViewModel()
+        {
+            var timer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(5)
+            };
+            timer.Tick += (sender, e) =>
+            {
+                HintText = DateTime.Now.ToLongTimeString();
+            };
+            timer.Start();
+        }
     }
 
     internal class ItemData

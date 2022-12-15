@@ -3,9 +3,11 @@
 
     <ResourceDictionary.MergedDictionaries>
 
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Button.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.CheckBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.CopyButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Drawer.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Hint.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Icon.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.IconButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.IconToggleButton.xaml" />
