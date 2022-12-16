@@ -11,8 +11,8 @@
 
     <Style TargetType="{x:Type local:ProgressBar}" x:Key="Zhai.FamilTheme.ProgressBar">
         <Setter Property="Progressground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Foreground}"/>
-        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionActivedBackgroundColorBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}"/>
+        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionActivedColorBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionColorBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="ProgressAnimationForeground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Foreground, Converter={Converters:BlackWhiteBrushRoundConverter}}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -27,7 +27,7 @@
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="{TemplateBinding CornerRadius}"/>
+                                CornerRadius="{TemplateBinding CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}"/>
 
                         <ContentControl Content="{TemplateBinding Content}"
                                         Foreground="{TemplateBinding Foreground}"
@@ -39,7 +39,7 @@
 
                         <Border x:Name="PART_Indicator"
                                 Background="{TemplateBinding Progressground}" Opacity="{StaticResource Zhai.FamilTheme.ForegroundOpacity}"
-                                CornerRadius="{TemplateBinding CornerRadius}"
+                                CornerRadius="{TemplateBinding CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}"
                                 HorizontalAlignment="Left">
                             <Border.OpacityMask>
                                 <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 0">

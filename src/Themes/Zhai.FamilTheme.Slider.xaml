@@ -38,7 +38,7 @@
 
     <Style TargetType="{x:Type local:Slider}" x:Key="Zhai.FamilTheme.PositionSlider">
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
-        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}"/>
+        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionColorBrush}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Height" Value="20" />
@@ -55,10 +55,10 @@
                         <Grid Margin="-8 0 -8 0">
                             <DockPanel LastChildFill="True" Margin="8 0 8 0">
                                 <Border x:Name="PART_SelectionRange" ClipToBounds="True" Height="2">
-                                    <Rectangle x:Name="PART_SelectionRectangle" Fill="{TemplateBinding Foreground}" Opacity="{StaticResource Zhai.FamilTheme.ForegroundOpacity}"/>
+                                    <Rectangle x:Name="PART_SelectionRectangle" RadiusX="{TemplateBinding CornerRadius}" RadiusY="{TemplateBinding CornerRadius}" Fill="{TemplateBinding Foreground}" Opacity="{StaticResource Zhai.FamilTheme.ForegroundOpacity}"/>
                                 </Border>
                                 <Border x:Name="PART_SelectionRange2" ClipToBounds="True" Height="2">
-                                    <Rectangle x:Name="PART_SelectionRectangle2" Fill="{TemplateBinding Background}" Opacity="{StaticResource Zhai.FamilTheme.SelectionActivedOpacity}"/>
+                                    <Rectangle x:Name="PART_SelectionRectangle2" RadiusX="{TemplateBinding CornerRadius}" RadiusY="{TemplateBinding CornerRadius}" Fill="{TemplateBinding Background}" Opacity="{StaticResource Zhai.FamilTheme.SelectionActivedOpacity}"/>
                                 </Border>
                             </DockPanel>
                             <Track x:Name="PART_Track">
@@ -131,7 +131,7 @@
 
     <Style TargetType="{x:Type local:Slider2}" x:Key="Zhai.FamilTheme.PositionSlider2">
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
-        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}"/>
+        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionColorBrush}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Minimum" Value="0" />
@@ -147,10 +147,10 @@
                         <Grid Margin="-6 0 -6 0">
                             <DockPanel LastChildFill="True" Margin="6 0 6 0">
                                 <Border x:Name="PART_SelectionRange" ClipToBounds="True" Height="2">
-                                    <Rectangle x:Name="PART_SelectionRectangle" RadiusX="1" RadiusY="1" Fill="{TemplateBinding Foreground}" Opacity="{StaticResource Zhai.FamilTheme.ForegroundOpacity}"/>
+                                    <Rectangle x:Name="PART_SelectionRectangle" RadiusX="{TemplateBinding CornerRadius}" RadiusY="{TemplateBinding CornerRadius}" Fill="{TemplateBinding Foreground}" Opacity="{StaticResource Zhai.FamilTheme.ForegroundOpacity}"/>
                                 </Border>
                                 <Border x:Name="PART_SelectionRange2" ClipToBounds="True" Height="2">
-                                    <Rectangle x:Name="PART_SelectionRectangle2" RadiusX="1" RadiusY="1" Fill="{TemplateBinding Background}" Opacity="{StaticResource Zhai.FamilTheme.SelectionActivedOpacity}"/>
+                                    <Rectangle x:Name="PART_SelectionRectangle2" RadiusX="{TemplateBinding CornerRadius}" RadiusY="{TemplateBinding CornerRadius}" Fill="{TemplateBinding Background}" Opacity="{StaticResource Zhai.FamilTheme.SelectionActivedOpacity}"/>
                                 </Border>
                             </DockPanel>
                             <Track x:Name="PART_Track">

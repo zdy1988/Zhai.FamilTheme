@@ -5,7 +5,7 @@ using System.Windows;
 
 namespace Zhai.FamilTheme
 {
-    public class Slider2 : System.Windows.Controls.Slider
+    public class Slider2 : Slider
     {
         static Slider2()
         {

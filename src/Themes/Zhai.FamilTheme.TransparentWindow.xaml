@@ -10,9 +10,6 @@
 
     <ImageSource x:Key="Zhai.FamilTheme.TransparentWindow.DefaultIcon">pack://application:,,,/Zhai.FamilTheme;component/Resources/favicon.ico</ImageSource>
 
-    <DropShadowEffect x:Key="Zhai.FamilTheme.TransparentWindow.DarkShadowEffect" BlurRadius="15" Color="#800f0f0f" Direction="0" ShadowDepth="0"/>
-    <DropShadowEffect x:Key="Zhai.FamilTheme.TransparentWindow.LightShadowEffect" BlurRadius="15" Color="#80d8d8d8" Direction="0" ShadowDepth="0"/>
-
     <Style TargetType="{x:Type local:IconButton}" x:Key="Zhai.FamilTheme.TitleBar.IconButton" BasedOn="{StaticResource Zhai.FamilTheme.IconButton}">
         <Setter Property="IconSize" Value="12"/>
         <Setter Property="Margin" Value="3"/>
@@ -21,7 +18,7 @@
     <Style TargetType="{x:Type local:IconButton}" x:Key="Zhai.FamilTheme.TitleBar.IconButton.CloseButton" BasedOn="{StaticResource Zhai.FamilTheme.TitleBar.IconButton}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="Red"/>
+                <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.ErrorBrush}"/>
                 <Setter Property="Foreground" Value="White"/>
             </Trigger>
         </Style.Triggers>
@@ -42,6 +39,9 @@
                         <ColumnDefinition Width="2"/>
                     </Grid.ColumnDefinitions>
                     <Border Grid.Row="1" Grid.Column="1" x:Name="LayoutBackground" Opacity="{TemplateBinding Transparency}">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#90666666" Opacity="0.24" BlurRadius="12" ShadowDepth="0" />
+                        </Border.Effect>
                         <Border x:Name="LayoutTitleBarBackground" Height="{Binding ElementName=TitleBar, Path=ActualHeight}" 
                                 VerticalAlignment="Top" HorizontalAlignment="Stretch"
                                 Visibility="{TemplateBinding IsTitleBarBackgroundEnabled, Converter={Converters:BoolToVisibilityConverter}}"/>
@@ -94,12 +94,10 @@
         <ControlTemplate.Triggers>
             <Trigger Property="Theme" Value="Light">
                 <Setter TargetName="ThemeButton" Property="Icon" Value="ClearDay"/>
-                <Setter TargetName="LayoutBackground" Property="Effect" Value="{StaticResource Zhai.FamilTheme.TransparentWindow.LightShadowEffect}"/>
                 <Setter TargetName="LayoutBackground" Property="Background" Value="{StaticResource Zhai.FamilTheme.Window.LightBackgroundColorBrush}"/>
             </Trigger>
             <Trigger Property="Theme" Value="Dark">
                 <Setter TargetName="ThemeButton" Property="Icon" Value="ClearNight"/>
-                <Setter TargetName="LayoutBackground" Property="Effect" Value="{StaticResource Zhai.FamilTheme.TransparentWindow.DarkShadowEffect}"/>
                 <Setter TargetName="LayoutBackground" Property="Background" Value="{StaticResource Zhai.FamilTheme.Window.DarkBackgroundColorBrush}"/>
             </Trigger>
             <MultiTrigger>
@@ -121,7 +119,6 @@
             </Trigger>
             <Trigger Property="IsTransparency" Value="True">
                 <Setter TargetName="TransparentButton" Property="Icon" Value="Dust"/>
-                <Setter TargetName="LayoutBackground" Property="Effect" Value="{x:Null}"/>
             </Trigger>
             <Trigger Property="IsTransparency" Value="False">
                 <Setter TargetName="TransparentButton" Property="Icon" Value="News"/>
@@ -151,7 +148,7 @@
                         <RotateTransform Angle="45"/>
                     </Setter.Value>
                 </Setter>
-                <Setter TargetName="PinButton" Property="Foreground" Value="{StaticResource Zhai.FamilTheme.SelectionHighlightBrush}"/>
+                <Setter TargetName="PinButton" Property="Foreground" Value="{StaticResource Zhai.FamilTheme.HighlightBrush}"/>
             </Trigger>
             <Trigger Property="AppName" Value="{x:Null}">
                 <Setter TargetName="CaptionText" Property="Text" Value="{Binding Title, RelativeSource={RelativeSource AncestorType=Window}}"/>

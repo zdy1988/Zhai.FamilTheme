@@ -19,5 +19,13 @@ namespace Zhai.FamilTheme
             get => (double)GetValue(SizeProperty);
             set => SetValue(SizeProperty, value);
         }
+
+        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(double), typeof(CheckBox), new PropertyMetadata(default(double)));
+
+        public double CornerRadius
+        {
+            get => (double)GetValue(CornerRadiusProperty);
+            set => SetValue(CornerRadiusProperty, value);
+        }
     }
 }

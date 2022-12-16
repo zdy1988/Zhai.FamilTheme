@@ -12,11 +12,11 @@ namespace Zhai.FamilTheme
             DefaultStyleKeyProperty.OverrideMetadata(typeof(Button), new FrameworkPropertyMetadata(typeof(Button)));
         }
 
-        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(Button), new PropertyMetadata(default(CornerRadius)));
+        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(double), typeof(Button), new PropertyMetadata(default));
 
-        public CornerRadius CornerRadius
+        public double CornerRadius
         {
-            get => (CornerRadius)GetValue(CornerRadiusProperty);
+            get => (double)GetValue(CornerRadiusProperty);
             set => SetValue(CornerRadiusProperty, value);
         }
     }

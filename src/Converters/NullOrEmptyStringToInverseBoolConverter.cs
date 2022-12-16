@@ -12,8 +12,7 @@ namespace Zhai.FamilTheme.Converters
 {
     public class NullOrEmptyStringToInverseBoolConverter : ConverterMarkupExtensionBase<NullOrEmptyStringToInverseBoolConverter>, IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter,
-            CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null || value.ToString() == "")
             {
@@ -23,8 +22,7 @@ namespace Zhai.FamilTheme.Converters
             return false;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter,
-            CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter,  CultureInfo culture)
         {
             throw new NotSupportedException();
         }

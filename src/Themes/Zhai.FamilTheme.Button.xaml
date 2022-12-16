@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Zhai.FamilTheme">
+                    xmlns:local="clr-namespace:Zhai.FamilTheme"
+                    xmlns:Converters="clr-namespace:Zhai.FamilTheme.Converters">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Brushes.xaml" />
@@ -9,8 +10,8 @@
 
     <Style TargetType="{x:Type local:Button}" x:Key="Zhai.FamilTheme.Button" BasedOn="{StaticResource Zhai.FamilTheme.ButtonBase}">
         <Setter Property="Padding" Value="12 8"/>
-        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionActivedBackgroundColorBrush}" />
-        <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}" />
+        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionActivedColorBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionColorBrush}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -21,16 +22,17 @@
                         <Border Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="{TemplateBinding CornerRadius}"
-                                Padding="{TemplateBinding Padding}">
-                            <ContentPresenter 
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Content="{TemplateBinding Content}"
-                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            Focusable="False"
-                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                CornerRadius="{TemplateBinding CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}">
+                        </Border>
+                        <Border Padding="{TemplateBinding Padding}">
+                            <ContentPresenter
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}"
+                                ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Focusable="False"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </Border>
                     </Grid>
                 </ControlTemplate>
@@ -38,7 +40,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{StaticResource Zhai.FamilTheme.SelectionHighlightBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource Zhai.FamilTheme.HighlightBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

@@ -81,32 +81,32 @@ namespace Zhai.FamilTheme
 
         public bool IsOverlayed
         {
-            get { return (bool)GetValue(IsOverlayedProperty); }
-            set { SetValue(IsOverlayedProperty, value); }
+            get => (bool)GetValue(IsOverlayedProperty);
+            set => SetValue(IsOverlayedProperty, value);
         }
 
         public static readonly DependencyProperty OverlayBackgroundProperty = DependencyProperty.Register(nameof(OverlayBackground), typeof(Brush), typeof(Drawer), new PropertyMetadata(default(Brush)));
 
         public Brush OverlayBackground
         {
-            get { return (Brush)GetValue(OverlayBackgroundProperty); }
-            set { SetValue(OverlayBackgroundProperty, value); }
+            get => (Brush)GetValue(OverlayBackgroundProperty);
+            set => SetValue(OverlayBackgroundProperty, value);
         }
 
         public static readonly DependencyProperty IsOverlayBackgroundEnabledProperty = DependencyProperty.Register(nameof(IsOverlayBackgroundEnabled), typeof(bool), typeof(Drawer), new PropertyMetadata(true));
 
         public bool IsOverlayBackgroundEnabled
         {
-            get { return (bool)GetValue(IsOverlayBackgroundEnabledProperty); }
-            set { SetValue(IsOverlayBackgroundEnabledProperty, value); }
+            get => (bool)GetValue(IsOverlayBackgroundEnabledProperty);
+            set => SetValue(IsOverlayBackgroundEnabledProperty, value);
         }
 
         public static readonly DependencyProperty UseTransitionsProperty = DependencyProperty.Register(nameof(UseTransitions), typeof(bool), typeof(Drawer), new PropertyMetadata(true));
 
         public bool UseTransitions
         {
-            get { return (bool)GetValue(UseTransitionsProperty); }
-            set { SetValue(UseTransitionsProperty, value); }
+            get => (bool)GetValue(UseTransitionsProperty);
+            set => SetValue(UseTransitionsProperty, value);
         }
 
         #region Top Drawer
@@ -115,48 +115,48 @@ namespace Zhai.FamilTheme
 
         public object TopDrawerContent
         {
-            get { return (object)GetValue(TopDrawerContentProperty); }
-            set { SetValue(TopDrawerContentProperty, value); }
+            get => GetValue(TopDrawerContentProperty);
+            set => SetValue(TopDrawerContentProperty, value);
         }
 
         public static readonly DependencyProperty TopDrawerContentTemplateProperty = DependencyProperty.Register(nameof(TopDrawerContentTemplate), typeof(DataTemplate), typeof(Drawer), new PropertyMetadata(default(DataTemplate)));
 
         public DataTemplate TopDrawerContentTemplate
         {
-            get { return (DataTemplate)GetValue(TopDrawerContentTemplateProperty); }
-            set { SetValue(TopDrawerContentTemplateProperty, value); }
+            get => (DataTemplate)GetValue(TopDrawerContentTemplateProperty);
+            set => SetValue(TopDrawerContentTemplateProperty, value);
         }
 
         public static readonly DependencyProperty TopDrawerContentTemplateSelectorProperty = DependencyProperty.Register(nameof(TopDrawerContentTemplateSelector), typeof(DataTemplateSelector), typeof(Drawer), new PropertyMetadata(default(DataTemplateSelector)));
 
         public DataTemplateSelector TopDrawerContentTemplateSelector
         {
-            get { return (DataTemplateSelector)GetValue(TopDrawerContentTemplateSelectorProperty); }
-            set { SetValue(TopDrawerContentTemplateSelectorProperty, value); }
+            get => (DataTemplateSelector)GetValue(TopDrawerContentTemplateSelectorProperty);
+            set => SetValue(TopDrawerContentTemplateSelectorProperty, value);
         }
 
         public static readonly DependencyProperty TopDrawerContentStringFormatProperty = DependencyProperty.Register(nameof(TopDrawerContentStringFormat), typeof(string), typeof(Drawer), new PropertyMetadata(default(string)));
 
         public string TopDrawerContentStringFormat
         {
-            get { return (string)GetValue(TopDrawerContentStringFormatProperty); }
-            set { SetValue(TopDrawerContentStringFormatProperty, value); }
+            get => (string)GetValue(TopDrawerContentStringFormatProperty);
+            set => SetValue(TopDrawerContentStringFormatProperty, value);
         }
 
         public static readonly DependencyProperty TopDrawerBackgroundProperty = DependencyProperty.Register(nameof(TopDrawerBackground), typeof(Brush), typeof(Drawer), new PropertyMetadata(default(Brush)));
 
         public Brush TopDrawerBackground
         {
-            get { return (Brush)GetValue(TopDrawerBackgroundProperty); }
-            set { SetValue(TopDrawerBackgroundProperty, value); }
+            get => (Brush)GetValue(TopDrawerBackgroundProperty);
+            set => SetValue(TopDrawerBackgroundProperty, value);
         }
 
         public static readonly DependencyProperty IsTopDrawerOpenProperty = DependencyProperty.Register(nameof(IsTopDrawerOpen), typeof(bool), typeof(Drawer), new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, IsDrawerOpenPropertyChangedCallback));
 
         public bool IsTopDrawerOpen
         {
-            get { return (bool)GetValue(IsTopDrawerOpenProperty); }
-            set { SetValue(IsTopDrawerOpenProperty, value); }
+            get => (bool)GetValue(IsTopDrawerOpenProperty);
+            set => SetValue(IsTopDrawerOpenProperty, value);
         }
 
         private static readonly DependencyPropertyKey TopDrawerZIndexPropertyKey = DependencyProperty.RegisterReadOnly("TopDrawerZIndex", typeof(int), typeof(Drawer), new PropertyMetadata(4));
@@ -165,16 +165,16 @@ namespace Zhai.FamilTheme
 
         public int TopDrawerZIndex
         {
-            get { return (int)GetValue(TopDrawerZIndexProperty); }
-            private set { SetValue(TopDrawerZIndexPropertyKey, value); }
+            get => (int)GetValue(TopDrawerZIndexProperty);
+            private set => SetValue(TopDrawerZIndexPropertyKey, value);
         }
 
         public static readonly DependencyProperty TopDrawerCloseOnClickAwayProperty = DependencyProperty.Register(nameof(TopDrawerCloseOnClickAway), typeof(bool), typeof(Drawer), new PropertyMetadata(true));
 
         public bool TopDrawerCloseOnClickAway
         {
-            get { return (bool)GetValue(TopDrawerCloseOnClickAwayProperty); }
-            set { SetValue(TopDrawerCloseOnClickAwayProperty, value); }
+            get => (bool)GetValue(TopDrawerCloseOnClickAwayProperty);
+            set => SetValue(TopDrawerCloseOnClickAwayProperty, value);
         }
         #endregion
 
@@ -184,48 +184,48 @@ namespace Zhai.FamilTheme
 
         public object LeftDrawerContent
         {
-            get { return (object)GetValue(LeftDrawerContentProperty); }
-            set { SetValue(LeftDrawerContentProperty, value); }
+            get => GetValue(LeftDrawerContentProperty);
+            set => SetValue(LeftDrawerContentProperty, value);
         }
 
         public static readonly DependencyProperty LeftDrawerContentTemplateProperty = DependencyProperty.Register(nameof(LeftDrawerContentTemplate), typeof(DataTemplate), typeof(Drawer), new PropertyMetadata(default(DataTemplate)));
 
         public DataTemplate LeftDrawerContentTemplate
         {
-            get { return (DataTemplate)GetValue(LeftDrawerContentTemplateProperty); }
-            set { SetValue(LeftDrawerContentTemplateProperty, value); }
+            get => (DataTemplate)GetValue(LeftDrawerContentTemplateProperty);
+            set => SetValue(LeftDrawerContentTemplateProperty, value);
         }
 
         public static readonly DependencyProperty LeftDrawerContentTemplateSelectorProperty = DependencyProperty.Register(nameof(LeftDrawerContentTemplateSelector), typeof(DataTemplateSelector), typeof(Drawer), new PropertyMetadata(default(DataTemplateSelector)));
 
         public DataTemplateSelector LeftDrawerContentTemplateSelector
         {
-            get { return (DataTemplateSelector)GetValue(LeftDrawerContentTemplateSelectorProperty); }
-            set { SetValue(LeftDrawerContentTemplateSelectorProperty, value); }
+            get => (DataTemplateSelector)GetValue(LeftDrawerContentTemplateSelectorProperty);
+            set => SetValue(LeftDrawerContentTemplateSelectorProperty, value);
         }
 
         public static readonly DependencyProperty LeftDrawerContentStringFormatProperty = DependencyProperty.Register(nameof(LeftDrawerContentStringFormat), typeof(string), typeof(Drawer), new PropertyMetadata(default(string)));
 
         public string LeftDrawerContentStringFormat
         {
-            get { return (string)GetValue(LeftDrawerContentStringFormatProperty); }
-            set { SetValue(LeftDrawerContentStringFormatProperty, value); }
+            get => (string)GetValue(LeftDrawerContentStringFormatProperty);
+            set => SetValue(LeftDrawerContentStringFormatProperty, value);
         }
 
         public static readonly DependencyProperty LeftDrawerBackgroundProperty = DependencyProperty.Register(nameof(LeftDrawerBackground), typeof(Brush), typeof(Drawer), new PropertyMetadata(default(Brush)));
 
         public Brush LeftDrawerBackground
         {
-            get { return (Brush)GetValue(LeftDrawerBackgroundProperty); }
-            set { SetValue(LeftDrawerBackgroundProperty, value); }
+            get => (Brush)GetValue(LeftDrawerBackgroundProperty);
+            set => SetValue(LeftDrawerBackgroundProperty, value);
         }
 
         public static readonly DependencyProperty IsLeftDrawerOpenProperty = DependencyProperty.Register(nameof(IsLeftDrawerOpen), typeof(bool), typeof(Drawer), new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, IsDrawerOpenPropertyChangedCallback));
 
         public bool IsLeftDrawerOpen
         {
-            get { return (bool)GetValue(IsLeftDrawerOpenProperty); }
-            set { SetValue(IsLeftDrawerOpenProperty, value); }
+            get => (bool)GetValue(IsLeftDrawerOpenProperty);
+            set => SetValue(IsLeftDrawerOpenProperty, value);
         }
 
         private static readonly DependencyPropertyKey LeftDrawerZIndexPropertyKey = DependencyProperty.RegisterReadOnly("LeftDrawerZIndex", typeof(int), typeof(Drawer), new PropertyMetadata(2));
@@ -234,16 +234,16 @@ namespace Zhai.FamilTheme
 
         public int LeftDrawerZIndex
         {
-            get { return (int)GetValue(LeftDrawerZIndexProperty); }
-            private set { SetValue(LeftDrawerZIndexPropertyKey, value); }
+            get => (int)GetValue(LeftDrawerZIndexProperty);
+            private set => SetValue(LeftDrawerZIndexPropertyKey, value);
         }
 
         public static readonly DependencyProperty LeftDrawerCloseOnClickAwayProperty = DependencyProperty.Register(nameof(LeftDrawerCloseOnClickAway), typeof(bool), typeof(Drawer), new PropertyMetadata(true));
 
         public bool LeftDrawerCloseOnClickAway
         {
-            get { return (bool)GetValue(LeftDrawerCloseOnClickAwayProperty); }
-            set { SetValue(LeftDrawerCloseOnClickAwayProperty, value); }
+            get => (bool)GetValue(LeftDrawerCloseOnClickAwayProperty);
+            set => SetValue(LeftDrawerCloseOnClickAwayProperty, value);
         }
 
         #endregion
@@ -254,48 +254,48 @@ namespace Zhai.FamilTheme
 
         public object RightDrawerContent
         {
-            get { return (object)GetValue(RightDrawerContentProperty); }
-            set { SetValue(RightDrawerContentProperty, value); }
+            get => GetValue(RightDrawerContentProperty);
+            set => SetValue(RightDrawerContentProperty, value);
         }
 
         public static readonly DependencyProperty RightDrawerContentTemplateProperty = DependencyProperty.Register(nameof(RightDrawerContentTemplate), typeof(DataTemplate), typeof(Drawer), new PropertyMetadata(default(DataTemplate)));
 
         public DataTemplate RightDrawerContentTemplate
         {
-            get { return (DataTemplate)GetValue(RightDrawerContentTemplateProperty); }
-            set { SetValue(RightDrawerContentTemplateProperty, value); }
+            get => (DataTemplate)GetValue(RightDrawerContentTemplateProperty);
+            set => SetValue(RightDrawerContentTemplateProperty, value);
         }
 
         public static readonly DependencyProperty RightDrawerContentTemplateSelectorProperty = DependencyProperty.Register(nameof(RightDrawerContentTemplateSelector), typeof(DataTemplateSelector), typeof(Drawer), new PropertyMetadata(default(DataTemplateSelector)));
 
         public DataTemplateSelector RightDrawerContentTemplateSelector
         {
-            get { return (DataTemplateSelector)GetValue(RightDrawerContentTemplateSelectorProperty); }
-            set { SetValue(RightDrawerContentTemplateSelectorProperty, value); }
+            get => (DataTemplateSelector)GetValue(RightDrawerContentTemplateSelectorProperty);
+            set => SetValue(RightDrawerContentTemplateSelectorProperty, value);
         }
 
         public static readonly DependencyProperty RightDrawerContentStringFormatProperty = DependencyProperty.Register(nameof(RightDrawerContentStringFormat), typeof(string), typeof(Drawer), new PropertyMetadata(default(string)));
 
         public string RightDrawerContentStringFormat
         {
-            get { return (string)GetValue(RightDrawerContentStringFormatProperty); }
-            set { SetValue(RightDrawerContentStringFormatProperty, value); }
+            get => (string)GetValue(RightDrawerContentStringFormatProperty);
+            set => SetValue(RightDrawerContentStringFormatProperty, value);
         }
 
         public static readonly DependencyProperty RightDrawerBackgroundProperty = DependencyProperty.Register(nameof(RightDrawerBackground), typeof(Brush), typeof(Drawer), new PropertyMetadata(default(Brush)));
 
         public Brush RightDrawerBackground
         {
-            get { return (Brush)GetValue(RightDrawerBackgroundProperty); }
-            set { SetValue(RightDrawerBackgroundProperty, value); }
+            get => (Brush)GetValue(RightDrawerBackgroundProperty);
+            set => SetValue(RightDrawerBackgroundProperty, value);
         }
 
         public static readonly DependencyProperty IsRightDrawerOpenProperty = DependencyProperty.Register(nameof(IsRightDrawerOpen), typeof(bool), typeof(Drawer), new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, IsDrawerOpenPropertyChangedCallback));
 
         public bool IsRightDrawerOpen
         {
-            get { return (bool)GetValue(IsRightDrawerOpenProperty); }
-            set { SetValue(IsRightDrawerOpenProperty, value); }
+            get => (bool)GetValue(IsRightDrawerOpenProperty);
+            set => SetValue(IsRightDrawerOpenProperty, value);
         }
 
         private static readonly DependencyPropertyKey RightDrawerZIndexPropertyKey = DependencyProperty.RegisterReadOnly("RightDrawerZIndex", typeof(int), typeof(Drawer), new PropertyMetadata(1));
@@ -304,16 +304,16 @@ namespace Zhai.FamilTheme
 
         public int RightDrawerZIndex
         {
-            get { return (int)GetValue(RightDrawerZIndexProperty); }
-            private set { SetValue(RightDrawerZIndexPropertyKey, value); }
+            get => (int)GetValue(RightDrawerZIndexProperty);
+            private set => SetValue(RightDrawerZIndexPropertyKey, value);
         }
 
         public static readonly DependencyProperty RightDrawerCloseOnClickAwayProperty = DependencyProperty.Register(nameof(RightDrawerCloseOnClickAway), typeof(bool), typeof(Drawer), new PropertyMetadata(true));
 
         public bool RightDrawerCloseOnClickAway
         {
-            get { return (bool)GetValue(RightDrawerCloseOnClickAwayProperty); }
-            set { SetValue(RightDrawerCloseOnClickAwayProperty, value); }
+            get => (bool)GetValue(RightDrawerCloseOnClickAwayProperty);
+            set => SetValue(RightDrawerCloseOnClickAwayProperty, value);
         }
 
         #endregion
@@ -324,48 +324,48 @@ namespace Zhai.FamilTheme
 
         public object BottomDrawerContent
         {
-            get { return (object)GetValue(BottomDrawerContentProperty); }
-            set { SetValue(BottomDrawerContentProperty, value); }
+            get => GetValue(BottomDrawerContentProperty);
+            set => SetValue(BottomDrawerContentProperty, value);
         }
 
         public static readonly DependencyProperty BottomDrawerContentTemplateProperty = DependencyProperty.Register(nameof(BottomDrawerContentTemplate), typeof(DataTemplate), typeof(Drawer), new PropertyMetadata(default(DataTemplate)));
 
         public DataTemplate BottomDrawerContentTemplate
         {
-            get { return (DataTemplate)GetValue(BottomDrawerContentTemplateProperty); }
-            set { SetValue(BottomDrawerContentTemplateProperty, value); }
+            get => (DataTemplate)GetValue(BottomDrawerContentTemplateProperty);
+            set => SetValue(BottomDrawerContentTemplateProperty, value);
         }
 
         public static readonly DependencyProperty BottomDrawerContentTemplateSelectorProperty = DependencyProperty.Register(nameof(BottomDrawerContentTemplateSelector), typeof(DataTemplateSelector), typeof(Drawer), new PropertyMetadata(default(DataTemplateSelector)));
 
         public DataTemplateSelector BottomDrawerContentTemplateSelector
         {
-            get { return (DataTemplateSelector)GetValue(BottomDrawerContentTemplateSelectorProperty); }
-            set { SetValue(BottomDrawerContentTemplateSelectorProperty, value); }
+            get => (DataTemplateSelector)GetValue(BottomDrawerContentTemplateSelectorProperty);
+            set => SetValue(BottomDrawerContentTemplateSelectorProperty, value);
         }
 
         public static readonly DependencyProperty BottomDrawerContentStringFormatProperty = DependencyProperty.Register(nameof(BottomDrawerContentStringFormat), typeof(string), typeof(Drawer), new PropertyMetadata(default(string)));
 
         public string BottomDrawerContentStringFormat
         {
-            get { return (string)GetValue(BottomDrawerContentStringFormatProperty); }
-            set { SetValue(BottomDrawerContentStringFormatProperty, value); }
+            get => (string)GetValue(BottomDrawerContentStringFormatProperty);
+            set => SetValue(BottomDrawerContentStringFormatProperty, value);
         }
 
         public static readonly DependencyProperty BottomDrawerBackgroundProperty = DependencyProperty.Register(nameof(BottomDrawerBackground), typeof(Brush), typeof(Drawer), new PropertyMetadata(default(Brush)));
 
         public Brush BottomDrawerBackground
         {
-            get { return (Brush)GetValue(BottomDrawerBackgroundProperty); }
-            set { SetValue(BottomDrawerBackgroundProperty, value); }
+            get => (Brush)GetValue(BottomDrawerBackgroundProperty);
+            set => SetValue(BottomDrawerBackgroundProperty, value);
         }
 
         public static readonly DependencyProperty IsBottomDrawerOpenProperty = DependencyProperty.Register(nameof(IsBottomDrawerOpen), typeof(bool), typeof(Drawer), new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, IsDrawerOpenPropertyChangedCallback));
 
         public bool IsBottomDrawerOpen
         {
-            get { return (bool)GetValue(IsBottomDrawerOpenProperty); }
-            set { SetValue(IsBottomDrawerOpenProperty, value); }
+            get => (bool)GetValue(IsBottomDrawerOpenProperty);
+            set => SetValue(IsBottomDrawerOpenProperty, value);
         }
 
         private static readonly DependencyPropertyKey BottomDrawerZIndexPropertyKey = DependencyProperty.RegisterReadOnly("BottomDrawerZIndex", typeof(int), typeof(Drawer), new PropertyMetadata(3));
@@ -374,16 +374,16 @@ namespace Zhai.FamilTheme
 
         public int BottomDrawerZIndex
         {
-            get { return (int)GetValue(BottomDrawerZIndexProperty); }
-            private set { SetValue(BottomDrawerZIndexPropertyKey, value); }
+            get => (int)GetValue(BottomDrawerZIndexProperty);
+            private set => SetValue(BottomDrawerZIndexPropertyKey, value);
         }
 
         public static readonly DependencyProperty BottomDrawerCloseOnClickAwayProperty = DependencyProperty.Register(nameof(BottomDrawerCloseOnClickAway), typeof(bool), typeof(Drawer), new PropertyMetadata(true));
 
         public bool BottomDrawerCloseOnClickAway
         {
-            get { return (bool)GetValue(BottomDrawerCloseOnClickAwayProperty); }
-            set { SetValue(BottomDrawerCloseOnClickAwayProperty, value); }
+            get => (bool)GetValue(BottomDrawerCloseOnClickAwayProperty);
+            set => SetValue(BottomDrawerCloseOnClickAwayProperty, value);
         }
 
         #endregion

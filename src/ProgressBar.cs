@@ -13,11 +13,11 @@ namespace Zhai.FamilTheme
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ProgressBar), new FrameworkPropertyMetadata(typeof(ProgressBar)));
         }
 
-        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(ProgressBar), new PropertyMetadata(default(CornerRadius)));
+        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(double), typeof(ProgressBar), new PropertyMetadata(default));
 
-        public CornerRadius CornerRadius
+        public double CornerRadius
         {
-            get => (CornerRadius)GetValue(CornerRadiusProperty);
+            get => (double)GetValue(CornerRadiusProperty);
             set => SetValue(CornerRadiusProperty, value);
         }
 

@@ -81,7 +81,7 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="GridViewColumnHeader">
                             <DockPanel Name="PART_FloatingHeaderCanvas">
-                                <Border BorderBrush="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}" BorderThickness="2" CornerRadius="2">
+                                <Border BorderBrush="{StaticResource Zhai.FamilTheme.SelectionColorBrush}" BorderThickness="2" CornerRadius="2">
                                     <ContentPresenter 
                                               Margin="{TemplateBinding Padding}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -131,7 +131,7 @@
                                           HorizontalScrollBarVisibility="Hidden"
                                           VerticalScrollBarVisibility="Hidden"
                                           CurrentHorizontalOffset="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}">
-                                <Border BorderBrush="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}" BorderThickness="0,0,0,1">
+                                <Border BorderBrush="{StaticResource Zhai.FamilTheme.SelectionColorBrush}" BorderThickness="0,0,0,1">
                                     <StackPanel Orientation="Horizontal">
                                         <GridViewHeaderRowPresenter x:Name="PART_GridViewHeaderRowPresenter"
                                                                 AllowsColumnReorder="{Binding Path=TemplatedParent.View.AllowsColumnReorder, RelativeSource={RelativeSource TemplatedParent}}"
@@ -233,19 +233,19 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionColorBrush}"/>
+        <Setter Property="BorderThickness" Value="0 0 0 1"/>
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Foreground}"/>
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
                     <Grid x:Name="PART_ItemContainer">
-                        <Border x:Name="MouseOverBorder" Opacity="0" Background="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}"/>
+                        <Border x:Name="MouseOverBorder" Visibility="Collapsed" Background="{StaticResource Zhai.FamilTheme.SelectionHoveredColorBrush}" BorderBrush="{TemplateBinding BorderBrush}"/>
 
-                        <Border x:Name="SelectedBorder" Opacity="0"  Background="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}"/>
+                        <Border x:Name="SelectedBorder" Visibility="Collapsed"  Background="{StaticResource Zhai.FamilTheme.SelectionActivedColorBrush}" BorderBrush="{TemplateBinding BorderBrush}"/>
 
-                        <Border x:Name="CurrentBorder" BorderThickness="0 0 0 1" BorderBrush="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}"
-                                Background="{TemplateBinding Background}">
+                        <Border x:Name="CurrentBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="{TemplateBinding BorderThickness}">
                             <GridViewRowPresenter 
                                 Margin="{Binding RelativeSource={RelativeSource Self}, Path=(local:GridViewExtension.ItemPadding)}"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
@@ -257,21 +257,22 @@
                             <Setter Property="Opacity" Value=".56" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="MouseOverBorder" Property="Opacity" Value="{StaticResource Zhai.FamilTheme.SelectionHoveredOpacity}" />
+                            <Setter TargetName="MouseOverBorder" Property="Visibility" Value="Visible" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="True" />
                                 <Condition Property="Selector.IsSelectionActive" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="SelectedBorder" Property="Opacity" Value="{StaticResource Zhai.FamilTheme.SelectionActivedOpacity}" />
+                            <Setter TargetName="SelectedBorder" Property="Visibility" Value="Visible" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="True" />
                                 <Condition Property="Selector.IsSelectionActive" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="SelectedBorder" Property="Opacity" Value="{StaticResource Zhai.FamilTheme.SelectionUnActivedOpacity}" />
+                            <Setter TargetName="SelectedBorder" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="SelectedBorder" Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionUnActivedColorBrush}" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -282,13 +283,11 @@
                         </MultiTrigger>
                         <Trigger Property="local:GridViewExtension.Theme" Value="Bordered">
                             <Setter TargetName="MouseOverBorder" Property="BorderThickness" Value="1"/>
-                            <Setter TargetName="MouseOverBorder" Property="BorderBrush" Value="DarkGray"/>
-                            <Setter TargetName="MouseOverBorder" Property="CornerRadius" Value="3"/>
+                            <Setter TargetName="MouseOverBorder" Property="CornerRadius" Value="2"/>
                             <Setter TargetName="SelectedBorder" Property="BorderThickness" Value="1"/>
-                            <Setter TargetName="SelectedBorder" Property="BorderBrush" Value="DarkGray"/>
-                            <Setter TargetName="SelectedBorder" Property="CornerRadius" Value="3"/>
-                            <Setter TargetName="CurrentBorder" Property="BorderThickness" Value="0"/>
+                            <Setter TargetName="SelectedBorder" Property="CornerRadius" Value="2"/>
                             <Setter TargetName="PART_ItemContainer" Property="Margin" Value="0 .5"/>
+                            <Setter Property="BorderThickness" Value="0"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

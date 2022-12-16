@@ -25,9 +25,9 @@
                             Margin="{TemplateBinding Margin}"
                             ClipToBounds="{TemplateBinding ClipToBounds}">
                         <Grid>
-                            <Border x:Name="MouseOverBorder" Opacity="0" Background="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}"/>
+                            <Border x:Name="MouseOverBorder" Opacity="0" Background="{StaticResource Zhai.FamilTheme.SelectionColorBrush}"/>
 
-                            <Border x:Name="SelectedBorder" Opacity="0"  Background="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}"/>
+                            <Border x:Name="SelectedBorder" Opacity="0"  Background="{StaticResource Zhai.FamilTheme.SelectionColorBrush}"/>
                             
                             <ContentPresenter
                                 Focusable="False"

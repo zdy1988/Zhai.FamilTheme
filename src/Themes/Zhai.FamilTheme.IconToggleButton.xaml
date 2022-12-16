@@ -35,7 +35,7 @@
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="PART_Icon" Property="Visibility" Value="Collapsed"/>
                             <Setter TargetName="PART_CheckedIcon" Property="Visibility" Value="Visible"/>
-                            <Setter Property="Foreground" Value="{StaticResource Zhai.FamilTheme.SelectionHighlightBrush}"/>
+                            <Setter Property="Foreground" Value="{StaticResource Zhai.FamilTheme.HighlightBrush}"/>
                         </Trigger>
                         <Trigger Property="CheckedIcon" Value="None">
                             <Setter TargetName="PART_CheckedIcon1" Property="Visibility" Value="Visible"/>
@@ -47,7 +47,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="{StaticResource Zhai.FamilTheme.SelectionHighlightBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource Zhai.FamilTheme.HighlightBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

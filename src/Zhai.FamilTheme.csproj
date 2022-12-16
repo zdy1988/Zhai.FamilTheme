@@ -50,6 +50,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="Themes\Zhai.FamilTheme.RadioButton.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
     <Page Update="Themes\Zhai.FamilTheme.Loading.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>

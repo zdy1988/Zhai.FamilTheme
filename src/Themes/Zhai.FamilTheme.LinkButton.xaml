@@ -8,7 +8,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type local:LinkButton}" x:Key="Zhai.FamilTheme.LinkButton" BasedOn="{StaticResource Zhai.FamilTheme.ButtonBase}">
-        <Setter Property="HoverForeground" Value="{StaticResource Zhai.FamilTheme.SelectionHighlightBrush}"/>
+        <Setter Property="HoverForeground" Value="{StaticResource Zhai.FamilTheme.HighlightBrush}"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Background" Value="Transparent"/>

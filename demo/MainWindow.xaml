@@ -19,70 +19,61 @@
     
     <Grid>
         <ZDY:TabPanel TabStripPlacement="Left">
-            <ZDY:TabItem Header="ProgressBar">
-                <StackPanel>
+            <ZDY:TabItem Header="TextBox">
+                <StackPanel Margin="20">
                     <StackPanel.Resources>
-                        <Style TargetType="{x:Type ZDY:ProgressBar}">
-                            <Setter Property="Margin" Value="10"/>
+                        <Style TargetType="{x:Type ZDY:TextBox}">
+                            <Setter Property="Margin" Value="5"/>
                         </Style>
                     </StackPanel.Resources>
-                    <WrapPanel Orientation="Horizontal">
-                        <ZDY:ProgressBar Width="240" Height="24" Minimum="0" Maximum="100" Value="25" Content="Progress bar with content"/>
-                        <ZDY:ProgressBar Width="240" Height="24" IsIndeterminate="True" Content="Progress bar with content"/>
-                    </WrapPanel>
-                    <WrapPanel Orientation="Horizontal">
-                        <ZDY:ProgressBar Width="240" BorderThickness="1" Height="24" Minimum="0" Maximum="100" Value="25" Content="Progress bar with content"/>
-                        <ZDY:ProgressBar Width="240" BorderThickness="1" Height="24" IsIndeterminate="True" Content="Progress bar with content"/>
-                    </WrapPanel>
-                    <WrapPanel Orientation="Horizontal">
-                        <ZDY:ProgressBar Width="240" BorderThickness="2" BorderBrush="LightPink" Height="24" Minimum="0" Maximum="100" Value="25" Content="Progress bar with content"/>
-                        <ZDY:ProgressBar Width="240" BorderThickness="2" BorderBrush="LightPink" Height="24" IsIndeterminate="True" Content="Progress bar with content"/>
-                    </WrapPanel>
-                    <WrapPanel Orientation="Horizontal" >
-                        <ZDY:ProgressBar Width="240" Height="16" Minimum="0"  Maximum="100"  Value="50" />
-                        <ZDY:ProgressBar Width="240" Height="16" IsIndeterminate="True"/>
-                    </WrapPanel>
-                    <WrapPanel Orientation="Horizontal">
-                        <ZDY:ProgressBar Width="240" Height="4" Minimum="0" Maximum="100" Value="100" BorderThickness="0" CornerRadius="2"/>
-                        <ZDY:ProgressBar Width="240" Height="4" IsIndeterminate="True" BorderThickness="0" CornerRadius="2"/>
-                    </WrapPanel>
-                    <WrapPanel Orientation="Horizontal">
-                        <ZDY:ProgressBar Width="240" Height="24" Minimum="0"  Maximum="100" Value="66" BorderThickness="0"
-                                         Progressground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" 
-                                         Background="Gray" CornerRadius="2"
-                                         Content="Progress bar with content"
-                                         Foreground="White"
-                                         ProgressAnimationForeground="Red"
-                                         IsProgressAnimationEnabled="True">
-                        </ZDY:ProgressBar>
-                        <ZDY:ProgressBar Width="240" Height="24" IsIndeterminate="True" BorderThickness="0"
-                                         Progressground="{StaticResource Zhai.FamilTheme.ColorfulBrush}"
-                                         Background="Gray" CornerRadius="2"
-                                         Content="Progress bar with content"
-                                         Foreground="White"
-                                         ProgressAnimationForeground="Red"
-                                         IsProgressAnimationEnabled="False">
-                        </ZDY:ProgressBar>
-                    </WrapPanel>
+                    <UniformGrid Rows="1">
+                        <ZDY:TextBox/>
+                        <ZDY:TextBox Text="Default Text Box" Placeholder="Enter text"/>
+                        <ZDY:TextBox Text="Read-Only Text Box" IsReadOnly="True"/>
+                        <ZDY:TextBox Placeholder="Text Box with Placeholder"/>
+                    </UniformGrid>
+                    <UniformGrid Rows="1">
+                        <ZDY:TextBox BorderThickness="1"/>
+                        <ZDY:TextBox BorderThickness="1" Text="Default Text Box" Placeholder="Enter text"/>
+                        <ZDY:TextBox BorderThickness="1" Text="Read-Only Text Box" IsReadOnly="True"/>
+                        <ZDY:TextBox BorderThickness="1" Placeholder="Text Box with Placeholder"/>
+                    </UniformGrid>
+                    <UniformGrid Rows="1">
+                        <ZDY:TextBox CornerRadius="3"/>
+                        <ZDY:TextBox CornerRadius="3" Text="Default Text Box" Placeholder="Enter text"/>
+                        <ZDY:TextBox CornerRadius="3" Text="Read-Only Text Box" IsReadOnly="True"/>
+                        <ZDY:TextBox CornerRadius="3" Placeholder="Text Box with Placeholder"/>
+                    </UniformGrid>
+                    <UniformGrid Rows="1">
+                        <ZDY:TextBox CornerRadius="3" BorderThickness="1"/>
+                        <ZDY:TextBox CornerRadius="3" BorderThickness="1" Text="Default Text Box" Placeholder="Enter text"/>
+                        <ZDY:TextBox CornerRadius="3" BorderThickness="1" Text="Read-Only Text Box" IsReadOnly="True"/>
+                        <ZDY:TextBox CornerRadius="3" BorderThickness="1" Placeholder="Text Box with Placeholder"/>
+                    </UniformGrid>
                 </StackPanel>
             </ZDY:TabItem>
-            <ZDY:TabItem Header="Loading">
-                <StackPanel Margin="20" HorizontalAlignment="Left">
-                    <ZDY:Loading/>
-                    <ZDY:Loading Theme="Bars"/>
-                    <ZDY:Loading Theme="Dots"/>
-                    <ZDY:Loading Foreground="OrangeRed"/>
-                    <ZDY:Loading Theme="Bars" Foreground="OrangeRed"/>
-                    <ZDY:Loading Theme="Dots" Foreground="OrangeRed"/>
-                    <ZDY:Loading Width="100" Foreground="{x:Static SystemColors.HighlightBrush}"/>
+            
+            <ZDY:TabItem Header="CornerPanel">
+                <StackPanel>
+                    <UniformGrid Columns="2" Rows="2">
+                        <ZDY:Card Margin="20">
+                            <Border Background="#66666666" Width="100" Height="100"/>
+                        </ZDY:Card>
+                    </UniformGrid>
                 </StackPanel>
             </ZDY:TabItem>
+
             <ZDY:TabItem Header="Button">
                 <StackPanel>
                     <WrapPanel>
                         <ZDY:Button Content="Button" Margin="5"/>
                         <ZDY:Button Content="Button" Margin="5"/>
                         <ZDY:Button Content="Button" Margin="5"/>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <ZDY:Button Content="Button" CornerRadius="3" Margin="5"/>
+                        <ZDY:Button Content="Button" CornerRadius="3" Margin="5"/>
+                        <ZDY:Button Content="Button" CornerRadius="3" Margin="5"/>
                     </WrapPanel>
                     <WrapPanel>
                         <ZDY:Button Content="Button" BorderThickness="1" Margin="5"/>
@@ -97,7 +88,7 @@
                     <UniformGrid Columns="2" Rows="2">
                         <ZDY:Hint Text="{Binding HintText}"/>
                         <ZDY:Hint Text="{Binding HintText}" Padding="10" FontSize="24" CornerRadius="8"/>
-                        <ZDY:Hint Text="{Binding HintText}" Margin="0 40 0 0"/>
+                        <ZDY:Hint Text="{Binding HintText}" Margin="0 80 0 0"/>
                         <ZDY:Hint Text="{Binding HintText}" Background="Red"/>
                     </UniformGrid>
                 </Grid>
@@ -227,11 +218,35 @@
                 </DockPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="Drawer">
-                <ZDY:Drawer IsLeftDrawerOpen="{Binding ElementName=LeftDrawerSwitch, Path=IsChecked}"
-                            IsRightDrawerOpen="{Binding ElementName=RightDrawerSwitch, Path=IsChecked}"
-                            IsTopDrawerOpen="{Binding ElementName=TopDrawerSwitch, Path=IsChecked}"
-                            IsBottomDrawerOpen="{Binding ElementName=BottomDrawerSwitch, Path=IsChecked}"
-                            OverlayBackground="LightBlue">
+                <ZDY:Drawer OverlayBackground="LightBlue">
+                    <Grid Background="#80ffffff">
+                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Left:"/>
+                                <ZDY:SwitchToggleButton x:Name="LeftDrawerSwitch" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:Drawer}, Path=IsLeftDrawerOpen}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Right:"/>
+                                <ZDY:SwitchToggleButton x:Name="RightDrawerSwitch" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:Drawer}, Path=IsRightDrawerOpen}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Top:"/>
+                                <ZDY:SwitchToggleButton x:Name="TopDrawerSwitch" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:Drawer}, Path=IsTopDrawerOpen}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Bottom:"/>
+                                <ZDY:SwitchToggleButton x:Name="BottomDrawerSwitch" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:Drawer}, Path=IsBottomDrawerOpen}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="IsOverlayed:"/>
+                                <ZDY:SwitchToggleButton IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:Drawer}, Path=IsOverlayed}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="IsOverlayBackgroundEnabled:"/>
+                                <ZDY:SwitchToggleButton IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:Drawer}, Path=IsOverlayBackgroundEnabled}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
                     <ZDY:Drawer.LeftDrawerContent>
                         <Border Width="100" Background="#70666666">
                             <ZDY:IconToggleButton IsChecked="{Binding ElementName=LeftDrawerSwitch, Path=IsChecked}" Icon="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -252,34 +267,6 @@
                             <ZDY:IconToggleButton IsChecked="{Binding ElementName=BottomDrawerSwitch, Path=IsChecked}" Icon="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ZDY:Drawer.BottomDrawerContent>
-                    <Grid Background="#80ffffff">
-                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Left:"/>
-                                <ZDY:SwitchToggleButton x:Name="LeftDrawerSwitch"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Right:"/>
-                                <ZDY:SwitchToggleButton x:Name="RightDrawerSwitch"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Top:"/>
-                                <ZDY:SwitchToggleButton x:Name="TopDrawerSwitch"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Bottom:"/>
-                                <ZDY:SwitchToggleButton x:Name="BottomDrawerSwitch"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="IsOverlayed:"/>
-                                <ZDY:SwitchToggleButton IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:Drawer}, Path=IsOverlayed}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="IsOverlayBackgroundEnabled:"/>
-                                <ZDY:SwitchToggleButton IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:Drawer}, Path=IsOverlayBackgroundEnabled}"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </Grid>
                 </ZDY:Drawer>
             </ZDY:TabItem>
             <ZDY:TabItem Header="Slider">
@@ -289,34 +276,50 @@
                     <ZDY:Slider Margin="0 5" IsEnabled="False" Value="7"/>
                     <ZDY:Slider Margin="0 5" Value="7" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}"/>
                     <ZDY:Slider Margin="0 5" IsEnabled="False" Value="7" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}"/>
-                    <ZDY:Slider Margin="0 5" Value="7" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" Background="Red"/>
+                    <ZDY:Slider Margin="0 5" Value="7" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" Background="Red" CornerRadius="2"/>
                     <TextBlock Text="{Binding ElementName=Slider2, Path=Value, StringFormat=Slider2:{0}}" Margin="0 10 0 0"/>
                     <ZDY:Slider2 Margin="0 5" x:Name="Slider2" Value="5"/>
                     <ZDY:Slider2 Margin="0 5" IsEnabled="False" Value="7"/>
                     <ZDY:Slider2 Margin="0 5" Value="7" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}"/>
                     <ZDY:Slider2 Margin="0 5" IsEnabled="False" Value="7" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}"/>
-                    <ZDY:Slider2 Margin="0 5" Value="7" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" Background="Red"/>
+                    <ZDY:Slider2 Margin="0 5" Value="7" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" Background="Red" CornerRadius="2"/>
                 </StackPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="CheckBox">
                 <StackPanel Margin="20 0">
-                    <ZDY:CheckBox Margin="0 5"/>
-                    <ZDY:CheckBox Margin="0 5" Size="32"/>
-                    <ZDY:CheckBox Margin="0 5" Size="64"/>
+                    <WrapPanel>
+                        <ZDY:CheckBox Margin="5"/>
+                        <ZDY:CheckBox Margin="5" IsChecked="{x:Null}"/>
+                        <ZDY:CheckBox Margin="5" Size="32"/>
+                        <ZDY:CheckBox Margin="5" Size="64"/>
+                        <ZDY:CheckBox Margin="5" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" Background="Red" CornerRadius="3"/>
+                    </WrapPanel>
 
-                    <ZDY:SwitchToggleButton Margin="0 5"/>
-                    <ZDY:SwitchToggleButton Margin="0 5" Size="45"/>
-                    <ZDY:SwitchToggleButton Margin="0 5" Size="60"/>
+                    <WrapPanel>
+                        <ZDY:RadioButton Margin="5" GroupName="radio"/>
+                        <ZDY:RadioButton Margin="5" GroupName="radio" Size="32"/>
+                        <ZDY:RadioButton Margin="5" GroupName="radio" Size="64"/>
+                        <ZDY:RadioButton Margin="5" GroupName="radio" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" Background="Red"/>
+                    </WrapPanel>
 
-                    <ZDY:SwitchToggleButton Margin="0 5" Size="45">
-                        <ZDY:Icon Kind="ClearDay" Foreground="Red"/>
-                    </ZDY:SwitchToggleButton>
-                    <ZDY:SwitchToggleButton Margin="0 5" Size="45">
-                        <Grid>
-                            <ZDY:Icon x:Name="CheckedIcon" Kind="ClearDay" Foreground="DarkGoldenrod" Visibility="{Binding RelativeSource={RelativeSource AncestorType=ZDY:SwitchToggleButton}, Path=IsChecked, Converter={ZDY:BoolToVisibilityConverter}}"/>
-                            <ZDY:Icon x:Name="UnCheckedIcon" Kind="ClearNight" Foreground="LightBlue" Visibility="{Binding RelativeSource={RelativeSource AncestorType=ZDY:SwitchToggleButton}, Path=IsChecked, Converter={ZDY:BoolToInverseVisibilityConverter}}"/>
-                        </Grid>
-                    </ZDY:SwitchToggleButton>
+                    <WrapPanel>
+                        <ZDY:SwitchToggleButton Margin="5"/>
+                        <ZDY:SwitchToggleButton Margin="5" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" Background="Red"/>
+                        <ZDY:SwitchToggleButton Margin="5" Size="45"/>
+                        <ZDY:SwitchToggleButton Margin="5" Size="60"/>
+                    </WrapPanel>
+
+                    <WrapPanel>
+                        <ZDY:SwitchToggleButton Margin="5" Size="45">
+                            <ZDY:Icon Kind="ClearDay" Foreground="Red"/>
+                        </ZDY:SwitchToggleButton>
+                        <ZDY:SwitchToggleButton Margin="5" Size="45">
+                            <Grid>
+                                <ZDY:Icon x:Name="CheckedIcon" Kind="ClearDay" Foreground="DarkGoldenrod" Visibility="{Binding RelativeSource={RelativeSource AncestorType=ZDY:SwitchToggleButton}, Path=IsChecked, Converter={ZDY:BoolToVisibilityConverter}}"/>
+                                <ZDY:Icon x:Name="UnCheckedIcon" Kind="ClearNight" Foreground="LightBlue" Visibility="{Binding RelativeSource={RelativeSource AncestorType=ZDY:SwitchToggleButton}, Path=IsChecked, Converter={ZDY:BoolToInverseVisibilityConverter}}"/>
+                            </Grid>
+                        </ZDY:SwitchToggleButton>
+                    </WrapPanel>
                 </StackPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="Icons">
@@ -354,6 +357,64 @@
                     <ZDY:CopyButton Text="http://www.zdyla.com" HorizontalAlignment="Left" Background="#70000000" Margin="0 5"/>
 
                     <ZDY:LinkButton Content="Link To ZDYLA" NavigateUri="http://www.zdyla.com" HoverForeground="Red" Margin="0 5"/>
+                </StackPanel>
+            </ZDY:TabItem>
+            <ZDY:TabItem Header="ProgressBar">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type ZDY:ProgressBar}">
+                            <Setter Property="Margin" Value="10"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <WrapPanel Orientation="Horizontal">
+                        <ZDY:ProgressBar Width="240" Height="24" Minimum="0" Maximum="100" Value="25" Content="Progress bar with content"/>
+                        <ZDY:ProgressBar Width="240" Height="24" IsIndeterminate="True" Content="Progress bar with content"/>
+                    </WrapPanel>
+                    <WrapPanel Orientation="Horizontal">
+                        <ZDY:ProgressBar Width="240" BorderThickness="1" Height="24" Minimum="0" Maximum="100" Value="25" Content="Progress bar with content"/>
+                        <ZDY:ProgressBar Width="240" BorderThickness="1" Height="24" IsIndeterminate="True" Content="Progress bar with content"/>
+                    </WrapPanel>
+                    <WrapPanel Orientation="Horizontal">
+                        <ZDY:ProgressBar Width="240" BorderThickness="2" BorderBrush="LightPink" Height="24" Minimum="0" Maximum="100" Value="25" Content="Progress bar with content"/>
+                        <ZDY:ProgressBar Width="240" BorderThickness="2" BorderBrush="LightPink" Height="24" IsIndeterminate="True" Content="Progress bar with content"/>
+                    </WrapPanel>
+                    <WrapPanel Orientation="Horizontal" >
+                        <ZDY:ProgressBar Width="240" Height="16" Minimum="0"  Maximum="100"  Value="50" />
+                        <ZDY:ProgressBar Width="240" Height="16" IsIndeterminate="True"/>
+                    </WrapPanel>
+                    <WrapPanel Orientation="Horizontal">
+                        <ZDY:ProgressBar Width="240" Height="4" Minimum="0" Maximum="100" Value="100" BorderThickness="0" CornerRadius="2"/>
+                        <ZDY:ProgressBar Width="240" Height="4" IsIndeterminate="True" BorderThickness="0" CornerRadius="2"/>
+                    </WrapPanel>
+                    <WrapPanel Orientation="Horizontal">
+                        <ZDY:ProgressBar Width="240" Height="24" Minimum="0"  Maximum="100" Value="66" BorderThickness="0"
+                                         Progressground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" 
+                                         Background="Gray" CornerRadius="2"
+                                         Content="Progress bar with content"
+                                         Foreground="White"
+                                         ProgressAnimationForeground="Red"
+                                         IsProgressAnimationEnabled="True">
+                        </ZDY:ProgressBar>
+                        <ZDY:ProgressBar Width="240" Height="24" IsIndeterminate="True" BorderThickness="0"
+                                         Progressground="{StaticResource Zhai.FamilTheme.ColorfulBrush}"
+                                         Background="Gray" CornerRadius="2"
+                                         Content="Progress bar with content"
+                                         Foreground="White"
+                                         ProgressAnimationForeground="Red"
+                                         IsProgressAnimationEnabled="False">
+                        </ZDY:ProgressBar>
+                    </WrapPanel>
+                </StackPanel>
+            </ZDY:TabItem>
+            <ZDY:TabItem Header="Loading">
+                <StackPanel Margin="20" HorizontalAlignment="Left">
+                    <ZDY:Loading/>
+                    <ZDY:Loading Theme="Bars"/>
+                    <ZDY:Loading Theme="Dots"/>
+                    <ZDY:Loading Foreground="OrangeRed"/>
+                    <ZDY:Loading Theme="Bars" Foreground="OrangeRed"/>
+                    <ZDY:Loading Theme="Dots" Foreground="OrangeRed"/>
+                    <ZDY:Loading Width="100" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}"/>
                 </StackPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="ScrollViewer">
