@@ -6,7 +6,7 @@ using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class ValueCompareToBoolConverter : IValueConverter
+    public class ValueCompareToBoolConverter : ConverterMarkupExtensionBase<ValueCompareToBoolConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

@@ -6,7 +6,7 @@ using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
 {
-    internal class TransparentWindowTransparencyConverter : IMultiValueConverter
+    internal class TransparentWindowTransparencyConverter : ConverterMarkupExtensionBase<TransparentWindowTransparencyConverter>, IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {

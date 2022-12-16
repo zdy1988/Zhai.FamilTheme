@@ -5,7 +5,7 @@ using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class BoolToInverseVisibilityConverter : IValueConverter
+    public class BoolToInverseVisibilityConverter : ConverterMarkupExtensionBase<BoolToInverseVisibilityConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter,
             CultureInfo culture)

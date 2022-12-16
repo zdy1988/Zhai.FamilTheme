@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class BoolToOrientationConverter: IValueConverter
+    public class BoolToOrientationConverter: ConverterMarkupExtensionBase<BoolToOrientationConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter,
             CultureInfo culture)

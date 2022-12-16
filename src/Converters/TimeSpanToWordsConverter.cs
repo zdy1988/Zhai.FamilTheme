@@ -9,7 +9,7 @@ using System.Windows.Markup;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class TimeSpanToWordsConverter : IValueConverter
+    public class TimeSpanToWordsConverter : ConverterMarkupExtensionBase<TimeSpanToWordsConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

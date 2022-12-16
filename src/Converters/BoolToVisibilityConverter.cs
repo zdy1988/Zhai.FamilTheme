@@ -5,7 +5,7 @@ using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class BoolToVisibilityConverter : IValueConverter
+    public class BoolToVisibilityConverter : ConverterMarkupExtensionBase<BoolToVisibilityConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter,
             CultureInfo culture)

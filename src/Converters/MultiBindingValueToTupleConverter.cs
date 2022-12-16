@@ -6,7 +6,7 @@ using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class MultiBindingValueToTupleConverter : IMultiValueConverter
+    public class MultiBindingValueToTupleConverter : ConverterMarkupExtensionBase<MultiBindingValueToTupleConverter>, IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {

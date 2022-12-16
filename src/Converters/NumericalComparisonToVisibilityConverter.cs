@@ -10,7 +10,7 @@ using System.Windows.Markup;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class NumericalComparisonToVisibilityConverter : IMultiValueConverter
+    public class NumericalComparisonToVisibilityConverter : ConverterMarkupExtensionBase<NumericalComparisonToVisibilityConverter>, IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {

@@ -5,7 +5,7 @@ using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class TimeSpanToSecondsConverter : IValueConverter
+    public class TimeSpanToSecondsConverter : ConverterMarkupExtensionBase<TimeSpanToSecondsConverter>, IValueConverter
     {
         /// <summary>
         /// Converts a value.

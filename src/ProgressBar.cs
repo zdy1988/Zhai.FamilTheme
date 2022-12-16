@@ -37,12 +37,12 @@ namespace Zhai.FamilTheme
             set => SetValue(ContentTemplateProperty, value);
         }
 
-        public static readonly DependencyProperty ContentForegroundProperty = DependencyProperty.Register(nameof(ContentForeground), typeof(Brush), typeof(ProgressBar));
+        public static readonly DependencyProperty ProgressgroundProperty = DependencyProperty.Register(nameof(Progressground), typeof(Brush), typeof(ProgressBar));
 
-        public Brush ContentForeground
+        public Brush Progressground
         {
-            get => (Brush)GetValue(ContentForegroundProperty);
-            set => SetValue(ContentForegroundProperty, value);
+            get => (Brush)GetValue(ProgressgroundProperty);
+            set => SetValue(ProgressgroundProperty, value);
         }
 
         public static readonly DependencyProperty ProgressAnimationForegroundProperty = DependencyProperty.Register(nameof(ProgressAnimationForeground), typeof(Brush), typeof(ProgressBar));

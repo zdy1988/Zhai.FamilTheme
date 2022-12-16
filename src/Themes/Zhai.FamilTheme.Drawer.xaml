@@ -3,10 +3,6 @@
                     xmlns:local="clr-namespace:Zhai.FamilTheme"
                     xmlns:Converters="clr-namespace:Zhai.FamilTheme.Converters">
 
-    <Converters:DrawerOffsetConverter x:Key="DrawerOffsetConverter"/>
-
-
-
     <Style TargetType="{x:Type local:Drawer}" x:Key="Zhai.FamilTheme.Drawer">
         <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="OverlayBackground" Value="Transparent" />
@@ -283,28 +279,28 @@
                             </Grid>
 
                             <Grid x:Name="PART_LeftDrawer" Grid.RowSpan="3" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Stretch" Panel.ZIndex="{TemplateBinding LeftDrawerZIndex}"
-                                      Margin="{Binding RelativeSource={RelativeSource Self}, Path=ActualWidth, Converter={StaticResource DrawerOffsetConverter}, ConverterParameter={x:Static Dock.Left}}">
+                                      Margin="{Binding RelativeSource={RelativeSource Self}, Path=ActualWidth, Converter={Converters:DrawerOffsetConverter}, ConverterParameter={x:Static Dock.Left}}">
                                 <AdornerDecorator>
                                     <Border x:Name="LeftDrawerShadow" Opacity="0" Background="{TemplateBinding LeftDrawerBackground}"/>
                                 </AdornerDecorator>
                                 <ContentPresenter IsEnabled="{TemplateBinding IsLeftDrawerOpen}" Content="{TemplateBinding LeftDrawerContent}" ContentTemplate="{TemplateBinding LeftDrawerContentTemplate}" ContentStringFormat="{TemplateBinding LeftDrawerContentStringFormat}"/>
                             </Grid>
                             <Grid x:Name="PART_RightDrawer" Grid.RowSpan="3" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Right" Panel.ZIndex="{TemplateBinding RightDrawerZIndex}"
-                                      Margin="{Binding RelativeSource={RelativeSource Self}, Path=ActualWidth, Converter={StaticResource DrawerOffsetConverter}, ConverterParameter={x:Static Dock.Right}}">
+                                      Margin="{Binding RelativeSource={RelativeSource Self}, Path=ActualWidth, Converter={Converters:DrawerOffsetConverter}, ConverterParameter={x:Static Dock.Right}}">
                                 <AdornerDecorator>
                                     <Border x:Name="RightDrawerShadow" Opacity="0" Background="{TemplateBinding RightDrawerBackground}"/>
                                 </AdornerDecorator>
                                 <ContentPresenter IsEnabled="{TemplateBinding IsRightDrawerOpen}" Content="{TemplateBinding RightDrawerContent}" ContentTemplate="{TemplateBinding RightDrawerContentTemplate}" ContentStringFormat="{TemplateBinding RightDrawerContentStringFormat}"/>
                             </Grid>
                             <Grid x:Name="PART_TopDrawer" Grid.RowSpan="3" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Panel.ZIndex="{TemplateBinding TopDrawerZIndex}"
-                                      Margin="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight, Converter={StaticResource DrawerOffsetConverter}, ConverterParameter={x:Static Dock.Top}}">
+                                      Margin="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight, Converter={Converters:DrawerOffsetConverter}, ConverterParameter={x:Static Dock.Top}}">
                                 <AdornerDecorator>
                                     <Border x:Name="TopDrawerShadow" Opacity="0" Background="{TemplateBinding TopDrawerBackground}"/>
                                 </AdornerDecorator>
                                 <ContentPresenter IsEnabled="{TemplateBinding IsTopDrawerOpen}" Content="{TemplateBinding TopDrawerContent}" ContentTemplate="{TemplateBinding TopDrawerContentTemplate}" ContentStringFormat="{TemplateBinding TopDrawerContentStringFormat}"/>
                             </Grid>
                             <Grid x:Name="PART_BottomDrawer" Grid.RowSpan="3" Grid.ColumnSpan="3" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Panel.ZIndex="{TemplateBinding BottomDrawerZIndex}"
-                                      Margin="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight, Converter={StaticResource DrawerOffsetConverter}, ConverterParameter={x:Static Dock.Bottom}}">
+                                      Margin="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight, Converter={Converters:DrawerOffsetConverter}, ConverterParameter={x:Static Dock.Bottom}}">
                                 <AdornerDecorator>
                                     <Border x:Name="BottomDrawerShadow" Opacity="0" Background="{TemplateBinding BottomDrawerBackground}"/>
                                 </AdornerDecorator>

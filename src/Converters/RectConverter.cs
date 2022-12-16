@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class RectConverter : IMultiValueConverter
+    public class RectConverter : ConverterMarkupExtensionBase<RectConverter>, IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {

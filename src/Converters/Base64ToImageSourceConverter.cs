@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Text;
 using System.Windows.Data;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class Base64ToImageSourceConverter : IValueConverter
+    public class Base64ToImageSourceConverter : ConverterMarkupExtensionBase<Base64ToImageSourceConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

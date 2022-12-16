@@ -9,9 +9,9 @@
 
     <Style TargetType="{x:Type local:Button}" x:Key="Zhai.FamilTheme.Button" BasedOn="{StaticResource Zhai.FamilTheme.ButtonBase}">
         <Setter Property="Padding" Value="12 8"/>
-        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}" />
+        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionActivedBackgroundColorBrush}" />
         <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="Template">
@@ -22,9 +22,7 @@
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
-                                Opacity="{StaticResource Zhai.FamilTheme.SelectionActivedOpacity}">
-                        </Border>
-                        <Border Padding="{TemplateBinding Padding}">
+                                Padding="{TemplateBinding Padding}">
                             <ContentPresenter 
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"

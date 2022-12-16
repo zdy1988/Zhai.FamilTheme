@@ -7,7 +7,7 @@ using System.Windows.Markup;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class MultiBoolToBoolConverter : IMultiValueConverter
+    public class MultiBoolToBoolConverter : ConverterMarkupExtensionBase<MultiBoolToBoolConverter>, IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter,
             CultureInfo culture)

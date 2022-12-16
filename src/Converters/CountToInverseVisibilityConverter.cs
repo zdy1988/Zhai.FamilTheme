@@ -7,7 +7,7 @@ using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class CountToInverseVisibilityConverter : IValueConverter
+    public class CountToInverseVisibilityConverter : ConverterMarkupExtensionBase<CountToInverseVisibilityConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

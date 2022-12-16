@@ -8,7 +8,7 @@ namespace Zhai.FamilTheme.Converters
     /// Convert double to double using a ratio parameter
     /// </summary>
     [ValueConversion(typeof(string), typeof(string))]
-    public class RatioConverter : IValueConverter
+    public class RatioConverter : ConverterMarkupExtensionBase<RatioConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

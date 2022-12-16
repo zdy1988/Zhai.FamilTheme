@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace Zhai.FamilTheme.Converters
 {
-    internal class HorizontalThicknessConverter : IValueConverter
+    internal class HorizontalThicknessConverter : ConverterMarkupExtensionBase<HorizontalThicknessConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

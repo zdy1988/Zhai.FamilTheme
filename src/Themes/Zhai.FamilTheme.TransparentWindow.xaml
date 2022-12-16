@@ -8,9 +8,6 @@
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.IconButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
-    <Converters:TransparentWindowTransparencyConverter x:Key="TransparentWindowTransparencyConverter"/>
-
     <ImageSource x:Key="Zhai.FamilTheme.TransparentWindow.DefaultIcon">pack://application:,,,/Zhai.FamilTheme;component/Resources/favicon.ico</ImageSource>
 
     <DropShadowEffect x:Key="Zhai.FamilTheme.TransparentWindow.DarkShadowEffect" BlurRadius="15" Color="#800f0f0f" Direction="0" ShadowDepth="0"/>
@@ -47,7 +44,7 @@
                     <Border Grid.Row="1" Grid.Column="1" x:Name="LayoutBackground" Opacity="{TemplateBinding Transparency}">
                         <Border x:Name="LayoutTitleBarBackground" Height="{Binding ElementName=TitleBar, Path=ActualHeight}" 
                                 VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                                Visibility="{TemplateBinding IsTitleBarBackgroundEnabled, Converter={StaticResource BoolToVisibilityConverter}}"/>
+                                Visibility="{TemplateBinding IsTitleBarBackgroundEnabled, Converter={Converters:BoolToVisibilityConverter}}"/>
                     </Border>
                     <Border Grid.Row="1" Grid.Column="1">
                         <Grid>
@@ -71,9 +68,9 @@
                                        TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"/>
                                 </StackPanel>
                                 <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-                                    <local:IconButton x:Name="TransparentButton" ToolTip="启用/禁用透明" Visibility="{TemplateBinding IsTransparencyButtonEnabled, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                                    <local:IconButton x:Name="ThemeButton" ToolTip="日光/暗夜主题" Visibility="{TemplateBinding IsThemeButtonEnabled, Converter={StaticResource BoolToVisibilityConverter}}"/>
-                                    <local:IconButton x:Name="PinButton" Icon="Pin" ToolTip="置顶" Visibility="{TemplateBinding IsTopmostButtonEnabled, Converter={StaticResource BoolToVisibilityConverter}}" RenderTransformOrigin="0.5,0.5"/>
+                                    <local:IconButton x:Name="TransparentButton" ToolTip="启用/禁用透明" Visibility="{TemplateBinding IsTransparencyButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}"/>
+                                    <local:IconButton x:Name="ThemeButton" ToolTip="日光/暗夜主题" Visibility="{TemplateBinding IsThemeButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}"/>
+                                    <local:IconButton x:Name="PinButton" Icon="Pin" ToolTip="置顶" Visibility="{TemplateBinding IsTopmostButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}" RenderTransformOrigin="0.5,0.5"/>
                                     <local:IconButton x:Name="MinimizeButton" Icon="MinusScreen" ToolTip="最小化" IsTabStop="False"/>
                                     <local:IconButton x:Name="MaximizeButton" Icon="FullScreen" ToolTip="最大化" IsTabStop="False"/>
                                     <local:IconButton x:Name="RestoreButton" Icon="RestoreScreen" Visibility="Collapsed" ToolTip="还原窗口" IsTabStop="False"/>

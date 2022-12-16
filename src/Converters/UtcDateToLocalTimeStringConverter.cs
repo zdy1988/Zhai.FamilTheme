@@ -5,7 +5,7 @@ using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class UtcDateToLocalTimeStringConverter : IValueConverter
+    public class UtcDateToLocalTimeStringConverter : ConverterMarkupExtensionBase<UtcDateToLocalTimeStringConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

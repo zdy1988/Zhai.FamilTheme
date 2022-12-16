@@ -10,7 +10,7 @@ using System.Windows.Markup;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class NullOrEmptyStringToInverseBoolConverter : IValueConverter
+    public class NullOrEmptyStringToInverseBoolConverter : ConverterMarkupExtensionBase<NullOrEmptyStringToInverseBoolConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter,
             CultureInfo culture)

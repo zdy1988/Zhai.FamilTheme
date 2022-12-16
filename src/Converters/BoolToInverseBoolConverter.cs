@@ -4,7 +4,7 @@ using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class BoolToInverseBoolConverter : IValueConverter
+    public class BoolToInverseBoolConverter : ConverterMarkupExtensionBase<BoolToInverseBoolConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

@@ -7,7 +7,7 @@ using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class FilePathToNameConverter : IValueConverter
+    public class FilePathToNameConverter : ConverterMarkupExtensionBase<FilePathToNameConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

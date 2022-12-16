@@ -7,16 +7,14 @@
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Brushes.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Converters:MathConverter x:Key="MathConverter"/>
-    <Converters:RectConverter x:Key="RectConverter"/>
-
-    <Color x:Key="Zhai.FamilTheme.ProgressBar.AccentHighlightColor">#6C9CF6</Color>
+    <Color x:Key="Zhai.FamilTheme.ProgressBar.AccentHighlightColor">#44444444</Color>
 
     <Style TargetType="{x:Type local:ProgressBar}" x:Key="Zhai.FamilTheme.ProgressBar">
-        <Setter Property="ContentForeground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Foreground}"/>
-        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}"/>
+        <Setter Property="Progressground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Foreground}"/>
+        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionActivedBackgroundColorBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionBackgroundColorBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="ProgressAnimationForeground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Foreground, Converter={Converters:BlackWhiteBrushRoundConverter}}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -26,21 +24,21 @@
                 <ControlTemplate TargetType="{x:Type local:ProgressBar}">
                     <Grid>
                         <Border x:Name="PART_Track"
-                                Background="{TemplateBinding Background}" Opacity="{StaticResource Zhai.FamilTheme.SelectionActivedOpacity}"
+                                Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="{TemplateBinding CornerRadius}"/>
 
                         <ContentControl Content="{TemplateBinding Content}"
+                                        Foreground="{TemplateBinding Foreground}"
                                         ContentTemplate="{TemplateBinding ContentTemplate}"
-                                        Foreground="{TemplateBinding ContentForeground}"
                                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                         Margin="{TemplateBinding Padding}"
                                         Focusable="False"/>
 
                         <Border x:Name="PART_Indicator"
-                                Background="{TemplateBinding Foreground}" Opacity="0.32"
+                                Background="{TemplateBinding Progressground}" Opacity="{StaticResource Zhai.FamilTheme.ForegroundOpacity}"
                                 CornerRadius="{TemplateBinding CornerRadius}"
                                 HorizontalAlignment="Left">
                             <Border.OpacityMask>
@@ -62,7 +60,7 @@
                                                              Center="0, 0.5"
                                                              RadiusX="0">
                                             <RadialGradientBrush.RadiusY>
-                                                <MultiBinding Converter="{StaticResource MathConverter}" ConverterParameter="(x/y)*z">
+                                                <MultiBinding Converter="{Converters:MathConverter}" ConverterParameter="(x/y)*z">
                                                     <Binding Path="ActualWidth" ElementName="PART_Indicator"/>
                                                     <Binding Path="ActualHeight" ElementName="PART_Indicator"/>
                                                     <Binding Path="RadiusX" RelativeSource="{RelativeSource Self}"/>
@@ -92,7 +90,7 @@
                             <Border.Clip>
                                 <RectangleGeometry>
                                     <RectangleGeometry.Rect>
-                                        <MultiBinding Converter="{StaticResource RectConverter}">
+                                        <MultiBinding Converter="{Converters:RectConverter}">
                                             <Binding Path="ActualWidth" ElementName="PART_Indicator"/>
                                             <Binding Path="ActualHeight" ElementName="PART_Indicator"/>
                                         </MultiBinding>

@@ -5,7 +5,7 @@ using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class EqualityToVisibilityConverter : IValueConverter
+    public class EqualityToVisibilityConverter : ConverterMarkupExtensionBase<EqualityToVisibilityConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

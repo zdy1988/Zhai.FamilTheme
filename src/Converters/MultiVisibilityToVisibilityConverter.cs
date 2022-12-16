@@ -7,7 +7,7 @@ using System.Windows.Markup;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class MultiVisibilityToVisibilityConverter : IMultiValueConverter
+    public class MultiVisibilityToVisibilityConverter : ConverterMarkupExtensionBase<MultiVisibilityToVisibilityConverter>, IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter,
             CultureInfo culture)

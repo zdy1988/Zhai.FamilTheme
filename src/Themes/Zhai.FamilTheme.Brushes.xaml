@@ -3,6 +3,12 @@
                     xmlns:sys ="clr-namespace:System;assembly=mscorlib"
                     xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
 
+    <LinearGradientBrush x:Key="Zhai.FamilTheme.ColorfulBrush" StartPoint="0,0" EndPoint="1,1" PresentationOptions:Freeze="True">
+        <GradientStop Color="#9790f2"  Offset="0" />
+        <GradientStop Color="#7fbfff" Offset="0.5" />
+        <GradientStop Color="#21BFD5" Offset="1" />
+    </LinearGradientBrush>
+
     <SolidColorBrush x:Key="Zhai.FamilTheme.Window.DarkTitleBarBackgroundColorBrush" Color="#2f3339" PresentationOptions:Freeze="True"/>
     <SolidColorBrush x:Key="Zhai.FamilTheme.Window.LightTitleBarBackgroundColorBrush" Color="#ebeff8" PresentationOptions:Freeze="True"/>
 

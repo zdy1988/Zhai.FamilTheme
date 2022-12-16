@@ -5,7 +5,7 @@ using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class CollectionLengthToBoolConverter : IValueConverter
+    public class CollectionLengthToBoolConverter : ConverterMarkupExtensionBase<CollectionLengthToBoolConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

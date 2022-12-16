@@ -63,7 +63,7 @@
                         <Grid>
                             <Rectangle x:Name="Track" 
                                        Fill= "{TemplateBinding Foreground}" 
-                                       Opacity="0.26"
+                                       Opacity="{StaticResource Zhai.FamilTheme.SelectionUnActivedOpacity}"
                                        HorizontalAlignment="Left" 
                                        Height="29" 
                                        Margin="0" 

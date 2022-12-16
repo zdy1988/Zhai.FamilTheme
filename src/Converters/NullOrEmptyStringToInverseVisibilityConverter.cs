@@ -10,7 +10,7 @@ using System.Windows.Markup;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class NullOrEmptyStringToInverseVisibilityConverter : IValueConverter
+    public class NullOrEmptyStringToInverseVisibilityConverter : ConverterMarkupExtensionBase<NullOrEmptyStringToInverseVisibilityConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter,
             CultureInfo culture)

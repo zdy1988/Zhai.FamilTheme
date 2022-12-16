@@ -6,7 +6,7 @@ using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
 {
-    public class SubStringConverter : IValueConverter
+    public class SubStringConverter : ConverterMarkupExtensionBase<SubStringConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

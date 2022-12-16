@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace Zhai.FamilTheme.Converters
 {
-    internal class DrawerOffsetConverter : IValueConverter
+    internal class DrawerOffsetConverter : ConverterMarkupExtensionBase<DrawerOffsetConverter>, IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
