@@ -1,0 +1,15 @@
+﻿<Window x:Class="Zhai.FamilThemeDemo.NativeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zhai.FamilThemeDemo"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="ZDY ' FamilTheme" Width="800" Height="600">
+
+    <Border BorderThickness="0 1 0 0" BorderBrush="#33333333">
+        <local:MainWindowContent/>
+    </Border>
+
+</Window>

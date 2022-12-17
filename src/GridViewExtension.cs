@@ -12,24 +12,24 @@ namespace Zhai.FamilTheme
         /// 样式
         /// </summary>
         public static readonly DependencyProperty ThemeProperty = DependencyProperty.RegisterAttached("Theme", typeof(GridViewTheme), typeof(GridViewExtension), new FrameworkPropertyMetadata(GridViewTheme.Default, FrameworkPropertyMetadataOptions.Inherits));
-        public static void SetTheme(DataGrid element, GridViewTheme value) => element.SetValue(ThemeProperty, value);
-        public static GridViewTheme GetTheme(DataGrid element) => (GridViewTheme)element.GetValue(ThemeProperty);
+        public static void SetTheme(DependencyObject element, GridViewTheme value) => element.SetValue(ThemeProperty, value);
+        public static GridViewTheme GetTheme(DependencyObject element) => (GridViewTheme)element.GetValue(ThemeProperty);
 
 
         /// <summary>
         /// 启用默认排序功能
         /// </summary>
         public static readonly DependencyProperty IsSortEnabledProperty = DependencyProperty.RegisterAttached("IsSortEnabled", typeof(bool), typeof(GridViewExtension), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
-        public static void SetIsSortEnabled(DataGrid element, bool value) => element.SetValue(IsSortEnabledProperty, value);
-        public static bool GetIsSortEnabled(DataGrid element) => (bool)element.GetValue(IsSortEnabledProperty);
+        public static void SetIsSortEnabled(DependencyObject element, bool value) => element.SetValue(IsSortEnabledProperty, value);
+        public static bool GetIsSortEnabled(DependencyObject element) => (bool)element.GetValue(IsSortEnabledProperty);
 
 
         /// <summary>
         /// 显示交错行
         /// </summary>
         public static readonly DependencyProperty IsInterlaceRowBackgroundEnabledProperty = DependencyProperty.RegisterAttached("IsInterlaceRowBackgroundEnabled", typeof(bool), typeof(GridViewExtension), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
-        public static void SetIsInterlaceRowBackgroundEnabled(DataGrid element, bool value) => element.SetValue(IsInterlaceRowBackgroundEnabledProperty, value);
-        public static bool GetIsInterlaceRowBackgroundEnabled(DataGrid element) => (bool)element.GetValue(IsInterlaceRowBackgroundEnabledProperty);
+        public static void SetIsInterlaceRowBackgroundEnabled(DependencyObject element, bool value) => element.SetValue(IsInterlaceRowBackgroundEnabledProperty, value);
+        public static bool GetIsInterlaceRowBackgroundEnabled(DependencyObject element) => (bool)element.GetValue(IsInterlaceRowBackgroundEnabledProperty);
 
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace Zhai.FamilTheme
         /// </summary>
         public static readonly DependencyProperty ColumnHeaderPaddingProperty = DependencyProperty.RegisterAttached("ColumnHeaderPadding", typeof(Thickness), typeof(GridViewExtension), new FrameworkPropertyMetadata(new Thickness(13, 12, 0, 12), FrameworkPropertyMetadataOptions.Inherits));
         public static void SetColumnHeaderPadding(DependencyObject element, Thickness value) => element.SetValue(ColumnHeaderPaddingProperty, value);
-        public static Thickness GetColumnHeaderPadding(DataGrid element) => (Thickness)element.GetValue(ColumnHeaderPaddingProperty);
+        public static Thickness GetColumnHeaderPadding(DependencyObject element) => (Thickness)element.GetValue(ColumnHeaderPaddingProperty);
 
 
         /// <summary>

@@ -3,11 +3,15 @@
                     xmlns:local="clr-namespace:Zhai.FamilTheme"
                     xmlns:Converters="clr-namespace:Zhai.FamilTheme.Converters">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Brushes.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <Style TargetType="{x:Type local:Hint}">
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="Background" Value="#B3000000"/>
-        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.FloatingBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource Zhai.FamilTheme.FloatingForegroundBrush}"/>
         <Setter Property="TextBlock.FontSize" Value="13"/>
         <Setter Property="CornerRadius" Value="0"/>
         <Setter Property="Padding" Value="16 8"/>

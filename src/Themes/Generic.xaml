@@ -24,6 +24,7 @@
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.SwitchToggleButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.TabPanel.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ToolTip.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.TransparentWindow.xaml" />
         
     </ResourceDictionary.MergedDictionaries>

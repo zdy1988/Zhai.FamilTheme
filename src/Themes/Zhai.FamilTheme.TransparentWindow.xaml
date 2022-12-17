@@ -7,6 +7,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Brushes.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.IconButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ToolTip.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <ImageSource x:Key="Zhai.FamilTheme.TransparentWindow.DefaultIcon">pack://application:,,,/Zhai.FamilTheme;component/Resources/favicon.ico</ImageSource>
@@ -25,147 +26,152 @@
         </Style.Triggers>
     </Style>
 
-    <ControlTemplate TargetType="{x:Type local:TransparentWindow}" x:Key="Zhai.FamilTheme.TransparentWindow.Templete">
-        <Border x:Name="Layout">
-            <Grid>
-                <Grid x:Name="LayoutGrid" Margin="10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="2"/>
-                        <RowDefinition/>
-                        <RowDefinition Height="2"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2"/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="2"/>
-                    </Grid.ColumnDefinitions>
-                    <Border Grid.Row="1" Grid.Column="1" x:Name="LayoutBackground" Opacity="{TemplateBinding Transparency}">
-                        <Border.Effect>
-                            <DropShadowEffect Color="#90666666" Opacity="0.24" BlurRadius="12" ShadowDepth="0" RenderingBias="Performance" PresentationOptions:Freeze="True"/>
-                        </Border.Effect>
-                        <Border x:Name="LayoutTitleBarBackground" Height="{Binding ElementName=TitleBar, Path=ActualHeight}" 
-                                VerticalAlignment="Top" HorizontalAlignment="Stretch"
-                                Visibility="{TemplateBinding IsTitleBarBackgroundEnabled, Converter={Converters:BoolToVisibilityConverter}}"/>
-                    </Border>
-                    <Border Grid.Row="1" Grid.Column="1">
-                        <Grid>
-                            <ContentPresenter x:Name="MainContent" ClipToBounds="True" Margin="0 36 0 0"/>
-                            <DockPanel x:Name="TitleBar" VerticalAlignment="Top" Height="36" Panel.ZIndex="1" Background="Transparent">
-                                <DockPanel.Resources>
-                                    <Style TargetType="{x:Type local:IconButton}" BasedOn="{StaticResource Zhai.FamilTheme.TitleBar.IconButton}"/>
-                                </DockPanel.Resources>
-                                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Visibility="{TemplateBinding TitleBarVisibility}">
-                                    <Image x:Name="AppIcon"
-                                       Stretch="UniformToFill"
-                                       Margin="12,0,0,0"
-                                       Width="16" Height="16"
-                                       HorizontalAlignment="Left"
-                                       VerticalAlignment="Center"
-                                       Source="{Binding Icon, RelativeSource={RelativeSource AncestorType=Window}, TargetNullValue={StaticResource Zhai.FamilTheme.TransparentWindow.DefaultIcon}}"/>
-                                    <TextBlock x:Name="CaptionText"
-                                       Margin="8,0,0,0"
-                                       Text="{TemplateBinding AppName}"
-                                       VerticalAlignment="Center"
-                                       TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"/>
-                                </StackPanel>
-                                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-                                    <local:IconButton x:Name="TransparentButton" ToolTip="启用/禁用透明" Visibility="{TemplateBinding IsTransparencyButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}"/>
-                                    <local:IconButton x:Name="ThemeButton" ToolTip="日光/暗夜主题" Visibility="{TemplateBinding IsThemeButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}"/>
-                                    <local:IconButton x:Name="PinButton" Icon="Pin" ToolTip="置顶" Visibility="{TemplateBinding IsTopmostButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}" RenderTransformOrigin="0.5,0.5"/>
-                                    <local:IconButton x:Name="MinimizeButton" Icon="MinusScreen" ToolTip="最小化" IsTabStop="False"/>
-                                    <local:IconButton x:Name="MaximizeButton" Icon="FullScreen" ToolTip="最大化" IsTabStop="False"/>
-                                    <local:IconButton x:Name="RestoreButton" Icon="RestoreScreen" Visibility="Collapsed" ToolTip="还原窗口" IsTabStop="False"/>
-                                    <local:IconButton x:Name="CloseButton" Icon="Close" Style="{StaticResource Zhai.FamilTheme.TitleBar.IconButton.CloseButton}" ToolTip="关闭" IsTabStop="False"/>
-                                </StackPanel>
-                                <ContentControl Content="{TemplateBinding TitleBarContent}" Visibility="{TemplateBinding TitleBarVisibility}"/>
-                            </DockPanel>
-                        </Grid>
-                    </Border>
-                    <Rectangle Name="ResizeTopLeft" Fill="Transparent" Grid.Row="0" Grid.Column="0" Cursor="SizeNWSE" IsHitTestVisible="False"/>
-                    <Rectangle Name="ResizeTop" Fill="Transparent" Grid.Row="0" Grid.Column="1" Cursor="SizeNS" IsHitTestVisible="False"/>
-                    <Rectangle Name="ResizeTopRight" Fill="Transparent" Grid.Row="0" Grid.Column="2" Cursor="SizeNESW" IsHitTestVisible="False"/>
-                    <Rectangle Name="ResizeLeft" Fill="Transparent" Grid.Row="1" Grid.Column="0" Cursor="SizeWE" IsHitTestVisible="False"/>
-                    <Rectangle Name="ResizeRight" Fill="Transparent" Grid.Row="1" Grid.Column="2" Cursor="SizeWE"/>
-                    <Rectangle Name="ResizeBottomLeft" Fill="Transparent" Grid.Row="2" Grid.Column="0" Cursor="SizeNESW" IsHitTestVisible="False"/>
-                    <Rectangle Name="ResizeBottom" Fill="Transparent" Grid.Row="2" Grid.Column="1" Cursor="SizeNS"/>
-                    <Rectangle Name="ResizeBottomRight" Fill="Transparent" Grid.Row="2" Grid.Column="2" Cursor="SizeNWSE"/>
-                </Grid>
-            </Grid>
-        </Border>
-        <ControlTemplate.Triggers>
-            <Trigger Property="Theme" Value="Light">
-                <Setter TargetName="ThemeButton" Property="Icon" Value="ClearDay"/>
-                <Setter TargetName="LayoutBackground" Property="Background" Value="{StaticResource Zhai.FamilTheme.Window.LightBackgroundColorBrush}"/>
-            </Trigger>
-            <Trigger Property="Theme" Value="Dark">
-                <Setter TargetName="ThemeButton" Property="Icon" Value="ClearNight"/>
-                <Setter TargetName="LayoutBackground" Property="Background" Value="{StaticResource Zhai.FamilTheme.Window.DarkBackgroundColorBrush}"/>
-            </Trigger>
-            <MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="TitleBarVisibility" Value="Visible"/>
-                    <Condition Property="Theme" Value="Light"/>
-                </MultiTrigger.Conditions>
-                <Setter TargetName="LayoutTitleBarBackground" Property="Background" Value="{StaticResource Zhai.FamilTheme.Window.LightTitleBarBackgroundColorBrush}"/>
-            </MultiTrigger>
-            <MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="TitleBarVisibility" Value="Visible"/>
-                    <Condition Property="Theme" Value="Dark"/>
-                </MultiTrigger.Conditions>
-                <Setter TargetName="LayoutTitleBarBackground" Property="Background" Value="{StaticResource Zhai.FamilTheme.Window.DarkTitleBarBackgroundColorBrush}"/>
-            </MultiTrigger>
-            <Trigger Property="TitleBarVisibility" Value="Collapsed">
-                <Setter TargetName="MainContent" Property="Margin" Value="0"/>
-            </Trigger>
-            <Trigger Property="IsTransparency" Value="True">
-                <Setter TargetName="TransparentButton" Property="Icon" Value="Dust"/>
-            </Trigger>
-            <Trigger Property="IsTransparency" Value="False">
-                <Setter TargetName="TransparentButton" Property="Icon" Value="News"/>
-            </Trigger>
-            <Trigger Property="WindowState" Value="Maximized">
-                <Setter TargetName="MaximizeButton" Property="Visibility" Value="Collapsed" />
-                <Setter TargetName="RestoreButton" Property="Visibility" Value="Visible" />
-                <Setter TargetName="LayoutGrid" Property="Margin" Value="4"/>
-                <Setter TargetName="LayoutBackground" Property="Effect" Value="{x:Null}"/>
-            </Trigger>
-            <Trigger Property="ResizeMode" Value="NoResize">
-                <Setter TargetName="MinimizeButton" Property="Visibility" Value="Collapsed" />
-                <Setter TargetName="MaximizeButton" Property="Visibility" Value="Collapsed" />
-                <Setter TargetName="RestoreButton" Property="Visibility" Value="Collapsed" />
-                <Setter TargetName="ResizeTopLeft" Property="IsHitTestVisible" Value="False" />
-                <Setter TargetName="ResizeTop" Property="IsHitTestVisible" Value="False" />
-                <Setter TargetName="ResizeTopRight" Property="IsHitTestVisible" Value="False" />
-                <Setter TargetName="ResizeLeft" Property="IsHitTestVisible" Value="False" />
-                <Setter TargetName="ResizeRight" Property="IsHitTestVisible" Value="False" />
-                <Setter TargetName="ResizeBottomLeft" Property="IsHitTestVisible" Value="False" />
-                <Setter TargetName="ResizeBottom" Property="IsHitTestVisible" Value="False" />
-                <Setter TargetName="ResizeBottomRight" Property="IsHitTestVisible" Value="False" />
-            </Trigger>
-            <Trigger Property="Topmost" Value="True">
-                <Setter TargetName="PinButton" Property="RenderTransform">
-                    <Setter.Value>
-                        <RotateTransform Angle="45"/>
-                    </Setter.Value>
-                </Setter>
-                <Setter TargetName="PinButton" Property="Foreground" Value="{StaticResource Zhai.FamilTheme.HighlightBrush}"/>
-            </Trigger>
-            <Trigger Property="AppName" Value="{x:Null}">
-                <Setter TargetName="CaptionText" Property="Text" Value="{Binding Title, RelativeSource={RelativeSource AncestorType=Window}}"/>
-            </Trigger>
-        </ControlTemplate.Triggers>
-    </ControlTemplate>
-
     <Style TargetType="{x:Type local:TransparentWindow}" x:Key="Zhai.FamilTheme.TransparentWindow">
         <Setter Property="AllowsTransparency" Value="True"/>
         <Setter Property="WindowStyle" Value="None"/>
-        <Setter Property="Foreground" Value="{StaticResource Zhai.FamilTheme.Window.LightForegroundColorBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource Zhai.FamilTheme.Window.LightForegroundBrush}"/>
         <Setter Property="FontWeight" Value="Thin"/>
-        <Setter Property="Template" Value="{StaticResource Zhai.FamilTheme.TransparentWindow.Templete}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:TransparentWindow}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource Zhai.FamilTheme.ToolTip}"/>
+                    </ControlTemplate.Resources>
+                    <Border x:Name="Layout">
+                        <Grid>
+                            <Grid x:Name="LayoutGrid" Margin="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2"/>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="2"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="2"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Row="1" Grid.Column="1" x:Name="LayoutBackground" Opacity="{TemplateBinding Transparency}">
+                                    <Border.Effect>
+                                        <DropShadowEffect Color="#90666666" Opacity="0.24" BlurRadius="12" ShadowDepth="0" RenderingBias="Performance" PresentationOptions:Freeze="True"/>
+                                    </Border.Effect>
+                                    <Border x:Name="LayoutTitleBarBackground" Height="{Binding ElementName=TitleBar, Path=ActualHeight}" 
+                                            VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                                            Visibility="{TemplateBinding IsTitleBarBackgroundEnabled, Converter={Converters:BoolToVisibilityConverter}}"/>
+                                </Border>
+                                <Border Grid.Row="1" Grid.Column="1">
+                                    <Grid>
+                                        <ContentPresenter x:Name="MainContent" ClipToBounds="True" Margin="0 36 0 0"/>
+                                        <DockPanel x:Name="TitleBar" VerticalAlignment="Top" Height="36" Panel.ZIndex="1" Background="Transparent">
+                                            <DockPanel.Resources>
+                                                <Style TargetType="{x:Type local:IconButton}" BasedOn="{StaticResource Zhai.FamilTheme.TitleBar.IconButton}"/>
+                                            </DockPanel.Resources>
+                                            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Visibility="{TemplateBinding TitleBarVisibility}">
+                                                <Image x:Name="AppIcon"
+                                                       Stretch="UniformToFill"
+                                                       Margin="12,0,0,0"
+                                                       Width="16" Height="16"
+                                                       HorizontalAlignment="Left"
+                                                       VerticalAlignment="Center"
+                                                       Source="{Binding Icon, RelativeSource={RelativeSource AncestorType=Window}, TargetNullValue={StaticResource Zhai.FamilTheme.TransparentWindow.DefaultIcon}}"/>
+                                                <TextBlock x:Name="CaptionText"
+                                                       Margin="8,0,0,0"
+                                                       Text="{TemplateBinding AppName}"
+                                                       VerticalAlignment="Center"
+                                                       TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"/>
+                                            </StackPanel>
+                                            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                                                <local:IconButton x:Name="TransparentButton" ToolTip="启用/禁用透明" Visibility="{TemplateBinding IsTransparencyButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}"/>
+                                                <local:IconButton x:Name="ThemeButton" ToolTip="日光/暗夜主题" Visibility="{TemplateBinding IsThemeButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}"/>
+                                                <local:IconButton x:Name="PinButton" Icon="Pin" ToolTip="置顶" Visibility="{TemplateBinding IsTopmostButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}" RenderTransformOrigin="0.5,0.5"/>
+                                                <local:IconButton x:Name="MinimizeButton" Icon="MinusScreen" ToolTip="最小化" IsTabStop="False"/>
+                                                <local:IconButton x:Name="MaximizeButton" Icon="FullScreen" ToolTip="最大化" IsTabStop="False"/>
+                                                <local:IconButton x:Name="RestoreButton" Icon="RestoreScreen" Visibility="Collapsed" ToolTip="还原窗口" IsTabStop="False"/>
+                                                <local:IconButton x:Name="CloseButton" Icon="Close" Style="{StaticResource Zhai.FamilTheme.TitleBar.IconButton.CloseButton}" ToolTip="关闭" IsTabStop="False"/>
+                                            </StackPanel>
+                                            <ContentControl Content="{TemplateBinding TitleBarContent}" Visibility="{TemplateBinding TitleBarVisibility}"/>
+                                        </DockPanel>
+                                    </Grid>
+                                </Border>
+                                <Rectangle Name="ResizeTopLeft" Fill="Transparent" Grid.Row="0" Grid.Column="0" Cursor="SizeNWSE" IsHitTestVisible="False"/>
+                                <Rectangle Name="ResizeTop" Fill="Transparent" Grid.Row="0" Grid.Column="1" Cursor="SizeNS" IsHitTestVisible="False"/>
+                                <Rectangle Name="ResizeTopRight" Fill="Transparent" Grid.Row="0" Grid.Column="2" Cursor="SizeNESW" IsHitTestVisible="False"/>
+                                <Rectangle Name="ResizeLeft" Fill="Transparent" Grid.Row="1" Grid.Column="0" Cursor="SizeWE" IsHitTestVisible="False"/>
+                                <Rectangle Name="ResizeRight" Fill="Transparent" Grid.Row="1" Grid.Column="2" Cursor="SizeWE"/>
+                                <Rectangle Name="ResizeBottomLeft" Fill="Transparent" Grid.Row="2" Grid.Column="0" Cursor="SizeNESW" IsHitTestVisible="False"/>
+                                <Rectangle Name="ResizeBottom" Fill="Transparent" Grid.Row="2" Grid.Column="1" Cursor="SizeNS"/>
+                                <Rectangle Name="ResizeBottomRight" Fill="Transparent" Grid.Row="2" Grid.Column="2" Cursor="SizeNWSE"/>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Theme" Value="Light">
+                            <Setter TargetName="ThemeButton" Property="Icon" Value="ClearDay"/>
+                            <Setter TargetName="LayoutBackground" Property="Background" Value="{StaticResource Zhai.FamilTheme.Window.LightBackgroundBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Theme" Value="Dark">
+                            <Setter TargetName="ThemeButton" Property="Icon" Value="ClearNight"/>
+                            <Setter TargetName="LayoutBackground" Property="Background" Value="{StaticResource Zhai.FamilTheme.Window.DarkBackgroundBrush}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TitleBarVisibility" Value="Visible"/>
+                                <Condition Property="Theme" Value="Light"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="LayoutTitleBarBackground" Property="Background" Value="{StaticResource Zhai.FamilTheme.Window.LightTitleBarBackgroundBrush}"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="TitleBarVisibility" Value="Visible"/>
+                                <Condition Property="Theme" Value="Dark"/>
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="LayoutTitleBarBackground" Property="Background" Value="{StaticResource Zhai.FamilTheme.Window.DarkTitleBarBackgroundBrush}"/>
+                        </MultiTrigger>
+                        <Trigger Property="TitleBarVisibility" Value="Collapsed">
+                            <Setter TargetName="MainContent" Property="Margin" Value="0"/>
+                        </Trigger>
+                        <Trigger Property="IsTransparency" Value="True">
+                            <Setter TargetName="TransparentButton" Property="Icon" Value="Dust"/>
+                        </Trigger>
+                        <Trigger Property="IsTransparency" Value="False">
+                            <Setter TargetName="TransparentButton" Property="Icon" Value="News"/>
+                        </Trigger>
+                        <Trigger Property="WindowState" Value="Maximized">
+                            <Setter TargetName="MaximizeButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="RestoreButton" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="LayoutGrid" Property="Margin" Value="4"/>
+                            <Setter TargetName="LayoutBackground" Property="Effect" Value="{x:Null}"/>
+                        </Trigger>
+                        <Trigger Property="ResizeMode" Value="NoResize">
+                            <Setter TargetName="MinimizeButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="MaximizeButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="RestoreButton" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="ResizeTopLeft" Property="IsHitTestVisible" Value="False" />
+                            <Setter TargetName="ResizeTop" Property="IsHitTestVisible" Value="False" />
+                            <Setter TargetName="ResizeTopRight" Property="IsHitTestVisible" Value="False" />
+                            <Setter TargetName="ResizeLeft" Property="IsHitTestVisible" Value="False" />
+                            <Setter TargetName="ResizeRight" Property="IsHitTestVisible" Value="False" />
+                            <Setter TargetName="ResizeBottomLeft" Property="IsHitTestVisible" Value="False" />
+                            <Setter TargetName="ResizeBottom" Property="IsHitTestVisible" Value="False" />
+                            <Setter TargetName="ResizeBottomRight" Property="IsHitTestVisible" Value="False" />
+                        </Trigger>
+                        <Trigger Property="Topmost" Value="True">
+                            <Setter TargetName="PinButton" Property="RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="45"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="PinButton" Property="Foreground" Value="{StaticResource Zhai.FamilTheme.HighlightBrush}"/>
+                        </Trigger>
+                        <Trigger Property="AppName" Value="{x:Null}">
+                            <Setter TargetName="CaptionText" Property="Text" Value="{Binding Title, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
         <Style.Triggers>
             <Trigger Property="Theme" Value="Light">
-                <Setter Property="Foreground" Value="{StaticResource Zhai.FamilTheme.Window.DarkForegroundColorBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource Zhai.FamilTheme.Window.DarkForegroundBrush}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

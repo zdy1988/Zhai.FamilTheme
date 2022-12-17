@@ -9,14 +9,17 @@
         <GradientStop Color="#21BFD5" Offset="1" />
     </LinearGradientBrush>
 
-    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.DarkTitleBarBackgroundColorBrush" Color="#2f3339" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.LightTitleBarBackgroundColorBrush" Color="#ebeff8" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.DarkTitleBarBackgroundBrush" Color="#2f3339" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.LightTitleBarBackgroundBrush" Color="#ebeff8" PresentationOptions:Freeze="True"/>
 
-    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.DarkBackgroundColorBrush" Color="#1e1e1e" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.LightBackgroundColorBrush" Color="#fafcff" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.DarkBackgroundBrush" Color="#1e1e1e" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.LightBackgroundBrush" Color="#fafcff" PresentationOptions:Freeze="True"/>
 
-    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.DarkForegroundColorBrush" Color="#0f0f0f" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.LightForegroundColorBrush" Color="#ffffff" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.DarkForegroundBrush" Color="#0f0f0f" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.Window.LightForegroundBrush" Color="#ffffff" PresentationOptions:Freeze="True"/>
+
+    <SolidColorBrush x:Key="Zhai.FamilTheme.FloatingBackgroundBrush" Color="#B3000000" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.FloatingForegroundBrush" Color="#ffffff" PresentationOptions:Freeze="True"/>
 
     <SolidColorBrush x:Key="Zhai.FamilTheme.ErrorBrush" Color="#dd2c00" PresentationOptions:Freeze="True"/>
     <SolidColorBrush x:Key="Zhai.FamilTheme.HighlightBrush" Color="#eaac22" PresentationOptions:Freeze="True"/>

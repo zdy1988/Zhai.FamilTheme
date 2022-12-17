@@ -12,18 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Zhai.FamilTheme;
 
 namespace Zhai.FamilThemeDemo
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// MainWindowContent.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : TransparentWindow
+    public partial class MainWindowContent : UserControl
     {
         MainWindowViewModel ViewModel => this.DataContext as MainWindowViewModel;
 
-        public MainWindow()
+        public MainWindowContent()
         {
             InitializeComponent();
 
@@ -38,6 +37,11 @@ namespace Zhai.FamilThemeDemo
         private void ListBox_DataChange_Click(object sender, RoutedEventArgs e)
         {
             this.ViewModel.ListLines = this.ViewModel.ListLines.Count() == 3 ? ViewModel.TextLines : ViewModel.TextLines3;
+        }
+
+        private void NativeWindow_Button_Click(object sender, RoutedEventArgs e)
+        {
+            (new NativeWindow()).Show(); 
         }
     }
 }

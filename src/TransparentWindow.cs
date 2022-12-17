@@ -16,10 +16,10 @@ namespace Zhai.FamilTheme
     {
         #region NativeMethods
 
-        public const int WM_SYSCOMMAND = 0x112;
-        public HwndSource HwndSource;
+        private const int WM_SYSCOMMAND = 0x112;
+        private HwndSource HwndSource;
 
-        public enum ResizeDirection
+        private enum ResizeDirection
         {
             Left = 1,
             Right = 2,
@@ -32,7 +32,12 @@ namespace Zhai.FamilTheme
         }
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+        private static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+
+        private void ResizeWindow(ResizeDirection direction)
+        {
+            SendMessage(HwndSource.Handle, WM_SYSCOMMAND, (IntPtr)(61440 + direction), IntPtr.Zero);
+        }
 
         #endregion
 
@@ -259,11 +264,6 @@ namespace Zhai.FamilTheme
             {
                 ResizeWindow(direction);
             }
-        }
-
-        public void ResizeWindow(ResizeDirection direction)
-        {
-            SendMessage(HwndSource.Handle, WM_SYSCOMMAND, (IntPtr)(61440 + direction), IntPtr.Zero);
         }
     }
 }
