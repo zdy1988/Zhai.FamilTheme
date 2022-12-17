@@ -9,7 +9,7 @@
 
     <Style TargetType="{x:Type local:Card}">
         <Setter Property="CornerRadius" Value="8"/>
-        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionActivedColorBrush}"/>
+        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionActivedBrush}"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>

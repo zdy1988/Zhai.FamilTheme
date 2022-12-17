@@ -81,7 +81,7 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="GridViewColumnHeader">
                             <DockPanel Name="PART_FloatingHeaderCanvas">
-                                <Border BorderBrush="{StaticResource Zhai.FamilTheme.SelectionColorBrush}" BorderThickness="2" CornerRadius="2">
+                                <Border BorderBrush="{StaticResource Zhai.FamilTheme.SelectionBrush}" BorderThickness="2" CornerRadius="2">
                                     <ContentPresenter 
                                               Margin="{TemplateBinding Padding}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -131,7 +131,7 @@
                                           HorizontalScrollBarVisibility="Hidden"
                                           VerticalScrollBarVisibility="Hidden"
                                           CurrentHorizontalOffset="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}">
-                                <Border BorderBrush="{StaticResource Zhai.FamilTheme.SelectionColorBrush}" BorderThickness="0,0,0,1">
+                                <Border BorderBrush="{StaticResource Zhai.FamilTheme.SelectionBrush}" BorderThickness="0,0,0,1">
                                     <StackPanel Orientation="Horizontal">
                                         <GridViewHeaderRowPresenter x:Name="PART_GridViewHeaderRowPresenter"
                                                                 AllowsColumnReorder="{Binding Path=TemplatedParent.View.AllowsColumnReorder, RelativeSource={RelativeSource TemplatedParent}}"
@@ -233,7 +233,7 @@
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionColorBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionBrush}"/>
         <Setter Property="BorderThickness" Value="0 0 0 1"/>
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Foreground}"/>
         <Setter Property="VerticalContentAlignment" Value="Center" />
@@ -241,9 +241,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
                     <Grid x:Name="PART_ItemContainer">
-                        <Border x:Name="MouseOverBorder" Visibility="Collapsed" Background="{StaticResource Zhai.FamilTheme.SelectionHoveredColorBrush}" BorderBrush="{TemplateBinding BorderBrush}"/>
+                        <Border x:Name="MouseOverBorder" Visibility="Collapsed" Background="{StaticResource Zhai.FamilTheme.SelectionHoveredBrush}" BorderBrush="{TemplateBinding BorderBrush}"/>
 
-                        <Border x:Name="SelectedBorder" Visibility="Collapsed"  Background="{StaticResource Zhai.FamilTheme.SelectionActivedColorBrush}" BorderBrush="{TemplateBinding BorderBrush}"/>
+                        <Border x:Name="SelectedBorder" Visibility="Collapsed"  Background="{StaticResource Zhai.FamilTheme.SelectionActivedBrush}" BorderBrush="{TemplateBinding BorderBrush}"/>
 
                         <Border x:Name="CurrentBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="{TemplateBinding BorderThickness}">
                             <GridViewRowPresenter 
@@ -272,7 +272,7 @@
                                 <Condition Property="Selector.IsSelectionActive" Value="False" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="SelectedBorder" Property="Visibility" Value="Visible" />
-                            <Setter TargetName="SelectedBorder" Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionUnActivedColorBrush}" />
+                            <Setter TargetName="SelectedBorder" Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionUnActivedBrush}" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

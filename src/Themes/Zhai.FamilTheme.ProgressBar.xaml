@@ -11,8 +11,8 @@
 
     <Style TargetType="{x:Type local:ProgressBar}" x:Key="Zhai.FamilTheme.ProgressBar">
         <Setter Property="Progressground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Foreground}"/>
-        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionActivedColorBrush}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionColorBrush}"/>
+        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionActivedBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="ProgressAnimationForeground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Foreground, Converter={Converters:BlackWhiteBrushRoundConverter}}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>

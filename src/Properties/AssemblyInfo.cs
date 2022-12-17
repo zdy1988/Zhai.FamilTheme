@@ -5,6 +5,7 @@ using System.Windows.Markup;
 [assembly: XmlnsPrefix("http://www.zdyla.com/coding", "ZDY")]
 [assembly: XmlnsDefinition("http://www.zdyla.com/coding", "Zhai.FamilTheme")]
 [assembly: XmlnsDefinition("http://www.zdyla.com/coding", "Zhai.FamilTheme.Converters")]
+[assembly: XmlnsDefinition("http://www.zdyla.com/coding", "Zhai.FamilTheme.Validations")]
 
 [assembly: ComVisible(false)]
 

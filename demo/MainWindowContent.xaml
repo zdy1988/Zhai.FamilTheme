@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Zhai.FamilThemeDemo"
              xmlns:ZDY="http://www.zdyla.com/coding"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -12,6 +13,172 @@
 
     <Grid>
         <ZDY:TabPanel TabStripPlacement="Left">
+            <ZDY:TabItem Header="Validation">
+                <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="320">
+
+                    <ZDY:TextBox>
+                        <ZDY:TextBox.Text>
+                            <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <ZDY:NullOrEmptyValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </ZDY:TextBox.Text>
+                    </ZDY:TextBox>
+
+                    <!--<PasswordBox ZDY:ValidationExtension.ErrorMessagePlacement="Bottom"
+                                 Tag="{Binding Path=StringValue,
+                                       ValidatesOnDataErrors=True,
+                                       NotifyOnValidationError=True,
+                                       UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <ComboBox IsEditable="True"
+                              Text="{Binding Path=StringValue,
+                                     ValidatesOnDataErrors=True,
+                                     NotifyOnValidationError=True,
+                                     UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <ComboBox IsEditable="False"
+                              Text="{Binding Path=StringValue,
+                                     ValidatesOnDataErrors=True,
+                                     NotifyOnValidationError=True,
+                                     UpdateSourceTrigger=PropertyChanged}">
+                        <ComboBox.Items>
+                            <ComboBoxItem Content="Item 1"/>
+                            <ComboBoxItem Content="Item 2"/>
+                            <ComboBoxItem Content="Item 3"/>
+                            <ComboBoxItem Content="Error"/>
+                        </ComboBox.Items>
+                    </ComboBox>
+
+                    <DatePicker  SelectedDate="{Binding Path=StringValue,
+                                               ValidatesOnDataErrors=True,
+                                               NotifyOnValidationError=True,
+                                               UpdateSourceTrigger=PropertyChanged}"/>-->
+
+                    <ZDY:CheckBox Content="Valid when checked" Margin="0 10 0 0">
+                        <ZDY:CheckBox.IsChecked>
+                            <Binding Path="ValidationBoolValue" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:BoolValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </ZDY:CheckBox.IsChecked>
+                    </ZDY:CheckBox>
+
+                </StackPanel>
+            </ZDY:TabItem>
+            <ZDY:TabItem Header="Menu">
+                <StackPanel Margin="20">
+                    <ZDY:TextBox Text="right click">
+                        <TextBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="File">
+                                    <MenuItem Header="Save" Icon="{ZDY:Icon Kind=Baobao}"/>
+                                    <MenuItem Header="Save As.." />
+                                    <MenuItem Header="Exit" InputGestureText="Ctrl+E" Icon="{ZDY:Icon Kind=Chexiao}"/>
+                                    <Separator />
+                                    <MenuItem Header="Excellent" IsCheckable="True" IsChecked="True" />
+                                    <MenuItem Header="Rubbish" IsCheckable="True" />
+                                    <MenuItem Header="Dig Deeper" InputGestureText="Ctrl+D">
+                                        <MenuItem Header="Enlightenment?" IsCheckable="True" />
+                                        <MenuItem Header="Disappointment" IsCheckable="True" />
+                                    </MenuItem>
+                                    <MenuItem Header="Look Deeper" InputGestureText="Ctrl+D">
+                                        <MenuItem Header="Plain" />
+                                        <MenuItem Header="Ice Cream" />
+                                    </MenuItem>
+                                </MenuItem>
+                                <MenuItem Header="_Edit">
+                                    <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                                    <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                                    <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                                </MenuItem>
+                            </ContextMenu>
+                        </TextBox.ContextMenu>
+                    </ZDY:TextBox>
+
+                    <ZDY:Menu IsMainMenu="True" Margin="0 20 0 0">
+                        <MenuItem Header="File">
+                            <MenuItem Header="Save" Icon="{ZDY:Icon Kind=Baobao}"/>
+                            <MenuItem Header="Save As.." />
+                            <MenuItem Header="Exit" InputGestureText="Ctrl+E" Icon="{ZDY:Icon Kind=Chexiao}"/>
+                            <Separator />
+                            <MenuItem Header="Excellent" IsCheckable="True" IsChecked="True" />
+                            <MenuItem Header="Rubbish" IsCheckable="True" />
+                            <MenuItem Header="Dig Deeper" InputGestureText="Ctrl+D">
+                                <MenuItem Header="Enlightenment?" IsCheckable="True" />
+                                <MenuItem Header="Disappointment" IsCheckable="True" />
+                            </MenuItem>
+                            <MenuItem Header="Look Deeper" InputGestureText="Ctrl+D">
+                                <MenuItem Header="Plain" />
+                                <MenuItem Header="Ice Cream" />
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="_Edit">
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                        </MenuItem>
+                    </ZDY:Menu>
+
+                    <ZDY:Menu IsMainMenu="True" Margin="0 20 0 0" Background="{StaticResource Zhai.FamilTheme.SelectionUnActivedBrush}">
+                        <MenuItem Header="File">
+                            <MenuItem Header="Save" Icon="{ZDY:Icon Kind=Baobao}"/>
+                            <MenuItem Header="Save As.." />
+                            <MenuItem Header="Exit" InputGestureText="Ctrl+E" Icon="{ZDY:Icon Kind=Chexiao}"/>
+                            <Separator />
+                            <MenuItem Header="Excellent" IsCheckable="True" IsChecked="True" />
+                            <MenuItem Header="Rubbish" IsCheckable="True" />
+                            <MenuItem Header="Dig Deeper" InputGestureText="Ctrl+D">
+                                <MenuItem Header="Enlightenment?" IsCheckable="True" />
+                                <MenuItem Header="Disappointment" IsCheckable="True" />
+                            </MenuItem>
+                            <MenuItem Header="Look Deeper" InputGestureText="Ctrl+D">
+                                <MenuItem Header="Plain" />
+                                <MenuItem Header="Ice Cream" />
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="_Edit">
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                        </MenuItem>
+                    </ZDY:Menu>
+                </StackPanel>
+            </ZDY:TabItem>
             <ZDY:TabItem Header="TextBox">
                 <StackPanel Margin="20">
                     <StackPanel.Resources>
@@ -45,7 +212,6 @@
                     </UniformGrid>
                 </StackPanel>
             </ZDY:TabItem>
-
             <ZDY:TabItem Header="Card">
                 <UniformGrid Columns="2" Rows="2">
                     <ZDY:Card Margin="20"/>
@@ -60,7 +226,6 @@
                     </Grid>
                 </UniformGrid>
             </ZDY:TabItem>
-
             <ZDY:TabItem Header="Button">
                 <StackPanel>
                     <WrapPanel>

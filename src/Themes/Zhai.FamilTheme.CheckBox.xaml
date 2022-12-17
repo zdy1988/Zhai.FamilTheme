@@ -19,7 +19,18 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:CheckBox}">
-                    <Border Width="{TemplateBinding Size}" Height="{TemplateBinding Size}" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Border x:Name="PART_Border" Width="{TemplateBinding Size}" Height="{TemplateBinding Size}" VerticalAlignment="Top" HorizontalAlignment="Left"
+                            ToolTipService.Placement="Top">
+                        <Border.ToolTip>
+                            <local:Repeater ItemsSource="{TemplateBinding Validation.Errors}"
+                                                    IsHitTestVisible="False">
+                                <local:Repeater.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding ErrorContent}"/>
+                                    </DataTemplate>
+                                </local:Repeater.ItemTemplate>
+                            </local:Repeater>
+                        </Border.ToolTip>
                         <Viewbox Width="{TemplateBinding Size}" Height="{TemplateBinding Size}">
                             <Grid Height="16" Width="16">
                                 <Rectangle Fill="{TemplateBinding Background}" RadiusX="{TemplateBinding CornerRadius}" RadiusY="{TemplateBinding CornerRadius}" Opacity="{StaticResource Zhai.FamilTheme.SelectionUnActivedOpacity}"/>
@@ -39,6 +50,12 @@
                         <Trigger Property="IsChecked" Value="{x:Null}">
                             <Setter TargetName="CheckedIcon" Property="Visibility" Value="Collapsed" />
                             <Setter TargetName="CheckedNullIcon" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="Foreground" Value="{StaticResource Zhai.FamilTheme.ErrorBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="False">
+                            <Setter TargetName="PART_Border" Property="ToolTip" Value="{x:Null}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

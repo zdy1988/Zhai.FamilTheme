@@ -8,6 +8,7 @@
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Brushes.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.IconButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ToolTip.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Menu.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <ImageSource x:Key="Zhai.FamilTheme.TransparentWindow.DefaultIcon">pack://application:,,,/Zhai.FamilTheme;component/Resources/favicon.ico</ImageSource>
@@ -36,6 +37,7 @@
                 <ControlTemplate TargetType="{x:Type local:TransparentWindow}">
                     <ControlTemplate.Resources>
                         <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource Zhai.FamilTheme.ToolTip}"/>
+                        <Style TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource Zhai.FamilTheme.ContextMenu}"/>
                     </ControlTemplate.Resources>
                     <Border x:Name="Layout">
                         <Grid>

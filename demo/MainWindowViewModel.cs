@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -64,6 +65,20 @@ namespace Zhai.FamilThemeDemo
         public MainWindowViewModel()
         {
             ListLines = TextLines;
+        }
+
+        private string validationStringValue;
+        public string ValidationStringValue
+        {
+            get => validationStringValue;
+            set => SetProperty(ref validationStringValue, value);
+        }
+
+        private bool validationboolValue;
+        public bool ValidationBoolValue
+        {
+            get => validationboolValue;
+            set => SetProperty(ref validationboolValue, value);
         }
     }
 

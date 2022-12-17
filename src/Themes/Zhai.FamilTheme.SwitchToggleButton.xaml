@@ -76,7 +76,7 @@
                                        RadiusX="14.5"/>
                             <Grid x:Name="ThumbHolder" Margin="4"
                                   HorizontalAlignment="Left" VerticalAlignment="Top">
-                                <AdornerDecorator>
+                                <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(local:ShadowExtension.CacheMode)}">
                                     <Ellipse x:Name="Thumb"
                                              Fill="{TemplateBinding Foreground}" Stroke="{x:Null}" 
                                              HorizontalAlignment="Center" VerticalAlignment="Center"

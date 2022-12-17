@@ -20,21 +20,24 @@
 
     <SolidColorBrush x:Key="Zhai.FamilTheme.FloatingBackgroundBrush" Color="#B3000000" PresentationOptions:Freeze="True"/>
     <SolidColorBrush x:Key="Zhai.FamilTheme.FloatingForegroundBrush" Color="#ffffff" PresentationOptions:Freeze="True"/>
+    <DropShadowEffect x:Key="Zhai.FamilTheme.FloatingShadowEffect" BlurRadius="5" ShadowDepth="1" Direction="270" Color="#AA000000" Opacity=".42" RenderingBias="Performance" PresentationOptions:Freeze="True" />
 
+    <SolidColorBrush x:Key="Zhai.FamilTheme.SeparatorBrush" Color="#3d666666" Opacity="0.24" PresentationOptions:Freeze="True"/>
     <SolidColorBrush x:Key="Zhai.FamilTheme.ErrorBrush" Color="#dd2c00" PresentationOptions:Freeze="True"/>
     <SolidColorBrush x:Key="Zhai.FamilTheme.HighlightBrush" Color="#eaac22" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="Zhai.FamilTheme.SeparatorBrush" Color="#3d666666" PresentationOptions:Freeze="True"/>
 
-    
+    <DropShadowEffect x:Key="Zhai.FamilTheme.ErrorShadowEffect" BlurRadius="5" ShadowDepth="1" Direction="270" Color="#dd2c00" Opacity=".42" RenderingBias="Performance" PresentationOptions:Freeze="True" />
+    <DropShadowEffect x:Key="Zhai.FamilTheme.HighlightShadowEffect" BlurRadius="5" ShadowDepth="1" Direction="270" Color="#eaac22" Opacity=".42" RenderingBias="Performance" PresentationOptions:Freeze="True" />
+
     <Color x:Key="Zhai.FamilTheme.SelectionColor">#90666666</Color>
     <sys:Double x:Key="Zhai.FamilTheme.SelectionHoveredOpacity">0.12</sys:Double>
     <sys:Double x:Key="Zhai.FamilTheme.SelectionActivedOpacity">0.24</sys:Double>
     <sys:Double x:Key="Zhai.FamilTheme.SelectionUnActivedOpacity">0.12</sys:Double>
 
-    <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionColorBrush" Color="{StaticResource Zhai.FamilTheme.SelectionColor}" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionHoveredColorBrush" Color="{StaticResource Zhai.FamilTheme.SelectionColor}" Opacity="{StaticResource Zhai.FamilTheme.SelectionHoveredOpacity}" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionActivedColorBrush" Color="{StaticResource Zhai.FamilTheme.SelectionColor}" Opacity="{StaticResource Zhai.FamilTheme.SelectionActivedOpacity}" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionUnActivedColorBrush" Color="{StaticResource Zhai.FamilTheme.SelectionColor}" Opacity="{StaticResource Zhai.FamilTheme.SelectionUnActivedOpacity}" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionBrush" Color="{StaticResource Zhai.FamilTheme.SelectionColor}" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionHoveredBrush" Color="{StaticResource Zhai.FamilTheme.SelectionColor}" Opacity="{StaticResource Zhai.FamilTheme.SelectionHoveredOpacity}" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionActivedBrush" Color="{StaticResource Zhai.FamilTheme.SelectionColor}" Opacity="{StaticResource Zhai.FamilTheme.SelectionActivedOpacity}" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionUnActivedBrush" Color="{StaticResource Zhai.FamilTheme.SelectionColor}" Opacity="{StaticResource Zhai.FamilTheme.SelectionUnActivedOpacity}" PresentationOptions:Freeze="True"/>
 
 
 

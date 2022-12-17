@@ -38,7 +38,7 @@
 
     <Style TargetType="{x:Type local:Slider}" x:Key="Zhai.FamilTheme.PositionSlider">
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
-        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionColorBrush}"/>
+        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionBrush}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Height" Value="20" />
@@ -131,7 +131,7 @@
 
     <Style TargetType="{x:Type local:Slider2}" x:Key="Zhai.FamilTheme.PositionSlider2">
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
-        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionColorBrush}"/>
+        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionBrush}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Minimum" Value="0" />
