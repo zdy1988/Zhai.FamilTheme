@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace Zhai.FamilTheme
@@ -59,6 +60,47 @@ namespace Zhai.FamilTheme
         {
             get => (bool)GetValue(IsProgressAnimationEnabledProperty);
             set => SetValue(IsProgressAnimationEnabledProperty, value);
+        }
+
+        private static readonly DependencyPropertyKey DeterminateContentClipPropertyKey = DependencyProperty.RegisterReadOnly(nameof(DeterminateContentClip), typeof(Geometry), typeof(ProgressBar), new PropertyMetadata(default(Geometry)));
+
+        public static readonly DependencyProperty DeterminateContentClipProperty = DeterminateContentClipPropertyKey.DependencyProperty;
+        
+        public Geometry DeterminateContentClip
+        {
+            get => (Geometry)GetValue(DeterminateContentClipProperty);
+            private set => SetValue(DeterminateContentClipPropertyKey, value);
+        }
+
+        private Border IndicatorBorder;
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+
+            IndicatorBorder = Template.FindName("PART_Indicator", this) as Border;
+        }
+
+        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        {
+            base.OnRenderSizeChanged(sizeInfo);
+
+            UpdateClipBorder();
+        }
+
+        private void UpdateClipBorder()
+        {
+            if (IndicatorBorder is null)
+            {
+                return;
+            }
+
+            var farPointX = Math.Max(0, IndicatorBorder.ActualWidth);
+            var farPointY = Math.Max(0, IndicatorBorder.ActualHeight);
+            var farPoint = new Point(farPointX, farPointY);
+
+            var clipRect = new Rect(new Point(0, 0), farPoint);
+            DeterminateContentClip = new RectangleGeometry(clipRect);
         }
     }
 }

@@ -53,14 +53,19 @@
                 </StackPanel>
             </ZDY:TabItem>
             
-            <ZDY:TabItem Header="CornerPanel">
-                <StackPanel>
-                    <UniformGrid Columns="2" Rows="2">
-                        <ZDY:Card Margin="20">
-                            <Border Background="#66666666" Width="100" Height="100"/>
-                        </ZDY:Card>
-                    </UniformGrid>
-                </StackPanel>
+            <ZDY:TabItem Header="Card">
+                <UniformGrid Columns="2" Rows="2">
+                    <ZDY:Card Margin="20"/>
+                    <ZDY:Card Margin="20" CornerRadius="{Binding ElementName=Card_CornerRadius, Path=Value}">
+                        <Border Background="#66666666"/>
+                    </ZDY:Card>
+                    <ZDY:Card Margin="20" CornerRadius="{Binding ElementName=Card_CornerRadius, Path=Value}">
+                        <Border Background="#66666666"/>
+                    </ZDY:Card>
+                    <Grid Margin="20">
+                        <ZDY:Slider x:Name="Card_CornerRadius" Minimum="0" Maximum="100" Value="20"/>
+                    </Grid>
+                </UniformGrid>
             </ZDY:TabItem>
 
             <ZDY:TabItem Header="Button">
@@ -218,7 +223,7 @@
                 </DockPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="Drawer">
-                <ZDY:Drawer OverlayBackground="LightBlue">
+                <ZDY:Drawer x:Name="Drawer" OverlayBackground="LightBlue">
                     <Grid Background="#80ffffff">
                         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
@@ -249,22 +254,22 @@
                     </Grid>
                     <ZDY:Drawer.LeftDrawerContent>
                         <Border Width="100" Background="#70666666">
-                            <ZDY:IconToggleButton IsChecked="{Binding ElementName=LeftDrawerSwitch, Path=IsChecked}" Icon="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ZDY:IconToggleButton IsChecked="{Binding Source={x:Reference LeftDrawerSwitch}, Path=IsChecked}" Icon="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ZDY:Drawer.LeftDrawerContent>
                     <ZDY:Drawer.RightDrawerContent>
                         <Border Width="100" Background="#70666666">
-                            <ZDY:IconToggleButton IsChecked="{Binding ElementName=RightDrawerSwitch, Path=IsChecked}" Icon="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ZDY:IconToggleButton IsChecked="{Binding Source={x:Reference RightDrawerSwitch}, Path=IsChecked}" Icon="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ZDY:Drawer.RightDrawerContent>
                     <ZDY:Drawer.TopDrawerContent>
                         <Border Height="100" Background="#70666666">
-                            <ZDY:IconToggleButton IsChecked="{Binding ElementName=TopDrawerSwitch, Path=IsChecked}" Icon="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ZDY:IconToggleButton IsChecked="{Binding Source={x:Reference TopDrawerSwitch}, Path=IsChecked}" Icon="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ZDY:Drawer.TopDrawerContent>
                     <ZDY:Drawer.BottomDrawerContent>
                         <Border Height="100" Background="#70666666">
-                            <ZDY:IconToggleButton IsChecked="{Binding ElementName=BottomDrawerSwitch, Path=IsChecked}" Icon="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ZDY:IconToggleButton IsChecked="{Binding Source={x:Reference BottomDrawerSwitch}, Path=IsChecked}" Icon="Close" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ZDY:Drawer.BottomDrawerContent>
                 </ZDY:Drawer>

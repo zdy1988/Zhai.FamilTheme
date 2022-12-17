@@ -3,29 +3,27 @@
                     xmlns:local="clr-namespace:Zhai.FamilTheme"
                     xmlns:Converters="clr-namespace:Zhai.FamilTheme.Converters">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Brushes.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <Style TargetType="{x:Type local:Card}">
         <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionActivedColorBrush}"/>
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:Card}">
-                    <Grid x:Name="PART_Grid" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
-                        <Grid.Clip>
-                            <RectangleGeometry RadiusX="{TemplateBinding CornerRadius}" RadiusY="{TemplateBinding CornerRadius}">
-                                <RectangleGeometry.Rect>
-                                    <MultiBinding Converter="{Converters:RectConverter}">
-                                        <Binding Path="ActualWidth" ElementName="PART_Grid"/>
-                                        <Binding Path="ActualHeight" ElementName="PART_Grid"/>
-                                    </MultiBinding>
-                                </RectangleGeometry.Rect>
-                            </RectangleGeometry>
-                        </Grid.Clip>
-                        <!--<Grid.Effect>
-                            <DropShadowEffect BlurRadius="2" ShadowDepth="0" Direction="270" Color="#AA000000" Opacity=".42" RenderingBias="Performance" o:Freeze="True"/>
-                        </Grid.Effect>-->
-
-
-                        <ContentPresenter />
-                    </Grid>
+                    <Border x:Name="PART_ClipBorder" Clip="{TemplateBinding ContentClip}"
+                            Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                        <ContentPresenter 
+                            x:Name="ContentPresenter"
+                            Content="{TemplateBinding ContentControl.Content}" 
+                            ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" 
+                            ContentTemplateSelector="{TemplateBinding ContentControl.ContentTemplateSelector}" 
+                            ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}">
+                        </ContentPresenter>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

@@ -86,8 +86,8 @@
                             </Grid>
                         </Border>
 
-                        <Border>
-                            <Border.Clip>
+                        <Border Clip="{TemplateBinding DeterminateContentClip}">
+                            <!--<Border.Clip>
                                 <RectangleGeometry>
                                     <RectangleGeometry.Rect>
                                         <MultiBinding Converter="{Converters:RectConverter}">
@@ -96,7 +96,7 @@
                                         </MultiBinding>
                                     </RectangleGeometry.Rect>
                                 </RectangleGeometry>
-                            </Border.Clip>
+                            </Border.Clip>-->
 
                             <ContentControl x:Name="DeterminateContentPresenter"
                                             Content="{TemplateBinding Content}"
@@ -171,11 +171,11 @@
                         </Trigger>
 
                         <Trigger Property="IsProgressAnimationEnabled" Value="False">
-                            <Setter Property="Background" TargetName="HighlightEllipseContainer" Value="{x:Null}"/>
+                            <Setter TargetName="HighlightEllipseContainer" Property="Background" Value="{x:Null}"/>
                         </Trigger>
 
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" TargetName="HighlightEllipseContainer" Value="{x:Null}"/>
+                            <Setter TargetName="HighlightEllipseContainer" Property="Background" Value="{x:Null}"/>
                         </Trigger>
 
                     </ControlTemplate.Triggers>
