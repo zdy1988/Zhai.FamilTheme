@@ -22,10 +22,6 @@
         </Setter>
     </Style>
 
-    <Converters:BrushRoundConverter x:Key="MenuBackgroundBrushRoundConverter"
-                                    HighValue="{StaticResource Zhai.FamilTheme.Window.DarkBackgroundBrush}"
-                                    LowValue="{StaticResource Zhai.FamilTheme.Window.LightBackgroundBrush}"/>
-
     <Style TargetType="{x:Type MenuItem}" x:Key="Zhai.FamilTheme.MenuItem">
         <Setter Property="Padding" Value="{Binding RelativeSource={RelativeSource AncestorType=MenuBase}, Path=(local:MenuExtension.ItemPadding)}"/>
         <Setter Property="Template">
@@ -56,21 +52,14 @@
                                                       Content="{TemplateBinding Icon}"
                                                       ContentSource="Icon"
                                                       HorizontalAlignment="Left" VerticalAlignment="Center"
-                                                      
                                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                 </Grid>
-                                <Grid x:Name="GlyphWrapper" Visibility="Collapsed" Width="28">
-                                    <Viewbox x:Name="GlyphPanel"
-                                             Width="16" Height="16"
-                                             HorizontalAlignment="Left"
-                                             Margin="0" Visibility="Collapsed" VerticalAlignment="Center"
-                                             FlowDirection="LeftToRight">
-                                        <Canvas Width="24" Height="24">
-                                            <Path Data="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" 
-					    		        		x:Name="Glyph"
-					    		        		Fill="{TemplateBinding Foreground}" FlowDirection="LeftToRight" />
-                                        </Canvas>
-                                    </Viewbox>
+                                <Grid x:Name="CheckIconWrapper" Visibility="Collapsed" Width="28">
+                                    <local:Icon x:Name="CheckIcon" Kind="Select"
+                                                Visibility="Collapsed"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                SnapsToDevicePixels="False"/>
                                 </Grid>
                                 <Grid Grid.Column="1">
                                     <ContentPresenter x:Name="BoldHeaderPresenter"
@@ -113,13 +102,10 @@
                                 </Grid>
                                 <Grid x:Name="SubBlock" Grid.Column="2"
                                       Visibility="Collapsed" Margin="16 0 0 0">
-                                    <Path Width="5" Height="10"
-                                          Stretch="Uniform"
-                                          HorizontalAlignment="Right"
-                                          VerticalAlignment="Center"
-                                          Data="M413.44 797.44l-58.816-58.88L581.184 512l-226.56-226.56 58.88-58.88L698.88 512l-285.44 285.44z"
-                                          Fill="{TemplateBinding Foreground}"
-                                          SnapsToDevicePixels="False"/>
+                                    <local:Icon Kind="ChevronRight" Width="9" Height="9"
+                                                HorizontalAlignment="Right"
+                                                VerticalAlignment="Center"
+                                                SnapsToDevicePixels="False"/>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -131,8 +117,8 @@
                                Placement="Bottom"
                                CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(local:ShadowExtension.CacheMode)}">
                             <Border x:Name="SubMenuBorder"
-                                    Background="{Binding RelativeSource={RelativeSource AncestorType=MenuBase}, Path=Foreground, Converter={StaticResource MenuBackgroundBrushRoundConverter}}"
                                     Effect="{StaticResource Zhai.FamilTheme.FloatingShadowEffect}"
+                                    Background="{Binding RelativeSource={RelativeSource AncestorType=MenuBase}, Path=Foreground, Converter={StaticResource FloatingBackgroundBrushRoundConverter}}"
                                     CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=MenuBase}, Path=(local:MenuExtension.SubmenuCornerRadius), Converter={Converters:DoubleToCornerRadiusConverter}}">
                                 <Border Background="Transparent">
                                     <ScrollViewer x:Name="SubMenuScrollViewer" Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
@@ -196,10 +182,10 @@
                             <Setter Property="Visibility" TargetName="IconWrapper" Value="Collapsed"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Visibility" TargetName="GlyphPanel" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="CheckIcon" Value="Visible"/>
                         </Trigger>
                         <Trigger Property="IsCheckable" Value="True">
-                            <Setter Property="Visibility" TargetName="GlyphWrapper" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="CheckIconWrapper" Value="Visible"/>
                             <Setter Property="Visibility" TargetName="IconWrapper" Value="Collapsed"/>
                         </Trigger>
                         <Trigger Property="IsHighlighted" Value="True">
@@ -248,7 +234,7 @@
 
     <Style TargetType="{x:Type ContextMenu}" x:Key="Zhai.FamilTheme.ContextMenu" BasedOn="{StaticResource Zhai.FamilTheme.Menu}">
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Foreground}"/>
-        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Foreground, Converter={StaticResource MenuBackgroundBrushRoundConverter}}"/>
+        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Foreground, Converter={StaticResource FloatingBackgroundBrushRoundConverter}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type MenuBase}">

@@ -13,61 +13,261 @@
 
     <Grid>
         <ZDY:TabPanel TabStripPlacement="Left">
-            <ZDY:TabItem Header="Validation">
-                <StackPanel HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Width="320">
-
-                    <ZDY:TextBox>
-                        <ZDY:TextBox.Text>
-                            <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
-                                <Binding.ValidationRules>
-                                    <ZDY:NullOrEmptyValidationRule/>
-                                </Binding.ValidationRules>
-                            </Binding>
-                        </ZDY:TextBox.Text>
-                    </ZDY:TextBox>
-
-                    <!--<PasswordBox ZDY:ValidationExtension.ErrorMessagePlacement="Bottom"
-                                 Tag="{Binding Path=StringValue,
-                                       ValidatesOnDataErrors=True,
-                                       NotifyOnValidationError=True,
-                                       UpdateSourceTrigger=PropertyChanged}"/>
-
-                    <ComboBox IsEditable="True"
-                              Text="{Binding Path=StringValue,
-                                     ValidatesOnDataErrors=True,
-                                     NotifyOnValidationError=True,
-                                     UpdateSourceTrigger=PropertyChanged}"/>
-
-                    <ComboBox IsEditable="False"
-                              Text="{Binding Path=StringValue,
-                                     ValidatesOnDataErrors=True,
-                                     NotifyOnValidationError=True,
-                                     UpdateSourceTrigger=PropertyChanged}">
-                        <ComboBox.Items>
-                            <ComboBoxItem Content="Item 1"/>
-                            <ComboBoxItem Content="Item 2"/>
-                            <ComboBoxItem Content="Item 3"/>
-                            <ComboBoxItem Content="Error"/>
-                        </ComboBox.Items>
-                    </ComboBox>
-
-                    <DatePicker  SelectedDate="{Binding Path=StringValue,
-                                               ValidatesOnDataErrors=True,
-                                               NotifyOnValidationError=True,
-                                               UpdateSourceTrigger=PropertyChanged}"/>-->
-
+            <ZDY:TabItem Header="Inputs">
+                <StackPanel Margin="20">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type ZDY:TextBox}">
+                            <Setter Property="Margin" Value="5"/>
+                        </Style>
+                        <Style TargetType="{x:Type ZDY:ComboBox}">
+                            <Setter Property="Margin" Value="5"/>
+                        </Style>
+                        <Style TargetType="{x:Type ZDY:DatePicker}">
+                            <Setter Property="Margin" Value="5"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <UniformGrid Rows="1">
+                        <ZDY:TextBox/>
+                        <ZDY:TextBox Text="with Placeholder" Placeholder="Enter text"/>
+                        <ZDY:TextBox Text="Read-Only" IsReadOnly="True"/>
+                        <ZDY:TextBox Placeholder="with CornerRadius" CornerRadius="3"/>
+                    </UniformGrid>
+                    <UniformGrid Rows="1">
+                        <ZDY:TextBox BorderThickness="1"/>
+                        <ZDY:TextBox BorderThickness="1" Text="with Placeholder" Placeholder="Enter text"/>
+                        <ZDY:TextBox BorderThickness="1" Text="Read-Only" IsReadOnly="True"/>
+                        <ZDY:TextBox BorderThickness="1" Placeholder="with CornerRadius" CornerRadius="3"/>
+                    </UniformGrid>
+                    <UniformGrid Rows="1">
+                        <ZDY:TextBox Placeholder="with Validation">
+                            <ZDY:TextBox.Text>
+                                <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:TextBox.Text>
+                        </ZDY:TextBox>
+                        <ZDY:TextBox BorderThickness="1" Placeholder="with Validation">
+                            <ZDY:TextBox.Text>
+                                <Binding Path="ValidationStringValue" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:TextBox.Text>
+                        </ZDY:TextBox>
+                        <ZDY:TextBox Placeholder="with Validation"  CornerRadius="3">
+                            <ZDY:TextBox.Text>
+                                <Binding Path="ValidationStringValue" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:TextBox.Text>
+                        </ZDY:TextBox>
+                        <ZDY:TextBox BorderThickness="1" Placeholder="with Validation" CornerRadius="3">
+                            <ZDY:TextBox.Text>
+                                <Binding Path="ValidationStringValue" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:TextBox.Text>
+                        </ZDY:TextBox>
+                    </UniformGrid>
+                    <UniformGrid Rows="1">
+                        <ZDY:ComboBox >
+                            <ComboBoxItem Content="Default Combo Box"/>
+                            <ComboBoxItem Content="Lorem Ipsum"/>
+                            <ComboBoxItem Content="Dolor sit amet"/>
+                        </ZDY:ComboBox>
+                        <ZDY:ComboBox Text="Editable Combo Box"
+                                      IsEditable="True"
+                                      Placeholder="Select an option">
+                            <ZDY:ComboBox.Items>
+                                <ComboBoxItem Content="Item 1"/>
+                                <ComboBoxItem Content="Item 2"/>
+                                <ComboBoxItem Content="Item 3"/>
+                            </ZDY:ComboBox.Items>
+                        </ZDY:ComboBox>
+                        <ZDY:ComboBox Text="Read-Only Editable Combo Box"
+                                      IsEditable="True"
+                                      IsReadOnly="True"
+                                      Placeholder="Select an option">
+                            <ZDY:ComboBox.Items>
+                                <ComboBoxItem Content="Item 1"/>
+                                <ComboBoxItem Content="Item 2"/>
+                                <ComboBoxItem Content="Item 3"/>
+                            </ZDY:ComboBox.Items>
+                        </ZDY:ComboBox>
+                        <ZDY:ComboBox IsEditable="True" CornerRadius="3"
+                                      Placeholder="Combo Box with watermark">
+                            <ZDY:ComboBox.Items>
+                                <ComboBoxItem Content="Item 1"/>
+                                <ComboBoxItem Content="Item 2"/>
+                                <ComboBoxItem Content="Item 3"/>
+                            </ZDY:ComboBox.Items>
+                        </ZDY:ComboBox>
+                    </UniformGrid>
+                    <UniformGrid Rows="1">
+                        <ZDY:ComboBox BorderThickness="1">
+                            <ComboBoxItem Content="Default Combo Box"/>
+                            <ComboBoxItem Content="Lorem Ipsum"/>
+                            <ComboBoxItem Content="Dolor sit amet"/>
+                        </ZDY:ComboBox>
+                        <ZDY:ComboBox BorderThickness="1"
+                                      Text="Editable Combo Box"
+                                      IsEditable="True"
+                                      Placeholder="Select an option">
+                            <ZDY:ComboBox.Items>
+                                <ComboBoxItem Content="Item 1"/>
+                                <ComboBoxItem Content="Item 2"/>
+                                <ComboBoxItem Content="Item 3"/>
+                            </ZDY:ComboBox.Items>
+                        </ZDY:ComboBox>
+                        <ZDY:ComboBox BorderThickness="1"
+                                      Text="Read-Only Editable Combo Box"
+                                      IsEditable="True"
+                                      IsReadOnly="True"
+                                      Placeholder="Select an option">
+                            <ZDY:ComboBox.Items>
+                                <ComboBoxItem Content="Item 1"/>
+                                <ComboBoxItem Content="Item 2"/>
+                                <ComboBoxItem Content="Item 3"/>
+                            </ZDY:ComboBox.Items>
+                        </ZDY:ComboBox>
+                        <ZDY:ComboBox BorderThickness="1"
+                                      IsEditable="True" CornerRadius="3"
+                                      Placeholder="Combo Box with watermark">
+                            <ZDY:ComboBox.Items>
+                                <ComboBoxItem Content="Item 1"/>
+                                <ComboBoxItem Content="Item 2"/>
+                                <ComboBoxItem Content="Item 3"/>
+                            </ZDY:ComboBox.Items>
+                        </ZDY:ComboBox>
+                    </UniformGrid>
+                    <UniformGrid Rows="1">
+                        <ZDY:ComboBox>
+                            <ZDY:ComboBox.Text>
+                                <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:ComboBox.Text>
+                            <ComboBoxItem Content="Default Combo Box"/>
+                            <ComboBoxItem Content="Lorem Ipsum"/>
+                            <ComboBoxItem Content="Dolor sit amet"/>
+                        </ZDY:ComboBox>
+                        <ZDY:ComboBox BorderThickness="1"
+                                      IsEditable="True"
+                                      Placeholder="Select an option">
+                            <ZDY:ComboBox.Text>
+                                <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:ComboBox.Text>
+                            <ZDY:ComboBox.Items>
+                                <ComboBoxItem Content="Item 1"/>
+                                <ComboBoxItem Content="Item 2"/>
+                                <ComboBoxItem Content="Item 3"/>
+                            </ZDY:ComboBox.Items>
+                        </ZDY:ComboBox>
+                        <ZDY:ComboBox IsEditable="True"
+                                      IsReadOnly="True"
+                                      Placeholder="Select an option">
+                            <ZDY:ComboBox.Text>
+                                <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:ComboBox.Text>
+                            <ZDY:ComboBox.Items>
+                                <ComboBoxItem Content="Item 1"/>
+                                <ComboBoxItem Content="Item 2"/>
+                                <ComboBoxItem Content="Item 3"/>
+                            </ZDY:ComboBox.Items>
+                        </ZDY:ComboBox>
+                        <ZDY:ComboBox BorderThickness="1"
+                                      IsEditable="True" CornerRadius="3"
+                                      Placeholder="Combo Box with watermark">
+                            <ZDY:ComboBox.Text>
+                                <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:ComboBox.Text>
+                            <ZDY:ComboBox.Items>
+                                <ComboBoxItem Content="Item 1"/>
+                                <ComboBoxItem Content="Item 2"/>
+                                <ComboBoxItem Content="Item 3"/>
+                            </ZDY:ComboBox.Items>
+                        </ZDY:ComboBox>
+                    </UniformGrid>
+                    <UniformGrid Rows="1">
+                        <ZDY:DatePicker/>
+                        <ZDY:DatePicker Text="with Placeholder" Placeholder="Enter text"/>
+                        <ZDY:DatePicker Text="Read-Only" IsEnabled="False"/>
+                        <ZDY:DatePicker Placeholder="with CornerRadius" CornerRadius="3"/>
+                    </UniformGrid>
+                    <UniformGrid Rows="1">
+                        <ZDY:DatePicker BorderThickness="1"/>
+                        <ZDY:DatePicker BorderThickness="1" Text="with Placeholder" Placeholder="Enter text"/>
+                        <ZDY:DatePicker BorderThickness="1" Text="Read-Only" IsEnabled="False"/>
+                        <ZDY:DatePicker BorderThickness="1" Placeholder="with CornerRadius" CornerRadius="3"/>
+                    </UniformGrid>
+                    <UniformGrid Rows="1">
+                        <ZDY:DatePicker BorderThickness="1">
+                            <ZDY:DatePicker.SelectedDate>
+                                <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:DatePicker.SelectedDate>
+                        </ZDY:DatePicker>
+                        <ZDY:DatePicker BorderThickness="1" Placeholder="Enter text">
+                            <ZDY:DatePicker.SelectedDate>
+                                <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:DatePicker.SelectedDate>
+                        </ZDY:DatePicker>
+                        <ZDY:DatePicker BorderThickness="1" IsEnabled="False">
+                            <ZDY:DatePicker.SelectedDate>
+                                <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:DatePicker.SelectedDate>
+                        </ZDY:DatePicker>
+                        <ZDY:DatePicker BorderThickness="1" Placeholder="with CornerRadius" CornerRadius="3">
+                            <ZDY:DatePicker.SelectedDate>
+                                <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:DatePicker.SelectedDate>
+                        </ZDY:DatePicker>
+                    </UniformGrid>
                     <ZDY:CheckBox Content="Valid when checked" Margin="0 10 0 0">
                         <ZDY:CheckBox.IsChecked>
-                            <Binding Path="ValidationBoolValue" UpdateSourceTrigger="PropertyChanged">
+                            <Binding Path="ValidationBoolValue" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
                                     <local:BoolValidationRule/>
                                 </Binding.ValidationRules>
                             </Binding>
                         </ZDY:CheckBox.IsChecked>
                     </ZDY:CheckBox>
-
                 </StackPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="Menu">
@@ -179,39 +379,6 @@
                     </ZDY:Menu>
                 </StackPanel>
             </ZDY:TabItem>
-            <ZDY:TabItem Header="TextBox">
-                <StackPanel Margin="20">
-                    <StackPanel.Resources>
-                        <Style TargetType="{x:Type ZDY:TextBox}">
-                            <Setter Property="Margin" Value="5"/>
-                        </Style>
-                    </StackPanel.Resources>
-                    <UniformGrid Rows="1">
-                        <ZDY:TextBox/>
-                        <ZDY:TextBox Text="Default Text Box" Placeholder="Enter text"/>
-                        <ZDY:TextBox Text="Read-Only Text Box" IsReadOnly="True"/>
-                        <ZDY:TextBox Placeholder="Text Box with Placeholder"/>
-                    </UniformGrid>
-                    <UniformGrid Rows="1">
-                        <ZDY:TextBox BorderThickness="1"/>
-                        <ZDY:TextBox BorderThickness="1" Text="Default Text Box" Placeholder="Enter text"/>
-                        <ZDY:TextBox BorderThickness="1" Text="Read-Only Text Box" IsReadOnly="True"/>
-                        <ZDY:TextBox BorderThickness="1" Placeholder="Text Box with Placeholder"/>
-                    </UniformGrid>
-                    <UniformGrid Rows="1">
-                        <ZDY:TextBox CornerRadius="3"/>
-                        <ZDY:TextBox CornerRadius="3" Text="Default Text Box" Placeholder="Enter text"/>
-                        <ZDY:TextBox CornerRadius="3" Text="Read-Only Text Box" IsReadOnly="True"/>
-                        <ZDY:TextBox CornerRadius="3" Placeholder="Text Box with Placeholder"/>
-                    </UniformGrid>
-                    <UniformGrid Rows="1">
-                        <ZDY:TextBox CornerRadius="3" BorderThickness="1"/>
-                        <ZDY:TextBox CornerRadius="3" BorderThickness="1" Text="Default Text Box" Placeholder="Enter text"/>
-                        <ZDY:TextBox CornerRadius="3" BorderThickness="1" Text="Read-Only Text Box" IsReadOnly="True"/>
-                        <ZDY:TextBox CornerRadius="3" BorderThickness="1" Placeholder="Text Box with Placeholder"/>
-                    </UniformGrid>
-                </StackPanel>
-            </ZDY:TabItem>
             <ZDY:TabItem Header="Card">
                 <UniformGrid Columns="2" Rows="2">
                     <ZDY:Card Margin="20"/>
@@ -318,7 +485,16 @@
                         <ZDY:ListView ItemsSource="{Binding Items}" ZDY:GridViewExtension.Theme="Bordered">
                             <ZDY:ListView.View>
                                 <ZDY:GridView>
-                                    <GridViewColumn DisplayMemberBinding="{Binding Index}" Header="Index"/>
+                                    <GridViewColumn>
+                                        <GridViewColumn.Header>
+                                            <TextBlock Text="Index" HorizontalAlignment="Center"/>
+                                        </GridViewColumn.Header>
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Index}" HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
                                     <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" />
                                     <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Description" />
                                 </ZDY:GridView>

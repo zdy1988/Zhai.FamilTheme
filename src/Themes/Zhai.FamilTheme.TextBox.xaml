@@ -67,17 +67,36 @@
         </Setter>
     </Style>
 
+    <Style TargetType="{x:Type local:IconButton}" x:Key="Zhai.FamilTheme.TextBox.ErrorAlert">
+        <Setter Property="Icon" Value="Info"/>
+        <Setter Property="IconSize" Value="13"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="Margin" Value="-10 -8 0 -8"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Foreground" Value="{StaticResource Zhai.FamilTheme.ErrorBrush}"/>
+        <Setter Property="ToolTipService.Placement" Value="Top"/>
+    </Style>
+
+    <Style TargetType="{x:Type Border}" x:Key="Zhai.FamilTheme.TextBox.ErrorAlertShadow">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.ErrorBrush}"/>
+        <Setter Property="Effect" Value="{StaticResource Zhai.FamilTheme.ErrorShadowEffect}"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+    </Style>
+
     <Style TargetType="{x:Type local:TextBox}" x:Key="Zhai.FamilTheme.TextBox" >
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionUnActivedBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="CaretBrush" Value="{StaticResource Zhai.FamilTheme.SelectionBrush}"/>
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="12 8"/>
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -89,20 +108,12 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 CornerRadius="{TemplateBinding CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}"/>
 
-                        <Border x:Name="ErrorAlertShadow"
-                                BorderThickness="1"
-                                BorderBrush="{StaticResource Zhai.FamilTheme.ErrorBrush}"
-                                CornerRadius="{TemplateBinding CornerRadius}"
-                                Effect="{StaticResource Zhai.FamilTheme.ErrorShadowEffect}"
-                                Visibility="Collapsed">
-                        </Border>
+                        <Border x:Name="ErrorAlertShadow" Style="{StaticResource Zhai.FamilTheme.TextBox.ErrorAlertShadow}"
+                                CornerRadius="{TemplateBinding CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}"/>
 
                         <DockPanel Margin="{TemplateBinding Padding}">
 
-                            <local:IconButton x:Name="ErrorAlert" Icon="Info" DockPanel.Dock="Left" Visibility="Collapsed" 
-                                              Margin="-10 -8 0 -8" VerticalAlignment="Center" HorizontalAlignment="Left"
-                                              Foreground="{StaticResource Zhai.FamilTheme.ErrorBrush}"
-                                              ToolTipService.Placement="Top">
+                            <local:IconButton x:Name="ErrorAlert" DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.TextBox.ErrorAlert}">
                                 <local:IconButton.ToolTip>
                                     <local:Repeater ItemsSource="{TemplateBinding Validation.Errors}"
                                                     IsHitTestVisible="False">
@@ -124,21 +135,19 @@
                                                   IsHitTestVisible="False"
                                                   Visibility="Collapsed"/>
 
-                                <local:ScrollViewer x:Name="PART_ContentHost"
+                                <local:ScrollViewer x:Name="PART_ContentHost" Focusable="False"
                                                     Style="{StaticResource Zhai.FamilTheme.TextBox.ScrollViewer}"
                                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                             </Grid>
-
                         </DockPanel>
-
                     </Grid>
-
                     <ControlTemplate.Triggers>
 
                         <Trigger Property="Validation.HasError" Value="True">
                             <Setter TargetName="ErrorAlert" Property="Visibility" Value="Visible"/>
                             <Setter TargetName="ErrorAlertShadow" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.ErrorBrush}"/>
                         </Trigger>
 
                         <Trigger Property="IsPlaceholderVisibled" Value="True">
@@ -146,29 +155,19 @@
                         </Trigger>
 
                     </ControlTemplate.Triggers>
-
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
         <Style.Triggers>
-
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionHoveredBrush}"/>
             </Trigger>
-
             <Trigger Property="IsFocused" Value="True">
                 <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionActivedBrush}"/>
             </Trigger>
-
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Opacity" Value=".56"/>
             </Trigger>
-
-            <Trigger Property="Validation.HasError" Value="True">
-                <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.ErrorBrush}"/>
-            </Trigger>
-
         </Style.Triggers>
     </Style>
 

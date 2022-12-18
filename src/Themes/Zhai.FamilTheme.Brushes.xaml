@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys ="clr-namespace:System;assembly=mscorlib"
+                    xmlns:Converters="clr-namespace:Zhai.FamilTheme.Converters"
                     xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
 
     <LinearGradientBrush x:Key="Zhai.FamilTheme.ColorfulBrush" StartPoint="0,0" EndPoint="1,1" PresentationOptions:Freeze="True">
@@ -18,6 +19,8 @@
     <SolidColorBrush x:Key="Zhai.FamilTheme.Window.DarkForegroundBrush" Color="#0f0f0f" PresentationOptions:Freeze="True"/>
     <SolidColorBrush x:Key="Zhai.FamilTheme.Window.LightForegroundBrush" Color="#ffffff" PresentationOptions:Freeze="True"/>
 
+    <Converters:BrushRoundConverter x:Key="FloatingBackgroundBrushRoundConverter" HighValue="{StaticResource Zhai.FamilTheme.Window.DarkBackgroundBrush}" LowValue="{StaticResource Zhai.FamilTheme.Window.LightBackgroundBrush}"/>
+    
     <SolidColorBrush x:Key="Zhai.FamilTheme.FloatingBackgroundBrush" Color="#B3000000" PresentationOptions:Freeze="True"/>
     <SolidColorBrush x:Key="Zhai.FamilTheme.FloatingForegroundBrush" Color="#ffffff" PresentationOptions:Freeze="True"/>
     <DropShadowEffect x:Key="Zhai.FamilTheme.FloatingShadowEffect" BlurRadius="5" ShadowDepth="1" Direction="270" Color="#AA000000" Opacity=".42" RenderingBias="Performance" PresentationOptions:Freeze="True" />
@@ -30,7 +33,7 @@
     <DropShadowEffect x:Key="Zhai.FamilTheme.HighlightShadowEffect" BlurRadius="5" ShadowDepth="1" Direction="270" Color="#eaac22" Opacity=".42" RenderingBias="Performance" PresentationOptions:Freeze="True" />
 
     <Color x:Key="Zhai.FamilTheme.SelectionColor">#90666666</Color>
-    <sys:Double x:Key="Zhai.FamilTheme.SelectionHoveredOpacity">0.12</sys:Double>
+    <sys:Double x:Key="Zhai.FamilTheme.SelectionHoveredOpacity">0.18</sys:Double>
     <sys:Double x:Key="Zhai.FamilTheme.SelectionActivedOpacity">0.24</sys:Double>
     <sys:Double x:Key="Zhai.FamilTheme.SelectionUnActivedOpacity">0.12</sys:Double>
 
@@ -39,10 +42,6 @@
     <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionActivedBrush" Color="{StaticResource Zhai.FamilTheme.SelectionColor}" Opacity="{StaticResource Zhai.FamilTheme.SelectionActivedOpacity}" PresentationOptions:Freeze="True"/>
     <SolidColorBrush x:Key="Zhai.FamilTheme.SelectionUnActivedBrush" Color="{StaticResource Zhai.FamilTheme.SelectionColor}" Opacity="{StaticResource Zhai.FamilTheme.SelectionUnActivedOpacity}" PresentationOptions:Freeze="True"/>
 
-
-
     <sys:Double x:Key="Zhai.FamilTheme.ForegroundOpacity">0.72</sys:Double>
-
-
 
 </ResourceDictionary>

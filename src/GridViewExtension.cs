@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Controls;
 using System.Windows;
+using System.Windows.Media;
 
 namespace Zhai.FamilTheme
 {
@@ -35,16 +36,15 @@ namespace Zhai.FamilTheme
         /// <summary>
         /// 列头PADDING
         /// </summary>
-        public static readonly DependencyProperty ColumnHeaderPaddingProperty = DependencyProperty.RegisterAttached("ColumnHeaderPadding", typeof(Thickness), typeof(GridViewExtension), new FrameworkPropertyMetadata(new Thickness(13, 12, 0, 12), FrameworkPropertyMetadataOptions.Inherits));
-        public static void SetColumnHeaderPadding(DependencyObject element, Thickness value) => element.SetValue(ColumnHeaderPaddingProperty, value);
-        public static Thickness GetColumnHeaderPadding(DependencyObject element) => (Thickness)element.GetValue(ColumnHeaderPaddingProperty);
-
+        public static readonly DependencyProperty HeaderColumnPaddingProperty = DependencyProperty.RegisterAttached("HeaderColumnPadding", typeof(Thickness), typeof(GridViewExtension), new PropertyMetadata(default));
+        public static void SetHeaderColumnPadding(DependencyObject element, Thickness value) => element.SetValue(HeaderColumnPaddingProperty, value);
+        public static Thickness GetHeaderColumnPadding(DependencyObject element) => (Thickness)element.GetValue(HeaderColumnPaddingProperty);
 
         /// <summary>
-        /// 行PADDING
+        /// 头部容器PADDING
         /// </summary>
-        public static readonly DependencyProperty ItemPaddingProperty = DependencyProperty.RegisterAttached("ItemPadding", typeof(Thickness), typeof(GridViewExtension), new FrameworkPropertyMetadata(new Thickness(8, 8, 8, 8), FrameworkPropertyMetadataOptions.Inherits));
-        public static void SetItemPadding(DependencyObject element, Thickness value) => element.SetValue(ItemPaddingProperty, value);
-        public static Thickness GetItemPadding(DependencyObject element) => (Thickness)element.GetValue(ItemPaddingProperty);
+        public static readonly DependencyProperty HeaderContainerPaddingProperty = DependencyProperty.RegisterAttached("HeaderContainerPadding", typeof(Thickness), typeof(GridViewExtension), new PropertyMetadata(default));
+        public static void SetHeaderContainerPadding(DependencyObject element, Thickness value) => element.SetValue(HeaderContainerPaddingProperty, value);
+        public static Thickness GetHeaderContainerPadding(DependencyObject element) => (Thickness)element.GetValue(HeaderContainerPaddingProperty);
     }
 }

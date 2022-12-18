@@ -13,11 +13,11 @@
 
     <Style TargetType="{x:Type Thumb}" x:Key="Zhai.FamilTheme.GridView.ColumnHeaderGripper">
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="Padding" Value="8" />
-        <Setter Property="Margin" Value="0,0,-8,0"/>
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0,0,-5,0"/>
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Width" Value="8"/>
+        <Setter Property="Width" Value="10"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Thumb}">
@@ -32,11 +32,11 @@
     </Style>
 
     <Style TargetType="{x:Type GridViewColumnHeader}" x:Key="Zhai.FamilTheme.GridView.ColumnHeader">
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="TextBlock.FontWeight" Value="Medium" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Padding" Value="{Binding RelativeSource={RelativeSource Self}, Path=(local:GridViewExtension.ColumnHeaderPadding)}" />
+        <Setter Property="Padding" Value="{Binding RelativeSource={RelativeSource AncestorType=local:ListView}, Path=(local:GridViewExtension.HeaderColumnPadding)}" />
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Foreground}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Template">
@@ -51,12 +51,16 @@
                             <DockPanel>
                                 <local:Icon x:Name="HeaderSortIcon" DockPanel.Dock="Right" Kind="Sort" Width="{TemplateBinding FontSize}" Height="{TemplateBinding FontSize}" VerticalAlignment="Center" 
                                             Margin="4 0" Visibility="Collapsed"/>
-                                <ContentPresenter x:Name="HeaderContent"
-                                              Margin="{TemplateBinding Padding}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              RecognizesAccessKey="True"
-                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                <Border Margin="{TemplateBinding Padding}" Padding="6 0 6 0"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                    <ContentPresenter x:Name="HeaderContent"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        RecognizesAccessKey="True"
+                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                </Border>
                             </DockPanel>
                         </Border>
                     </DockPanel>
@@ -131,9 +135,9 @@
                                           HorizontalScrollBarVisibility="Hidden"
                                           VerticalScrollBarVisibility="Hidden"
                                           CurrentHorizontalOffset="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}">
-                                <Border BorderBrush="{StaticResource Zhai.FamilTheme.SelectionBrush}" BorderThickness="0,0,0,1">
-                                    <StackPanel Orientation="Horizontal">
-                                        <GridViewHeaderRowPresenter x:Name="PART_GridViewHeaderRowPresenter"
+                                <Border BorderBrush="{StaticResource Zhai.FamilTheme.SelectionBrush}" BorderThickness="0,0,0,1"
+                                        Padding="{Binding RelativeSource={RelativeSource AncestorType=local:ListView}, Path=(local:GridViewExtension.HeaderContainerPadding)}">
+                                    <GridViewHeaderRowPresenter x:Name="PART_GridViewHeaderRowPresenter"
                                                                 AllowsColumnReorder="{Binding Path=TemplatedParent.View.AllowsColumnReorder, RelativeSource={RelativeSource TemplatedParent}}"
                                                                 ColumnHeaderContainerStyle="{Binding Path=TemplatedParent.View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource TemplatedParent}}"
                                                                 ColumnHeaderContextMenu="{Binding Path=TemplatedParent.View.ColumnHeaderContextMenu, RelativeSource={RelativeSource TemplatedParent}}"
@@ -142,9 +146,6 @@
                                                                 ColumnHeaderToolTip="{Binding Path=TemplatedParent.View.ColumnHeaderToolTip, RelativeSource={RelativeSource TemplatedParent}}"
                                                                 Columns="{Binding Path=TemplatedParent.View.Columns, RelativeSource={RelativeSource TemplatedParent}}"
                                                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                                        <!-- NB: Rectangle added to keep the width of the header ScrollViewer the same size as the list items -->
-                                        <Rectangle Margin="{Binding RelativeSource={RelativeSource Self}, Path=(local:GridViewExtension.ItemPadding), Converter={Converters:HorizontalThicknessConverter}}" />
-                                    </StackPanel>
                                 </Border>
                             </local:ScrollViewer>
 
@@ -232,24 +233,28 @@
     <Style TargetType="{x:Type ListViewItem}" x:Key="Zhai.FamilTheme.GridViewItem">
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionBrush}"/>
-        <Setter Property="BorderThickness" Value="0 0 0 1"/>
-        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Foreground}"/>
         <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=local:ListView}, Path=Foreground}"/>
+        <Setter Property="BorderThickness" Value="0 0 0 1"/>
+        <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerBorderBrush)}"/>
+        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerBackgroundBrush)}" />
+        <Setter Property="Padding" Value="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerPadding)}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="ListBoxItem">
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
                     <Grid x:Name="PART_ItemContainer">
-                        <Border x:Name="MouseOverBorder" Visibility="Collapsed" Background="{StaticResource Zhai.FamilTheme.SelectionHoveredBrush}" BorderBrush="{TemplateBinding BorderBrush}"/>
+                        <Border x:Name="MouseOverBorder" Visibility="Collapsed" Background="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerHoveredBackgroundBrush)}" BorderBrush="{TemplateBinding BorderBrush}"/>
 
-                        <Border x:Name="SelectedBorder" Visibility="Collapsed"  Background="{StaticResource Zhai.FamilTheme.SelectionActivedBrush}" BorderBrush="{TemplateBinding BorderBrush}"/>
+                        <Border x:Name="SelectedBorder" Visibility="Collapsed"  Background="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerActivedBackgroundBrush)}" BorderBrush="{TemplateBinding BorderBrush}"/>
 
                         <Border x:Name="CurrentBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="{TemplateBinding BorderThickness}">
                             <GridViewRowPresenter 
-                                Margin="{Binding RelativeSource={RelativeSource Self}, Path=(local:GridViewExtension.ItemPadding)}"
+                                Focusable="False"
+                                Margin="{TemplateBinding Padding}"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -272,7 +277,7 @@
                                 <Condition Property="Selector.IsSelectionActive" Value="False" />
                             </MultiTrigger.Conditions>
                             <Setter TargetName="SelectedBorder" Property="Visibility" Value="Visible" />
-                            <Setter TargetName="SelectedBorder" Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionUnActivedBrush}" />
+                            <Setter TargetName="SelectedBorder" Property="Opacity" Value="0.5" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -338,6 +343,13 @@
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
         <Setter Property="VirtualizingPanel.ScrollUnit" Value="Pixel"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="local:ItemsContorlExtension.ItemContainerBackgroundBrush" Value="Transparent"/>
+        <Setter Property="local:ItemsContorlExtension.ItemContainerHoveredBackgroundBrush" Value="{StaticResource Zhai.FamilTheme.SelectionHoveredBrush}"/>
+        <Setter Property="local:ItemsContorlExtension.ItemContainerActivedBackgroundBrush" Value="{StaticResource Zhai.FamilTheme.SelectionActivedBrush}"/>
+        <Setter Property="local:ItemsContorlExtension.ItemContainerBorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionBrush}"/>
+        <Setter Property="local:ItemsContorlExtension.ItemContainerPadding" Value="8 8 8 8"/>
+        <Setter Property="local:GridViewExtension.HeaderContainerPadding" Value="8 8 8 8"/>
+        <Setter Property="local:GridViewExtension.HeaderColumnPadding" Value="0 4 0 4"/>
         <Setter Property="ItemContainerStyle" Value="{Binding RelativeSource={RelativeSource Self}, Path=View, Converter={StaticResource ListViewItemContainerConverter}}"/>
         <Setter Property="Template" Value="{Binding RelativeSource={RelativeSource Self}, Path=View, Converter={StaticResource ListViewTemplateConverter}}"/>
         <Style.Triggers>

@@ -10,12 +10,14 @@
     <SolidColorBrush x:Key="Zhai.FamilTheme.ListBoxItemHoverBorderBrush" Color="#4395ff"/>
 
     <Style TargetType="{x:Type ListBoxItem}" x:Key="Zhai.FamilTheme.ListBoxItem">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-        <Setter Property="Padding" Value="8"/>
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerBorderBrush)}"/>
+        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerBackgroundBrush)}" />
+        <Setter Property="Padding" Value="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerPadding)}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
@@ -24,18 +26,20 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             ClipToBounds="{TemplateBinding ClipToBounds}">
                         <Grid>
-                            <Border x:Name="MouseOverBorder" Opacity="0" Background="{StaticResource Zhai.FamilTheme.SelectionBrush}"/>
+                            <Border x:Name="MouseOverBorder" Visibility="Collapsed" Background="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerHoveredBackgroundBrush)}" BorderBrush="{TemplateBinding BorderBrush}"/>
 
-                            <Border x:Name="SelectedBorder" Opacity="0"  Background="{StaticResource Zhai.FamilTheme.SelectionBrush}"/>
-                            
-                            <ContentPresenter
-                                Focusable="False"
-                                Margin="{TemplateBinding Padding}"
-                                Content="{TemplateBinding Content}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
-                                RecognizesAccessKey="False"/>
+                            <Border x:Name="SelectedBorder" Visibility="Collapsed"  Background="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerActivedBackgroundBrush)}" BorderBrush="{TemplateBinding BorderBrush}"/>
+
+                            <Border x:Name="CurrentBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter
+                                    Focusable="False"
+                                    Margin="{TemplateBinding Padding}"
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                    RecognizesAccessKey="False"/>
+                            </Border>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -43,21 +47,22 @@
                             <Setter Property="Opacity" Value=".56" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="MouseOverBorder" Property="Opacity" Value="{StaticResource Zhai.FamilTheme.SelectionHoveredOpacity}" />
+                            <Setter TargetName="MouseOverBorder" Property="Visibility" Value="Visible" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="True" />
                                 <Condition Property="Selector.IsSelectionActive" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="SelectedBorder" Property="Opacity" Value="{StaticResource Zhai.FamilTheme.SelectionActivedOpacity}" />
+                            <Setter TargetName="SelectedBorder" Property="Visibility" Value="Visible" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsSelected" Value="True" />
                                 <Condition Property="Selector.IsSelectionActive" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="SelectedBorder" Property="Opacity" Value="{StaticResource Zhai.FamilTheme.SelectionUnActivedOpacity}" />
+                            <Setter TargetName="SelectedBorder" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="SelectedBorder" Property="Opacity" Value="0.5" />
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -76,6 +81,11 @@
         <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="local:ItemsContorlExtension.ItemContainerBackgroundBrush" Value="Transparent"/>
+        <Setter Property="local:ItemsContorlExtension.ItemContainerHoveredBackgroundBrush" Value="{StaticResource Zhai.FamilTheme.SelectionHoveredBrush}"/>
+        <Setter Property="local:ItemsContorlExtension.ItemContainerActivedBackgroundBrush" Value="{StaticResource Zhai.FamilTheme.SelectionActivedBrush}"/>
+        <Setter Property="local:ItemsContorlExtension.ItemContainerBorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionBrush}"/>
+        <Setter Property="local:ItemsContorlExtension.ItemContainerPadding" Value="8 8 8 8"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource Zhai.FamilTheme.ListBoxItem}"/>
         <Setter Property="Template">
             <Setter.Value>
