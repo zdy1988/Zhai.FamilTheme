@@ -117,7 +117,7 @@
                                           Stretch="Uniform"
                                           HorizontalAlignment="Right"
                                           VerticalAlignment="Center"
-                                          Data="M0,16 L8,8 L0,0 Z"
+                                          Data="M413.44 797.44l-58.816-58.88L581.184 512l-226.56-226.56 58.88-58.88L698.88 512l-285.44 285.44z"
                                           Fill="{TemplateBinding Foreground}"
                                           SnapsToDevicePixels="False"/>
                                 </Grid>
@@ -127,7 +127,7 @@
                                AllowsTransparency="True"
                                Focusable="False"
                                IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}"
-                               PopupAnimation="Slide"
+                               PopupAnimation="Fade"
                                Placement="Bottom"
                                CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(local:ShadowExtension.CacheMode)}">
                             <Border x:Name="SubMenuBorder"

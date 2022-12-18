@@ -22,7 +22,6 @@
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Margin="{TemplateBinding Margin}"
                             ClipToBounds="{TemplateBinding ClipToBounds}">
                         <Grid>
                             <Border x:Name="MouseOverBorder" Opacity="0" Background="{StaticResource Zhai.FamilTheme.SelectionBrush}"/>
