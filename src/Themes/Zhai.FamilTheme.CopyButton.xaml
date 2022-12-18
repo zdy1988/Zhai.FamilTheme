@@ -7,9 +7,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type local:CopyButton}" x:Key="Zhai.FamilTheme.CopyButton" BasedOn="{StaticResource Zhai.FamilTheme.IconButton}">
-        <Setter Property="Icon" Value="DocumentCopy"/>
+        <Setter Property="Icon" Value="VuesaxOutlineDocumentCopy"/>
     </Style>
-
-    <Style TargetType="{x:Type local:CopyButton}" BasedOn="{StaticResource Zhai.FamilTheme.CopyButton}"/>
 
 </ResourceDictionary>

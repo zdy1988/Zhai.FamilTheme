@@ -289,7 +289,7 @@
                                          DotsTemplate="{StaticResource Zhai.FamilTheme.Loading.Dots}"
                                          BarsTemplate="{StaticResource Zhai.FamilTheme.Loading.Bars}"/>
 
-    <Style TargetType="{x:Type local:Loading}">
+    <Style TargetType="{x:Type local:Loading}" x:Key="Zhai.FamilTheme.Loading">
         <Style.Setters>
             <Setter Property="Width" Value="32"/>
             <Setter Property="Height" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=ActualWidth}"/>

@@ -362,6 +362,4 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type local:ListView}" BasedOn="{StaticResource Zhai.FamilTheme.ListView}"/>
-
 </ResourceDictionary>

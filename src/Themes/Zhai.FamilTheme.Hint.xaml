@@ -7,7 +7,7 @@
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Brushes.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type local:Hint}">
+    <Style TargetType="{x:Type local:Hint}" x:Key="Zhai.FamilTheme.Hint">
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.FloatingBackgroundBrush}"/>

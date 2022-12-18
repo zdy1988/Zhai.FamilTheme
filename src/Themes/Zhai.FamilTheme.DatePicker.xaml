@@ -135,6 +135,4 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type local:DatePicker}" BasedOn="{StaticResource Zhai.FamilTheme.DatePicker}"/>
-    
 </ResourceDictionary>

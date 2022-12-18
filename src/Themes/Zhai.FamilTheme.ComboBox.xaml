@@ -68,7 +68,7 @@
                                 BorderThickness="0"
                                 Background="{Binding Background, RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}"
                                 Visibility="Collapsed"/>
-                        <local:Icon Grid.Column="1" Kind="ChevronDown" VerticalAlignment="Center" HorizontalAlignment="Center" Width="10" Height="10"/>
+                        <local:Icon Grid.Column="1" Kind="ArrowDown" VerticalAlignment="Center" HorizontalAlignment="Center" Width="10" Height="10"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding IsEditable, RelativeSource={RelativeSource FindAncestor, AncestorType=ComboBox}}" Value="True">
@@ -242,7 +242,5 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
-    <Style TargetType="{x:Type local:ComboBox}" BasedOn="{StaticResource Zhai.FamilTheme.ComboBox}"/>
 
 </ResourceDictionary>

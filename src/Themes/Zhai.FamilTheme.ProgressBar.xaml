@@ -193,6 +193,4 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type local:ProgressBar}" BasedOn="{StaticResource Zhai.FamilTheme.ProgressBar}"/>
-
 </ResourceDictionary>

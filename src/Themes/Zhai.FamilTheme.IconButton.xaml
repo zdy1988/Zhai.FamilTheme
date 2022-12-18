@@ -31,12 +31,4 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type local:IconButton}" x:Key="Zhai.FamilTheme.Navigation.IconButton" BasedOn="{StaticResource Zhai.FamilTheme.IconButton}">
-        <Setter Property="Width" Value="54"/>
-        <Setter Property="Height" Value="54"/>
-        <Setter Property="IconSize" Value="42"/>
-    </Style>
-
-    <Style TargetType="{x:Type local:IconButton}" BasedOn="{StaticResource Zhai.FamilTheme.IconButton}"/>
-
 </ResourceDictionary>

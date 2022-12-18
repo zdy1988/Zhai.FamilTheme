@@ -346,6 +346,4 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type local:Drawer}" BasedOn="{StaticResource Zhai.FamilTheme.Drawer}"/>
-
 </ResourceDictionary>

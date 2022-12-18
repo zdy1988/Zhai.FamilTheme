@@ -52,6 +52,4 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type local:IconToggleButton}" BasedOn="{StaticResource Zhai.FamilTheme.IconToggleButton}"/>
-
 </ResourceDictionary>

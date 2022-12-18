@@ -107,11 +107,11 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Theme" Value="Light">
-                            <Setter TargetName="ThemeButton" Property="Icon" Value="ClearDay"/>
+                            <Setter TargetName="ThemeButton" Property="Icon" Value="Sun"/>
                             <Setter TargetName="LayoutBackground" Property="Background" Value="{StaticResource Zhai.FamilTheme.Window.LightBackgroundBrush}"/>
                         </Trigger>
                         <Trigger Property="Theme" Value="Dark">
-                            <Setter TargetName="ThemeButton" Property="Icon" Value="ClearNight"/>
+                            <Setter TargetName="ThemeButton" Property="Icon" Value="Moon"/>
                             <Setter TargetName="LayoutBackground" Property="Background" Value="{StaticResource Zhai.FamilTheme.Window.DarkBackgroundBrush}"/>
                         </Trigger>
                         <MultiTrigger>
@@ -132,10 +132,10 @@
                             <Setter TargetName="MainContent" Property="Margin" Value="0"/>
                         </Trigger>
                         <Trigger Property="IsTransparency" Value="True">
-                            <Setter TargetName="TransparentButton" Property="Icon" Value="Dust"/>
+                            <Setter TargetName="TransparentButton" Property="Icon" Value="Mask"/>
                         </Trigger>
                         <Trigger Property="IsTransparency" Value="False">
-                            <Setter TargetName="TransparentButton" Property="Icon" Value="News"/>
+                            <Setter TargetName="TransparentButton" Property="Icon" Value="Mask1"/>
                         </Trigger>
                         <Trigger Property="WindowState" Value="Maximized">
                             <Setter TargetName="MaximizeButton" Property="Visibility" Value="Collapsed" />
@@ -177,7 +177,5 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
-    <Style TargetType="{x:Type local:TransparentWindow}" BasedOn="{StaticResource Zhai.FamilTheme.TransparentWindow}"/>
 
 </ResourceDictionary>

@@ -106,6 +106,4 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type local:SwitchToggleButton}" BasedOn="{StaticResource Zhai.FamilTheme.SwitchToggleButton}"/>
-
 </ResourceDictionary>

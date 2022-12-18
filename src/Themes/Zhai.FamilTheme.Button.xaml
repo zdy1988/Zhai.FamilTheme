@@ -45,6 +45,4 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="{x:Type local:Button}" BasedOn="{StaticResource Zhai.FamilTheme.Button}"/>
-
 </ResourceDictionary>

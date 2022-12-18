@@ -64,7 +64,5 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
-    <Style TargetType="{x:Type local:Repeater}" BasedOn="{StaticResource Zhai.FamilTheme.Repeater}"/>
-
+    
 </ResourceDictionary>

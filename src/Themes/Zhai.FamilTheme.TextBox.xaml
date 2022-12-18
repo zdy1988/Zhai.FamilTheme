@@ -68,7 +68,7 @@
     </Style>
 
     <Style TargetType="{x:Type local:IconButton}" x:Key="Zhai.FamilTheme.TextBox.ErrorAlert">
-        <Setter Property="Icon" Value="Info"/>
+        <Setter Property="Icon" Value="VuesaxOutlineWarning2"/>
         <Setter Property="IconSize" Value="13"/>
         <Setter Property="Visibility" Value="Collapsed"/>
         <Setter Property="Margin" Value="-10 -8 0 -8"/>
@@ -170,9 +170,5 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
-    <Style TargetType="{x:Type local:TextBox}" BasedOn="{StaticResource Zhai.FamilTheme.TextBox}"/>
-
-    <Style x:Key="{x:Type PasswordBox}" TargetType="PasswordBox" BasedOn="{StaticResource TextBoxDefaultStyle}"/>
 
 </ResourceDictionary>

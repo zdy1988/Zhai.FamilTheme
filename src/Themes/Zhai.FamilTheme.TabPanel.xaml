@@ -6,7 +6,7 @@
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Brushes.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type local:TabItem}" x:Key="Zhai.FamilTheme.TabItem" >
+    <Style TargetType="{x:Type TabItem}" x:Key="Zhai.FamilTheme.TabItem" >
         <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionBrush}" />
         <!--  Foreground is for the content, not the header  -->
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabControl}}, Path=(TextElement.Foreground)}" />
@@ -104,6 +104,9 @@
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value="0.38" />
                         </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ColorZoneHeader" Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionHoveredBrush}"/>
+                        </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="ContentPresenter" Property="Opacity" Value="1" />
                             <Setter TargetName="SelectionHighlightBorder" Property="Visibility" Value="Visible" />
@@ -161,13 +164,14 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type local:TabItem}" BasedOn="{StaticResource Zhai.FamilTheme.TabItem}"/>
-
     <Style TargetType="{x:Type local:TabPanel}" x:Key="Zhai.FamilTheme.TabPanel">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabControl}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type TabItem}" BasedOn="{StaticResource Zhai.FamilTheme.TabItem}"/>
+                    </ControlTemplate.Resources>
                     <DockPanel KeyboardNavigation.TabNavigation="Local">
                         <Border x:Name="PART_HeaderZone" Background="{TemplateBinding Background}"
                                 Panel.ZIndex="1"
@@ -222,6 +226,4 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type local:TabPanel}" BasedOn="{StaticResource Zhai.FamilTheme.TabPanel}"/>
-    
 </ResourceDictionary>

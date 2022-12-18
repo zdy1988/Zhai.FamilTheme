@@ -123,6 +123,4 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type local:ScrollViewer}" BasedOn="{StaticResource Zhai.FamilTheme.ScrollViewer}"/>
-
 </ResourceDictionary>

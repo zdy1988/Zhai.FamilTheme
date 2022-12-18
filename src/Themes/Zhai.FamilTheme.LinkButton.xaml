@@ -30,6 +30,4 @@
         </Style.Triggers>
     </Style>
 
-    <Style TargetType="local:LinkButton" BasedOn="{StaticResource Zhai.FamilTheme.LinkButton}"/>
-
 </ResourceDictionary>

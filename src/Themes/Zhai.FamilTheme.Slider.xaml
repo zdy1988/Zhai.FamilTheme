@@ -7,14 +7,6 @@
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Brushes.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <LinearGradientBrush x:Key="Zhai.FamilTheme.Slider.ForegroundBrush" StartPoint="0,0" EndPoint="1,1" PresentationOptions:Freeze="True">
-        <GradientStop Color="#9790f2"  Offset="0" />
-        <GradientStop Color="#7fbfff" Offset="0.5" />
-        <GradientStop Color="#21BFD5" Offset="1" />
-    </LinearGradientBrush>
-    <SolidColorBrush x:Key="Zhai.FamilTheme.Slider.BackgroundBrush" Color="#80666666" PresentationOptions:Freeze="True"/>
-    <SolidColorBrush x:Key="Zhai.FamilTheme.Slider.HighlightBrush" Color="#80EFEFEF" PresentationOptions:Freeze="True"/>
-
     <Style TargetType="{x:Type Thumb}" x:Key="Zhai.FamilTheme.Slider.PositionSliderThumb">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Width" Value="16"/>
@@ -101,8 +93,6 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type local:Slider}" BasedOn="{StaticResource Zhai.FamilTheme.PositionSlider}"/>
-
 
     <Style TargetType="{x:Type Thumb}" x:Key="Zhai.FamilTheme.Slider.PositionSliderThumb2">
         <Setter Property="Focusable" Value="False"/>
@@ -172,7 +162,5 @@
             </Setter.Value>
         </Setter>
     </Style>
-
-    <Style TargetType="{x:Type local:Slider2}" BasedOn="{StaticResource Zhai.FamilTheme.PositionSlider2}"/>
 
 </ResourceDictionary>

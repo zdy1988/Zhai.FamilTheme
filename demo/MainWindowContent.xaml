@@ -276,9 +276,9 @@
                         <TextBox.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="File">
-                                    <MenuItem Header="Save" Icon="{ZDY:Icon Kind=Baobao}"/>
-                                    <MenuItem Header="Save As.." />
-                                    <MenuItem Header="Exit" InputGestureText="Ctrl+E" Icon="{ZDY:Icon Kind=Chexiao}"/>
+                                    <MenuItem Header="Save" Icon="{ZDY:Icon Kind=Save}"/>
+                                    <MenuItem Header="Save As.." Icon="{ZDY:Icon Kind=SaveAs}"/>
+                                    <MenuItem Header="Exit" InputGestureText="Ctrl+E" Icon="{ZDY:Icon Kind=Redo}"/>
                                     <Separator />
                                     <MenuItem Header="Excellent" IsCheckable="True" IsChecked="True" />
                                     <MenuItem Header="Rubbish" IsCheckable="True" />
@@ -292,9 +292,9 @@
                                     </MenuItem>
                                 </MenuItem>
                                 <MenuItem Header="_Edit">
-                                    <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                                    <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                                    <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                                    <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Cut}"/>
+                                    <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Copy}"/>
+                                    <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Paste}"/>
                                 </MenuItem>
                             </ContextMenu>
                         </TextBox.ContextMenu>
@@ -302,9 +302,9 @@
 
                     <ZDY:Menu IsMainMenu="True" Margin="0 20 0 0">
                         <MenuItem Header="File">
-                            <MenuItem Header="Save" Icon="{ZDY:Icon Kind=Baobao}"/>
-                            <MenuItem Header="Save As.." />
-                            <MenuItem Header="Exit" InputGestureText="Ctrl+E" Icon="{ZDY:Icon Kind=Chexiao}"/>
+                            <MenuItem Header="Save" Icon="{ZDY:Icon Kind=Save}"/>
+                            <MenuItem Header="Save As.." Icon="{ZDY:Icon Kind=SaveAs}"/>
+                            <MenuItem Header="Exit" InputGestureText="Ctrl+E" Icon="{ZDY:Icon Kind=Redo}"/>
                             <Separator />
                             <MenuItem Header="Excellent" IsCheckable="True" IsChecked="True" />
                             <MenuItem Header="Rubbish" IsCheckable="True" />
@@ -318,47 +318,47 @@
                             </MenuItem>
                         </MenuItem>
                         <MenuItem Header="_Edit">
-                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Cut}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Copy}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Paste}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Cut}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Copy}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Paste}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Cut}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Copy}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Paste}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Cut}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Copy}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Paste}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Cut}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Copy}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Paste}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Cut}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Copy}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Paste}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Cut}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Copy}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Paste}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Cut}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Copy}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Paste}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Cut}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Copy}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Paste}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Cut}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Copy}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Paste}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Cut}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Copy}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Paste}"/>
                         </MenuItem>
                     </ZDY:Menu>
 
                     <ZDY:Menu IsMainMenu="True" Margin="0 20 0 0" Background="{StaticResource Zhai.FamilTheme.SelectionUnActivedBrush}">
                         <MenuItem Header="File">
-                            <MenuItem Header="Save" Icon="{ZDY:Icon Kind=Baobao}"/>
-                            <MenuItem Header="Save As.." />
-                            <MenuItem Header="Exit" InputGestureText="Ctrl+E" Icon="{ZDY:Icon Kind=Chexiao}"/>
+                            <MenuItem Header="Save" Icon="{ZDY:Icon Kind=Save}"/>
+                            <MenuItem Header="Save As.." Icon="{ZDY:Icon Kind=SaveAs}"/>
+                            <MenuItem Header="Exit" InputGestureText="Ctrl+E" Icon="{ZDY:Icon Kind=Redo}"/>
                             <Separator />
                             <MenuItem Header="Excellent" IsCheckable="True" IsChecked="True" />
                             <MenuItem Header="Rubbish" IsCheckable="True" />
@@ -372,9 +372,9 @@
                             </MenuItem>
                         </MenuItem>
                         <MenuItem Header="_Edit">
-                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Fuzhi}"/>
-                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Fuzhi}"/>
+                            <MenuItem Header="_Cut" Command="Cut" Icon="{ZDY:Icon Kind=Cut}"/>
+                            <MenuItem Header="_Copy" Command="Copy" Icon="{ZDY:Icon Kind=Copy}"/>
+                            <MenuItem Header="_Paste" Command="Paste" Icon="{ZDY:Icon Kind=Paste}"/>
                         </MenuItem>
                     </ZDY:Menu>
                 </StackPanel>
@@ -650,12 +650,12 @@
 
                     <WrapPanel>
                         <ZDY:SwitchToggleButton Margin="5" Size="45">
-                            <ZDY:Icon Kind="ClearDay" Foreground="Red"/>
+                            <ZDY:Icon Kind="Sun" Foreground="Red"/>
                         </ZDY:SwitchToggleButton>
                         <ZDY:SwitchToggleButton Margin="5" Size="45">
                             <Grid>
-                                <ZDY:Icon x:Name="CheckedIcon" Kind="ClearDay" Foreground="DarkGoldenrod" Visibility="{Binding RelativeSource={RelativeSource AncestorType=ZDY:SwitchToggleButton}, Path=IsChecked, Converter={ZDY:BoolToVisibilityConverter}}"/>
-                                <ZDY:Icon x:Name="UnCheckedIcon" Kind="ClearNight" Foreground="LightBlue" Visibility="{Binding RelativeSource={RelativeSource AncestorType=ZDY:SwitchToggleButton}, Path=IsChecked, Converter={ZDY:BoolToInverseVisibilityConverter}}"/>
+                                <ZDY:Icon x:Name="CheckedIcon" Kind="Sun" Foreground="DarkGoldenrod" Visibility="{Binding RelativeSource={RelativeSource AncestorType=ZDY:SwitchToggleButton}, Path=IsChecked, Converter={ZDY:BoolToVisibilityConverter}}"/>
+                                <ZDY:Icon x:Name="UnCheckedIcon" Kind="Moon" Foreground="LightBlue" Visibility="{Binding RelativeSource={RelativeSource AncestorType=ZDY:SwitchToggleButton}, Path=IsChecked, Converter={ZDY:BoolToInverseVisibilityConverter}}"/>
                             </Grid>
                         </ZDY:SwitchToggleButton>
                     </WrapPanel>
@@ -812,7 +812,7 @@
                     </StackPanel>
                 </Grid>
             </ZDY:TabItem>
-            <ZDY:TabItem Header="Window">
+            <TabItem Header="Window">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center">
                         <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=IsTransparencyButtonEnabled}"/>
@@ -839,7 +839,7 @@
                         <ZDY:Button x:Name="NativeWindow_Button" Content="NativeWindow" Click="NativeWindow_Button_Click"/>
                     </StackPanel>
                 </StackPanel>
-            </ZDY:TabItem>
+            </TabItem>
         </ZDY:TabPanel>
     </Grid>
 </UserControl>

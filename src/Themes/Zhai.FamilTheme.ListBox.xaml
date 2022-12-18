@@ -110,6 +110,4 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type local:ListBox}" BasedOn="{StaticResource Zhai.FamilTheme.ListBox}"/>
-
 </ResourceDictionary>

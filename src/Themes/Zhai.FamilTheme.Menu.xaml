@@ -102,7 +102,7 @@
                                 </Grid>
                                 <Grid x:Name="SubBlock" Grid.Column="2"
                                       Visibility="Collapsed" Margin="16 0 0 0">
-                                    <local:Icon Kind="ChevronRight" Width="9" Height="9"
+                                    <local:Icon Kind="ArrowRight" Width="9" Height="9"
                                                 HorizontalAlignment="Right"
                                                 VerticalAlignment="Center"
                                                 SnapsToDevicePixels="False"/>
@@ -229,8 +229,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-
-    <Style TargetType="{x:Type local:Menu}" BasedOn="{StaticResource Zhai.FamilTheme.Menu}"/>
 
     <Style TargetType="{x:Type ContextMenu}" x:Key="Zhai.FamilTheme.ContextMenu" BasedOn="{StaticResource Zhai.FamilTheme.Menu}">
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Foreground}"/>
