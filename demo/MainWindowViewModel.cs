@@ -15,7 +15,7 @@ namespace Zhai.FamilThemeDemo
 {
     internal class MainWindowViewModel : BaseViewModel
     {
-        public IEnumerable<IconKind> IconKinds => Enum.GetValues<IconKind>().OrderBy(t=>t);
+        public IEnumerable<IconKind> IconKinds => Enum.GetValues<IconKind>();
 
         public IEnumerable<String> TextLines => new String[] {
             "Egestas adipiscing est.",

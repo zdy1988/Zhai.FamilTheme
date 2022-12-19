@@ -92,7 +92,7 @@
                             </local:IconButton>
 
                             <DatePickerTextBox x:Name="PART_TextBox" Style="{StaticResource Zhai.FamilTheme.DatePickerTextBox}"
-                                               Padding="0"
+                                               Padding="0" ContextMenu="{TemplateBinding ContextMenu}"
                                                Foreground="{TemplateBinding Foreground}"
                                                Background="{TemplateBinding Background}"
                                                Focusable="{TemplateBinding Focusable}"
