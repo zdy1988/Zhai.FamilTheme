@@ -238,15 +238,15 @@
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=local:ListView}, Path=Foreground}"/>
         <Setter Property="BorderThickness" Value="0 0 0 1"/>
         <Setter Property="BorderBrush" Value="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerBorderBrush)}"/>
-        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerBackgroundBrush)}" />
+        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerBackground)}" />
         <Setter Property="Padding" Value="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerPadding)}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                     <Grid x:Name="PART_ItemContainer">
-                        <Border x:Name="MouseOverBorder" Visibility="Collapsed" Background="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerHoveredBackgroundBrush)}" BorderBrush="{TemplateBinding BorderBrush}"/>
+                        <Border x:Name="MouseOverBorder" Visibility="Collapsed" Background="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerHoveredBackground)}" BorderBrush="{TemplateBinding BorderBrush}"/>
 
-                        <Border x:Name="SelectedBorder" Visibility="Collapsed"  Background="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerActivedBackgroundBrush)}" BorderBrush="{TemplateBinding BorderBrush}"/>
+                        <Border x:Name="SelectedBorder" Visibility="Collapsed"  Background="{Binding RelativeSource={RelativeSource AncestorType=ItemsControl}, Path=(local:ItemsContorlExtension.ItemContainerActivedBackground)}" BorderBrush="{TemplateBinding BorderBrush}"/>
 
                         <Border x:Name="CurrentBorder" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="{TemplateBinding BorderThickness}">
                             <GridViewRowPresenter 
@@ -343,9 +343,9 @@
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
         <Setter Property="VirtualizingPanel.ScrollUnit" Value="Pixel"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="local:ItemsContorlExtension.ItemContainerBackgroundBrush" Value="Transparent"/>
-        <Setter Property="local:ItemsContorlExtension.ItemContainerHoveredBackgroundBrush" Value="{StaticResource Zhai.FamilTheme.SelectionHoveredBrush}"/>
-        <Setter Property="local:ItemsContorlExtension.ItemContainerActivedBackgroundBrush" Value="{StaticResource Zhai.FamilTheme.SelectionActivedBrush}"/>
+        <Setter Property="local:ItemsContorlExtension.ItemContainerBackground" Value="Transparent"/>
+        <Setter Property="local:ItemsContorlExtension.ItemContainerHoveredBackground" Value="{StaticResource Zhai.FamilTheme.SelectionHoveredBrush}"/>
+        <Setter Property="local:ItemsContorlExtension.ItemContainerActivedBackground" Value="{StaticResource Zhai.FamilTheme.SelectionActivedBrush}"/>
         <Setter Property="local:ItemsContorlExtension.ItemContainerBorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionBrush}"/>
         <Setter Property="local:ItemsContorlExtension.ItemContainerPadding" Value="8 8 8 8"/>
         <Setter Property="local:GridViewExtension.HeaderContainerPadding" Value="8 8 8 8"/>

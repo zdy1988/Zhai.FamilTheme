@@ -25,22 +25,22 @@ namespace Zhai.FamilTheme
         /// <summary>
         /// 行容器背景颜色
         /// </summary>
-        public static readonly DependencyProperty ItemContainerBackgroundBrushProperty = DependencyProperty.RegisterAttached("ItemContainerBackgroundBrush", typeof(Brush), typeof(ItemsContorlExtension), new PropertyMetadata(default));
-        public static void SetItemContainerBackgroundBrush(DependencyObject element, Brush value) => element.SetValue(ItemContainerBackgroundBrushProperty, value);
-        public static Brush GetItemContainerBackgroundBrush(DependencyObject element) => (Brush)element.GetValue(ItemContainerBackgroundBrushProperty);
+        public static readonly DependencyProperty ItemContainerBackgroundProperty = DependencyProperty.RegisterAttached("ItemContainerBackground", typeof(Brush), typeof(ItemsContorlExtension), new PropertyMetadata(default));
+        public static void SetItemContainerBackground(DependencyObject element, Brush value) => element.SetValue(ItemContainerBackgroundProperty, value);
+        public static Brush GetItemContainerBackground(DependencyObject element) => (Brush)element.GetValue(ItemContainerBackgroundProperty);
 
         /// <summary>
         /// Mouseover行容器背景颜色
         /// </summary>
-        public static readonly DependencyProperty ItemContainerHoveredBackgroundBrushProperty = DependencyProperty.RegisterAttached("ItemContainerHoveredBackgroundBrush", typeof(Brush), typeof(ItemsContorlExtension), new PropertyMetadata(default));
-        public static void SetItemContainerHoveredBackgroundBrush(DependencyObject element, Brush value) => element.SetValue(ItemContainerHoveredBackgroundBrushProperty, value);
-        public static Brush GetItemContainerHoveredBackgroundBrush(DependencyObject element) => (Brush)element.GetValue(ItemContainerHoveredBackgroundBrushProperty);
+        public static readonly DependencyProperty ItemContainerHoveredBackgroundProperty = DependencyProperty.RegisterAttached("ItemContainerHoveredBackground", typeof(Brush), typeof(ItemsContorlExtension), new PropertyMetadata(default));
+        public static void SetItemContainerHoveredBackground(DependencyObject element, Brush value) => element.SetValue(ItemContainerHoveredBackgroundProperty, value);
+        public static Brush GetItemContainerHoveredBackground(DependencyObject element) => (Brush)element.GetValue(ItemContainerHoveredBackgroundProperty);
 
         /// <summary>
         /// 选中时行容器背景颜色
         /// </summary>
-        public static readonly DependencyProperty ItemContainerActivedBackgroundBrushProperty = DependencyProperty.RegisterAttached("ItemContainerActivedBackgroundBrush", typeof(Brush), typeof(ItemsContorlExtension), new PropertyMetadata(default));
-        public static void SetItemContainerActivedBackgroundBrush(DependencyObject element, Brush value) => element.SetValue(ItemContainerActivedBackgroundBrushProperty, value);
-        public static Brush GetItemContainerActivedBackgroundBrush(DependencyObject element) => (Brush)element.GetValue(ItemContainerActivedBackgroundBrushProperty);
+        public static readonly DependencyProperty ItemContainerActivedBackgroundProperty = DependencyProperty.RegisterAttached("ItemContainerActivedBackground", typeof(Brush), typeof(ItemsContorlExtension), new PropertyMetadata(default));
+        public static void SetItemContainerActivedBackground(DependencyObject element, Brush value) => element.SetValue(ItemContainerActivedBackgroundProperty, value);
+        public static Brush GetItemContainerActivedBackground(DependencyObject element) => (Brush)element.GetValue(ItemContainerActivedBackgroundProperty);
     }
 }

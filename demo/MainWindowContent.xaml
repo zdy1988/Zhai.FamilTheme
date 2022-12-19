@@ -434,17 +434,23 @@
                 </StackPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="Card">
-                <UniformGrid Columns="2" Rows="2">
+                <UniformGrid Columns="3" Rows="2">
                     <ZDY:Card Margin="20"/>
-                    <ZDY:Card Margin="20" CornerRadius="{Binding ElementName=Card_CornerRadius, Path=Value}">
-                        <Border Background="#66666666"/>
+                    <ZDY:Card Margin="20" CornerRadius="{Binding ElementName=Card_CornerRadius, Path=Value}" 
+                              ShadowBlurRadius="{Binding ElementName=Card_ShadowBlurRadius, Path=Value}">
+                        <Border Background="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Foreground, Converter={StaticResource FloatingBackgroundBrushRoundConverter}}"/>
                     </ZDY:Card>
-                    <ZDY:Card Margin="20" CornerRadius="{Binding ElementName=Card_CornerRadius, Path=Value}">
-                        <Border Background="#66666666"/>
+                    <ZDY:Card Margin="20" CornerRadius="{Binding ElementName=Card_CornerRadius, Path=Value}"
+                              ShadowBlurRadius="{Binding ElementName=Card_ShadowBlurRadius, Path=Value}"
+                              ShadowColor="Red">
+                        <Border Background="Black"/>
                     </ZDY:Card>
-                    <Grid Margin="20">
+                    <StackPanel Margin="40" Grid.RowSpan="3">
+                        <TextBlock Text="CornerRadius:"/>
                         <ZDY:Slider x:Name="Card_CornerRadius" Minimum="0" Maximum="100" Value="20"/>
-                    </Grid>
+                        <TextBlock Text="ShadowBlurRadius:"/>
+                        <ZDY:Slider x:Name="Card_ShadowBlurRadius" Minimum="0" Maximum="100" Value="25"/>
+                    </StackPanel>
                 </UniformGrid>
             </ZDY:TabItem>
             <ZDY:TabItem Header="Button">
