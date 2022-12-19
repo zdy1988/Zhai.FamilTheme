@@ -26,7 +26,7 @@
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}"
+                                CornerRadius="{Binding (local:TextBoxExtension.CornerRadius), RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
 
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -59,12 +59,12 @@
                                 Grid.ColumnSpan="2"
                                 BorderBrush="Transparent"
                                 BorderThickness="0"
-                                CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}"
+                                CornerRadius="{Binding (local:TextBoxExtension.CornerRadius), RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}"
                                 Background="Transparent"/>
                         <Border x:Name="ButtonBorder"
                                 Grid.Column="1"
                                 Margin="1"
-                                CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}"
+                                CornerRadius="{Binding (local:TextBoxExtension.CornerRadius), RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}"
                                 BorderThickness="0"
                                 Background="{Binding Background, RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}"
                                 Visibility="Collapsed"/>
@@ -98,7 +98,7 @@
                 <ControlTemplate TargetType="TextBox" >
                     <Grid>
                         <ContentPresenter x:Name="PlaceholderHost"
-                                          Content="{Binding Path=Placeholder, RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}"
+                                          Content="{Binding Path=(local:TextBoxExtension.Placeholder), RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Opacity="0.5"
@@ -111,7 +111,7 @@
                                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <DataTrigger Binding="{Binding Path=IsPlaceholderVisibled, RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}" Value="True">
+                        <DataTrigger Binding="{Binding Path=(local:TextBoxExtension.IsPlaceholderVisibled), RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}" Value="True">
                             <Setter TargetName="PlaceholderHost" Property="Visibility" Value="Visible"/>
                         </DataTrigger>
                     </ControlTemplate.Triggers>
@@ -126,7 +126,6 @@
         <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionUnActivedBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="CornerRadius" Value="0"/>
         <Setter Property="Padding" Value="12 8"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -142,54 +141,59 @@
                         <Style TargetType="{x:Type ComboBoxItem}" BasedOn="{StaticResource Zhai.FamilTheme.ComboBoxItem}"/>
                     </ControlTemplate.Resources>
                     <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        
                         <Border x:Name="Border"
+                                Grid.ColumnSpan="2"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="{TemplateBinding CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}"/>
+                                CornerRadius="{TemplateBinding local:TextBoxExtension.CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}"/>
 
-                        <Border x:Name="ErrorAlertShadow" Style="{StaticResource Zhai.FamilTheme.TextBox.ErrorAlertShadow}"
-                                CornerRadius="{TemplateBinding CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}"/>
+                        <Border x:Name="ErrorAlertShadow" Grid.ColumnSpan="2"
+                                Style="{StaticResource Zhai.FamilTheme.TextBox.ErrorAlertShadow}"
+                                CornerRadius="{TemplateBinding local:TextBoxExtension.CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}"/>
 
-                        <ToggleButton x:Name="ToggleButton"
-                                      ClickMode="Press" 
-                                      Focusable="False"
-                                      Foreground="{TemplateBinding Foreground}"
-                                      IsChecked="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                                      Style="{StaticResource Zhai.FamilTheme.ComboBox.ToggleBotton}"/>
-                        
-                        <Border Margin="0, 0, 28, 0">
-                            <DockPanel Margin="{TemplateBinding Padding}">
-                                <local:IconButton x:Name="ErrorAlert" DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.TextBox.ErrorAlert}">
-                                    <local:IconButton.ToolTip>
-                                        <local:Repeater ItemsSource="{TemplateBinding Validation.Errors}"
+                        <DockPanel Grid.Column="0" Margin="{TemplateBinding Padding}">
+                            <local:IconButton x:Name="ErrorAlert" DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.TextBox.ErrorAlert}">
+                                <local:IconButton.ToolTip>
+                                    <local:Repeater ItemsSource="{TemplateBinding Validation.Errors}"
                                                     IsHitTestVisible="False">
-                                            <local:Repeater.ItemTemplate>
-                                                <DataTemplate>
-                                                    <TextBlock Text="{Binding ErrorContent}"/>
-                                                </DataTemplate>
-                                            </local:Repeater.ItemTemplate>
-                                        </local:Repeater>
-                                    </local:IconButton.ToolTip>
-                                </local:IconButton>
-                                <ContentPresenter x:Name="ContentSite" 
+                                        <local:Repeater.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}"/>
+                                            </DataTemplate>
+                                        </local:Repeater.ItemTemplate>
+                                    </local:Repeater>
+                                </local:IconButton.ToolTip>
+                            </local:IconButton>
+                            <ContentPresenter x:Name="ContentSite" 
                                                   IsHitTestVisible="False"
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                                   Content="{TemplateBinding ComboBox.SelectionBoxItem}" 
                                                   ContentTemplate="{TemplateBinding ComboBox.SelectionBoxItemTemplate}"
                                                   ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"/>
-                                <TextBox x:Name="PART_EditableTextBox"
+                            <TextBox x:Name="PART_EditableTextBox"
                                          Style="{StaticResource Zhai.FamilTheme.ComboBox.Input}"
                                          IsReadOnly="{TemplateBinding IsReadOnly}"
                                          Foreground="{TemplateBinding Foreground}"
                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                          Focusable="True">
-                                </TextBox>
-                            </DockPanel>
-                        </Border>
-                        
+                            </TextBox>
+                        </DockPanel>
+
+                        <ToggleButton x:Name="ToggleButton" Grid.Column="1"
+                                      ClickMode="Press" 
+                                      Focusable="False"
+                                      Foreground="{TemplateBinding Foreground}"
+                                      IsChecked="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                      Style="{StaticResource Zhai.FamilTheme.ComboBox.ToggleBotton}"/>
+
                         <!-- Popup showing items -->
                         <Popup x:Name="PART_Popup"
                                Placement="Bottom"
@@ -201,7 +205,7 @@
                             <Border x:Name="DropDownBorder" Margin="20"
                                     Effect="{StaticResource Zhai.FamilTheme.FloatingShadowEffect}"
                                     Background="{Binding RelativeSource={RelativeSource AncestorType=local:ComboBox}, Path=Foreground, Converter={StaticResource FloatingBackgroundBrushRoundConverter}}"
-                                    CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=local:ComboBox}, Path=CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}">
+                                    CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=local:ComboBox}, Path=(local:TextBoxExtension.CornerRadius), Converter={Converters:DoubleToCornerRadiusConverter}}">
                                 <Border Background="Transparent" MinWidth="{TemplateBinding FrameworkElement.ActualWidth}" MaxHeight="{TemplateBinding ComboBox.MaxDropDownHeight}">
                                     <local:ScrollViewer SnapsToDevicePixels="True">
                                         <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" />

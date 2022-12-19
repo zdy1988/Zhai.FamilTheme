@@ -78,17 +78,15 @@ namespace Zhai.FamilTheme
         /// <summary>
         /// 同步滚动条显示状态
         /// </summary>
-        internal static void SyncScrollBarVisibled(FrameworkElement element)
+        internal static void SyncScrollBarVisibled(Control contorl)
         {
-            var scrollViewer = element.FindChild<ScrollViewer>("PART_ScrollViewer");
-
-            if (scrollViewer != null)
+            if (contorl.Template.FindName("PART_ScrollViewer", contorl) is ScrollViewer scrollViewer)
             {
                 DependencyPropertyDescriptor.FromProperty(ScrollViewer.ComputedVerticalScrollBarVisibilityProperty, typeof(ScrollViewer))
-                    .AddValueChanged(scrollViewer, (o, args) => SetIsVerticalScrollBarVisibled(element, scrollViewer.ComputedVerticalScrollBarVisibility == Visibility.Visible));
+                    .AddValueChanged(scrollViewer, (o, args) => SetIsVerticalScrollBarVisibled(contorl, scrollViewer.ComputedVerticalScrollBarVisibility == Visibility.Visible));
 
                 DependencyPropertyDescriptor.FromProperty(ScrollViewer.ComputedHorizontalScrollBarVisibilityProperty, typeof(ScrollViewer))
-                    .AddValueChanged(scrollViewer, (o, args) => SetIsHorizontalScrollBarVisibled(element, scrollViewer.ComputedHorizontalScrollBarVisibility == Visibility.Visible));
+                    .AddValueChanged(scrollViewer, (o, args) => SetIsHorizontalScrollBarVisibled(contorl, scrollViewer.ComputedHorizontalScrollBarVisibility == Visibility.Visible));
             }
         }
     }

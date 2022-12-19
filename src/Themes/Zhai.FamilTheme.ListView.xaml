@@ -319,7 +319,7 @@
         </Converters:ListViewTemplateConverter.DefaultValue>
         <Converters:ListViewTemplateConverter.ViewValue>
             <ControlTemplate TargetType="{x:Type local:ListView}">
-                <local:ScrollViewer Style="{StaticResource Zhai.FamilTheme.GridView.ScrollViewer}">
+                <local:ScrollViewer x:Name="PART_ScrollViewer" Style="{StaticResource Zhai.FamilTheme.GridView.ScrollViewer}">
                     <ItemsPresenter />
                 </local:ScrollViewer>
                 <ControlTemplate.Triggers>

@@ -4,7 +4,6 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
-using Zhai.FamilTheme.Common;
 
 namespace Zhai.FamilTheme
 {
@@ -46,7 +45,7 @@ namespace Zhai.FamilTheme
         {
             base.OnApplyTemplate();
 
-            HintContentElement = this.FindVisualChildByName<FrameworkElement>("PART_HintContent");
+            HintContentElement = Template.FindName("PART_HintContent", this) as FrameworkElement;
         }
 
         private static void OnTextChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)

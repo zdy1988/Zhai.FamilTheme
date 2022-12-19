@@ -106,10 +106,10 @@
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="{TemplateBinding CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}"/>
+                                CornerRadius="{TemplateBinding local:TextBoxExtension.CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}"/>
 
                         <Border x:Name="ErrorAlertShadow" Style="{StaticResource Zhai.FamilTheme.TextBox.ErrorAlertShadow}"
-                                CornerRadius="{TemplateBinding CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}"/>
+                                CornerRadius="{TemplateBinding local:TextBoxExtension.CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}"/>
 
                         <DockPanel Margin="{TemplateBinding Padding}">
 
@@ -128,7 +128,7 @@
 
                             <Grid>
                                 <ContentPresenter x:Name="PlaceholderHost"
-                                                  Content="{TemplateBinding Placeholder}"
+                                                  Content="{TemplateBinding local:TextBoxExtension.Placeholder}"
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                                   Opacity="0.5"
@@ -150,9 +150,9 @@
                             <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.ErrorBrush}"/>
                         </Trigger>
 
-                        <Trigger Property="IsPlaceholderVisibled" Value="True">
+                        <DataTrigger Binding="{Binding Path=(local:TextBoxExtension.IsPlaceholderVisibled), RelativeSource={RelativeSource Self}}" Value="True">
                             <Setter TargetName="PlaceholderHost" Property="Visibility" Value="Visible"/>
-                        </Trigger>
+                        </DataTrigger>
 
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

@@ -19,6 +19,9 @@
                         <Style TargetType="{x:Type ZDY:TextBox}">
                             <Setter Property="Margin" Value="5"/>
                         </Style>
+                        <Style TargetType="{x:Type ZDY:PasswordBox}">
+                            <Setter Property="Margin" Value="5"/>
+                        </Style>
                         <Style TargetType="{x:Type ZDY:ComboBox}">
                             <Setter Property="Margin" Value="5"/>
                         </Style>
@@ -28,18 +31,18 @@
                     </StackPanel.Resources>
                     <UniformGrid Rows="1">
                         <ZDY:TextBox/>
-                        <ZDY:TextBox Text="with Placeholder" Placeholder="Enter text"/>
+                        <ZDY:TextBox Text="with Placeholder" ZDY:TextBoxExtension.Placeholder="Enter text"/>
                         <ZDY:TextBox Text="Read-Only" IsReadOnly="True"/>
-                        <ZDY:TextBox Placeholder="with CornerRadius" CornerRadius="3"/>
+                        <ZDY:TextBox ZDY:TextBoxExtension.Placeholder="with CornerRadius" ZDY:TextBoxExtension.CornerRadius="3"/>
                     </UniformGrid>
                     <UniformGrid Rows="1">
                         <ZDY:TextBox BorderThickness="1"/>
-                        <ZDY:TextBox BorderThickness="1" Text="with Placeholder" Placeholder="Enter text"/>
+                        <ZDY:TextBox BorderThickness="1" Text="with Placeholder" ZDY:TextBoxExtension.Placeholder="Enter text"/>
                         <ZDY:TextBox BorderThickness="1" Text="Read-Only" IsReadOnly="True"/>
-                        <ZDY:TextBox BorderThickness="1" Placeholder="with CornerRadius" CornerRadius="3"/>
+                        <ZDY:TextBox BorderThickness="1" ZDY:TextBoxExtension.Placeholder="with CornerRadius" ZDY:TextBoxExtension.CornerRadius="3"/>
                     </UniformGrid>
                     <UniformGrid Rows="1">
-                        <ZDY:TextBox Placeholder="with Validation">
+                        <ZDY:TextBox ZDY:TextBoxExtension.Placeholder="with Validation">
                             <ZDY:TextBox.Text>
                                 <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
@@ -48,7 +51,7 @@
                                 </Binding>
                             </ZDY:TextBox.Text>
                         </ZDY:TextBox>
-                        <ZDY:TextBox BorderThickness="1" Placeholder="with Validation">
+                        <ZDY:TextBox BorderThickness="1" ZDY:TextBoxExtension.Placeholder="with Validation">
                             <ZDY:TextBox.Text>
                                 <Binding Path="ValidationStringValue" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
@@ -57,7 +60,7 @@
                                 </Binding>
                             </ZDY:TextBox.Text>
                         </ZDY:TextBox>
-                        <ZDY:TextBox Placeholder="with Validation"  CornerRadius="3">
+                        <ZDY:TextBox ZDY:TextBoxExtension.Placeholder="with Validation"  ZDY:TextBoxExtension.CornerRadius="3">
                             <ZDY:TextBox.Text>
                                 <Binding Path="ValidationStringValue" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
@@ -66,7 +69,7 @@
                                 </Binding>
                             </ZDY:TextBox.Text>
                         </ZDY:TextBox>
-                        <ZDY:TextBox BorderThickness="1" Placeholder="with Validation" CornerRadius="3">
+                        <ZDY:TextBox BorderThickness="1" ZDY:TextBoxExtension.Placeholder="with Validation" ZDY:TextBoxExtension.CornerRadius="3">
                             <ZDY:TextBox.Text>
                                 <Binding Path="ValidationStringValue" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
@@ -75,6 +78,56 @@
                                 </Binding>
                             </ZDY:TextBox.Text>
                         </ZDY:TextBox>
+                    </UniformGrid>
+                    <UniformGrid Rows="1">
+                        <ZDY:PasswordBox/>
+                        <ZDY:PasswordBox Text="123456" ZDY:TextBoxExtension.Placeholder="Enter text"/>
+                        <ZDY:PasswordBox Text="Read-Only" IsReadOnly="True"/>
+                        <ZDY:PasswordBox ZDY:TextBoxExtension.Placeholder="with CornerRadius" ZDY:TextBoxExtension.CornerRadius="3"/>
+                    </UniformGrid>
+                    <UniformGrid Rows="1">
+                        <ZDY:PasswordBox BorderThickness="1" PasswordChar="$"/>
+                        <ZDY:PasswordBox BorderThickness="1" Text="123456" ZDY:TextBoxExtension.Placeholder="Enter text"/>
+                        <ZDY:PasswordBox BorderThickness="1" Text="Read-Only" IsReadOnly="True"/>
+                        <ZDY:PasswordBox BorderThickness="1" ZDY:TextBoxExtension.Placeholder="with CornerRadius" ZDY:TextBoxExtension.CornerRadius="3"/>
+                    </UniformGrid>
+                    <UniformGrid Rows="1">
+                        <ZDY:PasswordBox ZDY:TextBoxExtension.Placeholder="with Validation">
+                            <ZDY:PasswordBox.Text>
+                                <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:PasswordBox.Text>
+                        </ZDY:PasswordBox>
+                        <ZDY:PasswordBox BorderThickness="1" ZDY:TextBoxExtension.Placeholder="with Validation">
+                            <ZDY:PasswordBox.Text>
+                                <Binding Path="ValidationStringValue" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:PasswordBox.Text>
+                        </ZDY:PasswordBox>
+                        <ZDY:PasswordBox ZDY:TextBoxExtension.Placeholder="with Validation"  ZDY:TextBoxExtension.CornerRadius="3">
+                            <ZDY:PasswordBox.Text>
+                                <Binding Path="ValidationStringValue" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:PasswordBox.Text>
+                        </ZDY:PasswordBox>
+                        <ZDY:PasswordBox BorderThickness="1" ZDY:TextBoxExtension.Placeholder="with Validation" ZDY:TextBoxExtension.CornerRadius="3">
+                            <ZDY:PasswordBox.Text>
+                                <Binding Path="ValidationStringValue" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <ZDY:NullOrEmptyValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ZDY:PasswordBox.Text>
+                        </ZDY:PasswordBox>
                     </UniformGrid>
                     <UniformGrid Rows="1">
                         <ZDY:ComboBox >
@@ -84,7 +137,7 @@
                         </ZDY:ComboBox>
                         <ZDY:ComboBox Text="Editable Combo Box"
                                       IsEditable="True"
-                                      Placeholder="Select an option">
+                                      ZDY:TextBoxExtension.Placeholder="Select an option">
                             <ZDY:ComboBox.Items>
                                 <ComboBoxItem Content="Item 1"/>
                                 <ComboBoxItem Content="Item 2"/>
@@ -94,15 +147,15 @@
                         <ZDY:ComboBox Text="Read-Only Editable Combo Box"
                                       IsEditable="True"
                                       IsReadOnly="True"
-                                      Placeholder="Select an option">
+                                      ZDY:TextBoxExtension.Placeholder="Select an option">
                             <ZDY:ComboBox.Items>
                                 <ComboBoxItem Content="Item 1"/>
                                 <ComboBoxItem Content="Item 2"/>
                                 <ComboBoxItem Content="Item 3"/>
                             </ZDY:ComboBox.Items>
                         </ZDY:ComboBox>
-                        <ZDY:ComboBox IsEditable="True" CornerRadius="3"
-                                      Placeholder="Combo Box with watermark">
+                        <ZDY:ComboBox IsEditable="True" ZDY:TextBoxExtension.CornerRadius="3"
+                                      ZDY:TextBoxExtension.Placeholder="Combo Box with watermark">
                             <ZDY:ComboBox.Items>
                                 <ComboBoxItem Content="Item 1"/>
                                 <ComboBoxItem Content="Item 2"/>
@@ -119,7 +172,7 @@
                         <ZDY:ComboBox BorderThickness="1"
                                       Text="Editable Combo Box"
                                       IsEditable="True"
-                                      Placeholder="Select an option">
+                                      ZDY:TextBoxExtension.Placeholder="Select an option">
                             <ZDY:ComboBox.Items>
                                 <ComboBoxItem Content="Item 1"/>
                                 <ComboBoxItem Content="Item 2"/>
@@ -130,7 +183,7 @@
                                       Text="Read-Only Editable Combo Box"
                                       IsEditable="True"
                                       IsReadOnly="True"
-                                      Placeholder="Select an option">
+                                      ZDY:TextBoxExtension.Placeholder="Select an option">
                             <ZDY:ComboBox.Items>
                                 <ComboBoxItem Content="Item 1"/>
                                 <ComboBoxItem Content="Item 2"/>
@@ -138,8 +191,8 @@
                             </ZDY:ComboBox.Items>
                         </ZDY:ComboBox>
                         <ZDY:ComboBox BorderThickness="1"
-                                      IsEditable="True" CornerRadius="3"
-                                      Placeholder="Combo Box with watermark">
+                                      IsEditable="True" ZDY:TextBoxExtension.CornerRadius="3"
+                                      ZDY:TextBoxExtension.Placeholder="Combo Box with watermark">
                             <ZDY:ComboBox.Items>
                                 <ComboBoxItem Content="Item 1"/>
                                 <ComboBoxItem Content="Item 2"/>
@@ -162,7 +215,7 @@
                         </ZDY:ComboBox>
                         <ZDY:ComboBox BorderThickness="1"
                                       IsEditable="True"
-                                      Placeholder="Select an option">
+                                      ZDY:TextBoxExtension.Placeholder="Select an option">
                             <ZDY:ComboBox.Text>
                                 <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
@@ -178,7 +231,7 @@
                         </ZDY:ComboBox>
                         <ZDY:ComboBox IsEditable="True"
                                       IsReadOnly="True"
-                                      Placeholder="Select an option">
+                                      ZDY:TextBoxExtension.Placeholder="Select an option">
                             <ZDY:ComboBox.Text>
                                 <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
@@ -193,8 +246,8 @@
                             </ZDY:ComboBox.Items>
                         </ZDY:ComboBox>
                         <ZDY:ComboBox BorderThickness="1"
-                                      IsEditable="True" CornerRadius="3"
-                                      Placeholder="Combo Box with watermark">
+                                      IsEditable="True" ZDY:TextBoxExtension.CornerRadius="3"
+                                      ZDY:TextBoxExtension.Placeholder="Combo Box with watermark">
                             <ZDY:ComboBox.Text>
                                 <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
@@ -211,15 +264,15 @@
                     </UniformGrid>
                     <UniformGrid Rows="1">
                         <ZDY:DatePicker/>
-                        <ZDY:DatePicker Text="with Placeholder" Placeholder="Enter text"/>
+                        <ZDY:DatePicker Text="with Placeholder" ZDY:TextBoxExtension.Placeholder="Enter text"/>
                         <ZDY:DatePicker Text="Read-Only" IsEnabled="False"/>
-                        <ZDY:DatePicker Placeholder="with CornerRadius" CornerRadius="3"/>
+                        <ZDY:DatePicker ZDY:TextBoxExtension.Placeholder="with CornerRadius" ZDY:TextBoxExtension.CornerRadius="3"/>
                     </UniformGrid>
                     <UniformGrid Rows="1">
                         <ZDY:DatePicker BorderThickness="1"/>
-                        <ZDY:DatePicker BorderThickness="1" Text="with Placeholder" Placeholder="Enter text"/>
+                        <ZDY:DatePicker BorderThickness="1" Text="with Placeholder" ZDY:TextBoxExtension.Placeholder="Enter text"/>
                         <ZDY:DatePicker BorderThickness="1" Text="Read-Only" IsEnabled="False"/>
-                        <ZDY:DatePicker BorderThickness="1" Placeholder="with CornerRadius" CornerRadius="3"/>
+                        <ZDY:DatePicker BorderThickness="1" ZDY:TextBoxExtension.Placeholder="with CornerRadius" ZDY:TextBoxExtension.CornerRadius="3"/>
                     </UniformGrid>
                     <UniformGrid Rows="1">
                         <ZDY:DatePicker BorderThickness="1">
@@ -231,7 +284,7 @@
                                 </Binding>
                             </ZDY:DatePicker.SelectedDate>
                         </ZDY:DatePicker>
-                        <ZDY:DatePicker BorderThickness="1" Placeholder="Enter text">
+                        <ZDY:DatePicker BorderThickness="1" ZDY:TextBoxExtension.Placeholder="Enter text">
                             <ZDY:DatePicker.SelectedDate>
                                 <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
@@ -249,7 +302,7 @@
                                 </Binding>
                             </ZDY:DatePicker.SelectedDate>
                         </ZDY:DatePicker>
-                        <ZDY:DatePicker BorderThickness="1" Placeholder="with CornerRadius" CornerRadius="3">
+                        <ZDY:DatePicker BorderThickness="1" ZDY:TextBoxExtension.Placeholder="with CornerRadius" ZDY:TextBoxExtension.CornerRadius="3">
                             <ZDY:DatePicker.SelectedDate>
                                 <Binding Path="ValidationStringValue" UpdateSourceTrigger="PropertyChanged">
                                     <Binding.ValidationRules>
@@ -259,6 +312,7 @@
                             </ZDY:DatePicker.SelectedDate>
                         </ZDY:DatePicker>
                     </UniformGrid>
+                    
                     <ZDY:CheckBox Content="Valid when checked" Margin="0 10 0 0">
                         <ZDY:CheckBox.IsChecked>
                             <Binding Path="ValidationBoolValue" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
