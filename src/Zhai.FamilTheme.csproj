@@ -23,7 +23,9 @@
 
   <ItemGroup>
     <None Remove="Resources\favicon.ico" />
+    <None Remove="Resources\hue_gradient_bg.png" />
     <None Remove="Resources\logo.png" />
+    <None Remove="Resources\transparent_bg.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,20 +44,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\hue_gradient_bg.png" />
     <Resource Include="Resources\favicon.ico" />
     <Resource Include="Resources\logo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Update="Themes\Zhai.FamilTheme.RadioButton.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-    </Page>
-    <Page Update="Themes\Zhai.FamilTheme.Loading.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-    </Page>
+    <Resource Include="Resources\transparent_bg.png" />
   </ItemGroup>
 
 </Project>

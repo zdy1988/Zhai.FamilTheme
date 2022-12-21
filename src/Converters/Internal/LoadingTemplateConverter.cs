@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 
 namespace Zhai.FamilTheme.Converters
@@ -16,20 +17,13 @@ namespace Zhai.FamilTheme.Converters
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is LoadingTheme theme)
+            return (LoadingTheme)value switch
             {
-                switch (theme)
-                {
-                    case LoadingTheme.Circle:
-                        return CircleTemplate;
-                    case LoadingTheme.Dots:
-                        return DotsTemplate;
-                    case LoadingTheme.Bars:
-                        return BarsTemplate;
-                }
-            }
-
-            return CircleTemplate;
+                LoadingTheme.Circle => CircleTemplate,
+                LoadingTheme.Dots => DotsTemplate,
+                LoadingTheme.Bars => BarsTemplate,
+                _ => CircleTemplate,
+            };
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -8,6 +8,7 @@
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Button.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Card.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.CheckBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ColorPicker.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ComboBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.CopyButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.DatePicker.xaml" />
@@ -62,6 +63,8 @@
     <Style TargetType="{x:Type local:Button}" BasedOn="{StaticResource Zhai.FamilTheme.Button}"/>
     <Style TargetType="{x:Type local:Card}"  BasedOn="{StaticResource Zhai.FamilTheme.Card}"/>
     <Style TargetType="{x:Type local:CheckBox}" BasedOn="{StaticResource Zhai.FamilTheme.CheckBox}"/>
+    <Style TargetType="{x:Type local:ColorPicker}" BasedOn="{StaticResource Zhai.FamilTheme.ColorPicker}"/>
+    <Style TargetType="{x:Type local:ColorWheeler}" BasedOn="{StaticResource Zhai.FamilTheme.ColorWheeler}"/>
     <Style TargetType="{x:Type local:ComboBox}" BasedOn="{StaticResource Zhai.FamilTheme.ComboBox}">
         <Setter Property="ContextMenu" Value="{StaticResource Zhai.FamilTheme.DefaultContextMenu}"/>
     </Style>
