@@ -11,7 +11,7 @@
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionActivedBrush}"/>
         <Setter Property="Focusable" Value="False"/>
-        <Setter Property="ShadowBlurRadius" Value="25"/>
+        <Setter Property="ShadowBlurRadius" Value="10"/>
         <Setter Property="ShadowColor" Value="#AA000000"/>
         <Setter Property="Template">
             <Setter.Value>

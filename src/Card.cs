@@ -24,6 +24,14 @@ namespace Zhai.FamilTheme
             set => SetValue(ShadowColorProperty, value);
         }
 
+        public static readonly DependencyProperty ShadowOpacityProperty = DependencyProperty.Register(nameof(ShadowOpacity), typeof(double), typeof(Card), new PropertyMetadata(0.42, OnShadowEdgeChanged));
+
+        public double ShadowOpacity
+        {
+            get => (double)GetValue(ShadowOpacityProperty);
+            set => SetValue(ShadowOpacityProperty, value);
+        }
+
         public static readonly DependencyProperty ShadowBlurRadiusProperty = DependencyProperty.Register(nameof(ShadowBlurRadius), typeof(double), typeof(Card), new PropertyMetadata(default(double), OnShadowEdgeChanged));
 
         public double ShadowBlurRadius
@@ -155,6 +163,7 @@ namespace Zhai.FamilTheme
                 ShadowDepth = 1,
                 Direction = 270,
                 Color = ShadowColor,
+                Opacity = ShadowOpacity,
                 RenderingBias = RenderingBias.Performance
             };
         }
