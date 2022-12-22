@@ -49,8 +49,17 @@
                                 Background="{TemplateBinding Background}"
                                 BorderThickness="{TemplateBinding BorderThickness}">
                             <DockPanel>
-                                <local:Icon x:Name="HeaderSortIcon" DockPanel.Dock="Right" Kind="Sort" Width="{TemplateBinding FontSize}" Height="{TemplateBinding FontSize}" VerticalAlignment="Center" 
-                                            Margin="4 0" Visibility="Collapsed"/>
+                                <local:Icon x:Name="HeaderSortIcon" DockPanel.Dock="Right" Kind="Sort" Margin="4 0"
+                                            Width="{TemplateBinding FontSize}" Height="{TemplateBinding FontSize}" VerticalAlignment="Center">
+                                    <local:Icon.Visibility>
+                                        <MultiBinding Converter="{Converters:ListViewSortIconVisibilityConverter}">
+                                            <MultiBinding.Bindings>
+                                                <Binding RelativeSource="{RelativeSource AncestorType=local:ListView}" Path="(local:GridViewExtension.IsSortEnabled)"/>
+                                                <Binding RelativeSource="{RelativeSource Mode=Self}" Path="Tag"/>
+                                            </MultiBinding.Bindings>
+                                        </MultiBinding>
+                                    </local:Icon.Visibility>
+                                </local:Icon>
                                 <Border Margin="{TemplateBinding Padding}" Padding="6 0 6 0"
                                         HorizontalAlignment="Stretch"
                                         VerticalAlignment="Stretch"
@@ -65,9 +74,9 @@
                         </Border>
                     </DockPanel>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="local:GridViewExtension.IsSortEnabled" Value="True">
-                            <Setter TargetName="HeaderSortIcon" Property="Visibility" Value="Visible"/>
-                        </Trigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=local:ListView}, Path=(local:GridViewExtension.IsSortEnabled)}" Value="True">
+                            <Setter Property="Command" Value="{x:Static local:GridView.SortCommand}"/>
+                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -75,9 +84,6 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Opacity" Value="0.75"/>
-            </Trigger>
-            <Trigger Property="local:GridViewExtension.IsSortEnabled" Value="True">
-                <Setter Property="Command" Value="{x:Static local:GridView.SortCommand}"/>
             </Trigger>
             <Trigger Property="Role" Value="Floating">
                 <Setter Property="Opacity" Value="0.7" />
@@ -221,9 +227,9 @@
                                 </BeginStoryboard>
                             </MultiTrigger.ExitActions>
                         </MultiTrigger>
-                        <Trigger Property="local:GridViewExtension.Theme" Value="Bordered">
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=local:ListView}, Path=(local:GridViewExtension.Theme)}" Value="Bordered">
                             <Setter TargetName="PART_ScrollContentPresenter" Property="Margin" Value="0 4 0 0"/>
-                        </Trigger>
+                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -279,21 +285,21 @@
                             <Setter TargetName="SelectedBorder" Property="Visibility" Value="Visible" />
                             <Setter TargetName="SelectedBorder" Property="Opacity" Value="0.5" />
                         </MultiTrigger>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="local:GridViewExtension.IsInterlaceRowBackgroundEnabled" Value="True"/>
-                                <Condition Property="ItemsControl.AlternationIndex" Value="1"/>
-                            </MultiTrigger.Conditions>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource AncestorType=local:ListView}, Path=(local:GridViewExtension.IsInterlaceRowBackgroundEnabled)}" Value="True"/>
+                                <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=(ItemsControl.AlternationIndex)}" Value="1"/>
+                            </MultiDataTrigger.Conditions>
                             <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.GridView.InterlaceRowBackground}" />
-                        </MultiTrigger>
-                        <Trigger Property="local:GridViewExtension.Theme" Value="Bordered">
+                        </MultiDataTrigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=local:ListView}, Path=(local:GridViewExtension.Theme)}" Value="Bordered">
                             <Setter TargetName="MouseOverBorder" Property="BorderThickness" Value="1"/>
                             <Setter TargetName="MouseOverBorder" Property="CornerRadius" Value="2"/>
                             <Setter TargetName="SelectedBorder" Property="BorderThickness" Value="1"/>
                             <Setter TargetName="SelectedBorder" Property="CornerRadius" Value="2"/>
                             <Setter TargetName="PART_ItemContainer" Property="Margin" Value="0 .5"/>
                             <Setter Property="BorderThickness" Value="0"/>
-                        </Trigger>
+                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

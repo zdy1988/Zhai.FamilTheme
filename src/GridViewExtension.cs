@@ -12,7 +12,7 @@ namespace Zhai.FamilTheme
         /// <summary>
         /// 样式
         /// </summary>
-        public static readonly DependencyProperty ThemeProperty = DependencyProperty.RegisterAttached("Theme", typeof(GridViewTheme), typeof(GridViewExtension), new FrameworkPropertyMetadata(GridViewTheme.Default, FrameworkPropertyMetadataOptions.Inherits));
+        public static readonly DependencyProperty ThemeProperty = DependencyProperty.RegisterAttached("Theme", typeof(GridViewTheme), typeof(GridViewExtension), new PropertyMetadata(GridViewTheme.Default));
         public static void SetTheme(DependencyObject element, GridViewTheme value) => element.SetValue(ThemeProperty, value);
         public static GridViewTheme GetTheme(DependencyObject element) => (GridViewTheme)element.GetValue(ThemeProperty);
 
@@ -20,7 +20,7 @@ namespace Zhai.FamilTheme
         /// <summary>
         /// 启用默认排序功能
         /// </summary>
-        public static readonly DependencyProperty IsSortEnabledProperty = DependencyProperty.RegisterAttached("IsSortEnabled", typeof(bool), typeof(GridViewExtension), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
+        public static readonly DependencyProperty IsSortEnabledProperty = DependencyProperty.RegisterAttached("IsSortEnabled", typeof(bool), typeof(GridViewExtension), new PropertyMetadata(false));
         public static void SetIsSortEnabled(DependencyObject element, bool value) => element.SetValue(IsSortEnabledProperty, value);
         public static bool GetIsSortEnabled(DependencyObject element) => (bool)element.GetValue(IsSortEnabledProperty);
 
@@ -28,7 +28,7 @@ namespace Zhai.FamilTheme
         /// <summary>
         /// 显示交错行
         /// </summary>
-        public static readonly DependencyProperty IsInterlaceRowBackgroundEnabledProperty = DependencyProperty.RegisterAttached("IsInterlaceRowBackgroundEnabled", typeof(bool), typeof(GridViewExtension), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
+        public static readonly DependencyProperty IsInterlaceRowBackgroundEnabledProperty = DependencyProperty.RegisterAttached("IsInterlaceRowBackgroundEnabled", typeof(bool), typeof(GridViewExtension), new PropertyMetadata(false));
         public static void SetIsInterlaceRowBackgroundEnabled(DependencyObject element, bool value) => element.SetValue(IsInterlaceRowBackgroundEnabledProperty, value);
         public static bool GetIsInterlaceRowBackgroundEnabled(DependencyObject element) => (bool)element.GetValue(IsInterlaceRowBackgroundEnabledProperty);
 

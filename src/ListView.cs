@@ -30,12 +30,15 @@ namespace Zhai.FamilTheme
             CommandBindings.Add(new CommandBinding(GridView.SortCommand, GridViewSortCommandHandler));
         }
 
+        private readonly List<Icon> headerSortIcons = new List<Icon>();
+
         private void GridViewSortCommandHandler(object sender, ExecutedRoutedEventArgs e)
         {
             if (this.View is GridView view && view != null 
                 && e.OriginalSource is GridViewColumnHeader header
-                && header.FindChild<Icon>() is Icon directionIcon
-                && header.Column.DisplayMemberBinding is Binding binding)
+                && header.Column.DisplayMemberBinding is Binding binding
+                && header.Parent is GridViewHeaderRowPresenter headerRowPresenter
+                && header.FindChild<Icon>() is Icon directionIcon)
             {
                 var direction = directionIcon.Tag == null || (ListSortDirection)directionIcon.Tag == ListSortDirection.Ascending ? ListSortDirection.Descending : ListSortDirection.Ascending;
                 var sortBy = binding.Path.Path;
@@ -46,7 +49,25 @@ namespace Zhai.FamilTheme
                 dataView.SortDescriptions.Add(new SortDescription(sortBy, direction));
                 dataView.Refresh();
 
-                directionIcon.Tag = direction;
+                if (!headerSortIcons.Contains(directionIcon))
+                {
+                    headerSortIcons.Add(directionIcon);
+                }
+
+                foreach (Icon sortIcon in headerSortIcons)
+                {
+                    sortIcon.Tag = null;
+                }
+
+                foreach (GridViewColumn column in headerRowPresenter.Columns)
+                {
+                    if (column == header.Column)
+                    {
+                        directionIcon.Tag = direction;
+                        directionIcon.Kind = direction == ListSortDirection.Ascending ? IconKind.SortUp : IconKind.SortDown;
+                        break;
+                    }
+                }
             }
         }
     }
