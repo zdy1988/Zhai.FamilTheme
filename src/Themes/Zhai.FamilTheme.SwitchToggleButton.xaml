@@ -19,6 +19,14 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:SwitchToggleButton}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type local:Icon}">
+                            <Setter Property="Width" Value="13"/>
+                            <Setter Property="Height" Value="13"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </ControlTemplate.Resources>
                     <Viewbox Width="{TemplateBinding Size}">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CheckStates">

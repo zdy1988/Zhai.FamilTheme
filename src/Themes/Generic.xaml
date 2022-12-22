@@ -33,6 +33,7 @@
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.TextBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ToolTip.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.TransparentWindow.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.GlassesWindow.xaml" />
 
     </ResourceDictionary.MergedDictionaries>
 
@@ -98,6 +99,7 @@
         <Setter Property="ContextMenu" Value="{StaticResource Zhai.FamilTheme.DefaultContextMenu}"/>
     </Style>
     <Style TargetType="{x:Type local:TransparentWindow}" BasedOn="{StaticResource Zhai.FamilTheme.TransparentWindow}"/>
+    <Style TargetType="{x:Type local:GlassesWindow}" BasedOn="{StaticResource Zhai.FamilTheme.GlassesWindow}"/>
 
 
 </ResourceDictionary>

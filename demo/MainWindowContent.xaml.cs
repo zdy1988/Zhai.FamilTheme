@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Zhai.FamilTheme;
 
 namespace Zhai.FamilThemeDemo
 {
@@ -42,6 +43,16 @@ namespace Zhai.FamilThemeDemo
         private void NativeWindow_Button_Click(object sender, RoutedEventArgs e)
         {
             (new NativeWindow()).Show(); 
+        }
+
+        private void TransparentWindow_Button_Click(object sender, RoutedEventArgs e)
+        {
+            (new MainWindow()).Show();
+        }
+
+        private void GlassesWindow_Button_Click(object sender, RoutedEventArgs e)
+        {
+            (new MainWindow2()).Show();
         }
     }
 }

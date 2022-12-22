@@ -9,7 +9,7 @@
                        IsTopmostButtonEnabled="True"
                        IsThemeButtonEnabled="True"
                        IsTransparencyButtonEnabled="True"
-                       IsTransparency="False"
+                       IsTransparency="True"
                        Theme="Dark"
                        mc:Ignorable="d"
                        Title="ZDY ' FamilTheme" Width="800" Height="600">

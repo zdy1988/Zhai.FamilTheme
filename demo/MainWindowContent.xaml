@@ -17,16 +17,16 @@
                 <ZDY:ScrollViewer>
                     <StackPanel Margin="20">
                         <UniformGrid Rows="1">
-                            <ZDY:Calendar/>
-                            <ZDY:Calendar IsEnabled="False"/>
+                            <ZDY:Calendar x:Name="Calendar"/>
+                            <ZDY:Calendar IsEnabled="False" SelectedDate="{Binding ElementName=Calendar, Path=SelectedDate, Mode=TwoWay}"/>
                         </UniformGrid>
                         <UniformGrid Rows="1" Margin="0 10 0 0">
-                            <ZDY:Calendar ZDY:CalendarExtension.IsHeaderVisibled="False"/>
-                            <ZDY:Calendar ZDY:CalendarExtension.IsHeaderVisibled="False" IsEnabled="False"/>
+                            <ZDY:Calendar ZDY:CalendarExtension.IsHeaderVisibled="False" SelectedDate="{Binding ElementName=Calendar, Path=SelectedDate, Mode=TwoWay}"/>
+                            <ZDY:Calendar ZDY:CalendarExtension.IsHeaderVisibled="False" IsEnabled="False" SelectedDate="{Binding ElementName=Calendar, Path=SelectedDate, Mode=TwoWay}"/>
                         </UniformGrid>
                         <UniformGrid Rows="1" Margin="0 10 0 0">
-                            <ZDY:Calendar ZDY:CalendarExtension.Orientation="Horizontal"/>
-                            <ZDY:Calendar ZDY:CalendarExtension.Orientation="Horizontal" IsEnabled="False"/>
+                            <ZDY:Calendar ZDY:CalendarExtension.Orientation="Horizontal" SelectedDate="{Binding ElementName=Calendar, Path=SelectedDate, Mode=TwoWay}"/>
+                            <ZDY:Calendar ZDY:CalendarExtension.Orientation="Horizontal" IsEnabled="False" SelectedDate="{Binding ElementName=Calendar, Path=SelectedDate, Mode=TwoWay}"/>
                         </UniformGrid>
                     </StackPanel>
                 </ZDY:ScrollViewer>
@@ -363,7 +363,7 @@
                         </ZDY:DatePicker>
                     </UniformGrid>
                     
-                    <ZDY:CheckBox Content="Valid when checked" Margin="0 10 0 0">
+                    <ZDY:CheckBox Content="Valid when checked" Margin="5 10">
                         <ZDY:CheckBox.IsChecked>
                             <Binding Path="ValidationBoolValue" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                 <Binding.ValidationRules>
@@ -932,28 +932,30 @@
             <TabItem Header="Window">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center">
-                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=IsTransparencyButtonEnabled}"/>
+                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:WindowBase}, Path=IsTransparencyButtonEnabled}"/>
                         <TextBlock Text="启用透明按钮" Margin="0 0 10 0"/>
-                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=IsTopmostButtonEnabled}"/>
+                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:WindowBase}, Path=IsTopmostButtonEnabled}"/>
                         <TextBlock Text="启用置顶按钮" Margin="0 0 10 0"/>
-                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=IsThemeButtonEnabled}"/>
+                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:WindowBase}, Path=IsThemeButtonEnabled}"/>
                         <TextBlock Text="启用皮肤按钮" Margin="0 0 10 0"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center">
-                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=IsTransparency}"/>
+                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:WindowBase}, Path=IsTransparency}"/>
                         <TextBlock Text="是否透明" Margin="0 0 10 0"/>
-                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=IsTitleBarBackgroundEnabled}"/>
+                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:WindowBase}, Path=IsTitleBarBackgroundEnabled}"/>
                         <TextBlock Text="是否显示头部背景" Margin="0 0 10 0"/>
-                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=TitleBarVisibility, Converter={ZDY:VisibilityToBoolConverter}}"/>
+                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:WindowBase}, Path=TitleBarVisibility, Converter={ZDY:VisibilityToBoolConverter}}"/>
                         <TextBlock Text="是否启用头部" Margin="0 0 10 0"/>
                     </StackPanel>
                     <StackPanel Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center">
                         <TextBlock Text="窗口透明度设置"/>
-                        <ZDY:Slider x:Name="TransparencySlider" Width="200" Maximum="1" Minimum="0.1" SmallChange="0.01" Value="{Binding RelativeSource={RelativeSource AncestorType=ZDY:TransparentWindow}, Path=Transparency}"/>
+                        <ZDY:Slider x:Name="TransparencySlider" Width="200" Maximum="1" Minimum="0.1" SmallChange="0.01" Value="{Binding RelativeSource={RelativeSource AncestorType=ZDY:WindowBase}, Path=Transparency}"/>
                         <TextBlock Text="{Binding ElementName=TransparencySlider, Path=Value, StringFormat=N2}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center">
                         <ZDY:Button x:Name="NativeWindow_Button" Content="NativeWindow" Click="NativeWindow_Button_Click"/>
+                        <ZDY:Button x:Name="GlassesWindow_Button" Content="GlassesWindow" Click="GlassesWindow_Button_Click"/>
+                        <ZDY:Button x:Name="TransparentWindow_Button" Content="TransparentWindow" Click="TransparentWindow_Button_Click"/>
                     </StackPanel>
                 </StackPanel>
             </TabItem>

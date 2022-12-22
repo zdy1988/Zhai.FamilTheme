@@ -146,7 +146,7 @@
                                  RadiusX="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=(local:CalendarExtension.ButtonCornerRadius)}" 
                                  RadiusY="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=(local:CalendarExtension.ButtonCornerRadius)}"/>
                         <ContentPresenter x:Name="NormalText"
-                                          TextElement.Foreground="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=(local:CalendarExtension.SelectionForeground)}"
+                                          TextElement.Foreground="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=Foreground}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           Margin="5,1,5,1"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
@@ -156,8 +156,9 @@
                                  RadiusY="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=(local:CalendarExtension.ButtonCornerRadius)}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsFocused" Value="False">
-                            <Setter TargetName="NormalText" Property="TextElement.Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=Foreground}"/>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="NormalText" Property="TextBlock.FontWeight" Value="Normal"/>
+                            <Setter TargetName="NormalText" Property="TextElement.Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=(local:CalendarExtension.SelectionForeground)}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -177,8 +178,8 @@
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Margin" Value="2"/>
-        <Setter Property="Width" Value="23" />
-        <Setter Property="Height" Value="23" />
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Height" Value="24" />
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
@@ -294,7 +295,7 @@
                                    RadiusX="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=(local:CalendarExtension.ButtonCornerRadius)}" 
                                    RadiusY="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=(local:CalendarExtension.ButtonCornerRadius)}"/>
                         <ContentPresenter x:Name="NormalText"
-                                          TextElement.Foreground="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=(local:CalendarExtension.SelectionForeground)}"
+                                          TextElement.Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Calendar}, Path=Foreground}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           Margin="5,1,5,1"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
@@ -305,8 +306,9 @@
                                    RadiusY="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=(local:CalendarExtension.ButtonCornerRadius)}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsSelected" Value="False">
-                            <Setter TargetName="NormalText" Property="TextElement.Foreground" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Calendar}, Path=Foreground}"/>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="NormalText" Property="TextBlock.FontWeight" Value="Normal"/>
+                            <Setter TargetName="NormalText" Property="TextElement.Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=(local:CalendarExtension.SelectionForeground)}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -581,7 +583,7 @@
     </Style>
 
     <Style TargetType="{x:Type Calendar}" x:Key="Zhai.FamilTheme.Calendar">
-        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Foreground, Converter={StaticResource FloatingBackgroundBrushRoundConverter}}" />
+        <Setter Property="Background" Value="{StaticResource Zhai.FamilTheme.SelectionActivedBrush}" />
         <Setter Property="BorderBrush" Value="{StaticResource Zhai.FamilTheme.SelectionBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="SnapsToDevicePixels" Value="true"/>

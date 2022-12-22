@@ -53,4 +53,10 @@
     <Resource Include="Resources\transparent_bg.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Update="Themes\Zhai.FamilTheme.GlassesWindow.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+  </ItemGroup>
+
 </Project>
