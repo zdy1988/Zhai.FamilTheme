@@ -51,6 +51,13 @@ namespace Zhai.FamilTheme
             set { SetValue(IsTitleBarBackgroundEnabledProperty, value); }
         }
 
+        public static readonly DependencyProperty IsCaptionButtonsEnabledProperty = DependencyProperty.Register(nameof(IsCaptionButtonsEnabled), typeof(bool), typeof(WindowBase), new FrameworkPropertyMetadata(true));
+        public bool IsCaptionButtonsEnabled
+        {
+            get { return (bool)GetValue(IsCaptionButtonsEnabledProperty); }
+            set { SetValue(IsCaptionButtonsEnabledProperty, value); }
+        }
+
         public static readonly DependencyProperty IsTopmostButtonEnabledProperty = DependencyProperty.Register(nameof(IsTopmostButtonEnabled), typeof(bool), typeof(WindowBase), new FrameworkPropertyMetadata(false));
         public bool IsTopmostButtonEnabled
         {

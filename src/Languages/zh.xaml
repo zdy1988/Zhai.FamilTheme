@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <sys:String x:Key="Window.TransparentButton.Tooltip">启用/禁用透明</sys:String>
+    <sys:String x:Key="Window.ThemeButton.Tooltip">日光/暗夜主题</sys:String>
+    <sys:String x:Key="Window.PinButton.Tooltip">置顶</sys:String>
+    <sys:String x:Key="Window.MinimizeButton.Tooltip">最小化</sys:String>
+    <sys:String x:Key="Window.MaximizeButton.Tooltip">最大化</sys:String>
+    <sys:String x:Key="Window.RestoreButton.Tooltip">还原窗口</sys:String>
+    <sys:String x:Key="Window.CloseButton.Tooltip">关闭</sys:String>
+
+    <sys:String x:Key="ColorPicker.RGB.A.Text">透明</sys:String>
+    <sys:String x:Key="ColorPicker.RGB.R.Text">红色</sys:String>
+    <sys:String x:Key="ColorPicker.RGB.G.Text">绿色</sys:String>
+    <sys:String x:Key="ColorPicker.RGB.B.Text">蓝色</sys:String>
+    <sys:String x:Key="ColorPicker.HSV.H.Text">色调</sys:String>
+    <sys:String x:Key="ColorPicker.HSV.S.Text">饱和</sys:String>
+    <sys:String x:Key="ColorPicker.HSV.V.Text">明度</sys:String>
+    <sys:String x:Key="ColorPicker.HSL.H.Text">色相</sys:String>
+    <sys:String x:Key="ColorPicker.HSL.S.Text">饱和</sys:String>
+    <sys:String x:Key="ColorPicker.HSL.L.Text">亮度</sys:String>
+
+</ResourceDictionary>

@@ -7,7 +7,7 @@
     <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Zhai.FamilTheme</Title>
-	<Version>1.0.0</Version>
+	<Version>1.0.1</Version>
     <Copyright>MIT</Copyright>
     <Description>ZHAI 系列软件的控件包！！！</Description>
     <PackageProjectUrl>https://github.com/zdy1988/Zhai.FamilTheme</PackageProjectUrl>

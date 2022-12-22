@@ -116,6 +116,7 @@
 
     <Style TargetType="{x:Type TextBlock}" x:Key="Zhai.FamilTheme.ColorPicker.ColorPropertyNameText">
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="MinWidth" Value="10"/>
         <Setter Property="Margin" Value="0 0 4 0"/>
         <Setter Property="Visibility" Value="{Binding RelativeSource={RelativeSource AncestorType=local:ColorPicker}, Path=IsColorPropertyNameVisibled, Converter={Converters:BoolToVisibilityConverter}}"/>
     </Style>
@@ -135,13 +136,13 @@
         <Converters:ColorPickerTemplateConverter.NormalTemplate>
             <ControlTemplate TargetType="{x:Type local:ColorPicker}">
                 <StackPanel>
-                    <DockPanel x:Name="PART_HSV_H" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="色调"/>
+                    <DockPanel x:Name="PART_HSV_H" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.HSV.H.Text}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.HSV.H.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSV_H}"/>
                         <local:ColorSliderHSV Kind="H" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSV_H}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
-                    <DockPanel x:Name="PART_RGB_A" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsAlphaEnabled, Converter={Converters:BoolToVisibilityConverter}}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="透明"/>
+                    <DockPanel x:Name="PART_RGB_A" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.RGB.A.Text}" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsAlphaEnabled, Converter={Converters:BoolToVisibilityConverter}}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.RGB.A.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=A}"/>
                         <local:ColorSliderRGB Kind="A" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=A}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
@@ -159,23 +160,23 @@
         <Converters:ColorPickerTemplateConverter.RGBTemplate>
             <ControlTemplate TargetType="{x:Type local:ColorPicker}">
                 <StackPanel>
-                    <DockPanel x:Name="PART_RGB_R" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="红色"/>
+                    <DockPanel x:Name="PART_RGB_R" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.RGB.R.Text}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.RGB.R.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=RGB_R}"/>
                         <local:ColorSliderRGB Kind="R" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=RGB_R}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
-                    <DockPanel x:Name="PART_RGB_G" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="绿色"/>
+                    <DockPanel x:Name="PART_RGB_G" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.RGB.G.Text}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.RGB.G.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=RGB_G}"/>
                         <local:ColorSliderRGB Kind="G" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=RGB_G}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
-                    <DockPanel x:Name="PART_RGB_B" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="蓝色"/>
+                    <DockPanel x:Name="PART_RGB_B" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.RGB.B.Text}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.RGB.B.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=RGB_B}"/>
                         <local:ColorSliderRGB Kind="B" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=RGB_B}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
-                    <DockPanel x:Name="PART_RGB_A" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsAlphaEnabled, Converter={Converters:BoolToVisibilityConverter}}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="透明"/>
+                    <DockPanel x:Name="PART_RGB_A" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.RGB.A.Text}" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsAlphaEnabled, Converter={Converters:BoolToVisibilityConverter}}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.RGB.A.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=A}"/>
                         <local:ColorSliderRGB Kind="A" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=A}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
@@ -185,23 +186,23 @@
         <Converters:ColorPickerTemplateConverter.HSLTemplate>
             <ControlTemplate TargetType="{x:Type local:ColorPicker}">
                 <StackPanel>
-                    <DockPanel x:Name="PART_HSL_H" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="色相"/>
+                    <DockPanel x:Name="PART_HSL_H" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.HSL.H.Text}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.HSL.H.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSL_H}"/>
                         <local:ColorSliderHSL Kind="H" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSL_H}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
-                    <DockPanel x:Name="PART_HSL_S" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="饱和"/>
+                    <DockPanel x:Name="PART_HSL_S" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.HSL.S.Text}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.HSL.S.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSL_S}"/>
                         <local:ColorSliderHSL Kind="S" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSL_S}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
-                    <DockPanel x:Name="PART_HSL_L" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="亮度"/>
+                    <DockPanel x:Name="PART_HSL_L" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.HSL.L.Text}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.HSL.L.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSL_L}"/>
                         <local:ColorSliderHSL Kind="L" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSL_L}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
-                    <DockPanel x:Name="PART_RGB_A" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsAlphaEnabled, Converter={Converters:BoolToVisibilityConverter}}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="透明"/>
+                    <DockPanel x:Name="PART_RGB_A" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.RGB.A.Text}" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsAlphaEnabled, Converter={Converters:BoolToVisibilityConverter}}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.RGB.A.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=A}"/>
                         <local:ColorSliderRGB Kind="A" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=A}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
@@ -216,14 +217,14 @@
                             Hue="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSL_H}"
                             X="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSL_S, Mode=TwoWay}"
                             Y="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSL_L, Mode=TwoWay}"/>
-                        <DockPanel x:Name="PART_HSL_H" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}">
-                            <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="色相"/>
+                        <DockPanel x:Name="PART_HSL_H" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.HSL.H.Text}">
+                            <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.HSL.H.Text}"/>
                             <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSL_H}"/>
                             <local:ColorSliderHSL Kind="H" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSL_H}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                         </DockPanel>
                     </DockPanel>
-                    <DockPanel x:Name="PART_RGB_A" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsAlphaEnabled, Converter={Converters:BoolToVisibilityConverter}}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="透明"/>
+                    <DockPanel x:Name="PART_RGB_A" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.RGB.A.Text}" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsAlphaEnabled, Converter={Converters:BoolToVisibilityConverter}}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.RGB.A.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=A}"/>
                         <local:ColorSliderRGB Kind="A" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=A}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
@@ -233,23 +234,23 @@
         <Converters:ColorPickerTemplateConverter.HSVTemplate>
             <ControlTemplate TargetType="{x:Type local:ColorPicker}">
                 <StackPanel>
-                    <DockPanel x:Name="PART_HSV_H" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="色调"/>
+                    <DockPanel x:Name="PART_HSV_H" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.HSV.H.Text}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.HSV.H.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSV_H}"/>
                         <local:ColorSliderHSV Kind="H" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSV_H}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
-                    <DockPanel x:Name="PART_HSV_S" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="饱和"/>
+                    <DockPanel x:Name="PART_HSV_S" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.HSV.S.Text}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.HSV.S.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSV_S}"/>
                         <local:ColorSliderHSV Kind="S" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSV_S}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
-                    <DockPanel x:Name="PART_HSV_V" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="明度"/>
+                    <DockPanel x:Name="PART_HSV_V" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.HSV.V.Text}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.HSV.V.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSV_V}"/>
                         <local:ColorSliderHSV Kind="V" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSV_V}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
-                    <DockPanel x:Name="PART_RGB_A" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsAlphaEnabled, Converter={Converters:BoolToVisibilityConverter}}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="透明"/>
+                    <DockPanel x:Name="PART_RGB_A" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.RGB.A.Text}" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsAlphaEnabled, Converter={Converters:BoolToVisibilityConverter}}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.RGB.A.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=A}"/>
                         <local:ColorSliderRGB Kind="A" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=A}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
@@ -265,13 +266,13 @@
                             X="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSV_S, Mode=TwoWay}"
                             Y="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSV_V, Mode=TwoWay}"/>
                     </DockPanel>
-                    <DockPanel x:Name="PART_HSV_H" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="色调"/>
+                    <DockPanel x:Name="PART_HSV_H" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.HSV.H.Text}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.HSV.H.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSV_H}"/>
                         <local:ColorSliderHSV Kind="H" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=HSV_H}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>
-                    <DockPanel x:Name="PART_RGB_A" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsAlphaEnabled, Converter={Converters:BoolToVisibilityConverter}}">
-                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="透明"/>
+                    <DockPanel x:Name="PART_RGB_A" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorSliderContainer}" ToolTip="{local:Translator ColorPicker.RGB.A.Text}" Visibility="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=IsAlphaEnabled, Converter={Converters:BoolToVisibilityConverter}}">
+                        <TextBlock DockPanel.Dock="Left" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyNameText}" Text="{local:Translator ColorPicker.RGB.A.Text}"/>
                         <TextBlock DockPanel.Dock="Right" Style="{StaticResource Zhai.FamilTheme.ColorPicker.ColorPropertyValueText}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=A}"/>
                         <local:ColorSliderRGB Kind="A" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=A}" Style="{StaticResource Zhai.FamilTheme.ColorSlider}"/>
                     </DockPanel>

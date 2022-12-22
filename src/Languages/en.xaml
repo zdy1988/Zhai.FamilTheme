@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <sys:String x:Key="Window.TransparentButton.Tooltip">Show/Hide Transparent</sys:String>
+    <sys:String x:Key="Window.ThemeButton.Tooltip">Light/Dark Theme</sys:String>
+    <sys:String x:Key="Window.PinButton.Tooltip">Pin</sys:String>
+    <sys:String x:Key="Window.MinimizeButton.Tooltip">Minimize</sys:String>
+    <sys:String x:Key="Window.MaximizeButton.Tooltip">Maximize</sys:String>
+    <sys:String x:Key="Window.RestoreButton.Tooltip">Restore</sys:String>
+    <sys:String x:Key="Window.CloseButton.Tooltip">Close</sys:String>
+
+    <sys:String x:Key="ColorPicker.RGB.A.Text">A</sys:String>
+    <sys:String x:Key="ColorPicker.RGB.R.Text">R</sys:String>
+    <sys:String x:Key="ColorPicker.RGB.G.Text">G</sys:String>
+    <sys:String x:Key="ColorPicker.RGB.B.Text">B</sys:String>
+    <sys:String x:Key="ColorPicker.HSV.H.Text">H</sys:String>
+    <sys:String x:Key="ColorPicker.HSV.S.Text">S</sys:String>
+    <sys:String x:Key="ColorPicker.HSV.V.Text">V</sys:String>
+    <sys:String x:Key="ColorPicker.HSL.H.Text">H</sys:String>
+    <sys:String x:Key="ColorPicker.HSL.S.Text">S</sys:String>
+    <sys:String x:Key="ColorPicker.HSL.L.Text">L</sys:String>
+
+</ResourceDictionary>

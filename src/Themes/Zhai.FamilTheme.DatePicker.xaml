@@ -49,6 +49,7 @@
     <Style TargetType="{x:Type Calendar}" x:Key="Zhai.FamilTheme.DatePicker.Calendar" BasedOn="{StaticResource Zhai.FamilTheme.Calendar}">
         <Setter Property="local:CalendarExtension.IsHeaderVisibled" Value="False"/>
         <Setter Property="local:CalendarExtension.IsShadowVisibled" Value="True"/>
+        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Foreground, Converter={StaticResource FloatingBackgroundBrushRoundConverter}}"/>
     </Style>
 
     <Style TargetType="{x:Type local:DatePicker}" x:Key="Zhai.FamilTheme.DatePicker">

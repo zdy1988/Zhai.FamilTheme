@@ -25,8 +25,8 @@
                             <ZDY:Calendar ZDY:CalendarExtension.IsHeaderVisibled="False" IsEnabled="False" SelectedDate="{Binding ElementName=Calendar, Path=SelectedDate, Mode=TwoWay}"/>
                         </UniformGrid>
                         <UniformGrid Rows="1" Margin="0 10 0 0">
-                            <ZDY:Calendar ZDY:CalendarExtension.Orientation="Horizontal" SelectedDate="{Binding ElementName=Calendar, Path=SelectedDate, Mode=TwoWay}"/>
-                            <ZDY:Calendar ZDY:CalendarExtension.Orientation="Horizontal" IsEnabled="False" SelectedDate="{Binding ElementName=Calendar, Path=SelectedDate, Mode=TwoWay}"/>
+                            <ZDY:Calendar ZDY:CalendarExtension.Orientation="Horizontal" Language="zh" SelectedDate="{Binding ElementName=Calendar, Path=SelectedDate, Mode=TwoWay}"/>
+                            <ZDY:Calendar ZDY:CalendarExtension.Orientation="Horizontal" Language="zh" IsEnabled="False" SelectedDate="{Binding ElementName=Calendar, Path=SelectedDate, Mode=TwoWay}"/>
                         </UniformGrid>
                     </StackPanel>
                 </ZDY:ScrollViewer>
@@ -938,6 +938,8 @@
                         <TextBlock Text="启用置顶按钮" Margin="0 0 10 0"/>
                         <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:WindowBase}, Path=IsThemeButtonEnabled}"/>
                         <TextBlock Text="启用皮肤按钮" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:WindowBase}, Path=IsCaptionButtonsEnabled}"/>
+                        <TextBlock Text="启用头部按钮" Margin="0 0 10 0"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center">
                         <ZDY:CheckBox Margin="0 0 4 0" IsChecked="{Binding RelativeSource={RelativeSource AncestorType=ZDY:WindowBase}, Path=IsTransparency}"/>

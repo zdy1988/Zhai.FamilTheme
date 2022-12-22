@@ -54,14 +54,14 @@
                                                            VerticalAlignment="Center"
                                                            TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"/>
                                     </StackPanel>
-                                    <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-                                        <local:IconButton x:Name="TransparentButton" ToolTip="启用/禁用透明" Visibility="{TemplateBinding IsTransparencyButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}"/>
-                                        <local:IconButton x:Name="ThemeButton" ToolTip="日光/暗夜主题" Visibility="{TemplateBinding IsThemeButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}"/>
-                                        <local:IconButton x:Name="PinButton" Icon="Pin" ToolTip="置顶" Visibility="{TemplateBinding IsTopmostButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}" RenderTransformOrigin="0.5,0.5"/>
-                                        <local:IconButton x:Name="MinimizeButton" Icon="MinusScreen" ToolTip="最小化" IsTabStop="False"/>
-                                        <local:IconButton x:Name="MaximizeButton" Icon="FullScreen" ToolTip="最大化" IsTabStop="False"/>
-                                        <local:IconButton x:Name="RestoreButton" Icon="RestoreScreen" Visibility="Collapsed" ToolTip="还原窗口" IsTabStop="False"/>
-                                        <local:IconButton x:Name="CloseButton" Icon="Close" Style="{StaticResource Zhai.FamilTheme.TitleBar.IconButton.CloseButton}" ToolTip="关闭" IsTabStop="False"/>
+                                    <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Visibility="{TemplateBinding IsCaptionButtonsEnabled, Converter={Converters:BoolToVisibilityConverter}}">
+                                        <local:IconButton x:Name="TransparentButton" ToolTip="{local:Translator Window.TransparentButton.Tooltip}" Visibility="{TemplateBinding IsTransparencyButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}"/>
+                                        <local:IconButton x:Name="ThemeButton" ToolTip="{local:Translator Window.ThemeButton.Tooltip}" Visibility="{TemplateBinding IsThemeButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}"/>
+                                        <local:IconButton x:Name="PinButton" Icon="Pin" ToolTip="{local:Translator Window.PinButton.Tooltip}" Visibility="{TemplateBinding IsTopmostButtonEnabled, Converter={Converters:BoolToVisibilityConverter}}" RenderTransformOrigin="0.5,0.5"/>
+                                        <local:IconButton x:Name="MinimizeButton" Icon="MinusScreen" ToolTip="{local:Translator Window.MinimizeButton.Tooltip}" IsTabStop="False"/>
+                                        <local:IconButton x:Name="MaximizeButton" Icon="FullScreen" ToolTip="{local:Translator Window.MaximizeButton.Tooltip}" IsTabStop="False"/>
+                                        <local:IconButton x:Name="RestoreButton" Icon="RestoreScreen" Visibility="Collapsed" ToolTip="{local:Translator Window.RestoreButton.Tooltip}" IsTabStop="False"/>
+                                        <local:IconButton x:Name="CloseButton" Icon="Close" ToolTip="{local:Translator Window.CloseButton.Tooltip}" Style="{StaticResource Zhai.FamilTheme.TitleBar.IconButton.CloseButton}" IsTabStop="False"/>
                                     </StackPanel>
                                     <ContentControl Content="{TemplateBinding TitleBarContent}" Visibility="{TemplateBinding TitleBarVisibility}"/>
                                 </DockPanel>
