@@ -1098,7 +1098,8 @@ Support,
         Save,
         SaveAs,
         SortUp,
-        SortDown
+        SortDown,
+        Dropper,
 
         //None,
     }

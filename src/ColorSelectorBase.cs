@@ -122,7 +122,7 @@ namespace Zhai.FamilTheme
         {
             base.OnApplyTemplate();
 
-            if (Template.FindName("PART_SelectorGrid", this) is Grid selector)
+            if (Template.FindName("PART_SelectorGrid", this) is System.Windows.Controls.Grid selector)
             {
                 selector.MouseDown -= Card_MouseDown;
                 selector.MouseMove -= Card_MouseMove;
@@ -140,7 +140,7 @@ namespace Zhai.FamilTheme
 
         private void Card_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            if (sender is Grid grid && grid.IsMouseCaptured)
+            if (sender is System.Windows.Controls.Grid grid && grid.IsMouseCaptured)
             {
                 UpdatePositon(e.GetPosition(this));
             } 

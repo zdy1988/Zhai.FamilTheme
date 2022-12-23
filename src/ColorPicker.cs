@@ -153,11 +153,11 @@ namespace Zhai.FamilTheme
             set => SetValue(IsColorPropertyValueVisibledProperty, value);
         }
 
-        public static readonly RoutedEvent ColorChangedEvent = EventManager.RegisterRoutedEvent(nameof(ColorChanged),  RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(ColorPicker));
-        public event RoutedEventHandler ColorChanged
+        public static readonly RoutedEvent SelectedColorChangedEvent = EventManager.RegisterRoutedEvent(nameof(SelectedColorChanged),  RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<Color?>), typeof(ColorPicker));
+        public event RoutedPropertyChangedEventHandler<Color?> SelectedColorChanged
         {
-            add => AddHandler(ColorChangedEvent, value);
-            remove => RemoveHandler(ColorChangedEvent, value);
+            add => AddHandler(SelectedColorChangedEvent, value);
+            remove => RemoveHandler(SelectedColorChangedEvent, value);
         }
 
         public override void EndInit()
@@ -183,7 +183,6 @@ namespace Zhai.FamilTheme
                         (byte)Math.Round(colorPicker.ColorContext.RGB_B * 255));
                     colorPicker.SelectedColor = newColor;
                     colorPicker.SelectedColour = Convert.ToString(newColor);
-                    colorPicker.RaiseEvent(new ColorChangedEventArgs(ColorChangedEvent, newColor));
                     colorPicker.IgnoreSelectedColorChanged = false;
                 }
             }
@@ -191,12 +190,18 @@ namespace Zhai.FamilTheme
 
         private static void OnSelectedColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs args)
         {
-            if (d is ColorPicker colorPicker && !colorPicker.IgnoreSelectedColorChanged)
+            if (d is ColorPicker colorPicker)
             {
                 var newColor = (Color)args.NewValue;
-                var colorContext = new ColorContext();
-                colorContext.SetARGB(newColor.A / 255.0, newColor.R / 255.0, newColor.G / 255.0, newColor.B / 255.0);
-                colorPicker.UpdateColorValue(colorContext);
+
+                if (!colorPicker.IgnoreSelectedColorChanged)
+                {
+                    var colorContext = new ColorContext();
+                    colorContext.SetARGB(newColor.A / 255.0, newColor.R / 255.0, newColor.G / 255.0, newColor.B / 255.0);
+                    colorPicker.UpdateColorValue(colorContext);
+                }
+
+                colorPicker.RaiseEvent(new RoutedPropertyChangedEventArgs<Color?>((Color?)args.OldValue, (Color?)args.NewValue, SelectedColorChangedEvent));
             }
         }
 

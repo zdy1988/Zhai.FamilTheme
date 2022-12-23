@@ -50,7 +50,14 @@ namespace Zhai.FamilTheme
             {
                 object localValue = dependencyObject.ReadLocalValue(Translator.ResourceDictionaryProperty);
 
-                if (localValue != DependencyProperty.UnsetValue)
+                if (localValue != null && localValue != DependencyProperty.UnsetValue)
+                {
+                    return GetResourceDictionary(localValue.ToString());
+                }
+
+                localValue = dependencyObject.GetValue(Translator.ResourceDictionaryProperty);
+
+                if (localValue != null && localValue != DependencyProperty.UnsetValue)
                 {
                     return GetResourceDictionary(localValue.ToString());
                 }
@@ -104,21 +111,4 @@ namespace Zhai.FamilTheme
             return dictionary;
         }
     }
-
-    [RuntimeNameProperty(nameof(Translator))]
-    public class Translator
-    {
-        public static readonly DependencyProperty ResourceDictionaryProperty = DependencyProperty.RegisterAttached("ResourceDictionary", typeof(string), typeof(Translator), new PropertyMetadata(null));
-        public static string GetResourceDictionary(DependencyObject obj) => (string)obj.GetValue(ResourceDictionaryProperty);
-        public static void SetResourceDictionary(DependencyObject obj, string value) => obj.SetValue(ResourceDictionaryProperty, value);
-
-
-        public static string GetTranslationString(string resourceDictionary, string key)
-        {
-            var dictionary = TranslatorExtension.GetResourceDictionary(resourceDictionary);
-
-            return dictionary != null && !string.IsNullOrWhiteSpace(key) && dictionary.Contains(key) ? (string)dictionary[key] : key;
-        }
-    }
-
 }

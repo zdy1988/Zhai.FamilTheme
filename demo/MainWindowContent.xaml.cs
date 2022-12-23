@@ -54,5 +54,10 @@ namespace Zhai.FamilThemeDemo
         {
             (new MainWindow2()).Show();
         }
+
+        private void ColorPicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        {
+            
+        }
     }
 }
