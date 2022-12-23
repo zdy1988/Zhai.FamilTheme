@@ -43,6 +43,13 @@ namespace Zhai.FamilTheme
             private set => SetValue(SelectedColourPropertyKey, value);
         }
 
+        public static readonly RoutedEvent SelectedColorChangedEvent = EventManager.RegisterRoutedEvent(nameof(SelectedColorChanged), RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<Color?>), typeof(ColorWheeler));
+        public event RoutedPropertyChangedEventHandler<Color?> SelectedColorChanged
+        {
+            add => this.AddHandler(SelectedColorChangedEvent, value);
+            remove => this.RemoveHandler(SelectedColorChangedEvent, value);
+        }
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -133,6 +140,8 @@ namespace Zhai.FamilTheme
                 var colorContext = new ColorContext();
                 colorContext.SetARGB(newColor.A / 255.0, newColor.R / 255.0, newColor.G / 255.0, newColor.B / 255.0);
                 colorWheeler.Hue = colorContext.HSV_H;
+
+                colorWheeler.RaiseEvent(new RoutedPropertyChangedEventArgs<Color?>((Color?)args.OldValue, (Color?)args.NewValue, SelectedColorChangedEvent));
             }
         }
     }

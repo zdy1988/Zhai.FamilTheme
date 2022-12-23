@@ -54,11 +54,11 @@ namespace Zhai.FamilTheme
             remove => this.RemoveHandler(SelectedColorChangedEvent, value);
         }
 
-        private static void OnSelectedColorPropertyChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs e)
+        private static void OnSelectedColorPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs args)
         {
-            if (dependencyObject is ColorEyeDropper eyeDropper)
+            if (d is ColorEyeDropper colorEyeDropper)
             {
-                eyeDropper.RaiseEvent(new RoutedPropertyChangedEventArgs<Color?>((Color?)e.OldValue, (Color?)e.NewValue, SelectedColorChangedEvent));
+                colorEyeDropper.RaiseEvent(new RoutedPropertyChangedEventArgs<Color?>((Color?)args.OldValue, (Color?)args.NewValue, SelectedColorChangedEvent));
             }
         }
 
