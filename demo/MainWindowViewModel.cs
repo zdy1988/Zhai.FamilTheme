@@ -80,6 +80,13 @@ namespace Zhai.FamilThemeDemo
             get => validationboolValue;
             set => SetProperty(ref validationboolValue, value);
         }
+
+        private bool isShowAnimate;
+        public bool IsShowAnimate
+        {
+            get => isShowAnimate;
+            set => SetProperty(ref isShowAnimate, value);
+        }
     }
 
     internal class ItemData

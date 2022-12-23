@@ -13,11 +13,99 @@
     </UserControl.Resources>
 
     <Grid>
+        <Grid.Resources>
+            <ExponentialEase x:Key="ExpEase" EasingMode="EaseOut" Exponent="5" />
+        </Grid.Resources>
+        
         <ZDY:TabPanel TabStripPlacement="Left">
             <ZDY:TabItem Header="Loc">
                 <Grid>
-                    <TextBlock Text="{ZDY:Translator HelloWorld}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        <TextBlock Text="{ZDY:Translator HelloWorld}" Margin="5" FontSize="16"
+                                   ZDY:Animate.Translate="{ZDY:AnimateTranslateParameter AutoReverse=True, RepeatBehavior={x:Static RepeatBehavior.Forever}, BeginTime=0, From='15,0', To='0,0', Duration=350, Ease={StaticResource ExpEase}, TransitionOn=Loaded}"/>
+
+                        <TextBlock Text="{ZDY:Translator HelloWorld}" Margin="5" FontSize="16"
+                                   ZDY:Animate.Translate="{ZDY:AnimateTranslateParameter AutoReverse=True, RepeatBehavior=0:00:5, BeginTime=0, From='18,0', To='0,0', Duration=350, Ease={StaticResource ExpEase}, TransitionOn=Loaded}"/>
+
+                        <TextBlock Text="{ZDY:Translator HelloWorld}" Margin="5" FontSize="16"
+                                   ZDY:Animate.Opacity="{ZDY:AnimateOpacityParameter BeginTime=250, From=0, To=1, Duration=1000, Ease={StaticResource ExpEase}, TransitionOn=Loaded}"/>
+
+                        <TextBlock Text="{ZDY:Translator HelloWorld}" Margin="5" FontSize="16"
+                                   ZDY:Animate.Opacity="{ZDY:AnimateOpacityParameter BeginTime=300, From=0, To=1, Duration=100, Ease={StaticResource ExpEase}, TransitionOn=Loaded}"
+                                   ZDY:Animate.Blur="{ZDY:AnimateBlurParameter From='20', To='0', BeginTime=300, Duration=350, TransitionOn=Loaded}"/>
+
+                        <TextBlock Text="{ZDY:Translator HelloWorld}" Margin="5" FontSize="16"
+                                   ZDY:Animate.Opacity="{ZDY:AnimateOpacityParameter BeginTime=350, To=1, Duration=350, Ease={StaticResource ExpEase}, TransitionOn=Loaded}"                                    
+                                   ZDY:Animate.Translate="{ZDY:AnimateTranslateParameter BeginTime=350, To='0,0', From='100,0', Duration=350, Ease={StaticResource ExpEase}, TransitionOn=Loaded}"/>
+
+                        <TextBlock Text="{ZDY:Translator HelloWorld}" Margin="5" FontSize="16"
+                                   ZDY:Animate.Opacity="{ZDY:AnimateOpacityParameter BeginTime=400, To=1, Duration=350, Ease={StaticResource ExpEase}, TransitionOn=Loaded}"                                    
+                                   ZDY:Animate.LayoutScale="{ZDY:AnimateScaleParameter BeginTime=400, To='1,1', From='0.1,0.1', Duration=350, Ease={StaticResource ExpEase}, TransitionOn=Loaded}"/>
+
+                    </StackPanel>
                 </Grid>
+            </ZDY:TabItem>
+            <ZDY:TabItem Header="Animate">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Bottom" Margin="20" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="显示动画  "/>
+                        <ZDY:SwitchToggleButton IsChecked="{Binding IsShowAnimate}"/>
+                    </StackPanel>
+                    <UniformGrid Rows="2" Columns="4" Margin="20">
+                        <UniformGrid.Resources>
+
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="FontSize" Value="20"/>
+                                <Setter Property="Background" Value="#66666666"/>
+                                <Setter Property="TextWrapping" Value="Wrap"/>
+                                <Setter Property="TextAlignment" Value="Center"/>
+                                <Setter Property="Margin" Value="5"/>
+                            </Style>
+
+                        </UniformGrid.Resources>
+
+                        <TextBlock Text="Opacity on Visibility Changed" 
+                                            ZDY:Animate.Opacity="{ZDY:AnimateOpacityParameter BeginTime=0, To=1, Duration=350, Ease={StaticResource ExpEase}, TransitionOn=Visibility}"                                     
+                                            ZDY:Animate.Visibility="{Binding Path=IsShowAnimate, Mode=TwoWay, Converter={ZDY:BoolToVisibilityConverter}, ConverterParameter=Hidden}"/>
+
+                        <TextBlock Text="Blur on Visibility Changed" 
+                                            ZDY:Animate.Opacity="{ZDY:AnimateOpacityParameter BeginTime=0, To=1, Duration=450, Ease={StaticResource ExpEase}, TransitionOn=Visibility}"                                     
+                                            ZDY:Animate.Blur="{ZDY:AnimateBlurParameter From='20', To='0', BeginTime=300, Duration=350, TransitionOn=Visibility}"              
+                                            ZDY:Animate.Visibility="{Binding Path=IsShowAnimate, Mode=TwoWay, Converter={ZDY:BoolToVisibilityConverter}, ConverterParameter=Hidden}"/>
+
+                        <TextBlock Text="Translate and Opacity on Visibility Changed" 
+                                            ZDY:Animate.Opacity="{ZDY:AnimateOpacityParameter BeginTime=350, To=1, Duration=550, Ease={StaticResource ExpEase}, TransitionOn=Visibility}"                                     
+                                            ZDY:Animate.Translate="{ZDY:AnimateTranslateParameter BeginTime=350, To='0,0', From='100,0', Duration=350, Ease={StaticResource ExpEase}, TransitionOn=Visibility}"                                     
+                                            ZDY:Animate.Visibility="{Binding Path=IsShowAnimate, Mode=TwoWay, Converter={ZDY:BoolToVisibilityConverter}, ConverterParameter=Hidden}"/>
+
+                        <TextBlock Text="Scale and Opacity on Visibility Changed" 
+                                            ZDY:Animate.Opacity="{ZDY:AnimateOpacityParameter BeginTime=400, To=1, Duration=650, Ease={StaticResource ExpEase}, TransitionOn=Visibility}"                                     
+                                            ZDY:Animate.LayoutScale="{ZDY:AnimateScaleParameter BeginTime=400, To='1,1', From='0.1,0.1', Duration=350, Ease={StaticResource ExpEase}, TransitionOn=Visibility}"                                     
+                                            ZDY:Animate.Visibility="{Binding Path=IsShowAnimate, Mode=TwoWay, Converter={ZDY:BoolToVisibilityConverter}, ConverterParameter=Hidden}"/>
+
+
+
+                        <TextBlock Text="Opacity on Visibility Changed" 
+                                            ZDY:Animate.Opacity="{ZDY:AnimateOpacityParameter BeginTime=0, To=1, Duration=350, Ease={StaticResource ExpEase}, TransitionOn=Visibility}"                                     
+                                            ZDY:Animate.Visibility="{Binding Path=IsShowAnimate, Mode=TwoWay, Converter={ZDY:BoolToVisibilityConverter}}"/>
+
+                        <TextBlock Text="Blur on Visibility Changed" 
+                                            ZDY:Animate.Opacity="{ZDY:AnimateOpacityParameter BeginTime=0, To=1, Duration=450, Ease={StaticResource ExpEase}, TransitionOn=Visibility}"                                     
+                                            ZDY:Animate.Blur="{ZDY:AnimateBlurParameter From='20', To='0', BeginTime=300, Duration=350, TransitionOn=Visibility}"              
+                                            ZDY:Animate.Visibility="{Binding Path=IsShowAnimate, Mode=TwoWay, Converter={ZDY:BoolToVisibilityConverter}}"/>
+
+                        <TextBlock Text="Translate and Opacity on Visibility Changed" 
+                                            ZDY:Animate.Opacity="{ZDY:AnimateOpacityParameter BeginTime=350, To=1, Duration=550, Ease={StaticResource ExpEase}, TransitionOn=Visibility}"                                     
+                                            ZDY:Animate.Translate="{ZDY:AnimateTranslateParameter BeginTime=350, To='0,0', From='100,0', Duration=350, Ease={StaticResource ExpEase}, TransitionOn=Visibility}"                                     
+                                            ZDY:Animate.Visibility="{Binding Path=IsShowAnimate, Mode=TwoWay, Converter={ZDY:BoolToVisibilityConverter}}"/>
+
+                        <TextBlock Text="Scale and Opacity on Visibility Changed" 
+                                            ZDY:Animate.Opacity="{ZDY:AnimateOpacityParameter BeginTime=400, To=1, Duration=650, Ease={StaticResource ExpEase}, TransitionOn=Visibility}"                                     
+                                            ZDY:Animate.LayoutScale="{ZDY:AnimateScaleParameter BeginTime=400, To='1,1', From='0.1,0.1', Duration=350, Ease={StaticResource ExpEase}, TransitionOn=Visibility}"                                     
+                                            ZDY:Animate.Visibility="{Binding Path=IsShowAnimate, Mode=TwoWay, Converter={ZDY:BoolToVisibilityConverter}}"/>
+                    </UniformGrid>
+                </DockPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="Grid">
                 <UniformGrid Margin="20">
@@ -595,7 +683,7 @@
                             </ZDY:DatePicker.SelectedDate>
                         </ZDY:DatePicker>
                     </UniformGrid>
-                    
+
                     <ZDY:CheckBox Content="Valid when checked" Margin="5 10">
                         <ZDY:CheckBox.IsChecked>
                             <Binding Path="ValidationBoolValue" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
