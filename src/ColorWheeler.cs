@@ -35,7 +35,7 @@ namespace Zhai.FamilTheme
             set => SetValue(SelectedColorProperty, value);
         }
 
-        public static readonly DependencyPropertyKey SelectedColourPropertyKey = DependencyProperty.RegisterReadOnly(nameof(SelectedColour), typeof(string), typeof(ColorWheeler), new PropertyMetadata("#000000"));
+        private static readonly DependencyPropertyKey SelectedColourPropertyKey = DependencyProperty.RegisterReadOnly(nameof(SelectedColour), typeof(string), typeof(ColorWheeler), new PropertyMetadata("#000000"));
         public static readonly DependencyProperty SelectedColourProperty = SelectedColourPropertyKey.DependencyProperty;
         public string SelectedColour
         {
@@ -58,7 +58,12 @@ namespace Zhai.FamilTheme
 
         private void ColorWheeler_PreviewMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
         {
-            Hue = MathHelper.Mod(Hue + SmallChange * e.Delta / 120, 360);
+            static double Mod(double value, double m)
+            {
+                return (value % m + m) % m;
+            }
+
+            Hue = Mod(Hue + SmallChange * e.Delta / 120, 360);
             e.Handled = true;
         }
 

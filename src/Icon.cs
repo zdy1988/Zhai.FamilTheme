@@ -10,35 +10,23 @@ namespace Zhai.FamilTheme
 {
     public class Icon : Control
     {
-        private static readonly Lazy<IDictionary<IconKind, string>> _dataIndex
-            = new Lazy<IDictionary<IconKind, string>>(IconDataFactory.Create);
-
         static Icon()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(Icon), new FrameworkPropertyMetadata(typeof(Icon)));
         }
 
-        public static readonly DependencyProperty KindProperty
-            = DependencyProperty.Register(nameof(Kind), typeof(IconKind), typeof(Icon), new PropertyMetadata(default(IconKind), KindPropertyChangedCallback));
+        private static readonly Lazy<IDictionary<IconKind, string>> _dataIndex  = new Lazy<IDictionary<IconKind, string>>(IconDataFactory.Create);
 
-        private static void KindPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
-            => ((Icon)dependencyObject).UpdateData();
-
-        /// <summary>
-        /// Gets or sets the icon to display.
-        /// </summary>
+        public static readonly DependencyProperty KindProperty = DependencyProperty.Register(nameof(Kind), typeof(IconKind), typeof(Icon), new PropertyMetadata(default(IconKind), OnKindPropertyChanged));
         public IconKind Kind
         {
             get => (IconKind)GetValue(KindProperty);
             set => SetValue(KindProperty, value);
         }
 
-        private static readonly DependencyPropertyKey DataPropertyKey
-            = DependencyProperty.RegisterReadOnly(nameof(Data), typeof(string), typeof(Icon), new PropertyMetadata(""));
-
         // ReSharper disable once StaticMemberInGenericType
+        private static readonly DependencyPropertyKey DataPropertyKey = DependencyProperty.RegisterReadOnly(nameof(Data), typeof(string), typeof(Icon), new PropertyMetadata(""));
         public static readonly DependencyProperty DataProperty = DataPropertyKey.DependencyProperty;
-
         /// <summary>
         /// Gets the icon path data for the current <see cref="Kind"/>.
         /// </summary>
@@ -47,6 +35,11 @@ namespace Zhai.FamilTheme
         {
             get => (string?)GetValue(DataProperty);
             private set => SetValue(DataPropertyKey, value);
+        }
+
+        private static void OnKindPropertyChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
+        {
+            ((Icon)dependencyObject).UpdateData();
         }
 
         public override void OnApplyTemplate()

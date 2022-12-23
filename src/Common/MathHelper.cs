@@ -10,10 +10,5 @@
                 return max;
             return value;
         }
-
-        public static double Mod(double value, double m)
-        {
-            return (value % m + m) % m;
-        }
     }
 }

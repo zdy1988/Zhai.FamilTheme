@@ -13,7 +13,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty SizeProperty = DependencyProperty.Register(nameof(Size), typeof(double), typeof(CheckBox), new PropertyMetadata(16.0));
-
         public double Size
         {
             get => (double)GetValue(SizeProperty);
@@ -21,7 +20,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(double), typeof(CheckBox), new PropertyMetadata(default(double)));
-
         public double CornerRadius
         {
             get => (double)GetValue(CornerRadiusProperty);

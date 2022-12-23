@@ -14,7 +14,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register("Orientation", typeof(RepeaterOrientation), typeof(Repeater), new PropertyMetadata(RepeaterOrientation.Vertical));
-
         public RepeaterOrientation Orientation
         {
             get => (RepeaterOrientation)GetValue(OrientationProperty);

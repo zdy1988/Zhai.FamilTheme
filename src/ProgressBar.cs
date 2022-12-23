@@ -15,7 +15,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(double), typeof(ProgressBar), new PropertyMetadata(default));
-
         public double CornerRadius
         {
             get => (double)GetValue(CornerRadiusProperty);
@@ -23,7 +22,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(nameof(Content), typeof(object), typeof(ProgressBar), new PropertyMetadata(null));
-
         public object Content
         {
             get => GetValue(ContentProperty);
@@ -31,7 +29,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty ContentTemplateProperty = DependencyProperty.Register(nameof(ContentTemplate), typeof(DataTemplate), typeof(ProgressBar), new PropertyMetadata(null));
-
         public DataTemplate ContentTemplate
         {
             get => (DataTemplate)GetValue(ContentTemplateProperty);
@@ -39,7 +36,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty ProgressgroundProperty = DependencyProperty.Register(nameof(Progressground), typeof(Brush), typeof(ProgressBar));
-
         public Brush Progressground
         {
             get => (Brush)GetValue(ProgressgroundProperty);
@@ -47,7 +43,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty ProgressAnimationForegroundProperty = DependencyProperty.Register(nameof(ProgressAnimationForeground), typeof(Brush), typeof(ProgressBar));
-
         public Brush ProgressAnimationForeground
         {
             get => (Brush)GetValue(ProgressAnimationForegroundProperty);
@@ -55,7 +50,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty IsProgressAnimationEnabledProperty = DependencyProperty.Register(nameof(IsProgressAnimationEnabled), typeof(bool), typeof(ProgressBar), new PropertyMetadata(true));
-
         public bool IsProgressAnimationEnabled
         {
             get => (bool)GetValue(IsProgressAnimationEnabledProperty);
@@ -63,9 +57,7 @@ namespace Zhai.FamilTheme
         }
 
         private static readonly DependencyPropertyKey DeterminateContentClipPropertyKey = DependencyProperty.RegisterReadOnly(nameof(DeterminateContentClip), typeof(Geometry), typeof(ProgressBar), new PropertyMetadata(default(Geometry)));
-
         public static readonly DependencyProperty DeterminateContentClipProperty = DeterminateContentClipPropertyKey.DependencyProperty;
-        
         public Geometry DeterminateContentClip
         {
             get => (Geometry)GetValue(DeterminateContentClipProperty);

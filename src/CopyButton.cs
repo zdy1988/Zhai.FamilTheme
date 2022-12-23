@@ -14,7 +14,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(nameof(Text), typeof(string), typeof(CopyButton), new PropertyMetadata(OnCopyTextChanged));
-
         public string Text
         {
             get => (string)GetValue(TextProperty);

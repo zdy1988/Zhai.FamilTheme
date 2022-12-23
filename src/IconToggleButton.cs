@@ -14,7 +14,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(IconKind), typeof(IconToggleButton), new PropertyMetadata(IconKind.Info));
-
         public IconKind Icon
         {
             get => (IconKind)GetValue(IconProperty);
@@ -22,7 +21,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty CheckedIconProperty = DependencyProperty.Register(nameof(CheckedIcon), typeof(IconKind), typeof(IconToggleButton), new PropertyMetadata(IconKind.None));
-
         public IconKind CheckedIcon
         {
             get => (IconKind)GetValue(CheckedIconProperty);
@@ -30,7 +28,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty CheckedToolTipProperty = DependencyProperty.Register(nameof(CheckedToolTip), typeof(object), typeof(IconToggleButton));
-
         public object CheckedToolTip
         {
             get => GetValue(CheckedToolTipProperty);
@@ -38,7 +35,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty IconSizeProperty = DependencyProperty.Register(nameof(IconSize), typeof(double), typeof(IconToggleButton), new PropertyMetadata(16.0));
-
         public double IconSize
         {
             get => (double)GetValue(IconSizeProperty);

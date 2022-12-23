@@ -13,7 +13,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(double), typeof(Slider), new PropertyMetadata(default(double)));
-
         public double CornerRadius
         {
             get => (double)GetValue(CornerRadiusProperty);

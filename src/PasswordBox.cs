@@ -15,7 +15,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty PasswordCharProperty = DependencyProperty.Register(nameof(PasswordChar), typeof(char), typeof(PasswordBox), new PropertyMetadata('●'));
-
         public char PasswordChar
         {
             get => (char)GetValue(PasswordCharProperty);
@@ -23,7 +22,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty IsPasswordVisibledProperty = DependencyProperty.Register(nameof(IsPasswordVisibled), typeof(bool), typeof(PasswordBox), new PropertyMetadata(false, OnIsPasswordVisibledChanged));
-
         public bool IsPasswordVisibled
         {
             get => (bool)GetValue(IsPasswordVisibledProperty);

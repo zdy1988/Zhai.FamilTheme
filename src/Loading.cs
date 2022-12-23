@@ -14,7 +14,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty ThemeProperty = DependencyProperty.Register(nameof(Theme), typeof(LoadingTheme), typeof(CheckBox), new PropertyMetadata(LoadingTheme.Circle));
-
         public LoadingTheme Theme
         {
             get => (LoadingTheme)GetValue(ThemeProperty);

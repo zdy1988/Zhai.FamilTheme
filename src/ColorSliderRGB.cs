@@ -6,7 +6,6 @@ namespace Zhai.FamilTheme
     internal class ColorSliderRGB : ColorSliderBase
     {
         public static readonly DependencyProperty KindProperty = DependencyProperty.Register(nameof(Kind), typeof(RGB), typeof(ColorSliderRGB), new PropertyMetadata(OnKindChanged));
-
         public RGB Kind
         {
             get => (RGB)GetValue(KindProperty);

@@ -15,7 +15,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(double), typeof(Hint), new PropertyMetadata(default));
-
         public double CornerRadius
         {
             get => (double)GetValue(CornerRadiusProperty);
@@ -23,7 +22,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty DurationProperty = DependencyProperty.Register(nameof(Duration), typeof(Duration), typeof(Hint), new PropertyMetadata(new Duration(TimeSpan.FromMilliseconds(3000))));
-
         public Duration Duration
         {
             get => (Duration)GetValue(DurationProperty);
@@ -31,7 +29,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(nameof(Text), typeof(string), typeof(Hint), new PropertyMetadata(OnTextChanged));
-
         public string Text
         {
             get => (string)GetValue(TextProperty);

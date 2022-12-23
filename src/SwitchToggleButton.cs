@@ -14,7 +14,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty SizeProperty = DependencyProperty.Register(nameof(Size), typeof(double), typeof(SwitchToggleButton), new PropertyMetadata(30.0));
-
         public double Size
         {
             get => (double)GetValue(SizeProperty);

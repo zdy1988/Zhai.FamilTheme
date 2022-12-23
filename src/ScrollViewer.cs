@@ -19,14 +19,12 @@ namespace Zhai.FamilTheme
         /// 当前垂直滚动偏移
         /// </summary>
         internal static readonly DependencyProperty CurrentVerticalOffsetProperty = DependencyProperty.Register(nameof(CurrentVerticalOffset), typeof(double), typeof(ScrollViewer), new PropertyMetadata(.0, OnCurrentVerticalOffsetChanged));
-
         internal double CurrentVerticalOffset
         {
             // ReSharper disable once UnusedMember.Local
             get => (double)GetValue(CurrentVerticalOffsetProperty);
             set => SetValue(CurrentVerticalOffsetProperty, value);
         }
-
         private static void OnCurrentVerticalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is ScrollViewer ctl && e.NewValue is double v)
@@ -39,13 +37,11 @@ namespace Zhai.FamilTheme
         /// 当前水平滚动偏移
         /// </summary>
         internal static readonly DependencyProperty CurrentHorizontalOffsetProperty = DependencyProperty.Register(nameof(CurrentHorizontalOffset), typeof(double), typeof(ScrollViewer), new PropertyMetadata(.0, OnCurrentHorizontalOffsetChanged));
-
         internal double CurrentHorizontalOffset
         {
             get => (double)GetValue(CurrentHorizontalOffsetProperty);
             set => SetValue(CurrentHorizontalOffsetProperty, value);
         }
-
         private static void OnCurrentHorizontalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is ScrollViewer ctl && e.NewValue is double v)

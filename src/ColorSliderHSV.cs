@@ -7,7 +7,6 @@ namespace Zhai.FamilTheme
     internal class ColorSliderHSV : ColorSliderBase
     {
         public static readonly DependencyProperty KindProperty = DependencyProperty.Register(nameof(Kind), typeof(HSV), typeof(ColorSliderHSV), new PropertyMetadata(OnKindChanged));
-
         public HSV Kind
         {
             get => (HSV)GetValue(KindProperty);

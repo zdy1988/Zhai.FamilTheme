@@ -15,7 +15,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(IconKind), typeof(IconButton), new PropertyMetadata(IconKind.Info));
-
         public IconKind Icon
         {
             get => (IconKind)GetValue(IconProperty);
@@ -23,7 +22,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty IconSizeProperty = DependencyProperty.Register(nameof(IconSize), typeof(double), typeof(IconButton), new PropertyMetadata(16.0));
-
         public double IconSize
         {
             get => (double)GetValue(IconSizeProperty);

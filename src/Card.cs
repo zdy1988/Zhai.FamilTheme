@@ -17,7 +17,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty ShadowColorProperty = DependencyProperty.Register(nameof(ShadowColor), typeof(Color), typeof(Card), new PropertyMetadata(Colors.Black, OnShadowEdgeChanged));
-
         public Color ShadowColor
         {
             get => (Color)GetValue(ShadowColorProperty);
@@ -25,7 +24,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty ShadowOpacityProperty = DependencyProperty.Register(nameof(ShadowOpacity), typeof(double), typeof(Card), new PropertyMetadata(0.42, OnShadowEdgeChanged));
-
         public double ShadowOpacity
         {
             get => (double)GetValue(ShadowOpacityProperty);
@@ -33,7 +31,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty ShadowBlurRadiusProperty = DependencyProperty.Register(nameof(ShadowBlurRadius), typeof(double), typeof(Card), new PropertyMetadata(default(double), OnShadowEdgeChanged));
-
         public double ShadowBlurRadius
         {
             get => (double)GetValue(ShadowBlurRadiusProperty);
@@ -41,9 +38,7 @@ namespace Zhai.FamilTheme
         }
 
         private static readonly DependencyPropertyKey ShadowEdgePropertyKey = DependencyProperty.RegisterReadOnly(nameof(ShadowEdge), typeof(DrawingBrush), typeof(Card), new PropertyMetadata(default(DrawingBrush)));
-
         public static readonly DependencyProperty ShadowEdgeProperty = ShadowEdgePropertyKey.DependencyProperty;
-
         public DrawingBrush ShadowEdge
         {
             get => (DrawingBrush)GetValue(ShadowEdgeProperty);
@@ -51,9 +46,7 @@ namespace Zhai.FamilTheme
         }
 
         private static readonly DependencyPropertyKey ShadowEffectPropertyKey = DependencyProperty.RegisterReadOnly(nameof(ShadowEffect), typeof(DropShadowEffect), typeof(Card), new PropertyMetadata(default(DropShadowEffect)));
-
         public static readonly DependencyProperty ShadowEffectProperty = ShadowEffectPropertyKey.DependencyProperty;
-
         public DropShadowEffect ShadowEffect
         {
             get => (DropShadowEffect)GetValue(ShadowEffectProperty);
@@ -61,7 +54,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(double), typeof(Card), new PropertyMetadata(default(double), OnCornerRadiusChanged));
-
         public double CornerRadius
         {
             get => (double)GetValue(CornerRadiusProperty);
@@ -69,9 +61,7 @@ namespace Zhai.FamilTheme
         }
 
         private static readonly DependencyPropertyKey ContentClipPropertyKey = DependencyProperty.RegisterReadOnly(nameof(ContentClip), typeof(Geometry), typeof(Card), new PropertyMetadata(default(Geometry)));
-        
         public static readonly DependencyProperty ContentClipProperty = ContentClipPropertyKey.DependencyProperty;
-        
         public Geometry ContentClip
         {
             get => (Geometry)GetValue(ContentClipProperty);

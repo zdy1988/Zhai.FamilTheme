@@ -95,7 +95,7 @@ namespace Zhai.FamilTheme
             set => SetValue(HSL_LProperty, value);
         }
 
-        public static readonly DependencyPropertyKey ColorContextPropertyKey = DependencyProperty.RegisterReadOnly(nameof(ColorContext), typeof(ColorContext), typeof(ColorPicker), new PropertyMetadata(new ColorContext(0, 0, 0, 1, 0, 0, 0, 0, 0, 0)));
+        private static readonly DependencyPropertyKey ColorContextPropertyKey = DependencyProperty.RegisterReadOnly(nameof(ColorContext), typeof(ColorContext), typeof(ColorPicker), new PropertyMetadata(new ColorContext(0, 0, 0, 1, 0, 0, 0, 0, 0, 0)));
         public static readonly DependencyProperty ColorContextProperty = ColorContextPropertyKey.DependencyProperty;
         public ColorContext ColorContext
         {
@@ -110,7 +110,7 @@ namespace Zhai.FamilTheme
             set => SetValue(SelectedColorProperty, value);
         }
 
-        public static readonly DependencyPropertyKey SelectedColourPropertyKey = DependencyProperty.RegisterReadOnly(nameof(SelectedColour), typeof(string), typeof(ColorPicker), new PropertyMetadata("#000000"));
+        private static readonly DependencyPropertyKey SelectedColourPropertyKey = DependencyProperty.RegisterReadOnly(nameof(SelectedColour), typeof(string), typeof(ColorPicker), new PropertyMetadata("#000000"));
         public static readonly DependencyProperty SelectedColourProperty = SelectedColourPropertyKey.DependencyProperty;
         public string SelectedColour
         {

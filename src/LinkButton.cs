@@ -16,7 +16,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty HoverForegroundProperty = DependencyProperty.Register(nameof(HoverForeground), typeof(Brush), typeof(LinkButton));
-
         public Brush HoverForeground
         {
             get => (Brush)GetValue(HoverForegroundProperty);
@@ -24,7 +23,6 @@ namespace Zhai.FamilTheme
         }
 
         public static readonly DependencyProperty NavigateUriProperty = DependencyProperty.Register(nameof(NavigateUri), typeof(string), typeof(LinkButton), new PropertyMetadata(OnNavigateUriChanged));
-
         public string NavigateUri
         {
             get => (string)GetValue(NavigateUriProperty);
