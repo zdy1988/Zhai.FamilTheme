@@ -239,7 +239,12 @@ namespace Zhai.FamilTheme.Windows.Natives
 
         [DllImport(DLL_NAME, EntryPoint = "SendMessageTimeout")]
         public static extern int SendMessageTimeout(IntPtr hWnd, uint Msg, uint wParam, IntPtr lParam, uint fuFlags, uint uTimeout, IntPtr outOpt_lpdwResult);
+        
+        [DllImport(DLL_NAME, CharSet = CharSet.Auto)]
+        public static extern IntPtr GetCapture();
 
+        [DllImport(DLL_NAME)]
+        public static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttributeData data);
 
         public enum AccentFlagsType
         {
@@ -280,8 +285,5 @@ namespace Zhai.FamilTheme.Windows.Natives
             public uint GradientColor;
             public int AnimationId;
         }
-
-        [DllImport(DLL_NAME)]
-        public static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttributeData data);
     }
 }

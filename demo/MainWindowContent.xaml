@@ -43,6 +43,21 @@
                                    ZDY:Animate.Opacity="{ZDY:AnimateOpacityParameter BeginTime=400, To=1, Duration=350, Ease={StaticResource ExpEase}, TransitionOn=Loaded}"                                    
                                    ZDY:Animate.LayoutScale="{ZDY:AnimateScaleParameter BeginTime=400, To='1,1', From='0.1,0.1', Duration=350, Ease={StaticResource ExpEase}, TransitionOn=Loaded}"/>
 
+                        <ZDY:Badged Badge="1">
+                            <ZDY:Button Content="Click"/>
+                        </ZDY:Badged>
+
+                        <ZDY:Badged x:Name="PopButton" Badge="{ZDY:Icon Kind=About}">
+                            <ZDY:Button Content="Click" Click="Button_Click"/>
+                        </ZDY:Badged>
+
+                        <ZDY:Popup x:Name="Pop" PopupAnimation="Slide" PlacementTarget="{Binding ElementName=PopButton}" Placement="Bottom" AllowsTransparency="True">
+                            <ZDY:ListBox>
+                                <ListBoxItem Content="123456789"/>
+                                <ListBoxItem Content="123456789"/>
+                                <ListBoxItem Content="123456789"/>
+                            </ZDY:ListBox>
+                        </ZDY:Popup>
                     </StackPanel>
                 </Grid>
             </ZDY:TabItem>

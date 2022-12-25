@@ -137,7 +137,7 @@
                                    RadiusX="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=(local:CalendarExtension.ButtonCornerRadius)}" 
                                    RadiusY="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=(local:CalendarExtension.ButtonCornerRadius)}"/>
                         <Border BorderBrush="{TemplateBinding BorderBrush}" 
-                                CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=(local:CalendarExtension.ButtonCornerRadius)}"
+                                CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=Calendar}, Path=(local:CalendarExtension.ButtonCornerRadius), Converter={Converters:DoubleToCornerRadiusConverter}}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}"/>
                         <Rectangle x:Name="HighlightBackground" Opacity="0"

@@ -26,7 +26,7 @@
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
-                                CornerRadius="{Binding (local:TextBoxExtension.CornerRadius), RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}"
+                                CornerRadius="{Binding (local:TextBoxExtension.CornerRadius), RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}, Converter={Converters:DoubleToCornerRadiusConverter}}"
                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
 
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -59,12 +59,12 @@
                                 Grid.ColumnSpan="2"
                                 BorderBrush="Transparent"
                                 BorderThickness="0"
-                                CornerRadius="{Binding (local:TextBoxExtension.CornerRadius), RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}"
+                                CornerRadius="{Binding (local:TextBoxExtension.CornerRadius), RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}, Converter={Converters:DoubleToCornerRadiusConverter}}"
                                 Background="Transparent"/>
                         <Border x:Name="ButtonBorder"
                                 Grid.Column="1"
                                 Margin="1"
-                                CornerRadius="{Binding (local:TextBoxExtension.CornerRadius), RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}"
+                                CornerRadius="{Binding (local:TextBoxExtension.CornerRadius), RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}, Converter={Converters:DoubleToCornerRadiusConverter}}"
                                 BorderThickness="0"
                                 Background="{Binding Background, RelativeSource={RelativeSource FindAncestor, AncestorType=local:ComboBox}}"
                                 Visibility="Collapsed"/>

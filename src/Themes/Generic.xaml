@@ -4,6 +4,7 @@
 
     <ResourceDictionary.MergedDictionaries>
 
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Badged.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Button.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Calendar.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Card.xaml" />
@@ -24,6 +25,7 @@
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Loading.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Menu.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.PasswordBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Popup.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ProgressBar.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.RadioButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Repeater.xaml" />
@@ -62,6 +64,7 @@
         </MenuItem>
     </ContextMenu>
 
+    <Style TargetType="{x:Type local:Badged}" BasedOn="{StaticResource Zhai.FamilTheme.Badged}"/>
     <Style TargetType="{x:Type local:Button}" BasedOn="{StaticResource Zhai.FamilTheme.Button}"/>
     <Style TargetType="{x:Type local:Calendar}" BasedOn="{StaticResource Zhai.FamilTheme.Calendar}"/>
     <Style TargetType="{x:Type local:Card}"  BasedOn="{StaticResource Zhai.FamilTheme.Card}"/>
@@ -100,6 +103,7 @@
     <Style TargetType="{x:Type local:PasswordBox}" BasedOn="{StaticResource Zhai.FamilTheme.PasswordBox}">
         <Setter Property="ContextMenu" Value="{StaticResource Zhai.FamilTheme.DefaultContextMenu}"/>
     </Style>
+    <Style TargetType="{x:Type local:Popup}" BasedOn="{StaticResource Zhai.FamilTheme.Popup}"/>
     <Style TargetType="{x:Type local:TransparentWindow}" BasedOn="{StaticResource Zhai.FamilTheme.TransparentWindow}"/>
     <Style TargetType="{x:Type local:GlassesWindow}" BasedOn="{StaticResource Zhai.FamilTheme.GlassesWindow}"/>
 
