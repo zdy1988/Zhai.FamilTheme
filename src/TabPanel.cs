@@ -12,5 +12,12 @@ namespace Zhai.FamilTheme
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(TabPanel), new FrameworkPropertyMetadata(typeof(TabPanel)));
         }
+
+        public static readonly DependencyProperty TabStripKindProperty = DependencyProperty.Register(nameof(TabStripKind), typeof(TabStripKind), typeof(TabPanel), new PropertyMetadata(TabStripKind.Stack));
+        public TabStripKind TabStripKind
+        {
+            get => (TabStripKind)GetValue(TabStripKindProperty);
+            set => SetValue(TabStripKindProperty, value);
+        }
     }
 }

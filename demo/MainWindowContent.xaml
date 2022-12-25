@@ -16,8 +16,8 @@
         <Grid.Resources>
             <ExponentialEase x:Key="ExpEase" EasingMode="EaseOut" Exponent="5" />
         </Grid.Resources>
-        
-        <ZDY:TabPanel TabStripPlacement="Left">
+
+        <ZDY:TabPanel TabStripPlacement="Left" TabStripKind="Scroll">
             <ZDY:TabItem Header="Loc">
                 <Grid>
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
