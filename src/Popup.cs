@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Markup;
 using Zhai.FamilTheme.Common;
 using Zhai.FamilTheme.Windows.Natives;
@@ -21,14 +23,14 @@ namespace Zhai.FamilTheme
             DefaultStyleKeyProperty.OverrideMetadata(typeof(Popup), new FrameworkPropertyMetadata(typeof(Popup)));
         }
 
-        public static readonly DependencyProperty IsOpenProperty = DependencyProperty.Register(nameof(IsOpen), typeof(bool), typeof(Popup), new PropertyMetadata(false, OnIsPopupOpenPropertyChanged));
+        public static readonly DependencyProperty IsOpenProperty = DependencyProperty.Register(nameof(IsOpen), typeof(bool), typeof(Popup), new PropertyMetadata(false));
         public bool IsOpen
         {
             get => (bool)GetValue(IsOpenProperty);
             set => SetValue(IsOpenProperty, value);
         }
 
-        public static readonly DependencyProperty PlacementTargetProperty = DependencyProperty.Register(nameof(PlacementTarget), typeof(UIElement), typeof(Popup), new PropertyMetadata(null));
+        public static readonly DependencyProperty PlacementTargetProperty = DependencyProperty.Register(nameof(PlacementTarget), typeof(UIElement), typeof(Popup), new PropertyMetadata(null, OnPlacementTargetChanged));
         public UIElement PlacementTarget
         {
             get => (UIElement)GetValue(PlacementTargetProperty);
@@ -77,9 +79,26 @@ namespace Zhai.FamilTheme
             set => SetValue(ContentProperty, value);
         }
 
-        private static void OnIsPopupOpenPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs args)
+        private static void OnPlacementTargetChanged(DependencyObject d, DependencyPropertyChangedEventArgs args)
         {
-            
+            if (args.NewValue is UIElement target)
+            {
+                async void Target_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+                {
+                    if (d is Popup popup)
+                    {
+                        await Task.Yield();
+                        popup.IsOpen = true;
+
+                        await Task.Yield();
+                        var source = (HwndSource)PresentationSource.FromVisual(popup.Content);
+                        User32.SetFocus(source.Handle);
+                    }
+                }
+
+                target.PreviewMouseLeftButtonUp -= Target_PreviewMouseLeftButtonUp;
+                target.PreviewMouseLeftButtonUp += Target_PreviewMouseLeftButtonUp;
+            }
         }
 
         public override void OnApplyTemplate()

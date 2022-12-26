@@ -244,6 +244,9 @@ namespace Zhai.FamilTheme.Windows.Natives
         public static extern IntPtr GetCapture();
 
         [DllImport(DLL_NAME)]
+        public static extern IntPtr SetFocus(IntPtr hWnd);
+
+        [DllImport(DLL_NAME)]
         public static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttributeData data);
 
         public enum AccentFlagsType

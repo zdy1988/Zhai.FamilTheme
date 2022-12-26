@@ -21,11 +21,11 @@
                                    Placement="{TemplateBinding Placement}"
                                    PopupAnimation="{TemplateBinding PopupAnimation}"
                                    AllowsTransparency="{TemplateBinding AllowsTransparency}"
-                                   StaysOpen="{TemplateBinding StaysOpen}"
+                                   StaysOpen="False"
                                    HorizontalOffset="-3">
                         <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(local:ShadowExtension.CacheMode)}">
                             <Grid>
-                                <Border Background="{TemplateBinding Background}" Margin="3"
+                                <Border x:Name="PART_Background" Background="{TemplateBinding Background}" Margin="3"
                                     CornerRadius="{TemplateBinding CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}" 
                                     Effect="{StaticResource Zhai.FamilTheme.FloatingShadowEffect}">
                                 </Border>
