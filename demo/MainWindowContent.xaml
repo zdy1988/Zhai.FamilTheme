@@ -971,6 +971,33 @@
                     </UniformGrid>
                 </DockPanel>
             </ZDY:TabItem>
+            <ZDY:TabItem Header="DataGrid">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="20" HorizontalAlignment="Center">
+                        <ZDY:CheckBox x:Name="DataGrid_IsInertiaEnabled" Margin="0 0 4 0"/>
+                        <TextBlock Text="允许惯性" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="DataGrid_IsMouseWheelEnabled" Margin="0 0 4 0" IsChecked="True"/>
+                        <TextBlock Text="允许鼠标滚动" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="DataGrid_MouseWheelOrientation" Margin="0 0 4 0" IsChecked="True"/>
+                        <TextBlock Text="鼠标垂直方向" Margin="0 0 10 0"/>
+                        <ZDY:CheckBox x:Name="DataGrid_IsAutoHideEnabled" Margin="0 0 4 0" IsChecked="False"/>
+                        <TextBlock Text="自动隐藏" Margin="0 0 10 0"/>
+                    </StackPanel>
+                    <UniformGrid Columns="2" Rows="2">
+                        <UniformGrid.Resources>
+                            <Style TargetType="{x:Type ZDY:DataGrid}">
+                                <Setter Property="ZDY:ScrollViewerExtension.IsInertiaEnabled" Value="{Binding ElementName=DataGrid_IsInertiaEnabled, Path=IsChecked}"/>
+                                <Setter Property="ZDY:ScrollViewerExtension.IsMouseWheelEnabled" Value="{Binding ElementName=DataGrid_IsMouseWheelEnabled, Path=IsChecked}"/>
+                                <Setter Property="ZDY:ScrollViewerExtension.MouseWheelOrientation" Value="{Binding ElementName=DataGrid_MouseWheelOrientation, Path=IsChecked, Converter={ZDY:BoolToOrientationConverter}}"/>
+                                <Setter Property="ZDY:ScrollViewerExtension.IsAutoHideEnabled" Value="{Binding ElementName=DataGrid_IsAutoHideEnabled, Path=IsChecked}"/>
+                            </Style>
+                        </UniformGrid.Resources>
+                        <ZDY:DataGrid ItemsSource="{Binding Items}" CanUserAddRows="False" Margin="5"/>
+                        <ZDY:DataGrid ItemsSource="{Binding Items}" CanUserAddRows="False" GridLinesVisibility="Vertical" Margin="5"/>
+                        <ZDY:DataGrid ItemsSource="{Binding Items}" CanUserAddRows="False" GridLinesVisibility="All" Margin="5"/>
+                    </UniformGrid>
+                </DockPanel>
+            </ZDY:TabItem>
             <ZDY:TabItem Header="ListBox">
                 <DockPanel>
                     <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="20" HorizontalAlignment="Center">

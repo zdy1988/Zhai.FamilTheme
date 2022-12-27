@@ -13,6 +13,7 @@
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ColorPicker.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ComboBox.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.CopyButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.DataGrid.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.DatePicker.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Drawer.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Hint.xaml" />
@@ -76,6 +77,7 @@
         <Setter Property="ContextMenu" Value="{StaticResource Zhai.FamilTheme.DefaultContextMenu}"/>
     </Style>
     <Style TargetType="{x:Type local:CopyButton}" BasedOn="{StaticResource Zhai.FamilTheme.CopyButton}"/>
+    <Style TargetType="{x:Type local:DataGrid}" BasedOn="{StaticResource Zhai.FamilTheme.DataGrid}"/>
     <Style TargetType="{x:Type local:DatePicker}" BasedOn="{StaticResource Zhai.FamilTheme.DatePicker}">
         <Setter Property="ContextMenu" Value="{StaticResource Zhai.FamilTheme.DefaultContextMenu}"/>
     </Style>
