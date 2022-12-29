@@ -8,7 +8,7 @@
         <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.IconButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <ImageSource x:Key="Zhai.FamilTheme.Favicon">pack://application:,,,/Zhai.FamilTheme;component/Resources/favicon.ico</ImageSource>
+    <ImageSource x:Key="Zhai.FamilTheme.Logo">pack://application:,,,/Zhai.FamilTheme;component/Resources/logo.ico</ImageSource>
 
     <Style TargetType="{x:Type local:IconButton}" x:Key="Zhai.FamilTheme.TitleBar.IconButton" BasedOn="{StaticResource Zhai.FamilTheme.IconButton}">
         <Setter Property="IconSize" Value="12"/>
