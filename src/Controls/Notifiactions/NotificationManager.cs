@@ -71,7 +71,9 @@ namespace Zhai.Famil.Controls.Notifiactions
             }
         }
 
-        public void Show(object content, Action onClick = null, Action onClose = null) => Show(content, "", null, onClick, onClose);
+        public void Show(object content, Action onClick) => Show(content, "", null, onClick);
+
+        public void Show(object content, Action onClick, Action onClose) => Show(content, "", null, onClick, onClose);
 
         private void _window_Closed(object sender, EventArgs e)
         {
