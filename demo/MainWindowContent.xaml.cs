@@ -27,15 +27,15 @@ namespace Zhai.Famil.Demo
 
             this.DataContext = new MainWindowViewModel();
 
-            var content = new NotificationContent
-            {
-                Message = "Pink string from another thread!Pink string from another thread!Pink string from another thread!",
-                Type = NotificationType.Information
-            };
+            //var content = new NotificationContent
+            //{
+            //    Message = "Pink string from another thread!Pink string from another thread!Pink string from another thread!",
+            //    Type = NotificationType.Information
+            //};
 
-            var timer = new Timer { Interval = 3000 };
-            timer.Elapsed += (sender, args) => NotificationManager.Default.Show(content);
-            timer.Start();
+            //var timer = new Timer { Interval = 3000 };
+            //timer.Elapsed += (sender, args) => NotificationManager.Default.Show(content);
+            //timer.Start();
         }
 
         private void HintTestButton_Click(object sender, RoutedEventArgs e)
