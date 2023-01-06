@@ -1,0 +1,146 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Zhai.Famil.Controls"
+                    xmlns:Converters="clr-namespace:Zhai.Famil.Converters">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Brushes.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Calendar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.TextBox.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="{x:Type DatePickerTextBox}" x:Key="Zhai.Famil.DatePickerTextBox">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <ContentPresenter x:Name="PlaceholderHost"
+                                          Content="{Binding Path=(local:TextBoxExtension.Placeholder), RelativeSource={RelativeSource FindAncestor, AncestorType=local:DatePicker}}"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Opacity="0.5"
+                                          IsHitTestVisible="False"
+                                          Visibility="Collapsed"/>
+
+                        <local:ScrollViewer x:Name="PART_ContentHost"
+                                      Focusable="False"
+                                      HorizontalScrollBarVisibility="Hidden"
+                                      VerticalScrollBarVisibility="Hidden"
+                                      Margin="{TemplateBinding Padding}"
+                                      Style="{StaticResource Zhai.Famil.TextBox.ScrollViewer}"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Path=(local:TextBoxExtension.IsPlaceholderVisibled), RelativeSource={RelativeSource FindAncestor, AncestorType=local:DatePicker}}" Value="True">
+                            <Setter Property="Visibility" TargetName="PlaceholderHost" Value="Visible"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type Calendar}" x:Key="Zhai.Famil.DatePicker.Calendar" BasedOn="{StaticResource Zhai.Famil.Calendar}">
+        <Setter Property="local:CalendarExtension.IsHeaderVisibled" Value="False"/>
+        <Setter Property="local:CalendarExtension.IsShadowVisibled" Value="True"/>
+        <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Foreground, Converter={StaticResource FloatingBackgroundBrushRoundConverter}}"/>
+    </Style>
+
+    <Style TargetType="{x:Type local:DatePicker}" x:Key="Zhai.Famil.DatePicker">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="Background" Value="{StaticResource Zhai.Famil.SelectionUnActivedBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Zhai.Famil.SelectionBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="12 8"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="CalendarStyle" Value="{StaticResource Zhai.Famil.DatePicker.Calendar}"/>
+        <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:DatePicker}">
+                    <Grid x:Name="PART_Root">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border x:Name="Border"
+                                Grid.ColumnSpan="2"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding local:TextBoxExtension.CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}"/>
+
+                        <Border x:Name="ErrorAlertShadow" Grid.ColumnSpan="2"
+                                Style="{StaticResource Zhai.Famil.TextBox.ErrorAlertShadow}"
+                                CornerRadius="{TemplateBinding local:TextBoxExtension.CornerRadius, Converter={Converters:DoubleToCornerRadiusConverter}}"/>
+
+                        <DockPanel Grid.Column="0" Margin="{TemplateBinding Padding}">
+
+                            <local:IconButton x:Name="ErrorAlert" DockPanel.Dock="Left" Style="{StaticResource Zhai.Famil.TextBox.ErrorAlert}">
+                                <local:IconButton.ToolTip>
+                                    <local:Repeater ItemsSource="{TemplateBinding Validation.Errors}"
+                                                    IsHitTestVisible="False">
+                                        <local:Repeater.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding ErrorContent}"/>
+                                            </DataTemplate>
+                                        </local:Repeater.ItemTemplate>
+                                    </local:Repeater>
+                                </local:IconButton.ToolTip>
+                            </local:IconButton>
+
+                            <DatePickerTextBox x:Name="PART_TextBox" Style="{StaticResource Zhai.Famil.DatePickerTextBox}"
+                                               Padding="0" ContextMenu="{TemplateBinding ContextMenu}"
+                                               Foreground="{TemplateBinding Foreground}"
+                                               Background="{TemplateBinding Background}"
+                                               Focusable="{TemplateBinding Focusable}"
+                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </DockPanel>
+
+                        <local:IconButton x:Name="PART_Button" Icon="Calendar"
+                                          Grid.Column="1" IconSize="12" Margin="-8 -8 0 -8"
+                                          Focusable="False" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                        </local:IconButton>
+
+                        <Popup x:Name="PART_Popup"
+                               AllowsTransparency="True"
+                               PopupAnimation="Fade"
+                               Placement="Top"
+                               PlacementTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"
+                               StaysOpen="False" />
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter TargetName="ErrorAlert" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="ErrorAlertShadow" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource Zhai.Famil.ErrorBrush}"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource Zhai.Famil.SelectionHoveredBrush}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value=".56"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

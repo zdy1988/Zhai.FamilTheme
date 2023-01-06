@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Text;
 using System.Windows.Data;
 
-namespace Zhai.FamilTheme.Converters
+namespace Zhai.Famil.Converters
 {
     internal class TransparentWindowTransparencyConverter : ConverterMarkupExtensionBase<TransparentWindowTransparencyConverter>, IMultiValueConverter
     {

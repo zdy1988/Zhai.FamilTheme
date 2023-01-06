@@ -11,9 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Zhai.FamilTheme;
+using Zhai.Famil.Controls;
 
-namespace Zhai.FamilThemeDemo
+namespace Zhai.Famil.Demo
 {
     /// <summary>
     /// GlassesWindow.xaml 的交互逻辑

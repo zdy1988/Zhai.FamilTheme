@@ -6,7 +6,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Zhai.FamilTheme.Converters
+namespace Zhai.Famil.Converters
 {
     internal class ListViewSortIconVisibilityConverter : ConverterMarkupExtensionBase<ListViewSortIconVisibilityConverter>, IMultiValueConverter
     {

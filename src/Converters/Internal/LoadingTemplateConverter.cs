@@ -4,8 +4,9 @@ using System.Globalization;
 using System.Text;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
+using Zhai.Famil.Controls;
 
-namespace Zhai.FamilTheme.Converters
+namespace Zhai.Famil.Converters
 {
     internal class LoadingTemplateConverter : IValueConverter
     {

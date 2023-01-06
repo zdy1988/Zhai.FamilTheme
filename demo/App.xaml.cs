@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Zhai.FamilThemeDemo
+namespace Zhai.Famil.Demo
 {
     /// <summary>
     /// Interaction logic for App.xaml

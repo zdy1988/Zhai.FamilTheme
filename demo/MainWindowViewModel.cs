@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media.TextFormatting;
 using System.Windows.Threading;
-using Zhai.FamilTheme;
+using Zhai.Famil.Common.Mvvm;
+using Zhai.Famil.Controls;
 
-namespace Zhai.FamilThemeDemo
+namespace Zhai.Famil.Demo
 {
-    internal class MainWindowViewModel : BaseViewModel
+    internal class MainWindowViewModel : ViewModelBase
     {
         public IEnumerable<IconKind> IconKinds => Enum.GetValues<IconKind>();
 
@@ -52,14 +53,14 @@ namespace Zhai.FamilThemeDemo
         public String HintText
         {
             get => hintText;
-            set => SetProperty(ref hintText, value);
+            set => Set(() => HintText, ref hintText, value);
         }
 
         private IEnumerable<String> listLines;
         public IEnumerable<String> ListLines
         {
             get => listLines;
-            set => SetProperty(ref listLines, value);
+            set => Set(() => ListLines, ref listLines, value);
         }
 
         public MainWindowViewModel()
@@ -71,21 +72,21 @@ namespace Zhai.FamilThemeDemo
         public string ValidationStringValue
         {
             get => validationStringValue;
-            set => SetProperty(ref validationStringValue, value);
+            set => Set(() => ValidationStringValue, ref validationStringValue, value);
         }
 
         private bool validationboolValue;
         public bool ValidationBoolValue
         {
             get => validationboolValue;
-            set => SetProperty(ref validationboolValue, value);
+            set => Set(() => ValidationBoolValue, ref validationboolValue, value);
         }
 
         private bool isShowAnimate;
         public bool IsShowAnimate
         {
             get => isShowAnimate;
-            set => SetProperty(ref isShowAnimate, value);
+            set => Set(() => IsShowAnimate, ref isShowAnimate, value);
         }
     }
 

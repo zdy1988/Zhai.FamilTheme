@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace Zhai.FamilTheme.Transitions
+namespace Zhai.Famil.Transitions
 {
     public partial class Animate
     {

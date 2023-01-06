@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Zhai.FamilTheme.Transitions
+namespace Zhai.Famil.Transitions
 {
     public interface IBlurParameter : ITransitionParameter<double>
     {

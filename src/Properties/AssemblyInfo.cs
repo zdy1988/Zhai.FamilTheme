@@ -3,10 +3,10 @@ using System.Windows;
 using System.Windows.Markup;
 
 [assembly: XmlnsPrefix("http://www.zdyla.com/coding", "ZDY")]
-[assembly: XmlnsDefinition("http://www.zdyla.com/coding", "Zhai.FamilTheme")]
-[assembly: XmlnsDefinition("http://www.zdyla.com/coding", "Zhai.FamilTheme.Transitions")]
-[assembly: XmlnsDefinition("http://www.zdyla.com/coding", "Zhai.FamilTheme.Converters")]
-[assembly: XmlnsDefinition("http://www.zdyla.com/coding", "Zhai.FamilTheme.Validations")]
+[assembly: XmlnsDefinition("http://www.zdyla.com/coding", "Zhai.Famil.Controls")]
+[assembly: XmlnsDefinition("http://www.zdyla.com/coding", "Zhai.Famil.Transitions")]
+[assembly: XmlnsDefinition("http://www.zdyla.com/coding", "Zhai.Famil.Converters")]
+[assembly: XmlnsDefinition("http://www.zdyla.com/coding", "Zhai.Famil.Validations")]
 
 [assembly: ComVisible(false)]
 

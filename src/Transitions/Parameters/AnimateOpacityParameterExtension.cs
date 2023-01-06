@@ -2,7 +2,7 @@
 using System.Windows.Markup;
 using System.Windows.Media.Animation;
 
-namespace Zhai.FamilTheme.Transitions
+namespace Zhai.Famil.Transitions
 {
     [MarkupExtensionReturnType(typeof(IOpacityParameter))]
     public class AnimateOpacityParameterExtension : AnimateTransitionParameterExtension<double>, IOpacityParameter

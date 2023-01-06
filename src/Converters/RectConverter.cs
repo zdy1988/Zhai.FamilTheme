@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Data;
 using System.Windows;
 
-namespace Zhai.FamilTheme.Converters
+namespace Zhai.Famil.Converters
 {
     public class RectConverter : ConverterMarkupExtensionBase<RectConverter>, IMultiValueConverter
     {

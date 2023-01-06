@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Text;
 using System.Windows.Controls;
 
-namespace Zhai.FamilTheme.Validations
+namespace Zhai.Famil.Validations
 {
     public class NullOrEmptyValidationRule : ValidationRule
     {

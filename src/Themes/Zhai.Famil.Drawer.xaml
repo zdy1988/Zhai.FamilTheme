@@ -1,0 +1,349 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Zhai.Famil.Controls"
+                    xmlns:Converters="clr-namespace:Zhai.Famil.Converters">
+
+    <Style TargetType="{x:Type local:Drawer}" x:Key="Zhai.Famil.Drawer">
+        <Setter Property="ClipToBounds" Value="True" />
+        <Setter Property="OverlayBackground" Value="Transparent" />
+        <Setter Property="LeftDrawerBackground" Value="Transparent" />
+        <Setter Property="TopDrawerBackground" Value="Transparent" />
+        <Setter Property="RightDrawerBackground" Value="Transparent" />
+        <Setter Property="BottomDrawerBackground" Value="Transparent" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:Drawer}">
+                    <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="AllDrawers">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition From="AllClosed" To="AnyOpen">
+                                        <Storyboard>
+                                            <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_ContentCover" Storyboard.TargetProperty="IsHitTestVisible">
+                                                <DiscreteBooleanKeyFrame Value="True" KeyTime="0" />
+                                            </BooleanAnimationUsingKeyFrames>
+                                            <BooleanAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="IsEnabled">
+                                                <DiscreteBooleanKeyFrame Value="False" KeyTime="0" />
+                                            </BooleanAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_ContentCover" Storyboard.TargetProperty="Opacity">
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0" />
+                                                <EasingDoubleKeyFrame Value=".56" KeyTime="0:0:0.3">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseOut" />
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="AnyOpen" To="AllClosed">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PART_ContentCover" Storyboard.TargetProperty="Opacity">
+                                                <EasingDoubleKeyFrame Value="0.56" KeyTime="0" />
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0:0:0.3">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseInOut" />
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="AnyOpen">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="PART_ContentCover" Storyboard.TargetProperty="Opacity" To=".56" Duration="0" />
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_ContentCover" Storyboard.TargetProperty="IsHitTestVisible">
+                                            <DiscreteBooleanKeyFrame Value="True" KeyTime="0" />
+                                        </BooleanAnimationUsingKeyFrames>
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="IsEnabled">
+                                            <DiscreteBooleanKeyFrame Value="False" KeyTime="0" />
+                                        </BooleanAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="AllClosed">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="PART_ContentCover" Storyboard.TargetProperty="Opacity" To="0" />
+                                        <BooleanAnimationUsingKeyFrames Storyboard.TargetName="PART_ContentCover" Storyboard.TargetProperty="IsHitTestVisible">
+                                            <DiscreteBooleanKeyFrame Value="False" />
+                                        </BooleanAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="LeftDrawer">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition From="LeftDrawerClosed" To="LeftDrawerOpen">
+                                        <Storyboard>
+                                            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_LeftDrawer">
+                                                <EasingThicknessKeyFrame Value="0" KeyTime="0:0:0.4">
+                                                    <EasingThicknessKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseOut" />
+                                                    </EasingThicknessKeyFrame.EasingFunction>
+                                                </EasingThicknessKeyFrame>
+                                            </ThicknessAnimationUsingKeyFrames>
+                                            <DoubleAnimation Storyboard.TargetName="LeftDrawerShadow" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.04" />
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="LeftDrawerOpen" To="LeftDrawerClosed">
+                                        <Storyboard>
+                                            <ThicknessAnimation Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_LeftDrawer" Duration="0:0:0.4">
+                                                <ThicknessAnimation.EasingFunction>
+                                                    <SineEase EasingMode="EaseOut" />
+                                                </ThicknessAnimation.EasingFunction>
+                                            </ThicknessAnimation>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="LeftDrawerShadow" Storyboard.TargetProperty="Opacity">
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0:0:0.36" />
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0:0:0.4">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseOut" />
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="LeftDrawerOpen">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="LeftDrawerShadow" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0" />
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_LeftDrawer" To="0" Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="LeftDrawerClosed">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="LeftDrawerShadow" Storyboard.TargetProperty="Opacity" From="0" To="0" Duration="0" />
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_LeftDrawer" Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="RightDrawer">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition From="RightDrawerClosed" To="RightDrawerOpen">
+                                        <Storyboard>
+                                            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_RightDrawer">
+                                                <EasingThicknessKeyFrame Value="0" KeyTime="0:0:0.4">
+                                                    <EasingThicknessKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseOut" />
+                                                    </EasingThicknessKeyFrame.EasingFunction>
+                                                </EasingThicknessKeyFrame>
+                                            </ThicknessAnimationUsingKeyFrames>
+                                            <DoubleAnimation Storyboard.TargetName="RightDrawerShadow" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.04" />
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="RightDrawerOpen" To="RightDrawerClosed">
+                                        <Storyboard>
+                                            <ThicknessAnimation Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_RightDrawer" Duration="0:0:0.4">
+                                                <ThicknessAnimation.EasingFunction>
+                                                    <SineEase EasingMode="EaseOut" />
+                                                </ThicknessAnimation.EasingFunction>
+                                            </ThicknessAnimation>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="RightDrawerShadow" Storyboard.TargetProperty="Opacity">
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0:0:0.36" />
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0:0:0.4">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseOut" />
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="RightDrawerOpen">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="RightDrawerShadow" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0" />
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_RightDrawer" To="0 0 0 0" Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="RightDrawerClosed">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="RightDrawerShadow" Storyboard.TargetProperty="Opacity" From="0" To="0" Duration="0" />
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_RightDrawer" Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="TopDrawer">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition From="TopDrawerClosed" To="TopDrawerOpen">
+                                        <Storyboard>
+                                            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_TopDrawer">
+                                                <EasingThicknessKeyFrame Value="0" KeyTime="0:0:0.4">
+                                                    <EasingThicknessKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseOut" />
+                                                    </EasingThicknessKeyFrame.EasingFunction>
+                                                </EasingThicknessKeyFrame>
+                                            </ThicknessAnimationUsingKeyFrames>
+                                            <DoubleAnimation Storyboard.TargetName="TopDrawerShadow" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.04" />
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="TopDrawerOpen" To="TopDrawerClosed">
+                                        <Storyboard>
+                                            <ThicknessAnimation Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_TopDrawer" Duration="0:0:0.4">
+                                                <ThicknessAnimation.EasingFunction>
+                                                    <SineEase EasingMode="EaseOut" />
+                                                </ThicknessAnimation.EasingFunction>
+                                            </ThicknessAnimation>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="TopDrawerShadow" Storyboard.TargetProperty="Opacity">
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0:0:0.36" />
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0:0:0.4">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseOut" />
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="TopDrawerOpen">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="TopDrawerShadow" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0" />
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_TopDrawer" To="0" Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="TopDrawerClosed">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="TopDrawerShadow" Storyboard.TargetProperty="Opacity" From="0" To="0" Duration="0" />
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_TopDrawer" Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="BottomDrawer">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition From="BottomDrawerClosed" To="BottomDrawerOpen">
+                                        <Storyboard>
+                                            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_BottomDrawer">
+                                                <EasingThicknessKeyFrame Value="0" KeyTime="0:0:0.4">
+                                                    <EasingThicknessKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseOut" />
+                                                    </EasingThicknessKeyFrame.EasingFunction>
+                                                </EasingThicknessKeyFrame>
+                                            </ThicknessAnimationUsingKeyFrames>
+                                            <DoubleAnimation Storyboard.TargetName="BottomDrawerShadow" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.04" />
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="BottomDrawerOpen" To="BottomDrawerClosed">
+                                        <Storyboard>
+                                            <ThicknessAnimation Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_BottomDrawer" Duration="0:0:0.4">
+                                                <ThicknessAnimation.EasingFunction>
+                                                    <SineEase EasingMode="EaseOut" />
+                                                </ThicknessAnimation.EasingFunction>
+                                            </ThicknessAnimation>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="BottomDrawerShadow" Storyboard.TargetProperty="Opacity">
+                                                <EasingDoubleKeyFrame Value="1" KeyTime="0:0:0.36" />
+                                                <EasingDoubleKeyFrame Value="0" KeyTime="0:0:0.4">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <SineEase EasingMode="EaseOut" />
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="BottomDrawerOpen">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="BottomDrawerShadow" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0" />
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_BottomDrawer" To="0 0 0 0" Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="BottomDrawerClosed">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="BottomDrawerShadow" Storyboard.TargetProperty="Opacity" From="0" To="0" Duration="0" />
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" Storyboard.TargetName="PART_BottomDrawer" Duration="0"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="RootGrid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid x:Name="PART_Content" Grid.RowSpan="3" Grid.ColumnSpan="3">
+                                <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(local:ShadowExtension.CacheMode)}">
+                                    <ContentPresenter x:Name="ContentPresenter" Opacity="1" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" ContentStringFormat="{TemplateBinding ContentStringFormat}" />
+                                </AdornerDecorator>
+                                <Grid x:Name="PART_ContentCover" Background="{TemplateBinding OverlayBackground}" Opacity="0" IsHitTestVisible="False" Focusable="False">
+                                    <Grid.Style>
+                                        <Style TargetType="Grid">
+                                            <Style.Triggers>
+                                                <Trigger Property="Opacity" Value="0">
+                                                    <Setter Property="Visibility" Value="Hidden" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Grid.Style>
+                                </Grid>
+                            </Grid>
+
+                            <Grid x:Name="PART_LeftDrawer" Grid.RowSpan="3" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Stretch" Panel.ZIndex="{TemplateBinding LeftDrawerZIndex}"
+                                      Margin="{Binding RelativeSource={RelativeSource Self}, Path=ActualWidth, Converter={Converters:DrawerOffsetConverter}, ConverterParameter={x:Static Dock.Left}}">
+                                <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(local:ShadowExtension.CacheMode)}">
+                                    <Border x:Name="LeftDrawerShadow" Opacity="0" Background="{TemplateBinding LeftDrawerBackground}"/>
+                                </AdornerDecorator>
+                                <ContentPresenter IsEnabled="{TemplateBinding IsLeftDrawerOpen}" Content="{TemplateBinding LeftDrawerContent}" ContentTemplate="{TemplateBinding LeftDrawerContentTemplate}" ContentStringFormat="{TemplateBinding LeftDrawerContentStringFormat}"/>
+                            </Grid>
+                            <Grid x:Name="PART_RightDrawer" Grid.RowSpan="3" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Right" Panel.ZIndex="{TemplateBinding RightDrawerZIndex}"
+                                      Margin="{Binding RelativeSource={RelativeSource Self}, Path=ActualWidth, Converter={Converters:DrawerOffsetConverter}, ConverterParameter={x:Static Dock.Right}}">
+                                <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(local:ShadowExtension.CacheMode)}">
+                                    <Border x:Name="RightDrawerShadow" Opacity="0" Background="{TemplateBinding RightDrawerBackground}"/>
+                                </AdornerDecorator>
+                                <ContentPresenter IsEnabled="{TemplateBinding IsRightDrawerOpen}" Content="{TemplateBinding RightDrawerContent}" ContentTemplate="{TemplateBinding RightDrawerContentTemplate}" ContentStringFormat="{TemplateBinding RightDrawerContentStringFormat}"/>
+                            </Grid>
+                            <Grid x:Name="PART_TopDrawer" Grid.RowSpan="3" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Panel.ZIndex="{TemplateBinding TopDrawerZIndex}"
+                                      Margin="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight, Converter={Converters:DrawerOffsetConverter}, ConverterParameter={x:Static Dock.Top}}">
+                                <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(local:ShadowExtension.CacheMode)}">
+                                    <Border x:Name="TopDrawerShadow" Opacity="0" Background="{TemplateBinding TopDrawerBackground}"/>
+                                </AdornerDecorator>
+                                <ContentPresenter IsEnabled="{TemplateBinding IsTopDrawerOpen}" Content="{TemplateBinding TopDrawerContent}" ContentTemplate="{TemplateBinding TopDrawerContentTemplate}" ContentStringFormat="{TemplateBinding TopDrawerContentStringFormat}"/>
+                            </Grid>
+                            <Grid x:Name="PART_BottomDrawer" Grid.RowSpan="3" Grid.ColumnSpan="3" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Panel.ZIndex="{TemplateBinding BottomDrawerZIndex}"
+                                      Margin="{Binding RelativeSource={RelativeSource Self}, Path=ActualHeight, Converter={Converters:DrawerOffsetConverter}, ConverterParameter={x:Static Dock.Bottom}}">
+                                <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(local:ShadowExtension.CacheMode)}">
+                                    <Border x:Name="BottomDrawerShadow" Opacity="0" Background="{TemplateBinding BottomDrawerBackground}"/>
+                                </AdornerDecorator>
+                                <ContentPresenter IsEnabled="{TemplateBinding IsBottomDrawerOpen}" Content="{TemplateBinding BottomDrawerContent}" ContentTemplate="{TemplateBinding BottomDrawerContentTemplate}" ContentStringFormat="{TemplateBinding BottomDrawerContentStringFormat}"/>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsOverlayBackgroundEnabled" Value="False">
+                            <Setter TargetName="PART_ContentCover" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="IsOverlayed" Value="False">
+                            <Setter TargetName="PART_ContentCover" Property="Visibility" Value="Collapsed"/>
+
+                            <Setter TargetName="PART_Content" Property="Grid.RowSpan" Value="1"/>
+                            <Setter TargetName="PART_Content" Property="Grid.ColumnSpan" Value="1"/>
+                            <Setter TargetName="PART_Content" Property="Grid.Row" Value="1"/>
+                            <Setter TargetName="PART_Content" Property="Grid.Column" Value="1"/>
+
+                            <Setter TargetName="PART_LeftDrawer" Property="Grid.RowSpan" Value="3"/>
+                            <Setter TargetName="PART_LeftDrawer" Property="Grid.ColumnSpan" Value="1"/>
+                            <Setter TargetName="PART_LeftDrawer" Property="Grid.Row" Value="0"/>
+                            <Setter TargetName="PART_LeftDrawer" Property="Grid.Column" Value="0"/>
+
+                            <Setter TargetName="PART_RightDrawer" Property="Grid.RowSpan" Value="3"/>
+                            <Setter TargetName="PART_RightDrawer" Property="Grid.ColumnSpan" Value="1"/>
+                            <Setter TargetName="PART_RightDrawer" Property="Grid.Row" Value="0"/>
+                            <Setter TargetName="PART_RightDrawer" Property="Grid.Column" Value="2"/>
+
+                            <Setter TargetName="PART_TopDrawer" Property="Grid.RowSpan" Value="1"/>
+                            <Setter TargetName="PART_TopDrawer" Property="Grid.ColumnSpan" Value="3"/>
+                            <Setter TargetName="PART_TopDrawer" Property="Grid.Row" Value="0"/>
+                            <Setter TargetName="PART_TopDrawer" Property="Grid.Column" Value="0"/>
+
+                            <Setter TargetName="PART_BottomDrawer" Property="Grid.RowSpan" Value="1"/>
+                            <Setter TargetName="PART_BottomDrawer" Property="Grid.ColumnSpan" Value="3"/>
+                            <Setter TargetName="PART_BottomDrawer" Property="Grid.Row" Value="2"/>
+                            <Setter TargetName="PART_BottomDrawer" Property="Grid.Column" Value="0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

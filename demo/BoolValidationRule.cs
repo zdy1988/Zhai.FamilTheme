@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Text;
 using System.Windows.Controls;
 
-namespace Zhai.FamilThemeDemo
+namespace Zhai.Famil.Demo
 {
     public class BoolValidationRule : ValidationRule
     {

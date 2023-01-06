@@ -1,7 +1,7 @@
 ﻿using System.Windows.Markup;
 using System.Windows.Media.Animation;
 
-namespace Zhai.FamilTheme.Transitions
+namespace Zhai.Famil.Transitions
 {
     public abstract class AnimateTransitionParameterExtension<T> : MarkupExtension
     {

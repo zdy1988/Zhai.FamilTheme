@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Windows;
 
-namespace Zhai.FamilTheme.Transitions
+namespace Zhai.Famil.Transitions
 {
     public partial class Animate
     {

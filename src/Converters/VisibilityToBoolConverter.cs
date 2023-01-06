@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Zhai.FamilTheme.Converters
+namespace Zhai.Famil.Converters
 {
     public class VisibilityToBoolConverter : ConverterMarkupExtensionBase<VisibilityToBoolConverter>, IValueConverter
     {

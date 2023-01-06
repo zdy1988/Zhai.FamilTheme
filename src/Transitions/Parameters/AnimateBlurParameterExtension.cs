@@ -2,7 +2,7 @@
 using System.Windows.Markup;
 using System.Windows.Media.Animation;
 
-namespace Zhai.FamilTheme.Transitions
+namespace Zhai.Famil.Transitions
 {
     [MarkupExtensionReturnType(typeof(IBlurParameter))]
     public class AnimateBlurParameterExtension : AnimateTransitionParameterExtension<double>, IBlurParameter

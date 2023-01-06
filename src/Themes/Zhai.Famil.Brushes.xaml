@@ -1,0 +1,51 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys ="clr-namespace:System;assembly=mscorlib"
+                    xmlns:Converters="clr-namespace:Zhai.Famil.Converters"
+                    xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+
+    <LinearGradientBrush x:Key="Zhai.Famil.ColorfulBrush" StartPoint="0,0" EndPoint="1,1" PresentationOptions:Freeze="True">
+        <GradientStop Color="#9790f2"  Offset="0" />
+        <GradientStop Color="#7fbfff" Offset="0.5" />
+        <GradientStop Color="#21BFD5" Offset="1" />
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="Zhai.Famil.Window.DarkTitleBarBackgroundBrush" Color="#2f3339" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.Famil.Window.LightTitleBarBackgroundBrush" Color="#ebeff8" PresentationOptions:Freeze="True"/>
+
+    <SolidColorBrush x:Key="Zhai.Famil.Window.DarkBackgroundBrush" Color="#1e1e1e" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.Famil.Window.LightBackgroundBrush" Color="#fafcff" PresentationOptions:Freeze="True"/>
+
+    <SolidColorBrush x:Key="Zhai.Famil.Window.DarkForegroundBrush" Color="#0f0f0f" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.Famil.Window.LightForegroundBrush" Color="#ffffff" PresentationOptions:Freeze="True"/>
+
+    <Converters:BrushRoundConverter x:Key="FloatingBackgroundBrushRoundConverter" HighValue="{StaticResource Zhai.Famil.Window.DarkBackgroundBrush}" LowValue="{StaticResource Zhai.Famil.Window.LightBackgroundBrush}"/>
+    
+    <SolidColorBrush x:Key="Zhai.Famil.FloatingBackgroundBrush" Color="#B3000000" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.Famil.FloatingForegroundBrush" Color="#ffffff" PresentationOptions:Freeze="True"/>
+    <DropShadowEffect x:Key="Zhai.Famil.FloatingShadowEffect" BlurRadius="5" ShadowDepth="1" Direction="270" Color="#AA000000" Opacity=".42" RenderingBias="Performance" PresentationOptions:Freeze="True" />
+
+    <SolidColorBrush x:Key="Zhai.Famil.SeparatorBrush" Color="#3d666666" Opacity="0.24" PresentationOptions:Freeze="True"/>
+
+    <SolidColorBrush x:Key="Zhai.Famil.InfoBrush" Color="#0078d4" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.Famil.SuccessBrush" Color="#4fdf91" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.Famil.WarningBrush" Color="#f3a968" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.Famil.ErrorBrush" Color="#dd2c00" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.Famil.HighlightBrush" Color="#eaac22" PresentationOptions:Freeze="True"/>
+
+    <DropShadowEffect x:Key="Zhai.Famil.ErrorShadowEffect" BlurRadius="5" ShadowDepth="1" Direction="270" Color="#dd2c00" Opacity=".42" RenderingBias="Performance" PresentationOptions:Freeze="True" />
+    <DropShadowEffect x:Key="Zhai.Famil.HighlightShadowEffect" BlurRadius="5" ShadowDepth="1" Direction="270" Color="#eaac22" Opacity=".42" RenderingBias="Performance" PresentationOptions:Freeze="True" />
+
+    <Color x:Key="Zhai.Famil.SelectionColor">#90666666</Color>
+    <sys:Double x:Key="Zhai.Famil.SelectionHoveredOpacity">0.18</sys:Double>
+    <sys:Double x:Key="Zhai.Famil.SelectionActivedOpacity">0.24</sys:Double>
+    <sys:Double x:Key="Zhai.Famil.SelectionUnActivedOpacity">0.12</sys:Double>
+
+    <SolidColorBrush x:Key="Zhai.Famil.SelectionBrush" Color="{StaticResource Zhai.Famil.SelectionColor}" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.Famil.SelectionHoveredBrush" Color="{StaticResource Zhai.Famil.SelectionColor}" Opacity="{StaticResource Zhai.Famil.SelectionHoveredOpacity}" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.Famil.SelectionActivedBrush" Color="{StaticResource Zhai.Famil.SelectionColor}" Opacity="{StaticResource Zhai.Famil.SelectionActivedOpacity}" PresentationOptions:Freeze="True"/>
+    <SolidColorBrush x:Key="Zhai.Famil.SelectionUnActivedBrush" Color="{StaticResource Zhai.Famil.SelectionColor}" Opacity="{StaticResource Zhai.Famil.SelectionUnActivedOpacity}" PresentationOptions:Freeze="True"/>
+
+    <sys:Double x:Key="Zhai.Famil.ForegroundOpacity">0.72</sys:Double>
+
+</ResourceDictionary>

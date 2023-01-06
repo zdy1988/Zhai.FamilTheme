@@ -2,8 +2,9 @@ using System;
 using System.Windows;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
+using Zhai.Famil.Controls;
 
-namespace Zhai.FamilTheme.Transitions
+namespace Zhai.Famil.Transitions
 {
     public partial class Animate
     {

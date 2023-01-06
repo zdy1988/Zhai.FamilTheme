@@ -12,9 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Zhai.FamilTheme;
+using Zhai.Famil.Controls;
 
-namespace Zhai.FamilThemeDemo
+namespace Zhai.Famil.Demo
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -1,15 +1,15 @@
-﻿<UserControl x:Class="Zhai.FamilThemeDemo.MainWindowContent"
+﻿<UserControl x:Class="Zhai.Famil.Demo.MainWindowContent"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Zhai.FamilThemeDemo"
+             xmlns:local="clr-namespace:Zhai.Famil.Demo"
              xmlns:ZDY="http://www.zdyla.com/coding"
-             ZDY:Translator.ResourceDictionary="Zhai.FamilThemeDemo.Lang"
+             ZDY:Translator.ResourceDictionary="Zhai.Famil.Demo.Lang"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Brushes.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Brushes.xaml" />
     </UserControl.Resources>
 
     <Grid>
@@ -779,7 +779,7 @@
                         </MenuItem>
                     </ZDY:Menu>
 
-                    <ZDY:Menu IsMainMenu="True" Margin="0 20 0 0" Background="{StaticResource Zhai.FamilTheme.SelectionUnActivedBrush}">
+                    <ZDY:Menu IsMainMenu="True" Margin="0 20 0 0" Background="{StaticResource Zhai.Famil.SelectionUnActivedBrush}">
                         <MenuItem Header="File">
                             <MenuItem Header="Save" Icon="{ZDY:Icon Kind=Save}"/>
                             <MenuItem Header="Save As.." Icon="{ZDY:Icon Kind=SaveAs}"/>
@@ -1108,15 +1108,15 @@
                     <TextBlock Text="{Binding ElementName=Slider1, Path=Value, StringFormat=Slider:{0}}" Margin="0 10 0 0"/>
                     <ZDY:Slider Margin="0 5" x:Name="Slider1" Value="5"/>
                     <ZDY:Slider Margin="0 5" IsEnabled="False" Value="7"/>
-                    <ZDY:Slider Margin="0 5" Value="7" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}"/>
-                    <ZDY:Slider Margin="0 5" IsEnabled="False" Value="7" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}"/>
-                    <ZDY:Slider Margin="0 5" Value="7" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" Background="Red" CornerRadius="2"/>
+                    <ZDY:Slider Margin="0 5" Value="7" Foreground="{StaticResource Zhai.Famil.ColorfulBrush}"/>
+                    <ZDY:Slider Margin="0 5" IsEnabled="False" Value="7" Foreground="{StaticResource Zhai.Famil.ColorfulBrush}"/>
+                    <ZDY:Slider Margin="0 5" Value="7" Foreground="{StaticResource Zhai.Famil.ColorfulBrush}" Background="Red" CornerRadius="2"/>
                     <TextBlock Text="{Binding ElementName=Slider2, Path=Value, StringFormat=Slider2:{0}}" Margin="0 10 0 0"/>
                     <ZDY:Slider2 Margin="0 5" x:Name="Slider2" Value="5"/>
                     <ZDY:Slider2 Margin="0 5" IsEnabled="False" Value="7"/>
-                    <ZDY:Slider2 Margin="0 5" Value="7" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}"/>
-                    <ZDY:Slider2 Margin="0 5" IsEnabled="False" Value="7" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}"/>
-                    <ZDY:Slider2 Margin="0 5" Value="7" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" Background="Red" CornerRadius="2"/>
+                    <ZDY:Slider2 Margin="0 5" Value="7" Foreground="{StaticResource Zhai.Famil.ColorfulBrush}"/>
+                    <ZDY:Slider2 Margin="0 5" IsEnabled="False" Value="7" Foreground="{StaticResource Zhai.Famil.ColorfulBrush}"/>
+                    <ZDY:Slider2 Margin="0 5" Value="7" Foreground="{StaticResource Zhai.Famil.ColorfulBrush}" Background="Red" CornerRadius="2"/>
                 </StackPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="CheckBox">
@@ -1126,19 +1126,19 @@
                         <ZDY:CheckBox Margin="5" IsChecked="{x:Null}"/>
                         <ZDY:CheckBox Margin="5" Size="32"/>
                         <ZDY:CheckBox Margin="5" Size="64"/>
-                        <ZDY:CheckBox Margin="5" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" Background="Red" CornerRadius="3"/>
+                        <ZDY:CheckBox Margin="5" Foreground="{StaticResource Zhai.Famil.ColorfulBrush}" Background="Red" CornerRadius="3"/>
                     </WrapPanel>
 
                     <WrapPanel>
                         <ZDY:RadioButton Margin="5" GroupName="radio"/>
                         <ZDY:RadioButton Margin="5" GroupName="radio" Size="32"/>
                         <ZDY:RadioButton Margin="5" GroupName="radio" Size="64"/>
-                        <ZDY:RadioButton Margin="5" GroupName="radio" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" Background="Red"/>
+                        <ZDY:RadioButton Margin="5" GroupName="radio" Foreground="{StaticResource Zhai.Famil.ColorfulBrush}" Background="Red"/>
                     </WrapPanel>
 
                     <WrapPanel>
                         <ZDY:SwitchToggleButton Margin="5"/>
-                        <ZDY:SwitchToggleButton Margin="5" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" Background="Red"/>
+                        <ZDY:SwitchToggleButton Margin="5" Foreground="{StaticResource Zhai.Famil.ColorfulBrush}" Background="Red"/>
                         <ZDY:SwitchToggleButton Margin="5" Size="45"/>
                         <ZDY:SwitchToggleButton Margin="5" Size="60"/>
                     </WrapPanel>
@@ -1209,7 +1209,7 @@
                     </WrapPanel>
                     <WrapPanel Orientation="Horizontal">
                         <ZDY:ProgressBar Width="240" Height="24" Minimum="0"  Maximum="100" Value="66" BorderThickness="0"
-                                         Progressground="{StaticResource Zhai.FamilTheme.ColorfulBrush}" 
+                                         Progressground="{StaticResource Zhai.Famil.ColorfulBrush}" 
                                          Background="Gray" CornerRadius="2"
                                          Content="Progress bar with content"
                                          Foreground="White"
@@ -1217,7 +1217,7 @@
                                          IsProgressAnimationEnabled="True">
                         </ZDY:ProgressBar>
                         <ZDY:ProgressBar Width="240" Height="24" IsIndeterminate="True" BorderThickness="0"
-                                         Progressground="{StaticResource Zhai.FamilTheme.ColorfulBrush}"
+                                         Progressground="{StaticResource Zhai.Famil.ColorfulBrush}"
                                          Background="Gray" CornerRadius="2"
                                          Content="Progress bar with content"
                                          Foreground="White"
@@ -1235,7 +1235,7 @@
                     <ZDY:Loading Foreground="OrangeRed"/>
                     <ZDY:Loading Theme="Bars" Foreground="OrangeRed"/>
                     <ZDY:Loading Theme="Dots" Foreground="OrangeRed"/>
-                    <ZDY:Loading Width="100" Foreground="{StaticResource Zhai.FamilTheme.ColorfulBrush}"/>
+                    <ZDY:Loading Width="100" Foreground="{StaticResource Zhai.Famil.ColorfulBrush}"/>
                 </StackPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="ScrollViewer">

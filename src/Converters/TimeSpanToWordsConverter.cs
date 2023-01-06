@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Zhai.FamilTheme.Converters
+namespace Zhai.Famil.Converters
 {
     public class TimeSpanToWordsConverter : ConverterMarkupExtensionBase<TimeSpanToWordsConverter>, IValueConverter
     {

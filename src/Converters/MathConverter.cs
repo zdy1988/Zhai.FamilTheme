@@ -7,7 +7,7 @@ using System.Windows.Data;
 using System.Windows.Markup;
 using System.Windows;
 
-namespace Zhai.FamilTheme.Converters
+namespace Zhai.Famil.Converters
 {
     /// <summary>
     /// Value converter that performs arithmetic calculations over its argument(s)

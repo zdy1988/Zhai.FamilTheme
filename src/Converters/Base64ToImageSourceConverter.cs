@@ -4,7 +4,7 @@ using System.IO;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace Zhai.FamilTheme.Converters
+namespace Zhai.Famil.Converters
 {
     public class Base64ToImageSourceConverter : ConverterMarkupExtensionBase<Base64ToImageSourceConverter>, IValueConverter
     {

@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace Zhai.FamilTheme.Converters
+namespace Zhai.Famil.Converters
 {
     public class BoolToOrientationConverter: ConverterMarkupExtensionBase<BoolToOrientationConverter>, IValueConverter
     {

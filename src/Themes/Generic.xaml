@@ -1,47 +1,48 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Zhai.FamilTheme">
+                    xmlns:local="clr-namespace:Zhai.Famil.Controls">
 
     <ResourceDictionary.MergedDictionaries>
 
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Badged.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Button.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Calendar.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Card.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.CheckBox.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ColorEyeDropper.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ColorPicker.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ComboBox.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.CopyButton.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.DataGrid.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.DatePicker.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Drawer.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Hint.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Icon.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.IconButton.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.IconToggleButton.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.LinkButton.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ListBox.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ListView.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Loading.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Menu.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.PasswordBox.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Popup.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ProgressBar.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.RadioButton.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Repeater.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ScrollViewer.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.Slider.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.SwitchToggleButton.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.TabPanel.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.TextBox.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.ToolTip.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.TransparentWindow.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Zhai.FamilTheme;component/Themes/Zhai.FamilTheme.GlassesWindow.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Badged.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Calendar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Card.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.CheckBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.ColorEyeDropper.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.ColorPicker.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.ComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.CopyButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.DataGrid.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.DatePicker.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Drawer.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Hint.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Icon.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.IconButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.IconToggleButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.LinkButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.ListBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.ListView.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Loading.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Menu.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Notifiactions.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.PasswordBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Popup.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.ProgressBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.RadioButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Repeater.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.ScrollViewer.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Slider.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.SwitchToggleButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.TabPanel.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.ToolTip.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.TransparentWindow.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.GlassesWindow.xaml" />
 
     </ResourceDictionary.MergedDictionaries>
 
-    <ContextMenu x:Key="Zhai.FamilTheme.DefaultContextMenu">
+    <ContextMenu x:Key="Zhai.Famil.DefaultContextMenu">
         <MenuItem Command="Cut">
             <MenuItem.Icon>
                 <local:Icon Kind="Cut" />
@@ -65,49 +66,49 @@
         </MenuItem>
     </ContextMenu>
 
-    <Style TargetType="{x:Type local:Badged}" BasedOn="{StaticResource Zhai.FamilTheme.Badged}"/>
-    <Style TargetType="{x:Type local:Button}" BasedOn="{StaticResource Zhai.FamilTheme.Button}"/>
-    <Style TargetType="{x:Type local:Calendar}" BasedOn="{StaticResource Zhai.FamilTheme.Calendar}"/>
-    <Style TargetType="{x:Type local:Card}"  BasedOn="{StaticResource Zhai.FamilTheme.Card}"/>
-    <Style TargetType="{x:Type local:CheckBox}" BasedOn="{StaticResource Zhai.FamilTheme.CheckBox}"/>
-    <Style TargetType="{x:Type local:ColorEyeDropper}" BasedOn="{StaticResource Zhai.FamilTheme.ColorEyeDropper}"/>
-    <Style TargetType="{x:Type local:ColorPicker}" BasedOn="{StaticResource Zhai.FamilTheme.ColorPicker}"/>
-    <Style TargetType="{x:Type local:ColorWheeler}" BasedOn="{StaticResource Zhai.FamilTheme.ColorWheeler}"/>
-    <Style TargetType="{x:Type local:ComboBox}" BasedOn="{StaticResource Zhai.FamilTheme.ComboBox}">
-        <Setter Property="ContextMenu" Value="{StaticResource Zhai.FamilTheme.DefaultContextMenu}"/>
+    <Style TargetType="{x:Type local:Badged}" BasedOn="{StaticResource Zhai.Famil.Badged}"/>
+    <Style TargetType="{x:Type local:Button}" BasedOn="{StaticResource Zhai.Famil.Button}"/>
+    <Style TargetType="{x:Type local:Calendar}" BasedOn="{StaticResource Zhai.Famil.Calendar}"/>
+    <Style TargetType="{x:Type local:Card}"  BasedOn="{StaticResource Zhai.Famil.Card}"/>
+    <Style TargetType="{x:Type local:CheckBox}" BasedOn="{StaticResource Zhai.Famil.CheckBox}"/>
+    <Style TargetType="{x:Type local:ColorEyeDropper}" BasedOn="{StaticResource Zhai.Famil.ColorEyeDropper}"/>
+    <Style TargetType="{x:Type local:ColorPicker}" BasedOn="{StaticResource Zhai.Famil.ColorPicker}"/>
+    <Style TargetType="{x:Type local:ColorWheeler}" BasedOn="{StaticResource Zhai.Famil.ColorWheeler}"/>
+    <Style TargetType="{x:Type local:ComboBox}" BasedOn="{StaticResource Zhai.Famil.ComboBox}">
+        <Setter Property="ContextMenu" Value="{StaticResource Zhai.Famil.DefaultContextMenu}"/>
     </Style>
-    <Style TargetType="{x:Type local:CopyButton}" BasedOn="{StaticResource Zhai.FamilTheme.CopyButton}"/>
-    <Style TargetType="{x:Type local:DataGrid}" BasedOn="{StaticResource Zhai.FamilTheme.DataGrid}"/>
-    <Style TargetType="{x:Type local:DatePicker}" BasedOn="{StaticResource Zhai.FamilTheme.DatePicker}">
-        <Setter Property="ContextMenu" Value="{StaticResource Zhai.FamilTheme.DefaultContextMenu}"/>
+    <Style TargetType="{x:Type local:CopyButton}" BasedOn="{StaticResource Zhai.Famil.CopyButton}"/>
+    <Style TargetType="{x:Type local:DataGrid}" BasedOn="{StaticResource Zhai.Famil.DataGrid}"/>
+    <Style TargetType="{x:Type local:DatePicker}" BasedOn="{StaticResource Zhai.Famil.DatePicker}">
+        <Setter Property="ContextMenu" Value="{StaticResource Zhai.Famil.DefaultContextMenu}"/>
     </Style>
-    <Style TargetType="{x:Type local:Drawer}" BasedOn="{StaticResource Zhai.FamilTheme.Drawer}"/>
-    <Style TargetType="{x:Type local:Hint}" BasedOn="{StaticResource  Zhai.FamilTheme.Hint}"/>
-    <Style TargetType="{x:Type local:IconButton}" BasedOn="{StaticResource Zhai.FamilTheme.IconButton}"/>
-    <Style TargetType="{x:Type local:IconToggleButton}" BasedOn="{StaticResource Zhai.FamilTheme.IconToggleButton}"/>
-    <Style TargetType="{x:Type local:LinkButton}" BasedOn="{StaticResource Zhai.FamilTheme.LinkButton}"/>
-    <Style TargetType="{x:Type local:ListBox}" BasedOn="{StaticResource Zhai.FamilTheme.ListBox}"/>
-    <Style TargetType="{x:Type local:ListView}" BasedOn="{StaticResource Zhai.FamilTheme.ListView}"/>
-    <Style TargetType="{x:Type local:Loading}" BasedOn="{StaticResource Zhai.FamilTheme.Loading}"/>
-    <Style TargetType="{x:Type local:Menu}" BasedOn="{StaticResource Zhai.FamilTheme.Menu}"/>
-    <Style TargetType="{x:Type local:ProgressBar}" BasedOn="{StaticResource Zhai.FamilTheme.ProgressBar}"/>
-    <Style TargetType="{x:Type local:RadioButton}" BasedOn="{StaticResource Zhai.FamilTheme.RadioButton}"/>
-    <Style TargetType="{x:Type local:Repeater}" BasedOn="{StaticResource Zhai.FamilTheme.Repeater}"/>
-    <Style TargetType="{x:Type local:ScrollViewer}" BasedOn="{StaticResource Zhai.FamilTheme.ScrollViewer}"/>
-    <Style TargetType="{x:Type local:Slider}" BasedOn="{StaticResource Zhai.FamilTheme.PositionSlider}"/>
-    <Style TargetType="{x:Type local:Slider2}" BasedOn="{StaticResource Zhai.FamilTheme.PositionSlider2}"/>
-    <Style TargetType="{x:Type local:SwitchToggleButton}" BasedOn="{StaticResource Zhai.FamilTheme.SwitchToggleButton}"/>
-    <Style TargetType="{x:Type local:TabItem}" BasedOn="{StaticResource Zhai.FamilTheme.TabItem}"/>
-    <Style TargetType="{x:Type local:TabPanel}" BasedOn="{StaticResource Zhai.FamilTheme.TabPanel}"/>
-    <Style TargetType="{x:Type local:TextBox}" BasedOn="{StaticResource Zhai.FamilTheme.TextBox}">
-        <Setter Property="ContextMenu" Value="{StaticResource Zhai.FamilTheme.DefaultContextMenu}"/>
+    <Style TargetType="{x:Type local:Drawer}" BasedOn="{StaticResource Zhai.Famil.Drawer}"/>
+    <Style TargetType="{x:Type local:Hint}" BasedOn="{StaticResource  Zhai.Famil.Hint}"/>
+    <Style TargetType="{x:Type local:IconButton}" BasedOn="{StaticResource Zhai.Famil.IconButton}"/>
+    <Style TargetType="{x:Type local:IconToggleButton}" BasedOn="{StaticResource Zhai.Famil.IconToggleButton}"/>
+    <Style TargetType="{x:Type local:LinkButton}" BasedOn="{StaticResource Zhai.Famil.LinkButton}"/>
+    <Style TargetType="{x:Type local:ListBox}" BasedOn="{StaticResource Zhai.Famil.ListBox}"/>
+    <Style TargetType="{x:Type local:ListView}" BasedOn="{StaticResource Zhai.Famil.ListView}"/>
+    <Style TargetType="{x:Type local:Loading}" BasedOn="{StaticResource Zhai.Famil.Loading}"/>
+    <Style TargetType="{x:Type local:Menu}" BasedOn="{StaticResource Zhai.Famil.Menu}"/>
+    <Style TargetType="{x:Type local:ProgressBar}" BasedOn="{StaticResource Zhai.Famil.ProgressBar}"/>
+    <Style TargetType="{x:Type local:RadioButton}" BasedOn="{StaticResource Zhai.Famil.RadioButton}"/>
+    <Style TargetType="{x:Type local:Repeater}" BasedOn="{StaticResource Zhai.Famil.Repeater}"/>
+    <Style TargetType="{x:Type local:ScrollViewer}" BasedOn="{StaticResource Zhai.Famil.ScrollViewer}"/>
+    <Style TargetType="{x:Type local:Slider}" BasedOn="{StaticResource Zhai.Famil.PositionSlider}"/>
+    <Style TargetType="{x:Type local:Slider2}" BasedOn="{StaticResource Zhai.Famil.PositionSlider2}"/>
+    <Style TargetType="{x:Type local:SwitchToggleButton}" BasedOn="{StaticResource Zhai.Famil.SwitchToggleButton}"/>
+    <Style TargetType="{x:Type local:TabItem}" BasedOn="{StaticResource Zhai.Famil.TabItem}"/>
+    <Style TargetType="{x:Type local:TabPanel}" BasedOn="{StaticResource Zhai.Famil.TabPanel}"/>
+    <Style TargetType="{x:Type local:TextBox}" BasedOn="{StaticResource Zhai.Famil.TextBox}">
+        <Setter Property="ContextMenu" Value="{StaticResource Zhai.Famil.DefaultContextMenu}"/>
     </Style>
-    <Style TargetType="{x:Type local:PasswordBox}" BasedOn="{StaticResource Zhai.FamilTheme.PasswordBox}">
-        <Setter Property="ContextMenu" Value="{StaticResource Zhai.FamilTheme.DefaultContextMenu}"/>
+    <Style TargetType="{x:Type local:PasswordBox}" BasedOn="{StaticResource Zhai.Famil.PasswordBox}">
+        <Setter Property="ContextMenu" Value="{StaticResource Zhai.Famil.DefaultContextMenu}"/>
     </Style>
-    <Style TargetType="{x:Type local:Popup}" BasedOn="{StaticResource Zhai.FamilTheme.Popup}"/>
-    <Style TargetType="{x:Type local:TransparentWindow}" BasedOn="{StaticResource Zhai.FamilTheme.TransparentWindow}"/>
-    <Style TargetType="{x:Type local:GlassesWindow}" BasedOn="{StaticResource Zhai.FamilTheme.GlassesWindow}"/>
+    <Style TargetType="{x:Type local:Popup}" BasedOn="{StaticResource Zhai.Famil.Popup}"/>
+    <Style TargetType="{x:Type local:TransparentWindow}" BasedOn="{StaticResource Zhai.Famil.TransparentWindow}"/>
+    <Style TargetType="{x:Type local:GlassesWindow}" BasedOn="{StaticResource Zhai.Famil.GlassesWindow}"/>
 
 
 </ResourceDictionary>

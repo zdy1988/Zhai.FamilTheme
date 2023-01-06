@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Data;
 
-namespace Zhai.FamilTheme.Converters
+namespace Zhai.Famil.Converters
 {
     public class FilePathToNameConverter : ConverterMarkupExtensionBase<FilePathToNameConverter>, IValueConverter
     {

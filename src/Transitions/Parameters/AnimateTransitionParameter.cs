@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Media.Animation;
 
-namespace Zhai.FamilTheme.Transitions
+namespace Zhai.Famil.Transitions
 {
     [Flags]
     public enum TransitionOn

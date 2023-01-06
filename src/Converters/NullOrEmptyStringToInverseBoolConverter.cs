@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Zhai.FamilTheme.Converters
+namespace Zhai.Famil.Converters
 {
     public class NullOrEmptyStringToInverseBoolConverter : ConverterMarkupExtensionBase<NullOrEmptyStringToInverseBoolConverter>, IValueConverter
     {

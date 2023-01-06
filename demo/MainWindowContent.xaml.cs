@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Zhai.FamilTheme;
+using Zhai.Famil.Controls.Notifiactions;
 
-namespace Zhai.FamilThemeDemo
+namespace Zhai.Famil.Demo
 {
     /// <summary>
     /// MainWindowContent.xaml 的交互逻辑
@@ -28,6 +26,16 @@ namespace Zhai.FamilThemeDemo
             InitializeComponent();
 
             this.DataContext = new MainWindowViewModel();
+
+            var content = new NotificationContent
+            {
+                Message = "Pink string from another thread!Pink string from another thread!Pink string from another thread!",
+                Type = NotificationType.Information
+            };
+
+            var timer = new Timer { Interval = 3000 };
+            timer.Elapsed += (sender, args) => NotificationManager.Default.Show(content);
+            timer.Start();
         }
 
         private void HintTestButton_Click(object sender, RoutedEventArgs e)

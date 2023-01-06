@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Zhai.FamilTheme.Converters
+namespace Zhai.Famil.Converters
 {
     public class TimeSpanToSecondsConverter : ConverterMarkupExtensionBase<TimeSpanToSecondsConverter>, IValueConverter
     {

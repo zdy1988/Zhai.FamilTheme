@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Text;
 using System.Windows.Data;
 
-namespace Zhai.FamilTheme.Converters
+namespace Zhai.Famil.Converters
 {
     public class NumberToSimplifiedConverter : ConverterMarkupExtensionBase<NumberToSimplifiedConverter>, IValueConverter
     {
