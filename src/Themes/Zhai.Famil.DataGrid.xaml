@@ -7,6 +7,8 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Brushes.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.ScrollBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.CheckBox.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="Zhai.Famil.DataGrid.Thumb" TargetType="{x:Type Thumb}">
@@ -99,7 +101,7 @@
                             Background="{TemplateBinding Background}"
                             Padding="{TemplateBinding Padding}">
                             <DockPanel HorizontalAlignment="Stretch" Margin="1 0 0 0">
-                                <local:Icon x:Name="HeaderSortIcon" DockPanel.Dock="Right" Margin="4 0 0 0"
+                                <local:Icon x:Name="HeaderSortIcon" DockPanel.Dock="Right" Margin="4 0 -2 0"
                                             Width="{TemplateBinding FontSize}" Height="{TemplateBinding FontSize}" VerticalAlignment="Center">
                                     <local:Icon.Visibility>
                                         <MultiBinding Converter="{Converters:MultiBoolToVisibilityConverter}" ConverterParameter="AND">
@@ -244,8 +246,8 @@
         <Setter Property="VerticalGridLinesBrush" Value="{StaticResource Zhai.Famil.SelectionBrush}" />
         <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected"/>
         <Setter Property="HeadersVisibility" Value="Column" />
-        <Setter Property="CellPadding" Value="8 8"/>
-        <Setter Property="HeaderColumnPadding" Value="8 12"/>
+        <Setter Property="CellPadding" Value="6 6"/>
+        <Setter Property="HeaderColumnPadding" Value="6 8"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
         <Setter Property="VirtualizingPanel.ScrollUnit" Value="Pixel"/>
@@ -271,19 +273,13 @@
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition x:Name="PART_VerticalScrollBarColumn" Width="Auto"/>
                                         </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto"/>
                                             <RowDefinition Height="*"/>
-                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition x:Name="PART_HorizontalScrollBarRow" Height="Auto"/>
                                         </Grid.RowDefinitions>
-                                        <Button
-                                            Command="{x:Static DataGrid.SelectAllCommand}" 
-                                            Focusable="false" 
-                                            Style="{DynamicResource {ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}}" 
-                                            Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
-                                            Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
                                         <Border x:Name="PART_ColumnHeadersContainer" Grid.Row="0" Grid.Column="1" BorderThickness="0 0 0 0" BorderBrush="{Binding RelativeSource={RelativeSource AncestorType=local:DataGrid}, Path=HorizontalGridLinesBrush}"
                                             Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
                                             <DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" />
@@ -328,6 +324,7 @@
                                                 <Condition Binding="{Binding ElementName=PART_VerticalScrollBar, Path=Visibility}" Value="Visible"/>
                                             </MultiDataTrigger.Conditions>
                                             <Setter TargetName="PART_VerticalScrollBarContainer" Property="BorderThickness" Value="1 0 0 0"/>
+                                            <Setter TargetName="PART_VerticalScrollBarColumn" Property="Width" Value="12"/>
                                         </MultiDataTrigger>
                                         <MultiDataTrigger>
                                             <MultiDataTrigger.Conditions>
@@ -335,6 +332,7 @@
                                                 <Condition Binding="{Binding ElementName=PART_HorizontalScrollBar, Path=Visibility}" Value="Visible"/>
                                             </MultiDataTrigger.Conditions>
                                             <Setter TargetName="PART_HorizontalScrollBarContainer" Property="BorderThickness" Value="0 1 0 0"/>
+                                            <Setter TargetName="PART_HorizontalScrollBarRow" Property="Height" Value="12"/>
                                             <Setter TargetName="PART_ScrollContentPresenter" Property="Margin" Value="0 0 0 -1"/>
                                         </MultiDataTrigger>
                                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=local:DataGrid}, Path=GridLinesVisibility}" Value="Horizontal">

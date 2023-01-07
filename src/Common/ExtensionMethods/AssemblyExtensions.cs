@@ -9,8 +9,6 @@ namespace Zhai.Famil.Common.ExtensionMethods
     /// </summary>
     public static class AssemblyExtensions
     {
-        #region Methods
-
         /// <summary>
         /// The GetCompany
         /// </summary>
@@ -119,7 +117,5 @@ namespace Zhai.Famil.Common.ExtensionMethods
             var attribute = assembly.GetCustomAttribute<AssemblyVersionAttribute>();
             return attribute != null ? attribute.Version : "";
         }
-
-        #endregion
     }
 }

@@ -10,6 +10,7 @@ namespace Zhai.Famil.Controls
 
         ChevronRightThin,
         ChevronLeftThin,
+        PlayThin,
 
         Open,
         Pin,

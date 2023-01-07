@@ -42,25 +42,25 @@ namespace Zhai.Famil.Common.Mvvm
         /// Gets a value indicating whether the control is in design mode
         /// (running under Blend or Visual Studio).
         /// </summary>
-        public bool IsInDesignMode
-        {
-            get
-            {
-                return IsInDesignModeStatic;
-            }
-        }
+        //public bool IsInDesignMode
+        //{
+        //    get
+        //    {
+        //        return IsInDesignModeStatic;
+        //    }
+        //}
 
         /// <summary>
         /// Gets a value indicating whether the control is in design mode
         /// (running in Blend or Visual Studio).
         /// </summary>
-        public static bool IsInDesignModeStatic
-        {
-            get
-            {
-                return DesignerLibrary.IsInDesignMode;
-            }
-        }
+        //public static bool IsInDesignModeStatic
+        //{
+        //    get
+        //    {
+        //        return DesignerLibrary.IsInDesignMode;
+        //    }
+        //}
 
         /// <summary>
         /// Gets or sets an instance of a <see cref="IMessenger" /> used to

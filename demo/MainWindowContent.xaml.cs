@@ -67,5 +67,17 @@ namespace Zhai.Famil.Demo
         {
             
         }
+
+        private void SearchIconTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            var textBox = (TextBox)sender;
+            textBox.Dispatcher.BeginInvoke(new Action(textBox.SelectAll));
+        }
+
+        private void SearchIconTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                this.ViewModel.SearchIcon();
+        }
     }
 }

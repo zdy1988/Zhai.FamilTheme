@@ -983,19 +983,51 @@
                         <ZDY:CheckBox x:Name="DataGrid_IsAutoHideEnabled" Margin="0 0 4 0" IsChecked="False"/>
                         <TextBlock Text="自动隐藏" Margin="0 0 10 0"/>
                     </StackPanel>
-                    <UniformGrid Columns="2" Rows="2">
-                        <UniformGrid.Resources>
+                    <ZDY:Grid ColumnCount="2" RowCount="2" ColumnWidth="*" RowHeight="*">
+                        <ZDY:Grid.Resources>
                             <Style TargetType="{x:Type ZDY:DataGrid}">
                                 <Setter Property="ZDY:ScrollViewerExtension.IsInertiaEnabled" Value="{Binding ElementName=DataGrid_IsInertiaEnabled, Path=IsChecked}"/>
                                 <Setter Property="ZDY:ScrollViewerExtension.IsMouseWheelEnabled" Value="{Binding ElementName=DataGrid_IsMouseWheelEnabled, Path=IsChecked}"/>
                                 <Setter Property="ZDY:ScrollViewerExtension.MouseWheelOrientation" Value="{Binding ElementName=DataGrid_MouseWheelOrientation, Path=IsChecked, Converter={ZDY:BoolToOrientationConverter}}"/>
                                 <Setter Property="ZDY:ScrollViewerExtension.IsAutoHideEnabled" Value="{Binding ElementName=DataGrid_IsAutoHideEnabled, Path=IsChecked}"/>
                             </Style>
-                        </UniformGrid.Resources>
-                        <ZDY:DataGrid ItemsSource="{Binding Items}" CanUserAddRows="False" Margin="5"/>
-                        <ZDY:DataGrid ItemsSource="{Binding Items}" CanUserAddRows="False" GridLinesVisibility="Vertical" Margin="5"/>
-                        <ZDY:DataGrid ItemsSource="{Binding Items}" CanUserAddRows="False" GridLinesVisibility="All" Margin="5"/>
-                    </UniformGrid>
+                        </ZDY:Grid.Resources>
+                        <ZDY:DataGrid ItemsSource="{Binding Items}" CanUserAddRows="False" Margin="5" IsReadOnly="True"/>
+                        <ZDY:DataGrid ItemsSource="{Binding Items}" CanUserAddRows="False" GridLinesVisibility="Vertical" Margin="5" IsReadOnly="True"/>
+                        <ZDY:DataGrid ItemsSource="{Binding EditItems}" CanUserAddRows="False" AutoGenerateColumns="False" GridLinesVisibility="All" Margin="5" Grid.ColumnSpan="2">
+                            <ZDY:DataGrid.Columns>
+                                <DataGridCheckBoxColumn Header="选择" Binding="{Binding IsSelected}"/>
+                                <DataGridTextColumn Header="编号" Binding="{Binding Index}"/>
+                                <DataGridTextColumn Header="姓名" Binding="{Binding Name}"/>
+                                <DataGridTemplateColumn Header="进度" Width="200">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <ZDY:ProgressBar Maximum="100" Minimum="0" Margin="-2" Foreground="{StaticResource Zhai.Famil.ColorfulBrush}" Value="{Binding Number}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                    <DataGridTemplateColumn.CellEditingTemplate>
+                                        <DataTemplate>
+                                            <ZDY:TextBox Margin="-2" Padding="4 2" Text="{Binding Number, UpdateSourceTrigger=PropertyChanged}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellEditingTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridComboBoxColumn Header="编号" Width="80" SelectedValueBinding="{Binding Index, UpdateSourceTrigger=PropertyChanged}">
+                                    <DataGridComboBoxColumn.EditingElementStyle>
+                                        <Style TargetType="ComboBox">
+                                            <Setter Property="ItemsSource" Value="{Binding DataContext.Indexes, RelativeSource={RelativeSource AncestorType=ZDY:DataGrid}}"/>
+                                            <Setter Property="Margin" Value="-2"/>
+                                        </Style>
+                                    </DataGridComboBoxColumn.EditingElementStyle>
+                                    <DataGridComboBoxColumn.ElementStyle>
+                                        <Style TargetType="ComboBox">
+                                            <Setter Property="ItemsSource" Value="{Binding DataContext.Indexes, RelativeSource={RelativeSource AncestorType=ZDY:DataGrid}}"/>
+                                        </Style>
+                                    </DataGridComboBoxColumn.ElementStyle>
+                                </DataGridComboBoxColumn>
+                                <DataGridTextColumn Header="描述" Binding="{Binding Description}"/>
+                            </ZDY:DataGrid.Columns>
+                        </ZDY:DataGrid>
+                    </ZDY:Grid>
                 </DockPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="ListBox">
@@ -1157,28 +1189,35 @@
                 </StackPanel>
             </ZDY:TabItem>
             <ZDY:TabItem Header="Icons">
-                <ZDY:ScrollViewer Margin="17 0 0 0">
-                    <ZDY:Repeater x:Name="IconList" ItemsSource="{Binding IconKinds}"
-                                  Orientation="HorizontalWithWarp" HorizontalAlignment="Center" Margin="0 0 0 40">
-                        <ZDY:Repeater.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Width="50" Margin="5" Background="Transparent" ToolTip="{Binding }">
-                                    <Border x:Name="Border" Width="50" Height="50" BorderThickness="1">
-                                        <ZDY:CopyButton Icon="{Binding }" Text="{Binding }" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                    </Border>
-                                    <TextBlock Text="{Binding }" TextAlignment="Center" Margin="0 4 0 0" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"/>
-                                </StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ZDY:ScrollViewer Margin="17 0 0 0">
+                        <ZDY:Repeater x:Name="IconList" ItemsSource="{Binding Icons}" Orientation="HorizontalWithWarp" HorizontalAlignment="Center">
+                            <ZDY:Repeater.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Width="50" Margin="5" Background="Transparent" ToolTip="{Binding }">
+                                        <Border x:Name="Border" Width="50" Height="50" BorderThickness="1">
+                                            <ZDY:CopyButton Icon="{Binding }" Text="{Binding }" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        </Border>
+                                        <TextBlock Text="{Binding }" TextAlignment="Center" Margin="0 4 0 0" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis"/>
+                                    </StackPanel>
 
-                                <DataTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value="#3003a9f4"/>
-                                        <Setter TargetName="Border" Property="BorderBrush" Value="#4395ff"/>
-                                    </Trigger>
-                                </DataTemplate.Triggers>
-                            </DataTemplate>
-                        </ZDY:Repeater.ItemTemplate>
-                    </ZDY:Repeater>
-                </ZDY:ScrollViewer>
+                                    <DataTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#3003a9f4"/>
+                                            <Setter TargetName="Border" Property="BorderBrush" Value="#4395ff"/>
+                                        </Trigger>
+                                    </DataTemplate.Triggers>
+                                </DataTemplate>
+                            </ZDY:Repeater.ItemTemplate>
+                        </ZDY:Repeater>
+                    </ZDY:ScrollViewer>
+                    <ZDY:TextBox Grid.Row="1" x:Name="SearchIconTextBox" Text="{Binding SearchKind, UpdateSourceTrigger=PropertyChanged}" ZDY:TextBoxExtension.Placeholder="搜索ICON..."
+                                     GotFocus="SearchIconTextBox_GotFocus" KeyDown="SearchIconTextBox_KeyDown"/>
+                </Grid>
             </ZDY:TabItem>
             <ZDY:TabItem Header="ProgressBar">
                 <StackPanel>

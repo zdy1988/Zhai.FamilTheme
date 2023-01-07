@@ -18,6 +18,38 @@ namespace Zhai.Famil.Demo
     {
         public IEnumerable<IconKind> IconKinds => Enum.GetValues<IconKind>();
 
+        private IEnumerable<IconKind> icons = Enum.GetValues<IconKind>();
+        public IEnumerable<IconKind> Icons
+        {
+            get => icons;
+            set => Set(() => Icons, ref icons, value);
+        }
+
+        private String searchKind;
+        public String SearchKind
+        {
+            get => searchKind;
+            set => Set(() => SearchKind, ref searchKind, value);
+        }
+
+        public async void SearchIcon()
+        {
+            string iconKindString = SearchKind;
+
+            if (string.IsNullOrWhiteSpace(iconKindString))
+            {
+                Icons = IconKinds;
+            }
+            else
+            {
+                Icons = await Task.Run(() => IconKinds
+                    .Where(x => x.ToString().IndexOf(iconKindString, StringComparison.CurrentCultureIgnoreCase) >= 0)
+                    .ToList());
+            }
+        }
+
+
+
         public IEnumerable<String> TextLines => new String[] {
             "Egestas adipiscing est.",
             "Nulla wisi varius, tincidunt etiam.",
@@ -45,9 +77,14 @@ namespace Zhai.Famil.Demo
 
         public IEnumerable<String> TextLines10 => TextLines.Take(10);
 
-        public IEnumerable<ItemData> Items => TextLines.Select((t, i) => new ItemData { Index = i + 1, Name = t.Split(" ").First(), Description = t });
+        public IEnumerable<ItemData> Items => TextLines.Select((t, i) => new ItemData { IsSelected = false, Index = i + 1, Name = t.Split(" ").First(), Description = t, Number = (new Random()).Next(10, 100) });
 
         public IEnumerable<ItemData> Items3 => Items.Take(3);
+
+        public ObservableCollection<ItemData> EditItems => new ObservableCollection<ItemData>(Items);
+
+        public IEnumerable<int> Indexes => Items.Select((x, i) => i + 1);
+
 
         private String hintText;
         public String HintText
@@ -90,10 +127,41 @@ namespace Zhai.Famil.Demo
         }
     }
 
-    internal class ItemData
-    { 
-        public int Index { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+    internal class ItemData : ViewModelBase
+    {
+        private bool isSelected;
+        public bool IsSelected
+        {
+            get => isSelected;
+            set => Set(() => IsSelected, ref isSelected, value);
+        }
+
+        private int index;
+        public int Index
+        {
+            get => index;
+            set => Set(() => Index, ref index, value);
+        }
+
+        private string name;
+        public string Name
+        {
+            get => name;
+            set => Set(() => Name, ref name, value);
+        }
+
+        private string description;
+        public string Description
+        {
+            get => description;
+            set => Set(() => Description, ref description, value);
+        }
+
+        private int number;
+        public int Number
+        {
+            get => number;
+            set => Set(() => Number, ref number, value);
+        }
     }
 }

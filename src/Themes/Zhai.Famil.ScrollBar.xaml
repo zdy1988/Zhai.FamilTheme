@@ -48,6 +48,7 @@
 
     <Style TargetType="{x:Type ScrollBar}" x:Key="Zhai.Famil.ScrollBar.VerticalScrollBar">
         <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="ContextMenu" Value="{x:Null}"/>
         <Setter Property="Opacity" Value="0.6"/>
@@ -80,6 +81,7 @@
 
     <Style TargetType="{x:Type ScrollBar}" x:Key="Zhai.Famil.ScrollBar.HorizontalScrollBar">
         <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="ContextMenu" Value="{x:Null}"/>
         <Setter Property="Opacity" Value="0.6"/>
