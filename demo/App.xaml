@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Zhai.Famil.Demo"
              StartupUri="GlassesWindow.xaml">
     <Application.Resources>
-         
+        <!--<ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Defaults.xaml" />-->
     </Application.Resources>
 </Application>
