@@ -231,7 +231,7 @@
     </Style>
 
     <Style TargetType="{x:Type ContextMenu}" x:Key="Zhai.Famil.ContextMenu" BasedOn="{StaticResource Zhai.Famil.Menu}">
-        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Foreground}"/>
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=PlacementTarget.Foreground}"/>
         <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Foreground, Converter={StaticResource FloatingBackgroundBrushRoundConverter}}"/>
         <Setter Property="Template">
             <Setter.Value>

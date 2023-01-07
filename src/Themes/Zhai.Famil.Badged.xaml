@@ -24,7 +24,7 @@
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="BadgePlacementMode" Value="TopRight" />
-        <Setter Property="BadgeForeground" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Foreground}"/>
+        <Setter Property="BadgeForeground" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Foreground}"/>
         <Setter Property="BadgeBackground" Value="{StaticResource Zhai.Famil.SelectionBrush}"/>
         <Setter Property="BadgeChangedStoryboard" Value="{StaticResource BadgeChangedStoryboard}" />
         <Setter Property="Template">

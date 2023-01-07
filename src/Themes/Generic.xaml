@@ -42,7 +42,10 @@
 
     </ResourceDictionary.MergedDictionaries>
 
-    <ContextMenu x:Key="Zhai.Famil.DefaultContextMenu">
+    <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource Zhai.Famil.ToolTip}"/>
+    <Style TargetType="{x:Type ContextMenu}" BasedOn="{StaticResource Zhai.Famil.ContextMenu}"/>
+
+    <ContextMenu x:Key="Zhai.Famil.DefaultContextMenu" Style="{StaticResource Zhai.Famil.ContextMenu}">
         <MenuItem Command="Cut">
             <MenuItem.Icon>
                 <local:Icon Kind="Cut" />

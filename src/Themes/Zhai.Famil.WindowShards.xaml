@@ -6,11 +6,17 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.Brushes.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.IconButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Zhai.Famil;component/Themes/Zhai.Famil.IconToggleButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <ImageSource x:Key="Zhai.Famil.Logo">pack://application:,,,/Zhai.Famil;component/Resources/logo.ico</ImageSource>
 
     <Style TargetType="{x:Type local:IconButton}" x:Key="Zhai.Famil.TitleBar.IconButton" BasedOn="{StaticResource Zhai.Famil.IconButton}">
+        <Setter Property="IconSize" Value="12"/>
+        <Setter Property="Margin" Value="3"/>
+    </Style>
+
+    <Style TargetType="{x:Type local:IconToggleButton}" x:Key="Zhai.Famil.TitleBar.IconToggleButton" BasedOn="{StaticResource Zhai.Famil.IconToggleButton}">
         <Setter Property="IconSize" Value="12"/>
         <Setter Property="Margin" Value="3"/>
     </Style>

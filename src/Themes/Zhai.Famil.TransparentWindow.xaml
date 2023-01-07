@@ -48,6 +48,7 @@
                                 <DockPanel x:Name="TitleBar" VerticalAlignment="Top" Height="36" Panel.ZIndex="1" Background="Transparent">
                                     <DockPanel.Resources>
                                         <Style TargetType="{x:Type local:IconButton}" BasedOn="{StaticResource Zhai.Famil.TitleBar.IconButton}"/>
+                                        <Style TargetType="{x:Type local:IconToggleButton}" BasedOn="{StaticResource Zhai.Famil.TitleBar.IconToggleButton}"/>
                                     </DockPanel.Resources>
                                     <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Visibility="{TemplateBinding TitleBarVisibility}">
                                         <Image x:Name="AppIcon"
