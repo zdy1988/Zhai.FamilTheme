@@ -94,7 +94,7 @@
                                     </Ellipse>
                                 </AdornerDecorator>
                                 <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}"
-                                                  Margin="{TemplateBinding Padding}"
+                                                  Margin="-1 -0.5 0 0"
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
                                                   FlowDirection="LeftToRight"/>
